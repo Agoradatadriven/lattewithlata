@@ -1,0 +1,102 @@
+<!-- contact 03-write - the contact form (POST /api/contact through js/lib/api.js; logic in js/pages/contact.js). Copy: contact.sections[write] (verbatim);
+     every runtime string rides on data-* attributes (validation per field, errors on the form, hints on the options) - no inline script, no inline handlers (CSP).
+     ?topic=<enum> preselects the topic. API unavailable -> the shared.apiFallback notice + the form disabled (it never pretends to send).
+     Anchor: #write. data-pill-away: the mobile "Book a table" pill parks while the form is in view. -->
+<section id="p-contact-03-write" class="strip strip--normal bg-band-black write" aria-labelledby="write-title">
+  <div id="write" class="write__wrap pt-lg pb-lg">
+    <div class="container write__grid">
+      <div class="write__intro">
+        <div class="strip__data">
+          <p class="eyebrow mb-xs">Write to us</p>
+          <h2 id="write-title" class="strip__title1">SEND <span class="keep-together">A MESSAGE</span></h2>
+        </div>
+        <div class="anima--bottom-in">
+          <p class="lead write__lead">Pick what it is about so it reaches the right person. We reply within 2 working days.</p>
+          <p class="write__promise">We reply to every message within 2 working days, Monday to Friday. If it is about a booking today, call us instead.</p>
+          <ul class="write__direct">
+            <li><a href="tel:+15550142024"><span class="write__direct-label">Phone</span>(555) 014-2024</a></li>
+            <li><a href="mailto:hello@lattewithlata.example"><span class="write__direct-label">Email</span>hello@lattewithlata.example</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="write__panel kit-light anima--bottom-in" data-pill-away>
+        <noscript><div class="notice notice--info"><div><p class="notice__title">This form is not connected</p><p>Online booking and messages are switched off on this copy of the site. Call <a href="tel:+15550142024">(555) 014-2024</a> or email <a href="mailto:hello@lattewithlata.example">hello@lattewithlata.example</a> and we will sort it out by hand.</p></div></div></noscript>
+        <div class="notice notice--info write__fallback" id="contact-fallback" role="status" hidden><div><p class="notice__title">This form is not connected</p><p>Online booking and messages are switched off on this copy of the site. Call <a href="tel:+15550142024">(555) 014-2024</a> or email <a href="mailto:hello@lattewithlata.example">hello@lattewithlata.example</a> and we will sort it out by hand.</p></div></div>
+        <form class="form" id="contact-form" action="/api/contact" method="post" novalidate
+              data-topic-param="topic"
+              data-label-submit="Send message" data-label-sending="Sending..."
+                data-err-validation="Some of the form needs another look. The details are next to each field."
+                  data-err-rate-limited="That is a lot of messages in a short time. Wait a few minutes and try again."
+                  data-err-server-error="Something went wrong on our side and your message was not sent. Try again, or email hello@lattewithlata.example."
+                  data-err-unavailable="We could not send your message just now. Try again, or email hello@lattewithlata.example."
+                  data-err-network="You seem to be offline. Check your connection and try again.">
+          <div class="field">
+            <label class="field__label" for="ct-topic">What is it about?</label>
+            <select class="select" id="ct-topic" name="topic" required aria-describedby="ct-topic-hint ct-topic-error"
+                    data-msg-required="Choose what your message is about.">
+              <option value="">Choose a topic</option>
+                <option value="general" data-hint="Opening hours, lost property, anything that does not fit below.">A general question</option>
+                <option value="booking" data-hint="Parties over 8, changes to a booking, accessibility needs.">A booking or a large group</option>
+                <option value="events" data-hint="Recording nights, Open table, or hiring the room.">Events and private hire</option>
+                <option value="podcast-guest" data-hint="Tell us who, what they run, and the decision worth an hour.">Be a guest or suggest one</option>
+                <option value="press" data-hint="Interviews, features, images and speaking requests.">Press and partnerships</option>
+                <option value="other" data-hint="Feedback, a complaint, or a kind word for the kitchen.">Something else</option>
+            </select>
+            <p class="field__hint write__topic-hint" id="ct-topic-hint" aria-live="polite"></p>
+            <p class="field__error" id="ct-topic-error" aria-live="polite"></p>
+          </div>
+          <div class="form__row form__row--2">
+            <div class="field">
+              <label class="field__label" for="ct-name">Your name</label>
+              <input class="input" id="ct-name" name="name" type="text" autocomplete="name" autocapitalize="words" spellcheck="false" required aria-describedby="ct-name-error"
+                     data-msg-required="Tell us your name." data-msg-invalid="Use at least 2 characters." data-msg-too-long="Keep the name under 80 characters.">
+              <p class="field__error" id="ct-name-error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="ct-email">Email</label>
+              <input class="input" id="ct-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" required aria-describedby="ct-email-hint ct-email-error"
+                     data-msg-required="We need an email address to reply to." data-msg-invalid="That email does not look right. Check it and try again.">
+              <p class="field__hint" id="ct-email-hint">We only use it to reply.</p>
+              <p class="field__error" id="ct-email-error" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="field write__phone">
+            <label class="field__label" for="ct-phone">Phone <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ct-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="ct-phone-error"
+                   data-msg-invalid="Enter a phone number with 7 to 15 digits, or leave it blank.">
+            <p class="field__error" id="ct-phone-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ct-message">Your message</label>
+            <textarea class="textarea" id="ct-message" name="message" rows="6" required aria-describedby="ct-message-hint ct-message-error"
+                      data-min="10" data-max="2000"
+                      data-msg-required="Write your message." data-msg-too-short="Give us a little more to go on: at least 10 characters." data-msg-too-long="Keep it under 2,000 characters."></textarea>
+            <div class="write__message-meta">
+              <p class="field__hint" id="ct-message-hint">A few sentences is plenty. 2,000 characters at most.</p>
+              <p class="write__count" id="ct-message-count" aria-hidden="true"><span data-count>0</span> / 2,000</p>
+            </div>
+            <p class="a11y-only" id="ct-message-count-live" role="status"></p>
+            <p class="field__error" id="ct-message-error" aria-live="polite"></p>
+          </div>
+          <div class="checkbox">
+            <input id="ct-consent" name="consent" type="checkbox" required aria-describedby="ct-consent-error" data-msg-required="Please tick the box so we can store and answer your message.">
+            <label for="ct-consent">I agree that Latte with Lata may store this message and my contact details so it can reply. I have read the <a href="#privacy">privacy summary</a>.</label>
+            <p class="field__error" id="ct-consent-error" aria-live="polite"></p>
+          </div>
+          <div class="form__hp" aria-hidden="true"><label for="ct-website">Website</label><input id="ct-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <p class="notice" id="contact-status" role="status" hidden></p>
+          <div class="form__actions">
+            <button class="button" type="submit" id="contact-submit">Send message</button>
+            <p class="form__note">We reply within 2 working days.</p>
+          </div>
+        </form>
+        <div class="write__success" id="contact-success" hidden>
+          <svg class="icon write__success-icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-check"></use></svg>
+          <h3 class="strip__title3 write__success-title" id="contact-success-title" tabindex="-1">Message sent</h3>
+          <p class="lead write__success-text">Thank you. It is in, and we will reply within 2 working days. For anything about a booking today, call <a href="tel:+15550142024">(555) 014-2024</a>.</p>
+          <p class="write__success-promise">We reply to every message within 2 working days, Monday to Friday. If it is about a booking today, call us instead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -159,6 +159,9 @@ html #page-footer .socials a { display: inline-flex; padding: .725em; margin: -.
         transform: translate(-1.5%) }` -> DD Pick 17 "Change": clamp(48px,11vw,170px) in a clamp(120px,20vh,240px) box, no texture ---- */
 #page-footer .footer-wordmark {
     height: clamp(120px, 20vh, 240px);                     /* DD Pick 17 (IC box 320.2 = 35.6vh) = 180 @900 */
+    /* FINAL home check 2026-09-17: the box never outgrows the type by more than 56px. Unchanged at 1440x900 (180) and 1024x768 (153.6);
+       768x1024 205 -> 140.5 and 390x844 169 -> 98.9, where the 20vh box left a 120-130px empty band above a 43-84px wordmark. */
+    height: min(clamp(120px, 20vh, 240px), calc(clamp(36px, 11vw, 170px) + 56px));
     width: 100%;                                           /* IC:156 */
     overflow: hidden;                                      /* IC:155 (edge-to-edge crop) */
     display: flex; align-items: flex-end; justify-content: center;   /* INFERRED (spec 14 (c)): bottom crop like Iceberg */
@@ -168,12 +171,15 @@ html #page-footer .socials a { display: inline-flex; padding: .725em; margin: -.
     display: block;                                        /* IC:161 */
     white-space: nowrap;                                   /* spec 14 (c) (three words never wrap) */
     font-weight: var(--wDisplay);                          /* BK wordmark role: Creato Display ExtraBold 800 (family from body; was Fraunces 500) */
-    font-size: clamp(48px, 11vw, 170px);                   /* DD Pick 17 / G2: 158.4 @1440, 48 @390 (IC 500/2024vw = 355.7) */
+    font-size: clamp(36px, 11vw, 170px);                   /* DD Pick 17 / G2: 158.4 @1440, 42.9 @390 (IC 500/2024vw = 355.7). FINAL home check: min 48 -> 36px -
+                                                              at 48px the line was 400px wide in a 390 viewport, so the L was cut and the last A was not */
     line-height: var(--lhDisplay);                         /* IC:165 .9001996008em = BK .9 */
     letter-spacing: var(--trackDisplay);                   /* IC:164 -.03em -> BK -.02em */
     text-align: center;                                    /* IC:166 */
     text-transform: uppercase;                             /* IC:167 */
-    transform: translate(-1.5%, .12em);                    /* IC:168 translate(-1.5%); the .12em drop is INFERRED (spec 14 (c)) to crop the glyph bottoms */
+    transform: translate(0, .12em);                        /* IC:168 translate(-1.5%) dropped at the final home check: IC's line is wider than the screen, ours is not,
+                                                              and the -1.5% left the ink 48px from the left edge / 80px from the right @1440. The .12em drop is INFERRED
+                                                              (spec 14 (c)) to crop the glyph bottoms */
 }
 
 /* ---- back-to-top - CU:372-396 (.scroll-top) + CS:1069-1082 (the disc) ---- */

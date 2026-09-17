@@ -4,10 +4,14 @@
      > .strip__text > p ... p > a.read-more  (BUILD-SPEC 02 (b)). The root is a wrapper <section> holding the two sibling strips; it carries `strip`
      for core's refresh-priority walk (foundation.md) - nested .strip rows reset the band (base.css), no visual effect on the cream page.
      Row order title -> text (gallery follows as 03): deliberate re-ordering, per-row geometry unchanged (BUILD-SPEC 02 (h)).
-     Copy: content/site.json intro.title (the page's only h1 - copy.md), intro.paragraphs[2] (one <p> each), intro.cta. No images. -->
+     Copy: content/site.json intro.title (the page's only h1 - copy.md), intro.paragraphs[2] (one <p> each), intro.cta.
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1c): "just the logo" comes back right after the hero - .mark-row = the brown cup mark, centred above the
+     title, 72px (56px on phones), decorative (alt=""), no wordmark, no tagline; it rides the section's own .anima--bottom-in reveal. The same
+     .mark-row opens the first strip of every sub-page (css/pages/_shell.css). Read-more -> cafe.html (navigation map). -->
 <section id="s-02-intro" class="strip intro">
   <div class="strip strip--xnarrow mt-md mb-md intro__title-strip">
     <div class="container">
+      <div class="mark-row anima--bottom-in"><img class="mark-row__mark" src="assets/brand/logo/latte-with-lata-mark-brown.svg" alt="" width="482" height="571" decoding="async"></div>
       <div class="strip__data text-center">
         <div class="strip__text">
           <h1 class="strip__title1 js-split">A CAFE WITH A MICROPHONE</h1>
@@ -21,7 +25,7 @@
         <div class="strip__text intro__text">
           <p>Thoughtful conversations with people building careers, organizations, and movements around purpose.</p>
           <p>Pull up a chair and discover the stories behind mission-driven work.</p>
-          <p><a class="read-more" href="#s-04-story-a">The cafe</a></p>
+          <p><a class="read-more" href="cafe.html">The cafe</a></p>
         </div>
       </div>
     </div>

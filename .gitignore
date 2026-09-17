@@ -2,7 +2,11 @@
 node_modules/
 .claude/
 
-# local verification output (screenshots, reports)
+# runtime data: bookings, customers, messages, subscribers, admin token (personal data - never commit)
+data/*
+!data/.gitkeep
+
+# local verification output
 verify/
 
 # OS / editor noise

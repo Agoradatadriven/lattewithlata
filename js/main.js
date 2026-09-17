@@ -14,9 +14,12 @@
    Sources: foundation.md "Requests for others" (integrator sequence), build-A/B/C/D.md "Init requirements",
    BUILD-SPEC G4 (module contract), DD s7 "Always ScrollTrigger.refresh() after document.fonts.ready and image decode".
    Debugging / verification hook: window.__latte = { ctx, ScrollTrigger, gsap, core, sections, errors, status, ready }.
+   PAGES UPDATE (2026-09-17): this is the HOME bootstrap only; the sub-pages run js/page.js (same ctx, same window.__latte surface).
+   ctx.api = the shared fetch client js/lib/api.js (13-newsletter posts through it).
    ========================================================================== */
 import * as core from "./core.js";
 import { initCarousel, refreshCarousels, getCarousels } from "./carousel.js";
+import api from "./lib/api.js";
 
 import init00 from "./sections/00-header.js";
 import init01 from "./sections/01-hero.js";
@@ -42,8 +45,8 @@ const SECTIONS = [
     ["12-visit-listen", init12], ["13-newsletter", init13], ["14-footer", init14]
 ];
 
-/* ctx handed to every section module (file contract): { gsap, ScrollTrigger, SplitText, reduceMotion, isTouch, isMouse, mm, refresh, initCarousel } */
-const ctx = core.makeCtx({ initCarousel });
+/* ctx handed to every section module (file contract): { gsap, ScrollTrigger, SplitText, reduceMotion, isTouch, isMouse, mm, refresh, initCarousel, api } */
+const ctx = core.makeCtx({ initCarousel, api });
 
 /* verification / debugging surface (brief: window.__latte = { ctx, ScrollTrigger }; extras are additive) */
 const state = {

@@ -1,0 +1,617 @@
+<!-- episodes 03-all-episodes - all 18 episodes (newest first) as a card grid on --colBrandSoft. Each card = <article id="ep-<n>"> (the home cards and
+     the feature link here): cover, "Episode 88", pillar chip, title (tabindex -1: the deep-link focus target), guest + role, blurb, length, date, and a native
+     <details> "Show notes" disclosure with the three takeaways + the quote - everything readable and every episode visible WITHOUT JS.
+     js/pages/episodes.js: filter chips (aria-pressed, filtering li[data-pillar] by pillarId, aria-live count, empty state), #ep-<n> deep links (clears a filter
+     that hides the target, opens its notes, scrolls below the fixed header + the sticky filter row, moves focus to the heading).
+     The filter row is shown only when scripting is on (html.js-ok) and sticks under the header inside #all-episodes (main is overflow: clip).
+     Copy: episodes.sections[all-episodes] (eyebrow, title, intro, filterLabel, filters, countText, emptyText, labels, archiveNote) + episodes.items verbatim.
+     Covers: 18 distinct licensed photos - ep-88..83 = the home cards' episode-01..06, ep-82..71 = spares from the gallery / story / cafe / event / menu sets
+     (no card repeats a photo; alt from the manifest = what the photo shows). pages.json items[].cover / coverAlt still carry the old six-photo rotation. -->
+<section id="p-episodes-03-all-episodes" class="strip bg-band-cream2 eps-all" aria-labelledby="eps-all-title">
+  <div id="all-episodes" class="eps-all__inner">
+    <div class="container">
+      <div class="eps-split">
+        <div class="strip__data eps-head">
+          <p class="eyebrow eps-eyebrow anima--bottom-in">Episodes 71 to 88</p>
+          <h2 id="eps-all-title" class="strip__title1">ALL EPISODES</h2>
+        </div>
+        <p class="lead eps-split__lead anima--bottom-in">Every episode has all four parts. The tag marks the part the conversation leaned on most.</p>
+      </div>
+    </div>
+    <div class="eps-filter" data-eps-filter data-count-text="{count} episodes">
+      <div class="container eps-filter__row">
+        <p class="eps-filter__label" id="eps-filter-label">Filter by part</p>
+        <div class="eps-filter__chips" role="group" aria-labelledby="eps-filter-label">
+          <button type="button" class="chip is-active" aria-pressed="true" data-filter="all">All</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="origin-story">The Origin Story</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="hard-trade-off">The Hard Trade-off</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="what-no-one-tells-you">What No One Tells You</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="coffee-break">The Coffee Break</button>
+        </div>
+        <p class="eps-filter__count" role="status" aria-live="polite" aria-atomic="true">18 episodes</p>
+      </div>
+    </div>
+    <div class="container">
+      <ul class="eps-grid" data-eps-grid>
+        <li class="eps-item anima--bottom-in" data-pillar="hard-trade-off">
+          <article id="ep-88" class="eps-card" aria-labelledby="ep-88-title">
+            <div class="eps-card__cover"><img src="assets/images/episode-01.jpg" alt="Hand writing in a notebook next to a cup of coffee, glasses and a laptop" width="1600" height="1067" loading="eager" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 88</span><span class="tag">The Hard Trade-off</span></p>
+              <h3 id="ep-88-title" class="eps-card__title" tabindex="-1">The grant we turned down</h3>
+              <p class="eps-guest"><strong>Marisol Vega</strong><span>Executive director, Harrowfield Food Bank</span></p>
+            </div>
+            <p class="eps-card__blurb">Marisol said no to the biggest cheque in her nonprofit's history. On strings, dignity, and the board meeting that followed.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>44&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-09-10">Thu 10 Sep 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 88</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Why the largest grant on offer came with terms that would have changed who the food bank could serve.</li>
+                  <li>How she took the decision to her board, and what the vote looked like.</li>
+                  <li>What she now tells other directors: read the conditions before you read the amount.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;The cheque was real. So were the strings. I had to decide which one we could live with.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Marisol Vega</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="what-no-one-tells-you">
+          <article id="ep-87" class="eps-card" aria-labelledby="ep-87-title">
+            <div class="eps-card__cover"><img src="assets/images/episode-02.jpg" alt="Kettle pouring water into a pour-over coffee brewer" width="1600" height="1067" loading="eager" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 87</span><span class="tag">What No One Tells You</span></p>
+              <h3 id="ep-87-title" class="eps-card__title" tabindex="-1">What no one tells you about a waiting room</h3>
+              <p class="eps-guest"><strong>Dr Kwame Boateng</strong><span>Medical director, safety-net community clinic</span></p>
+            </div>
+            <p class="eps-card__blurb">Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>47&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-09-03">Thu 3 Sep 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 87</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>The arithmetic of a walk-in clinic: forty chairs, two doctors and a Tuesday morning.</li>
+                  <li>Why he stopped judging a day by how fast the room empties.</li>
+                  <li>The lesson no residency teaches: people need to feel they were right to come.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;Nobody trains you for the waiting room. It is where most of the care actually happens.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Dr Kwame Boateng</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="hard-trade-off">
+          <article id="ep-86" class="eps-card" aria-labelledby="ep-86-title">
+            <div class="eps-card__cover"><img src="assets/images/episode-03.jpg" alt="People sitting at a cafe window bar looking out at a city skyline" width="1600" height="1067" loading="eager" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 86</span><span class="tag">The Hard Trade-off</span></p>
+              <h3 id="ep-86-title" class="eps-card__title" tabindex="-1">Fixing a form nobody could finish</h3>
+              <p class="eps-guest"><strong>Hannah Lindgren</strong><span>Chief innovation officer, city government</span></p>
+            </div>
+            <p class="eps-card__blurb">Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>39&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-08-27">Thu 27 Aug 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 86</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>A benefits form that half of all applicants gave up on, and how her team found out where.</li>
+                  <li>Trading a fast relaunch for six months of testing with the people who fill it in.</li>
+                  <li>Who gets to say a public service worked: the department, the auditor or the applicant.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;We asked people to prove they were struggling in forty-one questions. We got it down to twelve.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Hannah Lindgren</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="origin-story">
+          <article id="ep-85" class="eps-card" aria-labelledby="ep-85-title">
+            <div class="eps-card__cover"><img src="assets/images/episode-04.jpg" alt="Person sitting alone at a long table in a cafe, backlit by large windows" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 85</span><span class="tag">The Origin Story</span></p>
+              <h3 id="ep-85-title" class="eps-card__title" tabindex="-1">The origin story is not the pitch</h3>
+              <p class="eps-guest"><strong>Elias Okonkwo</strong><span>Founder, Second Shift social enterprise</span></p>
+            </div>
+            <p class="eps-card__blurb">Elias hires people on the day they leave prison. On the phone call that started it, a first year of losses, and keeping the door open.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>42&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-08-20">Thu 20 Aug 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 85</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>The phone call from a former colleague that started Second Shift.</li>
+                  <li>A first year of losses, and the month he nearly closed the doors.</li>
+                  <li>Why he hires on release day, before anyone has a reference.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;The pitch says we had a vision. The truth is a man called me and needed a job by Monday.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Elias Okonkwo</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="what-no-one-tells-you">
+          <article id="ep-84" class="eps-card" aria-labelledby="ep-84-title">
+            <div class="eps-card__cover"><img src="assets/images/episode-05.jpg" alt="Notebooks, a pen and a latte on a weathered wooden table" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 84</span><span class="tag">What No One Tells You</span></p>
+              <h3 id="ep-84-title" class="eps-card__title" tabindex="-1">Showing up is the whole strategy</h3>
+              <p class="eps-guest"><strong>Rosa Delgado</strong><span>Community organiser, Fenwick Tenants' Union</span></p>
+            </div>
+            <p class="eps-card__blurb">Rosa has knocked on more doors than she can count. On patience, small wins, and what a street knows that a strategy deck does not.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>36&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-08-13">Thu 13 Aug 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 84</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>What knocking on doors teaches you that a survey never will.</li>
+                  <li>Why small wins, like a fixed stairwell light, build a union faster than big demands.</li>
+                  <li>How she handles burnout, her own and other people's.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;A street knows things no strategy deck will tell you. You just have to keep turning up.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Rosa Delgado</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="coffee-break">
+          <article id="ep-83" class="eps-card" aria-labelledby="ep-83-title">
+            <div class="eps-card__cover"><img src="assets/images/episode-06.jpg" alt="Barista pouring espresso into two glass jars of milk at a cafe bar" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 83</span><span class="tag">The Coffee Break</span></p>
+              <h3 id="ep-83-title" class="eps-card__title" tabindex="-1">Who stays when everyone is leaving</h3>
+              <p class="eps-guest"><strong>Grace Mbeki</strong><span>Director of nursing, St Oswin's Hospice</span></p>
+            </div>
+            <p class="eps-card__blurb">Grace kept a hospice team together through the hardest three years in nursing. On staying, and the coffee break that saved a shift.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>51&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-08-06">Thu 6 Aug 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 83</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>How she kept a hospice team together while nurses were leaving the profession.</li>
+                  <li>The ten-minute coffee break she made compulsory, and what it did for a shift.</li>
+                  <li>A lighter close: night-shift snacks, bad pens and the playlist in her car.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;I could not pay them more. I could make sure nobody ate lunch standing up.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Grace Mbeki</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="hard-trade-off">
+          <article id="ep-82" class="eps-card" aria-labelledby="ep-82-title">
+            <div class="eps-card__cover"><img src="assets/images/gallery-04.jpg" alt="Condenser microphone on a desk with guitars hanging on the wall behind" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 82</span><span class="tag">The Hard Trade-off</span></p>
+              <h3 id="ep-82-title" class="eps-card__title" tabindex="-1">The budget line nobody wanted to own</h3>
+              <p class="eps-guest"><strong>Tomasz Wieczorek</strong><span>Finance director, Northgate Housing Trust</span></p>
+            </div>
+            <p class="eps-card__blurb">Tomasz had to choose between fixing roofs and keeping rents flat. On spreadsheets with people in them, and telling tenants the truth.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>41&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-07-30">Thu 30 Jul 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 82</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Why a housing trust could not afford repairs and a rent freeze in the same year, and how he showed the board.</li>
+                  <li>The tenant meeting where he put the real numbers on the wall.</li>
+                  <li>What finance people owe the front line: plain words, early.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;Every line in that budget was somebody's kitchen ceiling. You cannot hide behind the word variance.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Tomasz Wieczorek</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="origin-story">
+          <article id="ep-81" class="eps-card" aria-labelledby="ep-81-title">
+            <div class="eps-card__cover"><img src="assets/images/cafe-05.jpg" alt="Freshly roasted coffee beans turning in the cooling tray of a roaster" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 81</span><span class="tag">The Origin Story</span></p>
+              <h3 id="ep-81-title" class="eps-card__title" tabindex="-1">I came for a summer job</h3>
+              <p class="eps-guest"><strong>Leilani Kahale</strong><span>Director, Riverbend Youth Works</span></p>
+            </div>
+            <p class="eps-card__blurb">Leilani took a summer job at a youth centre and never left. On being needed at nineteen, and learning to run the place at thirty.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>38&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-07-23">Thu 23 Jul 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 81</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>The summer job that was meant to last ten weeks.</li>
+                  <li>What changed when she went from youth worker to the person who signs the payroll.</li>
+                  <li>Why she still runs the Friday drop-in herself.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;I did not choose the sector. A fourteen-year-old asked if I was coming back on Monday, and I was.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Leilani Kahale</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="what-no-one-tells-you">
+          <article id="ep-80" class="eps-card" aria-labelledby="ep-80-title">
+            <div class="eps-card__cover"><img src="assets/images/cafe-04.jpg" alt="Wooden folding bistro chairs and a table on the pavement against a terracotta-red wall" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 80</span><span class="tag">What No One Tells You</span></p>
+              <h3 id="ep-80-title" class="eps-card__title" tabindex="-1">What no one tells you about a merger</h3>
+              <p class="eps-guest"><strong>Anjali Varma</strong><span>Chief executive, Two Rivers Family Services</span></p>
+            </div>
+            <p class="eps-card__blurb">Anjali merged two charities that had competed for twenty years. On grief in the staff room, and the logo row that was never about a logo.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>46&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-07-16">Thu 16 Jul 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 80</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Why two organizations with the same mission spent twenty years competing for the same grants.</li>
+                  <li>The staff-room grief nobody put in the merger plan.</li>
+                  <li>What she would do in the first ninety days if she did it again.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;Nobody warned me a merger is a bereavement. People were mourning a letterhead, and they were right to.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Anjali Varma</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="origin-story">
+          <article id="ep-79" class="eps-card" aria-labelledby="ep-79-title">
+            <div class="eps-card__cover"><img src="assets/images/gallery-06.jpg" alt="Cafe bar counter with a large lampshade and staff working behind it" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 79</span><span class="tag">The Origin Story</span></p>
+              <h3 id="ep-79-title" class="eps-card__title" tabindex="-1">The night shift taught me to lead</h3>
+              <p class="eps-guest"><strong>Mateus Figueira</strong><span>Operations manager, Harrowfield Ambulance Service</span></p>
+            </div>
+            <p class="eps-card__blurb">Mateus spent eleven years on an ambulance before he ran the roster. On what 3&nbsp;am teaches about calm, and why he still rides along.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>40&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-07-09">Thu 9 Jul 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 79</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Eleven years on the road, and the call that made him apply for the office job.</li>
+                  <li>Building a roster that treats sleep as a safety issue.</li>
+                  <li>Why he still works one night shift a month.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;At 3&nbsp;am nobody cares about your title. They care whether you are calm. I try to manage like that.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Mateus Figueira</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="hard-trade-off">
+          <article id="ep-78" class="eps-card" aria-labelledby="ep-78-title">
+            <div class="eps-card__cover"><img src="assets/images/story-a-2.jpg" alt="Three friends toasting with coffee cups above a wooden cafe table" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 78</span><span class="tag">The Hard Trade-off</span></p>
+              <h3 id="ep-78-title" class="eps-card__title" tabindex="-1">Closing the programme that worked</h3>
+              <p class="eps-guest"><strong>Naledi Khumalo</strong><span>Head of programmes, Open Book Literacy Trust</span></p>
+            </div>
+            <p class="eps-card__blurb">Naledi closed a reading programme with strong results and no funding. On ending things well, and telling forty volunteers the truth.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>43&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-07-02">Thu 2 Jul 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 78</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>How a programme can hit every target and still lose its funding.</li>
+                  <li>The choice between stretching it thin and closing it properly.</li>
+                  <li>How to tell forty volunteers, and what she handed over to the schools.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;It worked, and we still had to stop. Those two facts sat at the same table for a long time.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Naledi Khumalo</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="coffee-break">
+          <article id="ep-77" class="eps-card" aria-labelledby="ep-77-title">
+            <div class="eps-card__cover"><img src="assets/images/host-corner.jpg" alt="Silver condenser microphone in a shock mount with a pop filter in a dark studio" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 77</span><span class="tag">The Coffee Break</span></p>
+              <h3 id="ep-77-title" class="eps-card__title" tabindex="-1">Late fees, long walks and lending a book twice</h3>
+              <p class="eps-guest"><strong>Eleanor Whitcombe</strong><span>City librarian, Harrowfield Public Library</span></p>
+            </div>
+            <p class="eps-card__blurb">Eleanor scrapped late fees and watched the books come back. A lighter one: walking to work, conference coffee, and what she lends twice.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>34&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-06-25">Thu 25 Jun 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 77</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>What happened to returns in the year after the library dropped late fees.</li>
+                  <li>Her forty-minute walk to work, and why she will not give it up.</li>
+                  <li>The three books she presses on people, and the one she stopped recommending.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;A library is the last place you can sit all day and nobody asks what you are buying.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Eleanor Whitcombe</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="what-no-one-tells-you">
+          <article id="ep-76" class="eps-card" aria-labelledby="ep-76-title">
+            <div class="eps-card__cover"><img src="assets/images/cafe-03.jpg" alt="A small round table with flowers and two chairs in a bright corner next to an old upright piano" width="1600" height="1200" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 76</span><span class="tag">What No One Tells You</span></p>
+              <h3 id="ep-76-title" class="eps-card__title" tabindex="-1">Nobody trains you to be your friends' boss</h3>
+              <p class="eps-guest"><strong>Daniyal Hashmi</strong><span>Principal, Fenwick Lane Community School</span></p>
+            </div>
+            <p class="eps-card__blurb">Daniyal went from the staff room to the principal's office in one summer. On lonely lunches, hard reviews, and keeping friendships honest.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>45&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-06-18">Thu 18 Jun 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 76</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Going from colleague to principal over one summer holiday.</li>
+                  <li>The first performance review he had to give a friend.</li>
+                  <li>Where a school leader finds peers when the staff room is no longer his.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;The day I got the job, the staff room went quiet when I walked in. Nobody tells you about that.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Daniyal Hashmi</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="hard-trade-off">
+          <article id="ep-75" class="eps-card" aria-labelledby="ep-75-title">
+            <div class="eps-card__cover"><img src="assets/images/story-a-1.jpg" alt="Barista in a flat cap and apron working at an espresso machine" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 75</span><span class="tag">The Hard Trade-off</span></p>
+              <h3 id="ep-75-title" class="eps-card__title" tabindex="-1">We said yes to the contract</h3>
+              <p class="eps-guest"><strong>Emiko Tanabe</strong><span>Executive director, Harbourside Shelter</span></p>
+            </div>
+            <p class="eps-card__blurb">Emiko took a public contract that doubled her shelter's beds and its paperwork. On what the money changed, and what she would sign again.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>48&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-06-11">Thu 11 Jun 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 75</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Why she said yes to a contract her own staff were split on.</li>
+                  <li>What reporting requirements did to the front desk, and how they fixed it.</li>
+                  <li>The clause she would negotiate harder next time.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;We got forty more beds and four hundred more pages. I would still sign it. I would read it slower.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Emiko Tanabe</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="origin-story">
+          <article id="ep-74" class="eps-card" aria-labelledby="ep-74-title">
+            <div class="eps-card__cover"><img src="assets/images/cafe-01.jpg" alt="A cappuccino, a paperback and a pot of purple flowers on a small wooden table by a cushioned window bench" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 74</span><span class="tag">The Origin Story</span></p>
+              <h3 id="ep-74-title" class="eps-card__title" tabindex="-1">My mother's kitchen table</h3>
+              <p class="eps-guest"><strong>Beatriz Fonseca</strong><span>Director, Mesa Larga Advice Centre</span></p>
+            </div>
+            <p class="eps-card__blurb">Beatriz grew up translating letters for her neighbours. On turning a kitchen table into an advice centre, and the first case she lost.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>37&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-06-04">Thu 4 Jun 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 74</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Translating official letters for neighbours at nine years old.</li>
+                  <li>From a kitchen table to a registered advice centre with four staff.</li>
+                  <li>The first case she lost, and what it changed about how she promises help.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;I was nine, reading a landlord's letter to a grown man. That was the first day of this job.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Beatriz Fonseca</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="what-no-one-tells-you">
+          <article id="ep-73" class="eps-card" aria-labelledby="ep-73-title">
+            <div class="eps-card__cover"><img src="assets/images/event-02.jpg" alt="A studio condenser microphone in a shock mount against warm red tones" width="1600" height="1067" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 73</span><span class="tag">What No One Tells You</span></p>
+              <h3 id="ep-73-title" class="eps-card__title" tabindex="-1">What no one tells you about public money</h3>
+              <p class="eps-guest"><strong>Farid Haidari</strong><span>Grants manager, county health department</span></p>
+            </div>
+            <p class="eps-card__blurb">Farid hands out public money for a living and says the job is mostly listening. On audits, trust, and the application he still thinks about.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>42&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-05-28">Thu 28 May 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 73</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>What a grants manager actually does between the deadline and the decision.</li>
+                  <li>Why audits are not the enemy, and when they are.</li>
+                  <li>The application he turned down and still thinks about.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;Public money comes with a thousand rules and one question: could you explain this to a neighbour?&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Farid Haidari</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="coffee-break">
+          <article id="ep-72" class="eps-card" aria-labelledby="ep-72-title">
+            <div class="eps-card__cover"><img src="assets/images/gallery-01.jpg" alt="Cafe interior with a dark leather banquette, wooden tables and a copper pendant lamp" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 72</span><span class="tag">The Coffee Break</span></p>
+              <h3 id="ep-72-title" class="eps-card__title" tabindex="-1">A choir, a van and a very old dog</h3>
+              <p class="eps-guest"><strong>Siobhan Keane</strong><span>Volunteer coordinator, Bellwood Community Kitchen</span></p>
+            </div>
+            <p class="eps-card__blurb">Siobhan coordinates ninety volunteers and sings alto on Tuesdays. A lighter one: the delivery van, her old dog, and never saying busy.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>33&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-05-21">Thu 21 May 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 72</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>How she keeps ninety volunteers turning up, and why she learns every name.</li>
+                  <li>The delivery van that has outlasted three coordinators.</li>
+                  <li>Choir on Tuesdays, and why she has banned the word busy.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;Volunteers do not leave because of the work. They leave because nobody learned their name.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Siobhan Keane</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+        <li class="eps-item anima--bottom-in" data-pillar="origin-story">
+          <article id="ep-71" class="eps-card" aria-labelledby="ep-71-title">
+            <div class="eps-card__cover"><img src="assets/images/cafe-06.jpg" alt="Loaves, pastries and fruit slices piled on a bakery counter under black pendant lamps, staff blurred behind" width="1200" height="1800" loading="lazy" decoding="async"></div>
+            <div class="eps-card__head">
+              <p class="eps-kicker"><span class="eps-num">Episode 71</span><span class="tag">The Origin Story</span></p>
+              <h3 id="ep-71-title" class="eps-card__title" tabindex="-1">Starting again at fifty</h3>
+              <p class="eps-guest"><strong>Henry Tso</strong><span>Founder, Spoke and Chain Bike Workshop</span></p>
+            </div>
+            <p class="eps-card__blurb">Henry left a bank at fifty to teach teenagers to fix bikes. On a pay cut, a cold garage, and the first kid who came back to teach.</p>
+            <dl class="eps-meta">
+              <div><dt>Length</dt><dd>40&nbsp;min</dd></div>
+              <div><dt>Released</dt><dd><time datetime="2026-05-14">Thu 14 May 2026</time></dd></div>
+            </dl>
+            <details class="eps-notes">
+              <summary class="eps-notes__summary"><span class="eps-notes__show">Show notes</span><span class="eps-notes__hide">Hide notes</span><span class="visual-hide"> - Episode 71</span><span class="eps-notes__glyph" aria-hidden="true"></span></summary>
+              <div class="eps-notes__body">
+                <h4 class="eps-label">In this episode</h4>
+                <ol class="eps-takeaways">
+                  <li>Leaving a thirty-year banking career without a plan B.</li>
+                  <li>The first winter in an unheated garage with six teenagers and four bikes.</li>
+                  <li>What it meant when a former trainee came back as an instructor.</li>
+                </ol>
+                <figure class="eps-quote">
+                  <figcaption class="eps-label">From the conversation</figcaption>
+                  <blockquote><p>&ldquo;I spent thirty years moving numbers. Now a kid rides off on something we fixed. I can see that.&rdquo;</p></blockquote>
+                  <p class="eps-quote__by">Henry Tso</p>
+                </figure>
+                <p class="eps-notes__listen"><a class="read-more" href="#audio">Listen on your platform</a></p>
+              </div>
+            </details>
+          </article>
+        </li>
+      </ul>
+      <p class="notice eps-empty" data-eps-empty hidden>No episodes under that part yet. Try another.</p>
+      <p class="eps-archive anima--bottom-in">Episodes 1 to 70 are on your podcast platform. The notes for them are being added here in batches.</p>
+    </div>
+  </div>
+</section>

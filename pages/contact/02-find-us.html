@@ -1,0 +1,119 @@
+<!-- contact 02-find-us - address, the sketch map, four ways to get here, opening hours. Copy: contact.sections[find-us] (verbatim); hours = the pages.json rows.
+     The map is a static brand-coloured SVG drawn for this page (NO third-party embed, no external request); "Get directions" is the external maps link
+     PLACEHOLDER (href="#", find-us.map.placeholder) - swap in the real maps URL when the address is real. Anchor: #find-us. First content strip -> .mark-row. -->
+<section id="p-contact-02-find-us" class="strip find" aria-labelledby="find-us-title">
+  <div id="find-us" class="find__wrap pt-md pb-lg">
+    <div class="strip strip--narrow">
+      <div class="container">
+        <div class="mark-row anima--bottom-in"><img class="mark-row__mark" src="assets/brand/logo/latte-with-lata-mark-brown.svg" alt="" width="482" height="571" decoding="async"></div>
+        <div class="strip__data text-center">
+          <div class="strip__text">
+            <p class="eyebrow mb-xs">Find us</p>
+            <h2 id="find-us-title" class="strip__title1">WHERE WE ARE</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="strip strip--normal mt-md">
+      <div class="container find__grid">
+        <figure class="map anima--left-in">
+          <div class="map__frame">
+            <svg class="map__svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="map-title map-desc" focusable="false">
+              <title id="map-title">Sketch map of the streets around the cafe</title>
+              <desc id="map-desc">Latte with Lata is on the corner of Bellwood Street and Fenwick Lane, a five minute walk north of Harrowfield Market Square. Buses 4 and 11 stop outside on Fenwick Lane. Harrowfield Central station is to the south east.</desc>
+              <rect class="map__ground" width="800" height="600"/>
+              <path class="map__blocks" d="M-141.8 -112L60.2 -124.3L43.9 77.7L-158.1 90zM-159.5 108.1L42.5 95.8L30.8 240.5L-171.2 252.8zM-174.3 291L27.7 278.7L16.4 419.4L-185.6 431.7zM-187.1 449.8L14.9 437.5L3.8 575.2L-198.2 587.5zM-199.6 605.6L2.4 593.2L-11.1 760.1L-213.1 772.4zM78.3 -125.4L241.1 -135.3L224.8 66.7L62 76.6zM60.6 94.7L223.4 84.8L211.7 229.5L48.9 239.4zM45.8 277.6L208.6 267.7L197.3 408.4L34.5 418.3zM33 436.4L195.8 426.5L184.7 564.1L21.9 574.1zM20.4 592.1L183.2 582.2L169.8 749L7 759zM259.2 -136.4L411.9 -145.7L395.7 56.3L242.9 65.6zM241.4 83.7L394.2 74.4L382.5 219.1L229.8 228.4zM226.7 266.6L379.4 257.3L368.1 397.9L215.4 407.3zM201.3 581.1L354.1 571.8L340.6 738.6L187.9 747.9zM450.1 -148.1L602.9 -157.4L586.6 44.6L433.8 53.9zM432.4 72L585.1 62.7L573.5 207.4L420.7 216.7zM417.6 254.9L570.4 245.6L559 386.3L406.3 395.6zM404.8 413.7L557.6 404.4L546.5 542.1L393.7 551.4zM392.3 569.5L545 560.2L531.6 727L378.8 736.3zM621 -158.5L773.7 -167.8L757.4 34.2L604.7 43.5zM603.2 61.6L756 52.3L744.3 197L591.6 206.3zM588.5 244.5L741.2 235.2L729.9 375.9L577.1 385.2zM575.7 403.3L728.4 394L717.3 531.7L564.6 541zM563.1 559.1L715.9 549.7L702.4 716.6L549.7 725.9zM791.8 -168.9L963.7 -179.4L947.4 22.6L775.5 33.1zM774.1 51.2L945.9 40.7L934.2 185.4L762.4 195.9zM759.3 234.1L931.2 223.6L919.8 364.3L748 374.8zM746.5 392.9L918.4 382.4L907.3 520.1L735.4 530.5zM733.9 548.6L905.8 538.2L892.3 705L720.5 715.5z"/>
+              <path class="map__square" d="M213.9 425.3L366.6 416L355.5 553.7L202.8 563z"/>
+              <g class="map__roads">
+                <path d="M420 -10L370 610"/><path d="M-10 262L810 212"/>
+              </g>
+              <path class="map__rail" d="M520 610 810 452"/>
+              <path class="map__route" d="M383.2 446L399.1 261"/>
+              <g class="map__labels" aria-hidden="true">
+                <text class="map__street" transform="translate(402.7 204) rotate(-85.4)" dy=".35em">Bellwood Street</text>
+                <text class="map__street" transform="translate(526.1 229.3) rotate(-3.5)" dy=".35em">Fenwick Lane</text>
+                <text class="map__place" x="284.7" y="485.5" text-anchor="middle"><tspan x="284.7">Market</tspan><tspan x="284.7" dy="1.15em">Square</tspan></text>
+                <text class="map__place map__place--small" x="628" y="463.5" text-anchor="middle"><tspan x="628">Harrowfield</tspan><tspan x="628" dy="1.2em">Central</tspan></text>
+              </g>
+              <g class="map__stop" transform="translate(496.1 231.1)" aria-hidden="true"><circle r="13"/><text y="4" text-anchor="middle">Bus</text></g>
+              <g class="map__stop map__stop--p" transform="translate(442.8 453.7)" aria-hidden="true"><rect x="-13" y="-13" width="26" height="26" rx="5"/><text y="5.5" text-anchor="middle">P</text></g>
+              <g class="map__compass" transform="translate(664 62)" aria-hidden="true"><circle r="21"/><path d="M0 -13 5.5 6 0 2.5-5.5 6z"/><text y="-28" text-anchor="middle">N</text></g>
+              <g class="map__pin" transform="translate(442.1 217.4)">
+                <circle class="map__pulse" r="15"/>
+                <path class="map__pin-body" d="M0 0C-7-12-27-25-27-46a27 27 0 0 1 54 0C27-25 7-12 0 0z"/>
+                <image href="assets/brand/logo/latte-with-lata-mark-white.svg" x="-13.5" y="-64" width="27" height="32"/>
+              </g>
+            </svg>
+          </div>
+        </figure>
+        <div class="find__card anima--right-in">
+          <address class="find__address">
+            <span class="find__name">Latte with Lata</span>
+            <span class="find__street">27 Bellwood Street</span>
+            <span>Corner of Fenwick Lane</span>
+            <span>Harrowfield</span>
+          </address>
+          <dl class="info-list find__contact">
+            <div class="info-list__row"><dt>Phone</dt><dd><a class="find__link" href="tel:+15550142024">(555) 014-2024</a></dd></div>
+            <div class="info-list__row"><dt>Email</dt><dd><a class="find__link" href="mailto:hello@lattewithlata.example">hello@lattewithlata.example</a></dd></div>
+          </dl>
+          <p class="find__actions">
+            <a class="button" href="#" data-placeholder="maps-link">Get directions</a>
+            <a class="button button--outlined" href="book.html">Book a table</a>
+          </p>
+          <p class="find__more"><a class="read-more" href="events.html">What's on</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="strip strip--normal mt-lg">
+      <div class="container">
+        <h3 class="a11y-only">Directions</h3>
+        <ul class="directions">
+          <li class="directions__item anima--bottom-in">
+            <svg class="icon directions__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="13" cy="4.2" r="1.7"/><path d="M12.6 8.2 9.4 9.8l-1.2 3.4"/><path d="m12.6 8.2.9 5.2 3 2.4.9 4.7"/><path d="m13.5 13.4-2.3 3.1-2.6 4"/><path d="m13 9.4 2.4 2.3 2.6.7"/></svg>
+            <h4 class="directions__mode">On foot</h4>
+            <p class="directions__text">Five minutes from Harrowfield Market Square. Walk north up Bellwood Street and we are on the corner of Fenwick Lane, under the brown awning.</p>
+          </li>
+          <li class="directions__item anima--bottom-in">
+            <svg class="icon directions__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="3.5" width="14" height="14" rx="2.5"/><path d="M5 11.5h14"/><path d="M8.5 14.6h.01M15.5 14.6h.01"/><path d="M8 17.5 6.8 20.5M16 17.5l1.2 3"/></svg>
+            <h4 class="directions__mode">By bus or train</h4>
+            <p class="directions__text">Buses 4 and 11 stop at Fenwick Lane, right outside. Harrowfield Central station is a 12-minute walk.</p>
+          </li>
+          <li class="directions__item anima--bottom-in">
+            <svg class="icon directions__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l3.5-7.5h5L18 16"/><path d="M9.5 8.5 12.5 16 15 9.5"/><path d="M8.2 8.5h2.6M14 6.5h2.2"/></svg>
+            <h4 class="directions__mode">By bike</h4>
+            <p class="directions__text">There are six bike stands on Fenwick Lane, beside the side door.</p>
+          </li>
+          <li class="directions__item anima--bottom-in">
+            <svg class="icon directions__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 17V7.5h3a2.75 2.75 0 0 1 0 5.5h-3"/></svg>
+            <h4 class="directions__mode">By car</h4>
+            <p class="directions__text">Street parking on Bellwood Street is free for 2 hours. The Market Square car park is five minutes away. There is one accessible bay outside the door.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip strip--normal mt-lg">
+      <div class="container">
+        <div class="hours panel anima--bottom-in">
+          <div class="hours__head">
+            <h3 class="strip__title3 hours__title">Opening hours</h3>
+            <p class="hours__note">Thursdays we reopen at 6:30&nbsp;pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.</p>
+            <p class="hours__note hours__note--muted">Breakfast until 11:30&nbsp;am. Brunch and lunch 11:30&nbsp;am to 3:00&nbsp;pm. Cakes, pastry and drinks until close.</p>
+          </div>
+          <div class="data-table__wrap hours__table">
+            <table class="data-table">
+              <caption class="a11y-only">Opening hours</caption>
+              <tbody>
+              <tr><th scope="row">Mon - Wed</th><td class="is-num">7:00&nbsp;am - 6:00&nbsp;pm</td></tr>
+              <tr><th scope="row">Thu<small>Reopens 6:30&nbsp;pm for the recording</small></th><td class="is-num">7:00&nbsp;am - 6:00&nbsp;pm</td></tr>
+              <tr><th scope="row">Fri</th><td class="is-num">7:00&nbsp;am - 10:00&nbsp;pm</td></tr>
+              <tr><th scope="row">Sat</th><td class="is-num">8:00&nbsp;am - 10:00&nbsp;pm</td></tr>
+              <tr><th scope="row">Sun</th><td class="is-num">8:00&nbsp;am - 3:00&nbsp;pm</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -34,12 +34,22 @@ export default function init(ctx) {
         });
     }
 
-    /* ---- "Photo credits" legal link -> open the closed <details id="credits"> it points at (verify-D: a #credits jump alone
-            lands on a collapsed disclosure; net-new element, no source - INFERRED, keyboard/hash friendly) ---- */
-    const credits = footer.querySelector("#credits");
+    /* ---- "Photo credits" (PAGES-SPEC 3: the legal link goes to contact.html#credits). The register itself still ships in every footer as
+            <details id="footer-credits"> (the CC BY / CC BY-SA credits are "not optional" - verify/handoff/assets.md). Fallback so the link never
+            dead-ends: on a page with NO #credits block of its own (the contact lane owns that id), a #credits hash - on load or on a same-page
+            click - opens the footer disclosure and scrolls to it. INFERRED, keyboard / hash friendly. ---- */
+    const credits = footer.querySelector("#footer-credits");
     if (credits) {
-        footer.querySelectorAll('a[href="#credits"]').forEach((a) => a.addEventListener("click", () => { credits.open = true; }));
-        if (location.hash === "#credits") credits.open = true;
+        const showCredits = () => {
+            if (location.hash !== "#credits" || document.getElementById("credits")) return;
+            credits.open = true;
+            credits.scrollIntoView({ block: "center", behavior: "auto" });
+            const summary = credits.querySelector("summary");
+            if (summary) summary.focus({ preventScroll: true });
+        };
+        window.addEventListener("hashchange", showCredits);
+        window.addEventListener("load", () => setTimeout(showCredits, 0), { once: true });
+        if (document.readyState === "complete") showCredits();
     }
 
     /* ---- reduced motion: PS:284 returns before the ride; the curtain sits at its end state (DD Pick 19 / spec 14 (d)) ---- */

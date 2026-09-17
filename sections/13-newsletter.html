@@ -8,14 +8,17 @@
      Copy: content/site.json newsletter.* verbatim (brand pass 2026-09-17: eyebrow "First to know", new paragraph). Right column = newsletter.follow[5] (DD Pick 12 "Change": platforms
        + Instagram; copy.md maps follow[] to the right column). Hard-coded label (INFERRED): "Listen and follow" eyebrow.
        "privacy policy" links to #privacy (copy.md). success/error strings ride on data-* so the JS shows visible text.
-     Endpoint: newsletter.endpoint = "#" (placeholder) - the JS skips the network call for "#" and shows the success line. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 4): shared by every page; the form is wired to POST /api/subscribe through js/lib/api.js
+       ({ email, consent: true, source: "footer-newsletter", website }) - "website" is the hidden honeypot the server wants empty. When the API is
+       not there (static hosting: GET /api/health fails) the form does NOT pretend: it shows the .newsletter__notice line with the cafe's email.
+       The action attribute is the no-JS fallback only (the JS always intercepts the submit). -->
 <section id="s-13-newsletter" class="strip strip--normal bg-band-black newsletter-band" aria-labelledby="nl-eyebrow">
   <div class="container newsletter">
 
     <div class="newsletter__left">
       <p id="nl-eyebrow" class="newsletter__eyebrow eyebrow">Stay for the conversation</p>
       <p class="newsletter__text lead">The conversation doesn't end with the podcast. Follow along for meaningful moments, leadership insights, guest stories and upcoming conversations. One email a week, never more.</p>
-      <form class="newsletter__form" action="#" method="post" novalidate
+      <form class="newsletter__form" action="/api/subscribe" method="post" novalidate data-source="footer-newsletter"
             data-success="You are on the list. See you Thursday."
             data-error="That address did not go through. Check it and try once more.">
         <div class="newsletter__row">
@@ -32,11 +35,13 @@
           <input id="nl-consent" type="checkbox" name="consent" required>
           <label for="nl-consent">
             <span class="newsletter__box" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-check"></use></svg></span>
-            <span>Yes, send me the Thursday email from Latte with Lata. I have read the <a href="#privacy">privacy policy</a>.</span>
+            <span>Yes, send me the Thursday email from Latte with Lata. I have read the <a href="contact.html#privacy">privacy policy</a>.</span>
           </label>
         </div>
+        <div class="newsletter__hp" aria-hidden="true"><label for="nl-website">Website</label><input id="nl-website" type="text" name="website" tabindex="-1" autocomplete="off"></div>
         <p id="nl-msg-error" class="newsletter__error" role="alert" hidden></p>
         <p class="newsletter__success" role="status" hidden></p>
+        <p class="newsletter__notice" role="status" hidden>Sign-ups are handled by our team right now - email <a href="mailto:hello@lattewithlata.example">hello@lattewithlata.example</a></p>
       </form>
     </div>
 

@@ -1,16 +1,18 @@
-# Latte with Lata - site copy (human-readable, brand pass + social copy pass 2026-09-17)
+# Latte with Lata - site copy (human-readable, brand pass + social copy pass + pages pass 2026-09-17)
 
 Source of truth: `content/site.json` (this file mirrors it, section by section, with notes). If the two ever disagree, `site.json` wins - fix this file, not the JSON.
+
+**Pages pass note (2026-09-17).** The site is now multi-page. Lata Singh is the **Host**: the word "founder" no longer describes her anywhere (`hosts.role`, `hosts.paragraphs[0]`, the portrait alt). A guest whose own title is "Founder, ..." keeps it (episode 85). Every nav, CTA and footer href now points at a real page per `PAGES-SPEC.md` section 3; the nav gains **Home** first and "Hosts" is now **The Host**. No other home copy changed and every length guard still holds. Sub-page copy lives in `content/pages.json` / `content/COPY-PAGES.md`. Full change table: "Pages pass (2026-09-17) - addenda" at the end of this file.
 
 **Brand.** Latte with Lata is a conversational podcast with mission-driven leaders (nonprofit, healthcare, public sector, social impact), recorded live in a real cafe. The brand kit's tagline is **Real Conversations. Built on Purpose.** and it appears in exactly four places: the hero (under the wordmark), the footer (under the mark), the meta description / og:title, and nowhere else (`brand.tagline` and `hero.tagline` are the only JSON keys that carry it). Source: `assets/brand/brand-position.txt`; the paper's draft taglines are superseded by the kit.
 
 **Voice.** Warm, unhurried, substantive, candid, grounded, independent (the five attributes in the position paper). Short sentences. Specific about coffee (grinder, hopper, flat white) and specific about the work (waiting rooms, grants, shifts, forms, boards). Guests are people, not job titles; the questions are about cost, doubt and decisions, never career highlight reels. No marketing words: no "elevate", "curated", "journey", "unforgettable", no hustle-culture framing. Titles are uppercase display type (Creato Display Bold 700); body copy is sentence case (Creato Display Regular 400). Read-more labels are short noun phrases; the two verb labels "Discover the story" (04) and "Join the conversation" (10) are the client's own tile CTAs (social copy pass 2026-09-17) and are the only exceptions.
 
-**Placeholders (invented brand facts - confirm with the client before launch).** Everything in this list is fiction chosen for consistency across the page. The founder's name, role, employer description and doctoral study come from the brand position paper and are NOT placeholders:
+**Placeholders (invented brand facts - confirm with the client before launch).** Everything in this list is fiction chosen for consistency across the page. The host's name, role, employer description and doctoral study come from the brand position paper and are NOT placeholders:
 
 | Fact | Value used everywhere | Where it appears |
 |---|---|---|
-| Founder / host | Lata Singh, founder and host (real; `hosts.name`, `hosts.role`) | intro, story A, podcast, hosts |
+| Host | Lata Singh, Host (real; `hosts.name`, `hosts.role` = "Host" since the pages pass 2026-09-17) | intro, story A, podcast, hosts |
 | Host credibility | senior operating leader in one of the country's largest safety-net healthcare networks (operations, quality, workforce, finance); doctoral study in leadership and innovation (real, from the paper; employer deliberately unnamed) | hosts |
 | Independence line | "Latte with Lata is a personal platform and is independent of any employer or institution." (required by the paper) | footer legal |
 | Producer | none named (the earlier "Ravi Menon" line is gone; the third hosts paragraph is now why she opened a cafe with a microphone) | - |
@@ -24,10 +26,10 @@ Source of truth: `content/site.json` (this file mirrors it, section by section, 
 | Currency / prices | $ (single currency); $4.00-$18.00 | menu |
 | Roaster / bakery | "a roaster two streets over"; croissants baked in-house at six | menu |
 | Guests | Marisol Vega, Dr Kwame Boateng, Hannah Lindgren, Elias Okonkwo, Rosa Delgado, Grace Mbeki - all fictional, as are their organisations (Harrowfield Food Bank, Second Shift, Fenwick Tenants' Union, St Oswin's Hospice) | episodes |
-| Booking URL | `#book` | header, drawer, menu, visit, mobile pill |
+| Booking URL | `book.html` (pages pass 2026-09-17; was `#book`); manage a booking -> `book.html#manage` (`manageBooking`) | header, drawer, menu, visit, mobile pill |
 | Platform / social URLs | `#` (Spotify, Apple Podcasts, YouTube, RSS, Instagram) | header, listen, newsletter, footer |
-| Future-page CTAs | `#cafe`, `#menu`, `#episodes`, `#hosts`, `#events`, `#directions` - dead anchors until those pages exist | story A, menu, episodes, hosts, live, visit |
-| Episode / newsletter endpoints | `#` | episodes, newsletter |
+| Page CTAs | live since the pages pass 2026-09-17: `cafe.html`, `cafe.html#story`, `menu.html`, `episodes.html`, `episodes.html#ep-<n>`, `podcast.html`, `events.html`, `contact.html#find-us`, `book.html` (no dead anchors left) | intro, story A, menu, episodes, hosts, live, visit |
+| Episode / newsletter endpoints | episode cards -> `episodes.html#ep-<n>`; newsletter endpoint -> `/api/subscribe` (pages pass 2026-09-17; was `#`) | episodes, newsletter |
 | Credit line | "Site by Agora Data Driven" (unchanged) | footer |
 
 ---
@@ -37,8 +39,8 @@ Source of truth: `content/site.json` (this file mirrors it, section by section, 
 - Wordmark (two lines, for the hero and the drawer logo): **LATTE** / **WITH LATA**
 - `<title>` suffix / og:title: **Real Conversations. Built on Purpose.** (`brand.tagline`)
 - Meta description (155 chars, one sentence): A podcast cafe in Harrowfield: good coffee all week, and every Thursday night a candid, unhurried conversation with a mission-driven leader, recorded live.
-- Drawer links (display type, in order): The Cafe · Menu · The Podcast · Episodes · Hosts · Events · Contact
-- Outlined square CTA (header on desktop, drawer, mobile pill): **Book a table** -> `#book`
+- Drawer links (display type, in order; pages pass 2026-09-17): Home -> `index.html` · The Cafe -> `cafe.html` · Menu -> `menu.html` · The Podcast -> `podcast.html` · Episodes -> `episodes.html` · The Host -> `podcast.html#host` · Events -> `events.html` · Contact -> `contact.html` (was seven in-page anchors, with "Hosts")
+- Outlined square CTA (header far right, drawer, mobile pill): **Book a table** -> `book.html` (`bookingUrl`; was `#book`). New key `manageBooking` = **Manage a booking** -> `book.html#manage`.
 - "Listen on" icon row (drawer): Spotify · Apple Podcasts · YouTube · RSS (icons `i-spotify`, `i-apple`, `i-youtube`, `i-rss`)
 - Header side link (drawer, "Tools" nav) is `newsletter.eyebrow`, which is now **Stay for the conversation** (social copy pass 2026-09-17; was "First to know", before that "Stay tuned" - see 13).
 
@@ -57,7 +59,7 @@ Tone: the kit's tagline, verbatim, with its two full stops and Title Case. Do no
 - h1: **A CAFE WITH A MICROPHONE** (renders on two lines: A CAFE WITH / A MICROPHONE)
 - Paragraph 1: Thoughtful conversations with people building careers, organizations, and movements around purpose.
 - Paragraph 2: Pull up a chair and discover the stories behind mission-driven work.
-- Read-more: **The cafe** -> `#s-04-story-a` (scrolls to the story row; label unchanged)
+- Read-more: **The cafe** -> `cafe.html` (pages pass 2026-09-17; was `#s-04-story-a`; label unchanged)
 
 Two sentences total (guard: 2), 22 words - the Tile 1 eyebrow and support line of the client's social set, verbatim (social copy pass 2026-09-17; the US spelling "organizations" is the client's). Paragraph 2 is the line to keep if the block ever needs to shrink. The h1 is unchanged: it no longer duplicates the tagline, so it can stay.
 
@@ -78,7 +80,7 @@ Unchanged. Alt text placeholders (the asset researcher's `assets-manifest.json` 
 - Paragraph 1: Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.
 - Paragraph 2: The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.
 - Paragraph 3: The machine has since been replaced. The rule has not.
-- Read-more: **Discover the story** -> `#cafe` (placeholder for a future cafe page; label = the Tile 2 CTA, social copy pass 2026-09-17)
+- Read-more: **Discover the story** -> `cafe.html#story` (pages pass 2026-09-17; was `#cafe`; label = the Tile 2 CTA, social copy pass 2026-09-17)
 - Image 1 (`story-a-1.jpg`, column 1, carries the stamp): A barista tamping a portafilter at the espresso machine.
 - Image 2 (`story-a-2.jpg`, under the text): A table by the window with two cups, a saucer of crumbs and a folded newspaper.
 
@@ -101,7 +103,7 @@ No text on this section. Unchanged.
   4. **Cardamom cake** · $7.50 · A slice of cardamom cake with a fork on a small plate.
   5. **Eggs, greens, sourdough** · $18.00 · A brunch plate: fried eggs, greens and grilled sourdough.
   6. **Cold brew** · $6.50 · A tall glass of cold brew over ice on a wooden table.
-- Closing read-mores (centred, two): **See the menu** -> `#menu` · **Book a table** -> `#book`
+- Closing read-mores (centred, two): **See the menu** -> `menu.html` · **Book a table** -> `book.html` (pages pass 2026-09-17; were `#menu` / `#book`). The six carousel items and their prices also appear, unchanged, in the full menu (`pages.json` menu).
 
 Tone: the second sentence is still the joke; "or at the corner table" ties the menu to the recording without a sales pitch.
 
@@ -135,19 +137,19 @@ Card anatomy unchanged: cover image (67%) + panel (33%) with uppercase title, hi
 | 84 | Showing up is the whole strategy | What No One Tells You | Rosa Delgado | Community organiser, Fenwick Tenants' Union | 36 min | 2026-08-13 | Rosa has knocked on more doors than she can count. On patience, small wins, and what a street knows that a strategy deck does not. | `episode-05.jpg` |
 | 83 | Who stays when everyone is leaving | The Coffee Break | Grace Mbeki | Director of nursing, St Oswin's Hospice | 51 min | 2026-08-06 | Grace kept a hospice team together through the hardest three years in nursing. On staying, and the coffee break that saved a shift. | `episode-06.jpg` |
 
-All blurbs are 120-135 characters (guard 140). Every `href` is `#` (placeholder for the episode page / player). Roles are now "title, organisation" and a little longer than before (up to 45 chars): builders should let the guest meta line wrap to two lines on the card rather than truncate. Suggested meta line format: `Marisol Vega, Executive director, Harrowfield Food Bank` / `44 min` / `10 Sep 2026`.
+All blurbs are 120-135 characters (guard 140). Every `href` is `episodes.html#ep-<n>` (pages pass 2026-09-17; was `#`) - the card and its play disc both go there. These six are repeated verbatim as the newest six of the 18 in `pages.json` `episodes.items` (title, guest, role, duration, date, blurb, cover must stay equal). Roles are now "title, organisation" and a little longer than before (up to 45 chars): builders should let the guest meta line wrap to two lines on the card rather than truncate. Suggested meta line format: `Marisol Vega, Executive director, Harrowfield Food Bank` / `44 min` / `10 Sep 2026`.
 
-- Closing read-more: **All episodes** -> `#episodes` (placeholder for the episodes page)
+- Closing read-more: **All episodes** -> `episodes.html` (pages pass 2026-09-17; was `#episodes`)
 
 ## 10 - Story row B, "Meet Lata" (brand espresso band, inverted)
 
 - h2: **MEET LATA**
-- New keys: `hosts.name` = **Lata Singh**, `hosts.role` = **Founder and host** (for the caption under the portrait, the 08 avatar line and any `<figcaption>`/aria text; not a new visible slot unless lane C adds one)
-- Paragraph 1: Lata Singh is the founder and host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.
+- Keys: `hosts.name` = **Lata Singh**, `hosts.role` = **Host** (pages pass 2026-09-17; was "Founder and host") (for the caption under the portrait, the 08 avatar line and any `<figcaption>`/aria text; not a new visible slot unless lane C adds one)
+- Paragraph 1 (pages pass 2026-09-17: "the founder and host" became "the host"): Lata Singh is the host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.
 - Paragraph 2: She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.
 - Paragraph 3: She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on.
-- Read-more: **Join the conversation** -> `#hosts` (placeholder for the hosts page; label = the Tile 4 CTA, social copy pass 2026-09-17; was "About Lata", before that "The hosts")
-- Image 1 (`assets/brand/lata-singh.jpg`, column 1, bleeds left; object-fit cover, object-position 50% 20%): Lata Singh, founder and host of Latte with Lata, seated in her office and looking at the camera.
+- Read-more: **Join the conversation** -> `podcast.html` (pages pass 2026-09-17; was `#hosts`; label = the Tile 4 CTA, social copy pass 2026-09-17; was "About Lata", before that "The hosts"). The host block on the podcast page is `podcast.html#host`.
+- Image 1 (`assets/brand/lata-singh.jpg`, column 1, bleeds left; the FOUNDER lane re-frames it - its crop files are `assets/images/founder-*.jpg`): Lata Singh, host of Latte with Lata, seated in her office and looking at the camera. (alt, pages pass 2026-09-17: "founder and host" became "host")
 - Image 2 (`host-corner.jpg`, under the text): The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table.
 
 The employer is never named (the paper describes it; the footer disclaimer separates the platform from it). Paragraph 3 answers "why a cafe with a microphone" and is the only place that phrase recurs after the h1.
@@ -163,7 +165,7 @@ The employer is never named (the paper describes it; the footer disclaimer separ
   3. `mosaic-03.jpg` - Lata and a guest talking at the corner table, microphones between them. (centre image - the one that zooms)
   4. `mosaic-04.jpg` - A microphone on a stand under a warm lamp, the room out of focus behind it.
   5. `mosaic-05.jpg` - The audience seen from the corner table, faces lit by the window lights.
-- Read-more: **What's on** -> `#events` (placeholder for the events page)
+- Read-more: **What's on** -> `events.html` (pages pass 2026-09-17; was `#events`)
 
 The Tile 3 sub is the quote's first line; "there is one for you" answers the eyebrow. The pillars are named in 08 only.
 
@@ -175,13 +177,13 @@ The Tile 3 sub is the quote's first line; "there is one for you" answers the eye
 - Note under the table (optional line, key `visit.note`): Thursdays we reopen at 6:30 pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.
 - Address: 27 Bellwood Street / Corner of Fenwick Lane / Harrowfield
 - Phone: (555) 014-2024 (`tel:+15550142024`)
-- Read-more: **Book a table** -> `#book`; text link **Get directions** -> `#directions` (the label is the builder's, not in the JSON)
+- Read-more: **Book a table** -> `book.html`; text link **Get directions** -> `contact.html#find-us` (pages pass 2026-09-17; were `#book` / `#directions`; the label is now also in the JSON as `visit.directionsLabel`)
 
 ### LISTEN (frosted card)
 - Title: **LISTEN**
 - Intro (25 words; the Tile 4 body = the audience, + one listening line, social copy pass 2026-09-17): For leaders, aspiring leaders, professionals, and anyone searching for more meaning in the work they do. A new conversation every Thursday, wherever you already listen.
 - Platforms: Spotify · Apple Podcasts · YouTube · RSS (all `#`, icons as in the header)
-- Latest episode line: **The grant we turned down** · 44 min -> `#` (must always equal `episodes[0]`)
+- Latest episode line: **The grant we turned down** · 44 min -> `episodes.html` (pages pass 2026-09-17; was `#`; must always equal `episodes[0]`)
 
 ## 13 - Newsletter + follow (brand espresso band)
 
@@ -193,17 +195,17 @@ The Tile 3 sub is the quote's first line; "there is one for you" answers the eye
 - Submit (aria-label / visually-hidden text; the button shows the arrow): Subscribe
 - Success state: You are on the list. See you Thursday.
 - Error state (not colour-only): That address did not go through. Check it and try once more.
-- Endpoint: `#` (replace with the real provider URL)
+- Endpoint: `/api/subscribe` (pages pass 2026-09-17; was `#`). The form posts JSON `{ email, consent, source, website }` through `js/lib/api.js`; on static hosting it shows the fallback notice (`pages.json` `shared.apiFallback`). New key `newsletter.privacyUrl` = `contact.html#privacy`.
 - Right column, "Follow" links: Spotify · Apple Podcasts · YouTube · RSS · Instagram (all `#`)
 
-"Privacy policy" inside the consent line is plain text in the JSON; the builder may wrap those two words in a link to `#privacy`.
+"Privacy policy" inside the consent line is plain text in the JSON; the builder wraps those two words in a link to `contact.html#privacy` (`newsletter.privacyUrl`).
 
 ## 14 - Footer + wordmark + back-to-top
 
 - Column 1: brown brand mark (120px) + tagline **Real Conversations. Built on Purpose.** (`brand.tagline`, set under the mark by lane C) + legal: Copyright 2026 Latte with Lata. All rights reserved. Latte with Lata is a personal platform and is independent of any employer or institution.
 - Column 2 - address: Latte with Lata / 27 Bellwood Street / Corner of Fenwick Lane / Harrowfield / (555) 014-2024 / hello@lattewithlata.example
 - Column 2 - hours: Mon - Thu 7:00 am - 6:00 pm / Fri 7:00 am - 10:00 pm / Sat 8:00 am - 10:00 pm / Sun 8:00 am - 3:00 pm / Thursday recordings: doors 6:30 pm
-- Column 3 - sitemap: The Cafe · Menu · The Podcast · Episodes · Hosts · Events · Contact (same anchors as the drawer)
+- Column 3 - sitemap (pages pass 2026-09-17; still seven rows, so the column rhythm is unchanged): The Cafe · Menu · The Podcast · Episodes · Events · Contact · Book a table = the six pages + `book.html` ("Hosts" left the footer; the host lives at `podcast.html#host`). New key `footer.columns.legalLinks`: Privacy -> `contact.html#privacy` · Photo credits -> `contact.html#credits` · Manage a booking -> `book.html#manage`. New key `footer.homeUrl` = `index.html` (the footer mark links home).
 - Column 4 - heading **Follow us on our socials** (the Tile 5 CTA as the column title, social copy pass 2026-09-17; was "Listen & follow" - a hard-coded builder label, not a JSON key); listen: Spotify · Apple Podcasts · YouTube · RSS; socials: Instagram (`i-instagram`) · YouTube (`i-youtube`)
 - Legal row credit: Site by Agora Data Driven (unchanged)
 - Back-to-top disc label (visually hidden / aria-label): Back to top
@@ -249,3 +251,30 @@ Not used: Tile 1 headline "Meet Latte with Lata" and CTA "Discover Latte with La
 Tile 3 CTA "Subscribe on YouTube" (the platform labels are the platform names); Tile 4 kicker (the 08 lead already covers it).
 Unchanged on purpose: hero tagline, every title, ticker, episode blurbs, hosts paragraphs, story A paragraphs, menu, visit, consent /
 success / error strings, all hrefs.
+
+## Pages pass (2026-09-17) - addenda
+
+Source: `PAGES-SPEC.md` sections 1d and 3. Rule kept: no home-page copy changed except the host naming; every existing key is still present; every length guard still holds (checked by scratch `pages-run/content/validate.cjs`).
+
+| Key | Before | After |
+|---|---|---|
+| `nav` | 7 in-page anchors, "Hosts" | 8 items: Home `index.html`, The Cafe `cafe.html`, Menu `menu.html`, The Podcast `podcast.html`, Episodes `episodes.html`, The Host `podcast.html#host`, Events `events.html`, Contact `contact.html` |
+| `bookingUrl`, `visit.bookingUrl`, `menu.ctas[1].href` | `#book` | `book.html` |
+| `manageBooking` (new) | - | Manage a booking -> `book.html#manage` |
+| `intro.cta.href` | `#s-04-story-a` | `cafe.html` |
+| `storyA.cta.href` | `#cafe` | `cafe.html#story` |
+| `menu.ctas[0].href` | `#menu` | `menu.html` |
+| `episodes[].href` | `#` | `episodes.html#ep-<n>` |
+| `episodesCta.href` | `#episodes` | `episodes.html` |
+| `hosts.role` | Founder and host | Host |
+| `hosts.paragraphs[0]` | Lata Singh is the founder and host. ... | Lata Singh is the host. ... |
+| `hosts.images[0].alt` | Lata Singh, founder and host of ... | Lata Singh, host of ... |
+| `hosts.cta.href` | `#hosts` | `podcast.html` |
+| `live.cta.href` | `#events` | `events.html` |
+| `visit.directionsUrl` (+ new `visit.directionsLabel`) | `#directions` | `contact.html#find-us` ("Get directions") |
+| `listen.latest.href` | `#` | `episodes.html` |
+| `newsletter.endpoint` (+ new `newsletter.privacyUrl`) | `#` | `/api/subscribe` (`contact.html#privacy`) |
+| `footer.columns.sitemap` | 7 in-page anchors incl. Hosts | the six pages + Book a table |
+| `footer.columns.legalLinks`, `footer.homeUrl` (new) | - | Privacy / Photo credits / Manage a booking; `index.html` |
+
+Unchanged on purpose: platform and social links stay `#` (Spotify, Apple Podcasts, YouTube, RSS, Instagram); `visit.hours` keeps its four rows (the backend parses them); episode 85's guest role "Founder, Second Shift social enterprise"; `hosts.images[0].src` (the FOUNDER lane owns the portrait crop).

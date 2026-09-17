@@ -1,6 +1,7 @@
 /* ==========================================================================
    01-hero - Iceberg intro reveal (M6 clip slot, M7 char roll, M8 header fade, M9 tagline) on the Paszkowski
-   banner container (M5 exit drift, video play/pause, click-to-play under reduced motion)
+   banner container (M5 exit drift, scroll-driven video play/pause; no autoplay under reduced motion / Save-Data)
+   PAGES UPDATE (2026-09-17, PAGES-SPEC 1b): the visible play / pause disc and the click-to-play binding were removed - there is no video control.
    Sources: IB = IC(eberg)/source/js/D51_WxQ5.beautified.js (Intro component, lines 86-210)
             PS = PZ/source/js/modules/_page-scroll.beautified.js
             SP = PZ/source/js/modules/_splide.beautified.js
@@ -22,17 +23,15 @@ export default function init(ctx) {
     const lines = Array.from(section.querySelectorAll(".hero__line"));
     const tagline = section.querySelector(".hero__tagline");
     const mark = section.querySelector(".hero__mark");                       // BK: the white cup mark above the wordmark (decorative <img>)
-    const playBtn = section.querySelector(".hero__play");
     const header = document.getElementById("page-header");                  // IB:150 document.querySelector(".header")
     const saveData = !!(navigator.connection && navigator.connection.saveData);   // DD s7: never autoplay on Save-Data
     const autoplayOK = !reduceMotion && !saveData;                           // DD Pick 19 / s7
-    let userPaused = false;                                                 // brand pass (WCAG 2.2.2): once the visitor pauses, the scroll trigger never resumes the loop - INFERRED
 
     /* ---- 1. the three stacked rows per line (IC rows .intro__logo-inner x3, split to .chars) - IB:123-125
             new SplitText(".intro__logo-inner", { type: "chars", charsClass: "chars" })  (charsClass "char" per BUILD-SPEC G6) ---- */
     const rowsPerLine = lines.map((line) => buildRows(line, SplitText));
 
-    /* ---- 2. video: scroll play/pause (IB:115-122), loop cut (assets.md loopHint), click-to-play when autoplay is withheld (SP:32-34) ---- */
+    /* ---- 2. video: scroll play/pause (IB:115-122), loop cut (assets.md loopHint); autoplay withheld = the poster stays (no control) ---- */
     if (video) {
         const safePlay = () => { const p = video.play(); if (p && p.catch) p.catch(() => {}); };
         ScrollTrigger.create({                                              // IB:115-122
@@ -40,7 +39,7 @@ export default function init(ctx) {
             start: "top bottom",                                            // IB:117
             end: "bottom top",                                              // IB:118
             onToggle: (e) => {                                              // IB:119-121: e.isActive && !isLoading ? play() : pause()
-                if (!autoplayOK || userPaused) return;                      // click-to-play mode / paused by the visitor: never auto-resume - INFERRED
+                if (!autoplayOK) return;                                    // reduced motion / Save-Data: the video never plays, the poster shows
                 if (e.isActive) safePlay(); else video.pause();
             }
         });
@@ -52,28 +51,12 @@ export default function init(ctx) {
         }
         video.addEventListener("playing", () => section.classList.add("hero--playing"), { once: true });   // poster -> video swap marker (DD Pick 4 "swap in the video on canplay") - INFERRED class
 
-        /* the visible play / pause control is bound in EVERY mode (brand pass, WCAG 2.2.2 / review MUST-FIX 3: the loop runs > 5 s, so the visitor
-           needs a pause control even while autoplay is allowed); the user's choice wins over the scroll trigger (userPaused) - INFERRED */
-        const toggle = () => { if (video.paused) { userPaused = false; safePlay(); } else { userPaused = true; video.pause(); } };
-        if (playBtn) {                                                      // keyboard-reachable control - INFERRED (DD s7 accessibility)
-            playBtn.hidden = false;
-            playBtn.addEventListener("click", toggle);
-            const sync = () => {
-                const on = !video.paused;
-                playBtn.setAttribute("aria-pressed", on ? "true" : "false");
-                playBtn.setAttribute("aria-label", on ? "Pause video" : "Play video");
-            };
-            video.addEventListener("play", sync);
-            video.addEventListener("pause", sync);
-            sync();
-        }
         if (autoplayOK) {
             safePlay();                                                     // the autoplay attribute already started it; explicit call covers late init
         } else {
             video.removeAttribute("autoplay");                              // DD s7 "never autoplay on prefers-reduced-motion or Save-Data"
-            video.pause();
-            video.style.cursor = "pointer";                                 // SP:32 (l.style.cursor = "pointer")
-            video.addEventListener("click", toggle);                        // SP:33-34 (l.addEventListener("click", () => l.play())) + pause - INFERRED
+            video.pause();                                                  // there is no control to start it (PAGES-SPEC 1b)
+            if (video.currentTime > 0 || video.played.length) video.load();  // the autoplay attribute may have rendered a few frames before this module ran: reset the element so the POSTER shows again
         }
     }
 
@@ -117,10 +100,8 @@ export default function init(ctx) {
                 opacity: 0, duration: 1, ease: "power4.out"                 // IB:151-153
             }, "initial+=1.5");                                             // IB:154
         }
-        const lateIn = [tagline, playBtn && !playBtn.hidden ? playBtn : null].filter(Boolean);   // the play control rides the tagline fade (brand pass; no new label / trigger)
-        if (lateIn.length) {
-            if (playBtn && lateIn.includes(playBtn)) gsap.set(playBtn, { opacity: 0 });
-            tl.to(lateIn, {                                                 // IB:154-158: from(".intro__sentence path", { duration: 1, ease: "power1.inOut", drawSVG: 0 }, "initial+=2")
+        if (tagline) {
+            tl.to(tagline, {                                                 // IB:154-158: from(".intro__sentence path", { duration: 1, ease: "power1.inOut", drawSVG: 0 }, "initial+=2")
                 opacity: 1, duration: 1, ease: "power1.inOut"               // DrawSVG -> opacity fade of live text (INFERRED substitution, BUILD-SPEC M9)
             }, "initial+=2");                                               // IB:158
         }

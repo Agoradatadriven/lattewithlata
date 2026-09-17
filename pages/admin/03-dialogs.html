@@ -1,0 +1,183 @@
+<div id="crm-layer" class="crm-layer">
+
+  <!-- confirmation (destructive actions) -->
+  <dialog id="dlg-confirm" class="a-dialog a-dialog--sm" aria-labelledby="dlg-confirm-title" aria-describedby="dlg-confirm-text">
+    <div class="a-dialog__body">
+      <h2 id="dlg-confirm-title" class="a-dialog__title" tabindex="-1">Are you sure?</h2>
+      <p id="dlg-confirm-text" class="a-dialog__text"></p>
+    </div>
+    <div class="a-dialog__foot">
+      <button type="button" class="a-btn a-btn--ghost" data-dialog-close>Keep it</button>
+      <button type="button" class="a-btn a-btn--danger" id="dlg-confirm-ok">Confirm</button>
+    </div>
+  </dialog>
+
+  <!-- booking detail drawer (content rendered by js/admin/booking-drawer.js) -->
+  <dialog id="dlg-booking" class="a-dialog a-dialog--drawer" aria-labelledby="dlg-booking-title">
+    <header class="a-dialog__head">
+      <div class="a-dialog__heading">
+        <p class="a-eyebrow" id="dlg-booking-eyebrow">Booking</p>
+        <h2 id="dlg-booking-title" class="a-dialog__title" tabindex="-1">Booking</h2>
+      </div>
+      <button type="button" class="a-btn a-btn--icon a-btn--quiet" data-dialog-close aria-label="Close booking"><svg class="a-icon" aria-hidden="true"><use href="#ai-close"></use></svg></button>
+    </header>
+    <div class="a-dialog__body" id="dlg-booking-body"></div>
+  </dialog>
+
+  <!-- add booking (phone / walk-in) -->
+  <dialog id="dlg-add" class="a-dialog a-dialog--lg" aria-labelledby="dlg-add-title">
+    <header class="a-dialog__head">
+      <div class="a-dialog__heading">
+        <p class="a-eyebrow">Phone or walk-in</p>
+        <h2 id="dlg-add-title" class="a-dialog__title" tabindex="-1">Add booking</h2>
+      </div>
+      <button type="button" class="a-btn a-btn--icon a-btn--quiet" data-dialog-close aria-label="Close add booking"><svg class="a-icon" aria-hidden="true"><use href="#ai-close"></use></svg></button>
+    </header>
+    <form id="ab-form" class="form a-dialog__form" novalidate>
+      <div class="a-dialog__body">
+        <div class="form__row form__row--2">
+          <fieldset class="field radio-chips radio-chips--fill">
+            <legend>Taken by</legend>
+            <div class="radio-chips__list">
+              <label class="radio-chip"><input type="radio" name="source" value="phone" checked><span>Phone</span></label>
+              <label class="radio-chip"><input type="radio" name="source" value="walk-in"><span>Walk-in</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="field radio-chips radio-chips--fill">
+            <legend>Booking for</legend>
+            <div class="radio-chips__list">
+              <label class="radio-chip"><input type="radio" name="type" value="table" checked><span>Table</span></label>
+              <label class="radio-chip"><input type="radio" name="type" value="recording"><span>Recording night</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="ab-date">Date</label>
+            <input class="input" id="ab-date" name="date" type="date" required aria-describedby="ab-date-error">
+            <p class="field__error" id="ab-date-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ab-party">Party size</label>
+            <input class="input" id="ab-party" name="party" type="number" inputmode="numeric" min="1" max="500" step="1" value="2" required aria-describedby="ab-party-error">
+            <p class="field__error" id="ab-party-error" aria-live="polite"></p>
+          </div>
+        </div>
+        <fieldset class="field radio-chips radio-chips--grid" id="ab-time-field">
+          <legend>Time <span class="field__optional" id="ab-time-meta"></span></legend>
+          <input type="hidden" name="time" id="ab-time" value="">
+          <div class="radio-chips__list" role="group" aria-label="Times" id="ab-slots"></div>
+          <div class="field ab-free-time" id="ab-free-time" hidden>
+            <label class="field__label" for="ab-time-free">Time for this override</label>
+            <input class="input" id="ab-time-free" type="time" step="1800">
+          </div>
+          <p class="field__error" id="ab-time-error" aria-live="polite"></p>
+        </fieldset>
+        <div class="notice" id="ab-override" role="status" hidden></div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="ab-name">Guest name</label>
+            <input class="input" id="ab-name" name="name" type="text" autocomplete="off" maxlength="80" required aria-describedby="ab-name-error">
+            <p class="field__error" id="ab-name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ab-phone">Phone</label>
+            <input class="input" id="ab-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" maxlength="20" aria-describedby="ab-phone-hint ab-phone-error">
+            <p class="field__hint" id="ab-phone-hint">A phone number or an email address is enough.</p>
+            <p class="field__error" id="ab-phone-error" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="ab-email">Email <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ab-email" name="email" type="email" inputmode="email" autocomplete="off" maxlength="254" aria-describedby="ab-email-error">
+            <p class="field__error" id="ab-email-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ab-occasion">Occasion</label>
+            <select class="select" id="ab-occasion" name="occasion">
+              <option value="none">Just coffee</option>
+              <option value="birthday">Birthday</option>
+              <option value="meeting">Meeting</option>
+              <option value="date">Date</option>
+              <option value="recording-guest">Here for the recording night</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="ab-notes">Guest notes <span class="field__optional">(optional)</span></label>
+            <textarea class="textarea textarea--sm" id="ab-notes" name="notes" rows="3" maxlength="500" aria-describedby="ab-notes-error"></textarea>
+            <p class="field__error" id="ab-notes-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ab-internal">Internal notes <span class="field__optional">(staff only)</span></label>
+            <textarea class="textarea textarea--sm" id="ab-internal" name="internalNotes" rows="3" maxlength="2000" aria-describedby="ab-internal-error"></textarea>
+            <p class="field__error" id="ab-internal-error" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="ab-table">Table <span class="field__optional">(optional)</span></label>
+            <input class="input" id="ab-table" name="table" type="text" autocomplete="off" maxlength="20" aria-describedby="ab-table-error">
+            <p class="field__error" id="ab-table-error" aria-live="polite"></p>
+          </div>
+          <div class="checkbox ab-seat-now">
+            <input id="ab-seated" name="seatNow" type="checkbox">
+            <label for="ab-seated">Seat them now (status "Seated")</label>
+          </div>
+        </div>
+        <p class="notice" id="ab-notice" role="alert" hidden></p>
+      </div>
+      <div class="a-dialog__foot">
+        <button type="button" class="a-btn a-btn--ghost" data-dialog-close>Cancel</button>
+        <button type="submit" class="a-btn a-btn--primary" id="ab-submit">Add booking</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- CSV export -->
+  <dialog id="dlg-export" class="a-dialog a-dialog--sm" aria-labelledby="dlg-export-title" aria-describedby="dlg-export-text">
+    <header class="a-dialog__head">
+      <div class="a-dialog__heading">
+        <p class="a-eyebrow">Download</p>
+        <h2 id="dlg-export-title" class="a-dialog__title" tabindex="-1">Export CSV</h2>
+      </div>
+      <button type="button" class="a-btn a-btn--icon a-btn--quiet" data-dialog-close aria-label="Close export"><svg class="a-icon" aria-hidden="true"><use href="#ai-close"></use></svg></button>
+    </header>
+    <div class="a-dialog__body">
+      <p id="dlg-export-text" class="a-dialog__text">Each file opens in a spreadsheet. They contain personal data: store them safely and delete them when you are done.</p>
+      <ul class="a-export">
+        <li><button type="button" class="a-btn a-btn--ghost a-btn--block" data-export="bookings"><svg class="a-icon" aria-hidden="true"><use href="#ai-download"></use></svg><span>Bookings</span></button></li>
+        <li><button type="button" class="a-btn a-btn--ghost a-btn--block" data-export="customers"><svg class="a-icon" aria-hidden="true"><use href="#ai-download"></use></svg><span>Customers</span></button></li>
+        <li><button type="button" class="a-btn a-btn--ghost a-btn--block" data-export="messages"><svg class="a-icon" aria-hidden="true"><use href="#ai-download"></use></svg><span>Messages</span></button></li>
+        <li><button type="button" class="a-btn a-btn--ghost a-btn--block" data-export="subscribers"><svg class="a-icon" aria-hidden="true"><use href="#ai-download"></use></svg><span>Subscribers</span></button></li>
+      </ul>
+    </div>
+  </dialog>
+
+  <!-- "More" sheet (small screens) -->
+  <dialog id="dlg-more" class="a-dialog a-dialog--sheet" aria-labelledby="dlg-more-title">
+    <header class="a-dialog__head">
+      <h2 id="dlg-more-title" class="a-dialog__title" tabindex="-1">More</h2>
+      <button type="button" class="a-btn a-btn--icon a-btn--quiet" data-dialog-close aria-label="Close menu"><svg class="a-icon" aria-hidden="true"><use href="#ai-close"></use></svg></button>
+    </header>
+    <nav class="a-sheet-nav" aria-label="More sections">
+      <ul>
+        <li><a href="#/subscribers" data-nav="subscribers"><svg class="a-icon" aria-hidden="true"><use href="#ai-at"></use></svg><span>Subscribers</span></a></li>
+        <li><a href="#/activity" data-nav="activity"><svg class="a-icon" aria-hidden="true"><use href="#ai-activity"></use></svg><span>Activity</span></a></li>
+        <li><a href="#/settings" data-nav="settings"><svg class="a-icon" aria-hidden="true"><use href="#ai-settings"></use></svg><span>Settings</span></a></li>
+        <li><button type="button" data-action="export"><svg class="a-icon" aria-hidden="true"><use href="#ai-download"></use></svg><span>Export CSV</span></button></li>
+        <li><a href="index.html"><svg class="a-icon" aria-hidden="true"><use href="#ai-external"></use></svg><span>View website</span></a></li>
+        <li><button type="button" data-action="signout"><svg class="a-icon" aria-hidden="true"><use href="#ai-logout"></use></svg><span>Sign out</span></button></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <!-- toasts: polite for confirmations, assertive for failures -->
+  <div id="toasts" class="a-toasts">
+    <div class="a-toasts__list" id="toasts-polite" role="status" aria-live="polite" aria-atomic="false"></div>
+    <div class="a-toasts__list" id="toasts-alert" role="alert" aria-live="assertive" aria-atomic="false"></div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<!-- book / 04-manage - look up a booking by reference + email, show it, cancel it (accessible <dialog> confirm). Copy: content/pages.json
+     book.sections[manage]. Behaviour: js/pages/book/manage.js. The anchor #manage is the navigation-map target "Manage a booking". -->
+<section id="p-book-04-manage" class="strip strip--narrow pt-lg pb-lg" data-pill-away>
+  <div class="container">
+    <div id="manage" class="book-manage">
+      <div class="book-manage__head text-center anima--bottom-in">
+        <p class="eyebrow book-eyebrow">Already booked?</p>
+        <h2 class="strip__title2">Manage a booking</h2>
+        <p class="book-manage__intro">Enter your booking reference and the email you booked with.</p>
+      </div>
+
+      <div class="notice notice--info" id="mg-fallback" role="status" hidden>
+        <div>
+          <p class="notice__title">This form is not connected</p>
+          <p>Online booking and messages are switched off on this copy of the site. Call <a href="tel:+15550142024">(555) 014-2024</a> or email <a href="mailto:hello@lattewithlata.example">hello@lattewithlata.example</a> and we will sort it out by hand.</p>
+        </div>
+      </div>
+
+      <form class="form book-manage__form" id="mg-form" novalidate aria-label="Find a booking">
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label class="field__label" for="mg-reference">Booking reference</label>
+            <input class="input book-ref-input" id="mg-reference" name="reference" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="LWL-XXXXXX" maxlength="12" required aria-describedby="mg-reference-hint mg-reference-error">
+            <p class="field__hint" id="mg-reference-hint">Six characters after LWL-. It was shown when you booked.</p>
+            <p class="field__error" id="mg-reference-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="mg-email">Email</label>
+            <input class="input" id="mg-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required aria-describedby="mg-email-error">
+            <p class="field__error" id="mg-email-error" aria-live="polite"></p>
+          </div>
+        </div>
+        <p class="notice" id="mg-status" role="status" hidden></p>
+        <div class="form__actions">
+          <button class="button" type="submit" id="mg-submit">Find my booking</button>
+        </div>
+      </form>
+
+      <div class="book-found" id="mg-result" role="region" aria-labelledby="mg-result-title" tabindex="-1" hidden>
+        <div class="book-found__head">
+          <h3 class="book-found__title" id="mg-result-title">Your booking</h3>
+          <p class="book-found__status"><span class="a11y-only">Status: </span><span class="tag" data-mg="status"></span></p>
+        </div>
+        <p class="book-found__text" data-mg="text"></p>
+        <dl class="info-list">
+          <div class="info-list__row"><dt>Reference</dt><dd data-mg="reference"></dd></div>
+          <div class="info-list__row"><dt>Booking</dt><dd data-mg="type"></dd></div>
+          <div class="info-list__row"><dt>Date</dt><dd data-mg="date"></dd></div>
+          <div class="info-list__row"><dt data-mg-time-label>Time</dt><dd data-mg="time"></dd></div>
+          <div class="info-list__row"><dt>Party</dt><dd data-mg="party"></dd></div>
+          <div class="info-list__row"><dt>Name</dt><dd data-mg="name"></dd></div>
+        </dl>
+        <p class="notice" id="mg-result-note" role="status" hidden></p>
+        <div class="form__actions book-found__actions">
+          <button type="button" class="button button--outlined" id="mg-cancel">Cancel this booking</button>
+          <p class="form__note">To change the day, time or party size, cancel this booking and make a new one, or call us and we will move it for you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog class="book-dialog" id="mg-dialog" aria-labelledby="mg-dialog-title" aria-describedby="mg-dialog-text">
+    <div class="book-dialog__body">
+      <h3 class="book-dialog__title" id="mg-dialog-title">Cancel this booking?</h3>
+      <p class="book-dialog__text" id="mg-dialog-text"></p>
+      <p class="notice" id="mg-dialog-note" role="alert" hidden></p>
+      <div class="book-dialog__actions">
+        <button type="button" class="button button--outlined" id="mg-dialog-no" autofocus>Keep my booking</button>
+        <button type="button" class="button" id="mg-dialog-yes">Yes, cancel it</button>
+      </div>
+    </div>
+  </dialog>
+</section>

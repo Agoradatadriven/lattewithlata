@@ -39,6 +39,7 @@ button, input:where([type=button]), input:where([type=reset]), input:where([type
 audio, canvas, embed, iframe, img, object, svg, video { display: block; vertical-align: middle; }   /* inline-critical:337-347 */
 img, video { height: auto; max-width: 100%; }                                /* inline-critical:349-353 */
 [hidden]:where(:not([hidden=until-found])) { display: none; }               /* inline-critical:355-357 */
+[hidden]:not([hidden=until-found]) { display: none !important; }             /* VERIFY 2026-09-17 (requested by the book, contact, events and menu lanes): .button / .notice / .card-grid > li / flex rows set their own `display`, which beat the zero-specificity rule above, so a `hidden` element stayed visible. One site-wide safety rule replaces the per-page copies; a page may still out-rank it on purpose (book.css review panel). */
 textarea { resize: vertical; }                                               /* inline-critical:312-314 */
 sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }   /* inline-critical:187-193 */
 sub { bottom: -.25em; } sup { top: -.5em; }
@@ -180,6 +181,11 @@ strong { font-weight: var(--fontBold); color: var(--colStrong); }   /* _generic.
 .strip--narrow { --container-maxWidth: 56.25rem; --strip-expand-maxWidth: 56.25rem; }  /* _strip.7.5.scss:59-62 ($contWidthNarrow 900px) */
 .strip--xnarrow{ --container-maxWidth: 37.5rem;  --strip-expand-maxWidth: 37.5rem; }   /* _strip.7.5.scss:63-66 (900/1.5 = 600px) */
 .strip--above { position: relative; z-index: 1; }     /* _strip.7.5.scss:94-97 */
+/* SHARED POLISH 2026-09-17: brown-meets-brown seam. 00-header.js (runs on every page) adds .seam-above to #s-13-newsletter when the band before it
+   has (nearly) the same background (contrast < 1.5:1 - brand after brand / deep; caramel after brand already reads as an edge at 2:1).
+   A 1px --colLineOnBrand hairline drawn as an inset shadow: no box, no layout shift, under the section's content. Lives here, not in
+   css/pages/_shell.css, because the home page does not load the kit. */
+.seam-above { box-shadow: inset 0 1px 0 var(--colLineOnBrand); }
 .strip--hidden { display: none; }                      /* _strip.7.5.scss:99-101 */
 .strip--full-height { min-height: calc(100vh - var(--header-height, 0) * 1px); display: flex; }   /* _strip.7.5.scss:103-105 */
 .strip--full-height .strip__text { height: auto; }
@@ -479,20 +485,23 @@ strong { font-weight: var(--fontBold); color: var(--colStrong); }   /* _generic.
     .button { transition: background-color var(--aniTime, var(--aniSlow)) var(--easeInOutCubic), color var(--aniTime, var(--aniSlow)) var(--easeInOutCubic), border-color var(--aniTime, var(--aniSlow)) var(--easeInOutCubic), transform var(--aniTime, var(--aniSlow)) var(--easeInOutCubic), opacity var(--aniTime, var(--aniSlow)) var(--easeInOutCubic); }   /* %animateBut - _extend.scss:44-48 (`all` -> the properties that change, WIG) */
     .button::after { transition: var(--aniTime, var(--aniSlow)) var(--easeInOutCubic); transition-property: var(--aniProp, all); }   /* %animate2 */
 }
-.button::after {                                       /* _button.scss:47-59 - 40% white sheet sliding in from --X/--Y */
+.button::after {                                       /* _button.scss:47-59 - hover sheet sliding in from --X/--Y */
     content: ""; position: absolute; inset: 0; z-index: -1;
     display: flex; justify-content: center; align-items: center;
-    background: var(--colBianco); opacity: .4;
+    /* SHARED POLISH 2026-09-17: the source's 40% white veil (background --colBianco, opacity .4) turned the brown button into #967c6a under a white
+       label = 3.7-3.9:1 while hovered. The sheet is now the single accent at full strength (white label 6.54:1, the sheet vs white page 6.54:1);
+       colour + opacity only, same slide. Variants / bands set --colSheetBottoni / --opSheetBottoni (verify/pages/shared-polish.md). */
+    background: var(--colSheetBottoni, var(--colContrasto)); opacity: var(--opSheetBottoni, 1);
     transform: translate3d(calc(-100% * var(--aniX)), calc(-100% * var(--aniY)), 0);
 }
 .button strong { color: inherit; }                     /* _button.scss:60-62 */
 .button:hover, a:hover .button:not(.button--shy) { color: var(--colBianco); }   /* _button.scss:64-66 */
 .button:hover::after, a:hover .button:not(.button--shy)::after { transform: none; }   /* _button.scss:67-70 */
 .button--wide { display: flex; width: 100%; margin-left: 0; margin-right: 0; }   /* _button.scss:99-104 */
-.button--alternate { --colFondoBottoni: var(--colContrasto); }   /* _button.scss:105-107 */
+.button--alternate { --colFondoBottoni: var(--colContrasto); --colSheetBottoni: var(--colContrastoScuro); }   /* _button.scss:105-107; hover sheet = accent -20% (white 8.81:1) so the accent button still visibly changes */
 .button--no-icon { --pr: 0em; font-family: var(--fontBrand); font-weight: var(--wButton); }   /* _button.scss:108-118 ($fontNormal -> BK button role, one face) */
 .button--no-icon strong { font-weight: var(--wButton); }
-.button--outlined { --colFondoBottoni: transparent; --colBordoBottoni: currentColor; --colTextBottoni: inherit; }   /* _button.scss:119-123 */
+.button--outlined { --colFondoBottoni: transparent; --colBordoBottoni: currentColor; --colTextBottoni: currentColor; }   /* _button.scss:119-123. SHARED POLISH: was `inherit`, which as a custom-property value inherits the (unset) parent PROPERTY, so the label fell back to --colBianco = white on white bands (1:1 at rest and on focus); `currentColor` in `color` = the band's text colour, as the source meant. Scoped --colTextBottoni rules still win. */
 .button--white { --colTextBottoni: var(--colBianco); }   /* _button.scss:124-126 */
 .button--icon { --aniTime: .3s; width: auto; padding: calc(var(--p) - .2em); }   /* _button.scss:138-146 (measured padding 10.47px at 19.04px) */
 .button--squared { border-radius: 0; }                 /* _button.scss:147-149 */

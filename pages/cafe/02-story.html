@@ -1,0 +1,57 @@
+<!-- cafe 02-story - .mark-row, then the two-column editorial story (the home 04 pattern, twice: image | copy, copy | image). Anchor #story
+     (home 04 "Discover the story" -> cafe.html#story). Motion = core inits only: word-rise title, side reveals, zoom-settle images, floating stamp.
+     Copy: content/pages.json cafe.sections[story] verbatim (six paragraphs, 1-3 in row A, 4-6 in row B; the last line is set as the lead).
+     Images: cafe-02 / cafe-03 per the lane brief (the home page already shows story-a-1 / story-a-2); alt + size from assets-manifest when present. -->
+<section id="p-cafe-02-story" class="strip pt-md pb-lg">
+  <div class="container">
+    <div class="mark-row anima--bottom-in"><img class="mark-row__mark" src="assets/brand/logo/latte-with-lata-mark-brown.svg" alt="" width="482" height="571" decoding="async"></div>
+  </div>
+  <div id="story" class="story">
+    <div class="strip strip--normal strip--columns story__row story__row--a">
+      <div class="container">
+        <div class="strip__data strip__column strip__column--1 anima--left-in js-image-anime">
+          <div class="strip__column__content">
+            <div class="strip__text">
+              <figure class="strip__image story__figure">
+                <img src="assets/images/cafe-02.jpg" alt="A barista's hands steaming milk in a steel jug at an espresso machine" width="1200" height="1800" loading="eager" decoding="async">
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="strip__data strip__column strip__column--2 anima--right-in mobile-first v-center">
+          <div class="strip__column__content">
+            <div class="strip__text story__copy">
+              <p class="eyebrow">Our story</p>
+              <h2 class="strip__title1">FROM FIRST POUR TO LAST WORD</h2>
+              <p>Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.</p>
+              <p>The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.</p>
+              <p>The microphones were not part of the plan. One Thursday a friend who runs a food bank stayed past closing to talk through a decision she could not raise at her own board table. Lata borrowed a recorder so they would remember what was said. The week after, someone at the next table asked if they could listen in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="strip strip--normal strip--columns story__row story__row--b">
+      <div class="container">
+        <div class="strip__data strip__column strip__column--1 anima--left-in v-center">
+          <div class="strip__column__content">
+            <div class="strip__text story__copy">
+              <p>So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp. Nobody has asked for the corner table back.</p>
+              <p>It is still a cafe first. Most of the week the corner table is just a table, and the most important thing we make is breakfast. On Thursday nights it is where someone with a hard job says what it actually took.</p>
+              <p class="lead story__last">The machine has since been replaced. The rule has not.</p>
+            </div>
+          </div>
+        </div>
+        <div class="strip__data strip__column strip__column--2 strip--stamp anima--right-in js-image-anime">
+          <div class="strip__column__content">
+            <div class="strip__text">
+              <figure class="strip__image story__figure">
+                <img src="assets/images/cafe-03.jpg" alt="A small round table with flowers and two chairs in a bright corner next to an old upright piano" width="1600" height="1200" loading="eager" decoding="async">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

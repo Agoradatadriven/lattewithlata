@@ -7,7 +7,8 @@
                 SC = IC(eberg)/source/css/inline-scoped.beautified.css
    Scoped under #page-header / #menu-container / #book-pill-wrap. Every ported value cites file:line; invented = INFERRED.
    BRAND EDITION (2026-09-17, BK = the client's brand kit, see BRAND.md / LOGO-USAGE.md): colour + type + mark only.
-   Geometry (header row 78/63, logo box 265x30 / 132x15, drawer clamp, pill) is unchanged. Type roles come from tokens.css
+   Geometry (header row 78/63, drawer clamp, pill) is unchanged. PAGES UPDATE (2026-09-17): the logo lockup left the bar (its CSS is deleted),
+   "Book a table" sits at the far right at every width, the drawer mark is a home link. Type roles come from tokens.css
    (--fontBrand is inherited from body - no font-family here); the 44px hit boxes use padding + equal negative margin.
    ========================================================================== */
 
@@ -99,59 +100,22 @@ body:not(.opaque) #page-header::before { opacity: 0; } /* IC:1089-1091 (.home:no
 /* ---- burger hit box: 48x15 / 24x15 lines -> 47 tall (WIG / WCAG 2.5.5 44px); padding + equal negative margin = zero layout change ---- */
 #page-header .header__burger { padding: 1em .75em; margin: -1em -.75em; }   /* moved here from base.css s17 (tokens hand-off request 2) */
 
-/* ---- desktop "Book a table" text link - net-new (BEST-PARTS Pick 2 "Change"); all values INFERRED ---- */
-#page-header .header__book { display: none; }
-@media screen and (min-width: 50em) {
-    #page-header .header__book {
-        display: inline-block;
-        margin-left: auto;
-        margin-right: var(--vpad);
-        font-size: .9em; font-weight: var(--wButton); line-height: 1.2;   /* BK button role: Creato Bold 700 .9em ls .08em (= .button, PZ main/modules/_button.scss:21-24 was Noto 500 .85em) */
-        letter-spacing: var(--trackButton);
-        text-transform: uppercase;
-        white-space: nowrap;
-        padding-block: 1em; margin-block: -1em;        /* 14.4px type -> 46 tall hit box, line box unchanged (WIG 44px) - INFERRED */
-    }
-    .is-mouse #page-header .header__book:hover { opacity: .7; }   /* CS:213-216 (.menu__socials a:hover) pattern */
-    #page-header .header__book + .header__logo { margin-left: 0; } /* INFERRED: the text link sits right next to the logo (one auto margin, not two) - keeps the logo box right-anchored at x 1117.4 */
-}
-
-/* ---- logo - IC:1102-1111 (.header__logo__marchio 132x15 -> 265x30 @36em), measured x 1117.4 (right gap = --vpad)
-        BK lockup (LOGO-USAGE.md): white mark 44px (56px >= 60em) + "LATTE WITH LATA" Creato Bold 15px uppercase ls .12em, one clear
-        space (the saucer = 11.4% of the mark height) between them; below 36em the mark only. The link keeps its measured 132x15 / 265x30
-        margin box (header row stays 78 / 63): the mark is centred in it and overhangs it top and bottom, the hit box is the padded
-        47 / 62px band (padding + equal negative margin; the border-box height includes the padding so the content box stays 15 / 30). ---- */
-#page-header .header__logo {
-    display: flex;                                     /* IC:1101 (.header__logo{display:flex}) */
-    align-items: center;
-    justify-content: flex-end;
-    gap: calc(var(--markHeader) * .114);               /* BK clear space = saucer height (5px @44, 6.4px @56) */
-    margin-left: auto;
-    width: 132px; height: calc(15px + 2em);            /* IC:1103-1107 (15px content box) + the 1em hit-box padding below */
-    padding-block: 1em; margin-block: -1em;            /* 44px hit box, margin box = 15 / 30 as measured (moved here from base.css s17) */
-    font-size: 1em;                                    /* IC:994 */
-    line-height: 1;
-    white-space: nowrap;
-    color: var(--colOnBrand);
-}
-@media screen and (min-width: 36em) { #page-header .header__logo { width: 265px; height: calc(30px + 2em); } }   /* IC:1108-1111 */
-#page-header .header__mark {
-    display: block;
-    height: var(--markHeader);                         /* BK 44px -> 56px at >= 60em (tokens.css) */
-    width: auto;                                       /* never stretched: 0.844 x height (the width/height attrs reserve the box) */
-    max-width: none;
-    flex: 0 0 auto;
-}
-#page-header .header__wordmark {                       /* BK header wordmark text: Creato Bold 15px uppercase, tracking .12em (LOGO-USAGE.md) */
-    display: none;                                     /* < 36em: mark only */
-    font-weight: var(--wTitle);
-    font-size: .9375rem;                               /* 15px */
-    letter-spacing: var(--trackWordmark);
+/* ---- "Book a table" text link, far right of the row (PAGES-SPEC 1a, 2026-09-17: it took the place of the logo lockup; burger left, link right
+        via the row's space-between). Visible at EVERY width: at 390 the row is burger 24px + link ~122px inside 338px, so it fits; the mobile
+        pill still covers the scrolled state (the bar hides on scroll-down). Type = the BK button role it always had. All values INFERRED. ---- */
+#page-header .header__book {
+    display: inline-block;
+    margin-left: auto;                                 /* right-anchored even if the burger is ever removed */
+    font-size: .9em; font-weight: var(--wButton); line-height: 1;     /* BK button role: Creato Bold 700 .9em ls .08em (= .button); lh 1 keeps the 14.4px line box under the 15px row content (63px bar on phones) */
+    letter-spacing: var(--trackButton);
     text-transform: uppercase;
-    line-height: 1;
+    white-space: nowrap;
+    padding: 1.1em .5em; margin: -1.1em -.5em;         /* 14.4px line + 2 x 15.8 = 46px tall hit box with zero layout change (WIG 44px); the half-em sides keep the ring off the glyphs */
 }
-@media screen and (min-width: 36em) { #page-header .header__wordmark { display: block; } }
-.is-mouse #page-header .header__logo:hover { opacity: .7; }   /* CS:213-216 pattern - INFERRED (opacity only: no layout shift, WIG) */
+.is-mouse #page-header .header__book:hover { opacity: .7; }   /* CS:213-216 (.menu__socials a:hover) pattern - opacity only, no layout shift */
+/* the row keeps its measured height now that the 15 / 30px logo box is gone: 1.5em + 15px + 1.5em = 63 (< 36em), 1.5em + 30px + 1.5em = 78 */
+#page-header .header__container { min-height: calc(15px + 3em); }
+@media screen and (min-width: 36em) { #page-header .header__container { min-height: calc(30px + 3em); } }
 
 /* ---- screen + drawer boxes - IC:1276-1292, M1:8342-8372, CS:22-52 ---- */
 #page-header .menu__screen,
@@ -278,16 +242,25 @@ body:not(.opaque) #page-header::before { opacity: 0; } /* IC:1089-1091 (.home:no
 #menu-container .button--outlined:hover, #menu-container .button--outlined:focus-visible { --colBordoBottoni: var(--colAccent); }
 
 /* ---- drawer mark - BK white cup mark 72px (LOGO-USAGE.md), top-right of the drawer opposite the burger; absolute so the measured
-        row / mid / footer flow (menu-main y 149.1 @1440, 115.8 @390) is untouched; clear space >= 8.2px on every side ---- */
-#menu-container .menu__mark {
+        row / mid / footer flow is untouched; clear space >= 8.2px on every side. PAGES-SPEC 3: the mark is the drawer's "home" link
+        (a.menu__home > img.menu__mark, 61x72 hit box >= 44px) ---- */
+#menu-container .menu__home {
     position: absolute;
     top: calc(var(--vpad) / 2);                        /* 28.8px @1440, 12.8px @390 */
     right: var(--vpad);
+    z-index: 1;
+    display: block;
+    line-height: 0;
+}
+#menu-container .menu__mark {
+    display: block;
     height: var(--markDrawer);
     width: auto;
     max-width: none;
-    pointer-events: none;
 }
+.is-mouse #menu-container .menu__home:hover { opacity: .7; }   /* opacity only (no layout shift) */
+/* current page in the drawer (aria-current="page" set by 00-header.js from body[data-page]): a hairline under the label - INFERRED */
+#menu-container .menu__main a[aria-current="page"] div { box-shadow: inset 0 -2px 0 var(--colLineOnBrand); }
 
 /* ---- footer row: Listen-on icons - CS:173-179, 208-219; measured h 56.2 at y 843.8 ---- */
 #menu-container .menu__footer {
@@ -335,7 +308,16 @@ body:not(.opaque) #page-header::before { opacity: 0; } /* IC:1089-1091 (.home:no
 }
 #book-pill .icon { width: 1.5em; height: 1.5em; }      /* INFERRED (source svg 35/2024vw) */
 #book-pill:hover, #book-pill:focus-visible { color: var(--colOnBrand); background: var(--colAccent); }   /* BK hover feedback: the single accent (white 6.5:1), no movement */
-@media screen and (prefers-reduced-motion: no-preference) { #book-pill { transition: background-color var(--aniUi) var(--easeInOutSine); } }
+/* SHARED POLISH 2026-09-17: over a brand / deep / caramel band (or a dark photo) the brown plate vanished (1:1 / 2:1). 00-header.js resolves the
+   colour behind the pill on every scroll frame and sets .is-on-dark on the wrapper: white plate, brown label + icon (13.06:1), white focus ring.
+   Plate vs band: white on brand 13.06, deep 16.97, caramel 6.54. Hover / focus: brand-soft plate, brown label (11.45:1). Colour only - no layout. */
+/* + a 1px keyline in the OPPOSITE brand colour and a soft shadow (paint only): invisible on a plain band, a crisp edge where the pill crosses
+   mid-tone photos or the big white display type of 07 / 08 (where no single plate colour can reach 4.5:1 against every pixel) */
+#book-pill { box-shadow: 0 0 0 1px var(--colOnBrand), 0 .25rem 1rem var(--colShadow); }
+#book-pill-wrap.is-on-dark #book-pill { background: var(--colOnBrand); color: var(--colBrand); --colFocus: var(--colOnBrand); box-shadow: 0 0 0 1px var(--colBrand), 0 .25rem 1rem var(--colShadow); }
+#book-pill-wrap.is-on-dark #book-pill:hover, #book-pill-wrap.is-on-dark #book-pill:focus-visible { background: var(--colBrandSoft); color: var(--colBrand); }
+@media screen and (prefers-reduced-motion: no-preference) { #book-pill { transition: background-color var(--aniUi) var(--easeInOutSine), color var(--aniUi) var(--easeInOutSine); } }   /* 200 ms (--aniUi); reduced motion = instant swap (base.css s15) */
 .m-open #book-pill-wrap { opacity: 0 !important; visibility: hidden !important; pointer-events: none; }   /* BEST-PARTS Pick 18 "Change": hidden while the drawer is open (overrides GSAP inline) */
 .pill-away #book-pill-wrap { opacity: 0 !important; visibility: hidden !important; pointer-events: none; }   /* brand pass (review POLISH 5): parked while 12 VISIT / LISTEN (own "Book a table") is in view - html class from 00-header.js */
+body[data-page="book"] #book-pill-wrap { display: none; }                                              /* the booking page IS the destination - no pill there (PAGES UPDATE) */
 html:not(.js-ok) #book-pill-wrap { opacity: 1; visibility: visible; pointer-events: auto; }             /* no-JS fallback - INFERRED */

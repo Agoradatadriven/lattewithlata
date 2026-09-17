@@ -194,6 +194,19 @@
     display: flex; align-items: center; gap: .5em;
 }
 #s-13-newsletter .newsletter__error[hidden], #s-13-newsletter .newsletter__success[hidden] { display: none; }
+/* PAGES UPDATE (2026-09-17): the static-hosting notice (API unavailable - the form never pretends to work): same 14px line as the messages, a hairline
+   box so it reads as information rather than an error; the email link is underlined white (13.1:1). The honeypot row is clipped off-screen
+   (not display:none - naive bots skip those), aria-hidden + tabindex -1 keep it away from assistive tech and the tab order. */
+#s-13-newsletter .newsletter__notice {
+    margin: .9em 0 0; padding: .75em 1em;
+    font-size: .875rem; line-height: 1.4;
+    color: var(--colOnBrand);
+    border: 1px solid var(--colLineOnBrand);
+}
+#s-13-newsletter .newsletter__notice[hidden] { display: none; }
+#s-13-newsletter .newsletter__notice a { color: inherit; text-decoration: underline; text-underline-offset: .15em; overflow-wrap: anywhere; }
+#s-13-newsletter .newsletter__notice a:hover { color: var(--colOnBrand); opacity: .8; }
+#s-13-newsletter .newsletter__hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 #s-13-newsletter .newsletter__error::before { content: "!"; flex: 0 0 auto; display: grid; place-items: center; width: 1.25em; height: 1.25em; border: 1px solid currentColor; border-radius: 50%; font-weight: var(--wButton); font-size: .9em; }   /* redundant glyph cue */
 #s-13-newsletter .newsletter__success .icon { flex: 0 0 auto; width: 1.1em; height: 1.1em; }
 

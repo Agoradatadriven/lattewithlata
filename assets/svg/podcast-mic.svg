@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 400" role="img" aria-labelledby="mic-title" color="#ffffff">
+<title id="mic-title">Studio microphone on a boom arm</title>
+<!-- FOUNDER lane 2026-09-17. Original line art: a side-address condenser microphone hanging in its yoke from a boom arm that enters
+     through the top-right corner of the frame (the viewBox's top-right = the portrait's top-right). currentColor strokes, 2 units in the
+     200-unit viewBox (= 2.2px at the 220px desktop size, 1.6px at 1024, 1.3px on a 390 phone: the strokes scale with the drawing so the
+     7-unit yoke band never closes up), no fills except two small solid details.
+     Used by css/sections/10-hosts.css as a mask (-webkit-mask / mask) on a box painted rgb(255 255 255 / .9) = brand white at 90%;
+     its companion podcast-mic-body.svg (same viewBox, same geometry) is the solid silhouette painted brand brown 85% underneath, so
+     the lines stay readable over the bright office windows. Opened on its own it draws white (root color): view it on a dark ground. -->
+<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<!-- boom arm: tube + tension rod, rotated about the knuckle (138,100); leaves the frame through the top-right corner -->
+<g transform="translate(138 100) rotate(-58)">
+<rect x="6" y="-6" width="180" height="12" rx="6"/>
+<path d="M36-15h146"/>
+<path d="M36-6v-9M58-6v-9"/>
+</g>
+<!-- knuckle + stem -->
+<circle cx="138" cy="100" r="8"/>
+<circle cx="138" cy="100" r="2.5" fill="currentColor" stroke="none"/>
+<path d="M134 108v26M142 108v26"/>
+<!-- yoke: a 7-unit band around the body, thumb screws at the pivots -->
+<path d="M90 246v-92a20 20 0 0 1 20-20h56a20 20 0 0 1 20 20v92"/>
+<path d="M97 246v-92a13 13 0 0 1 13-13h56a13 13 0 0 1 13 13v92"/>
+<circle cx="93.5" cy="248" r="8"/>
+<circle cx="182.5" cy="248" r="8"/>
+<path d="M101.5 248h8.5M166 248h8.5"/>
+<!-- microphone: body, collar, grille head (side-address: the capsule faces the speaker, not the ceiling) -->
+<path d="M110 258v-86a12 12 0 0 1 12-12h32a12 12 0 0 1 12 12v86"/>
+<path d="M107 258h62v10h-62z"/>
+<path d="M110 268v64a28 28 0 0 0 56 0v-64"/>
+<path d="M120 282h36M120 294h36M120 306h36M120 318h36M120 330h36M124 342h28"/>
+<!-- body details: status light + badge rules -->
+<circle cx="138" cy="184" r="3" fill="currentColor" stroke="none"/>
+<path d="M125 204h26M130 214h16"/>
+</g>
+</svg>

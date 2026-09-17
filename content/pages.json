@@ -1,0 +1,3388 @@
+{
+  "_meta": {
+    "file": "content/pages.json",
+    "lane": "CONTENT",
+    "updated": "2026-09-17",
+    "readme": "All copy for the seven sub-pages. Top-level keys: shared, cafe, menu, podcast, episodes, events, contact, book. Every page has meta, hero and sections[] in page order; section.id is the anchor. Titles are stored uppercase-ready. Text is ASCII (straight quotes, ' - ' for a dash). Dates are ISO with a dateLabel in the site format (Thu 24 Sep 2026). Tokens in braces ({reference}, {date}, {time}, {party}, {n}, {count}) are replaced at runtime. placeholder: true marks invented facts to confirm with the client. events.upcoming is what GET /api/events reads; episodes.items is the same array as the all-episodes section.",
+    "sectionTypes": [
+      "story",
+      "values",
+      "room",
+      "gallery",
+      "faq",
+      "visit",
+      "intro",
+      "menu-featured",
+      "menu-category",
+      "notes",
+      "cta",
+      "text",
+      "list",
+      "pillars",
+      "steps",
+      "host",
+      "cta-block",
+      "platforms",
+      "episode-feature",
+      "episode-list",
+      "notice",
+      "explainer",
+      "event-list",
+      "cards",
+      "find-us",
+      "contact-form",
+      "guidance",
+      "legal",
+      "credits",
+      "booking-form",
+      "manage-booking"
+    ]
+  },
+  "shared": {
+    "apiFallback": "Online booking and messages are switched off on this copy of the site. Call (555) 014-2024 or email hello@lattewithlata.example and we will sort it out by hand.",
+    "apiFallbackLinks": {
+      "phone": "(555) 014-2024",
+      "tel": "tel:+15550142024",
+      "email": "hello@lattewithlata.example",
+      "mailto": "mailto:hello@lattewithlata.example"
+    },
+    "apiFallbackTitle": "This form is not connected",
+    "contact": {
+      "phone": "(555) 014-2024",
+      "tel": "tel:+15550142024",
+      "email": "hello@lattewithlata.example",
+      "mailto": "mailto:hello@lattewithlata.example",
+      "address": {
+        "name": "Latte with Lata",
+        "line1": "27 Bellwood Street",
+        "line2": "Corner of Fenwick Lane",
+        "city": "Harrowfield"
+      }
+    },
+    "hours": {
+      "rows": [
+        {
+          "days": "Mon - Wed",
+          "open": "7:00 am",
+          "close": "6:00 pm"
+        },
+        {
+          "days": "Thu",
+          "open": "7:00 am",
+          "close": "6:00 pm",
+          "note": "Reopens 6:30 pm for the recording"
+        },
+        {
+          "days": "Fri",
+          "open": "7:00 am",
+          "close": "10:00 pm"
+        },
+        {
+          "days": "Sat",
+          "open": "8:00 am",
+          "close": "10:00 pm"
+        },
+        {
+          "days": "Sun",
+          "open": "8:00 am",
+          "close": "3:00 pm"
+        }
+      ],
+      "homeRows": [
+        {
+          "days": "Mon - Thu",
+          "open": "7:00 am",
+          "close": "6:00 pm"
+        },
+        {
+          "days": "Fri",
+          "open": "7:00 am",
+          "close": "10:00 pm"
+        },
+        {
+          "days": "Sat",
+          "open": "8:00 am",
+          "close": "10:00 pm"
+        },
+        {
+          "days": "Sun",
+          "open": "8:00 am",
+          "close": "3:00 pm"
+        }
+      ],
+      "machine": {
+        "mon": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "tue": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "wed": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "thu": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "fri": {
+          "open": "07:00",
+          "close": "22:00"
+        },
+        "sat": {
+          "open": "08:00",
+          "close": "22:00"
+        },
+        "sun": {
+          "open": "08:00",
+          "close": "15:00"
+        }
+      },
+      "recording": {
+        "weekday": 4,
+        "doors": "18:30",
+        "start": "19:00",
+        "end": "20:15",
+        "kitchenUntil": "20:30",
+        "seats": 40
+      },
+      "note": "Thursdays we reopen at 6:30 pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.",
+      "kitchen": "Breakfast until 11:30 am. Brunch and lunch 11:30 am to 3:00 pm. Cakes, pastry and drinks until close."
+    },
+    "pillars": [
+      {
+        "id": "origin-story",
+        "label": "The Origin Story",
+        "short": "What actually pulled this leader into mission-driven work."
+      },
+      {
+        "id": "hard-trade-off",
+        "label": "The Hard Trade-off",
+        "short": "A real decision where mission and practicality were in tension."
+      },
+      {
+        "id": "what-no-one-tells-you",
+        "label": "What No One Tells You",
+        "short": "An honest, unpolished lesson from the work."
+      },
+      {
+        "id": "coffee-break",
+        "label": "The Coffee Break",
+        "short": "A lighter, personal closing segment."
+      }
+    ],
+    "pillarNote": "Every episode has all four parts. The tag marks the part the conversation leaned on most.",
+    "listenOn": [
+      {
+        "name": "Spotify",
+        "href": "#",
+        "icon": "i-spotify",
+        "placeholder": true
+      },
+      {
+        "name": "Apple Podcasts",
+        "href": "#",
+        "icon": "i-apple",
+        "placeholder": true
+      },
+      {
+        "name": "YouTube",
+        "href": "#",
+        "icon": "i-youtube",
+        "placeholder": true
+      },
+      {
+        "name": "RSS",
+        "href": "#",
+        "icon": "i-rss",
+        "placeholder": true
+      }
+    ],
+    "independence": "Latte with Lata is a personal platform and is independent of any employer or institution.",
+    "formats": {
+      "date": "Thu 24 Sep 2026",
+      "time": "6:30 pm",
+      "currency": "$"
+    },
+    "labels": {
+      "bookTable": "Book a table",
+      "reserveSeat": "Reserve a seat",
+      "seeMenu": "See the menu",
+      "allEpisodes": "All episodes",
+      "whatsOn": "What's on",
+      "getDirections": "Get directions",
+      "manageBooking": "Manage a booking",
+      "writeToUs": "Write to us",
+      "required": "Required",
+      "optional": "Optional",
+      "sending": "Sending...",
+      "tryAgain": "Try again"
+    }
+  },
+  "cafe": {
+    "meta": {
+      "title": "The Cafe | Latte with Lata",
+      "description": "A neighbourhood cafe in Harrowfield with microphones on the corner table. Coffee from two streets over, breakfast done properly, a room built for talking."
+    },
+    "hero": {
+      "eyebrow": "The cafe",
+      "title": "A ROOM BUILT FOR TALKING",
+      "intro": "Good coffee, a kitchen that takes breakfast seriously, and music quiet enough to talk over. 27 Bellwood Street, Harrowfield.",
+      "image": "assets/images/page-cafe.jpg",
+      "alt": "The cafe room in daylight: wooden tables, a long bench under the window and the counter at the back."
+    },
+    "sections": [
+      {
+        "id": "story",
+        "type": "story",
+        "eyebrow": "Our story",
+        "title": "FROM FIRST POUR TO LAST WORD",
+        "paragraphs": [
+          "Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.",
+          "The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.",
+          "The microphones were not part of the plan. One Thursday a friend who runs a food bank stayed past closing to talk through a decision she could not raise at her own board table. Lata borrowed a recorder so they would remember what was said. The week after, someone at the next table asked if they could listen in.",
+          "So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp. Nobody has asked for the corner table back.",
+          "It is still a cafe first. Most of the week the corner table is just a table, and the most important thing we make is breakfast. On Thursday nights it is where someone with a hard job says what it actually took.",
+          "The machine has since been replaced. The rule has not."
+        ],
+        "images": [
+          {
+            "src": "assets/images/story-a-1.jpg",
+            "alt": "A barista tamping a portafilter at the espresso machine."
+          },
+          {
+            "src": "assets/images/host-corner.jpg",
+            "alt": "The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table."
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Cafe history (spring 2024, the quiet-music rule, how the microphones arrived) is brand fiction for the study build. Confirm or replace with the client."
+      },
+      {
+        "id": "values",
+        "type": "values",
+        "eyebrow": "How we run the place",
+        "title": "WHAT WE CARE ABOUT",
+        "intro": "Four things. None of them are complicated. All of them cost a little more than the alternative.",
+        "items": [
+          {
+            "title": "Coffee from two streets over",
+            "body": "Our beans come from a small roaster two streets away. We buy what they are roasting that week, so the filter coffee changes with it. It is fresh, the supply line is a short walk, and there is someone to talk to when a bag is not right."
+          },
+          {
+            "title": "A kitchen that does breakfast properly",
+            "body": "Eggs cooked to order. Croissants baked at six. Porridge that was started before you woke up. The kitchen is small, so the menu is short. We would rather do a dozen things well than thirty things quickly."
+          },
+          {
+            "title": "A room built for talking",
+            "body": "No speakers over the tables. Soft surfaces, quiet music and chairs you can sit in for an hour. If you cannot hear the person across from you, we have done something wrong."
+          },
+          {
+            "title": "A living wage for the team",
+            "body": "Everyone who works here is paid at least the local living wage, and tips are shared evenly across the shift. It adds a little to the price of a cup. We think that is the right price."
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Roaster, in-house baking, living-wage and tip-sharing claims are placeholders. Confirm each with the client before launch."
+      },
+      {
+        "id": "room",
+        "type": "room",
+        "eyebrow": "The room",
+        "title": "SEATS ABOUT FORTY",
+        "paragraphs": [
+          "The room seats about 40. There is a long bench under the window, a dozen small tables, four stools at the counter and a few tables outside under the awning.",
+          "The corner table is the one with the microphones. Most of the week it is the best seat in the house for two people and a long conversation. On Thursday nights the other chairs turn to face it.",
+          "Order at the counter and find a seat. We bring everything to you."
+        ],
+        "facts": [
+          {
+            "label": "Seats",
+            "value": "About 40 inside, 8 outside"
+          },
+          {
+            "label": "The corner table",
+            "value": "Seats 4. Yours any day but Thursday night."
+          },
+          {
+            "label": "Wifi",
+            "value": "Free. Ask at the counter."
+          },
+          {
+            "label": "Payment",
+            "value": "Card, contactless and cash"
+          }
+        ],
+        "accessibility": {
+          "title": "Getting in and getting comfortable",
+          "items": [
+            "Step-free entry from Bellwood Street",
+            "Accessible toilet on the ground floor",
+            "High chairs and a baby-changing table",
+            "Dogs welcome at the outside tables, with a water bowl by the door",
+            "Assistance dogs welcome everywhere",
+            "Large-print menus at the counter"
+          ],
+          "note": "If something would make your visit easier, tell us when you book or call ahead. We will do what we can.",
+          "placeholder": true
+        },
+        "image": {
+          "src": "assets/images/gallery-01.jpg",
+          "alt": "The cafe room in the morning: wooden tables, a long bench under the window and light on the floor."
+        },
+        "placeholder": true,
+        "placeholderNote": "Seat counts and every accessibility line are placeholders until the client confirms the real premises."
+      },
+      {
+        "id": "gallery",
+        "type": "gallery",
+        "eyebrow": "Around the room",
+        "title": "A LOOK INSIDE",
+        "images": [
+          {
+            "src": "assets/images/cafe-01.jpg",
+            "alt": "The long bench under the front window with small wooden tables and morning light.",
+            "caption": "The window bench. Best light before ten."
+          },
+          {
+            "src": "assets/images/cafe-02.jpg",
+            "alt": "The counter with the espresso machine, the grinder and the cake cabinet.",
+            "caption": "The counter. Order here, then find a seat."
+          },
+          {
+            "src": "assets/images/cafe-03.jpg",
+            "alt": "A corner table with two chairs, a lamp and cups, the rest of the room behind it.",
+            "caption": "The corner table. Most of the week, just a table."
+          },
+          {
+            "src": "assets/images/cafe-04.jpg",
+            "alt": "Tables and chairs outside the cafe on the pavement, under the awning.",
+            "caption": "Outside on Bellwood Street. Dogs welcome."
+          }
+        ],
+        "altNote": "Alt text describes the briefed subject. If content/assets-manifest.json carries an alt for the delivered photo, the manifest wins."
+      },
+      {
+        "id": "faqs",
+        "type": "faq",
+        "eyebrow": "Good to know",
+        "title": "QUESTIONS PEOPLE ASK",
+        "items": [
+          {
+            "id": "laptops",
+            "q": "Can I work here on a laptop?",
+            "a": "Yes, on weekdays. The wifi is free and there are sockets along the window bench. At weekends between 10:00 am and 2:00 pm we ask you to keep laptops closed so the tables can turn."
+          },
+          {
+            "id": "dogs",
+            "q": "Can I bring my dog?",
+            "a": "Dogs are welcome at the outside tables, and there is a water bowl by the door. Inside, assistance dogs only."
+          },
+          {
+            "id": "prams",
+            "q": "Is there room for a pram?",
+            "a": "Yes. The entry is step-free and there is space to park a pram by the window bench. We have high chairs and a changing table. When the room is full we may ask you to fold it."
+          },
+          {
+            "id": "booking",
+            "q": "Do I need to book?",
+            "a": "No. We always keep some tables for walk-ins. If you want to be sure, book online. We hold a table for 15 minutes and sittings are 90 minutes. For more than 8 people, call or email us.",
+            "link": {
+              "label": "Book a table",
+              "href": "book.html"
+            }
+          },
+          {
+            "id": "allergens",
+            "q": "How do you handle allergens?",
+            "a": "Tell us when you order. The menu marks vegetarian, vegan, gluten-free and dairy-free dishes and anything that contains nuts, and the kitchen will talk you through any plate. It is one small kitchen that handles nuts, gluten, dairy and eggs, so we cannot promise a dish is free of traces.",
+            "link": {
+              "label": "See the menu",
+              "href": "menu.html"
+            }
+          },
+          {
+            "id": "private-hire",
+            "q": "Can I hire the room?",
+            "a": "Yes. The room is available on Monday, Tuesday and Wednesday evenings from 6:30 pm, for up to 40 seated. Write to us with your date and numbers and we will reply within 2 working days.",
+            "link": {
+              "label": "Ask about private hire",
+              "href": "contact.html?topic=events"
+            }
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Laptop hours, dog, pram and private-hire policies are placeholders."
+      },
+      {
+        "id": "visit",
+        "type": "visit",
+        "eyebrow": "Visit",
+        "title": "COME IN",
+        "hours": [
+          {
+            "days": "Mon - Wed",
+            "open": "7:00 am",
+            "close": "6:00 pm"
+          },
+          {
+            "days": "Thu",
+            "open": "7:00 am",
+            "close": "6:00 pm",
+            "note": "Reopens 6:30 pm for the recording"
+          },
+          {
+            "days": "Fri",
+            "open": "7:00 am",
+            "close": "10:00 pm"
+          },
+          {
+            "days": "Sat",
+            "open": "8:00 am",
+            "close": "10:00 pm"
+          },
+          {
+            "days": "Sun",
+            "open": "8:00 am",
+            "close": "3:00 pm"
+          }
+        ],
+        "hoursNote": "Thursdays we reopen at 6:30 pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.",
+        "address": {
+          "name": "Latte with Lata",
+          "line1": "27 Bellwood Street",
+          "line2": "Corner of Fenwick Lane",
+          "city": "Harrowfield"
+        },
+        "phone": "(555) 014-2024",
+        "tel": "tel:+15550142024",
+        "email": "hello@lattewithlata.example",
+        "mailto": "mailto:hello@lattewithlata.example",
+        "directions": {
+          "label": "Get directions",
+          "href": "contact.html#find-us"
+        },
+        "ctas": [
+          {
+            "label": "See the menu",
+            "href": "menu.html"
+          },
+          {
+            "label": "Book a table",
+            "href": "book.html"
+          }
+        ]
+      }
+    ]
+  },
+  "menu": {
+    "meta": {
+      "title": "Menu | Latte with Lata",
+      "description": "Coffee from a roaster two streets over, breakfast until 11:30, brunch and lunch, cakes baked in house, and a few plates on Thursday recording nights."
+    },
+    "hero": {
+      "eyebrow": "Eat and drink",
+      "title": "ON THE MENU",
+      "intro": "Espresso from a roaster two streets over, croissants baked at six, and brunch until the kitchen runs out.",
+      "image": "assets/images/page-menu.jpg",
+      "alt": "A cafe table from above with coffee cups, a croissant and a brunch plate."
+    },
+    "tags": [
+      {
+        "id": "v",
+        "label": "Vegetarian",
+        "short": "V"
+      },
+      {
+        "id": "vg",
+        "label": "Vegan",
+        "short": "VG",
+        "note": "Vegan dishes are also vegetarian; they carry VG only."
+      },
+      {
+        "id": "gf",
+        "label": "Gluten-free ingredients",
+        "short": "GF"
+      },
+      {
+        "id": "df",
+        "label": "Dairy-free",
+        "short": "DF"
+      },
+      {
+        "id": "n",
+        "label": "Contains nuts",
+        "short": "N"
+      }
+    ],
+    "featured": [
+      {
+        "item": "flat-white",
+        "category": "coffee",
+        "name": "Flat white",
+        "price": "$5.50",
+        "image": "assets/images/menu-01.jpg",
+        "alt": "A flat white in a ceramic cup with a fern poured into the foam."
+      },
+      {
+        "item": "latte",
+        "category": "coffee",
+        "name": "Latte",
+        "price": "$5.50",
+        "image": "assets/images/menu-02.jpg",
+        "alt": "A tall latte with a rosetta in the foam, on a wooden table."
+      },
+      {
+        "item": "batch-filter",
+        "category": "coffee",
+        "name": "Batch filter",
+        "price": "$4.50",
+        "image": "assets/images/menu-03.jpg",
+        "alt": "Filter coffee being poured from a glass server into a cup."
+      },
+      {
+        "item": "masala-chai",
+        "category": "not-coffee",
+        "name": "Masala chai",
+        "price": "$5.50",
+        "image": "assets/images/menu-04.jpg",
+        "alt": "A cup of spiced milk tea with whole spices beside it."
+      },
+      {
+        "item": "butter-croissant",
+        "category": "cakes-pastry",
+        "name": "Butter croissant",
+        "price": "$5.00",
+        "image": "assets/images/menu-05.jpg",
+        "alt": "A golden butter croissant on a small plate."
+      },
+      {
+        "item": "cardamom-cake",
+        "category": "cakes-pastry",
+        "name": "Cardamom cake",
+        "price": "$7.50",
+        "image": "assets/images/menu-06.jpg",
+        "alt": "A slice of loaf cake with a pale glaze and a fork."
+      },
+      {
+        "item": "bircher-muesli",
+        "category": "breakfast",
+        "name": "Bircher muesli",
+        "price": "$11.00",
+        "image": "assets/images/menu-07.jpg",
+        "alt": "A bowl of bircher muesli topped with apple, almonds and honey."
+      },
+      {
+        "item": "eggs-on-toast",
+        "category": "breakfast",
+        "name": "Eggs on toast",
+        "price": "$12.00",
+        "image": "assets/images/menu-08.jpg",
+        "alt": "Two poached eggs on buttered sourdough toast."
+      },
+      {
+        "item": "avocado-on-rye",
+        "category": "brunch-lunch",
+        "name": "Avocado on rye",
+        "price": "$16.00",
+        "image": "assets/images/menu-09.jpg",
+        "alt": "Smashed avocado on dark rye with pickled onion and seeds."
+      },
+      {
+        "item": "eggs-greens-sourdough",
+        "category": "brunch-lunch",
+        "name": "Eggs, greens, sourdough",
+        "price": "$18.00",
+        "image": "assets/images/menu-10.jpg",
+        "alt": "A brunch plate of fried eggs, greens and grilled sourdough."
+      },
+      {
+        "item": "soup-of-the-day",
+        "category": "brunch-lunch",
+        "name": "Soup of the day",
+        "price": "$12.00",
+        "image": "assets/images/menu-11.jpg",
+        "alt": "A bowl of vegetable soup with a slice of bread and butter."
+      },
+      {
+        "item": "cheese-board",
+        "category": "thursday-plates",
+        "name": "Cheese board",
+        "price": "$19.00",
+        "image": "assets/images/menu-12.jpg",
+        "alt": "A wooden board with three cheeses, walnuts, quince paste and crackers."
+      }
+    ],
+    "sections": [
+      {
+        "id": "intro",
+        "type": "intro",
+        "title": "A SHORT MENU, DONE WELL",
+        "paragraphs": [
+          "Espresso from a roaster two streets over, croissants baked at six, and brunch until the kitchen runs out. The prices are for a cup at the counter; a seat by the window, or at the corner table, costs the same.",
+          "The kitchen is small, so the list is short and it changes with the season. What is printed here is what we cook most weeks. The board by the counter has today's soup, today's filter coffee and anything new."
+        ],
+        "serviceTimes": [
+          {
+            "label": "Breakfast",
+            "value": "Opening until 11:30 am"
+          },
+          {
+            "label": "Brunch and lunch",
+            "value": "11:30 am to 3:00 pm"
+          },
+          {
+            "label": "Cakes, pastry and drinks",
+            "value": "All day"
+          },
+          {
+            "label": "Thursday night plates",
+            "value": "Recording nights, 6:30 pm to 8:30 pm. Also Friday and Saturday evenings until 9:00 pm."
+          }
+        ],
+        "tagLegendTitle": "How to read the tags",
+        "categoryNav": [
+          {
+            "label": "Coffee",
+            "href": "#coffee"
+          },
+          {
+            "label": "Not coffee",
+            "href": "#not-coffee"
+          },
+          {
+            "label": "Breakfast until 11:30",
+            "href": "#breakfast"
+          },
+          {
+            "label": "Brunch and lunch",
+            "href": "#brunch-lunch"
+          },
+          {
+            "label": "Cakes and pastry",
+            "href": "#cakes-pastry"
+          },
+          {
+            "label": "Thursday night plates",
+            "href": "#thursday-plates"
+          }
+        ]
+      },
+      {
+        "id": "featured",
+        "type": "menu-featured",
+        "eyebrow": "From the counter",
+        "title": "WHAT PEOPLE ORDER",
+        "intro": "Twelve plates and cups that leave the counter most often.",
+        "itemsFrom": "menu.featured",
+        "altNote": "Alt text describes the briefed subject for menu-01..12.jpg. If content/assets-manifest.json carries an alt for the delivered photo, the manifest wins."
+      },
+      {
+        "id": "coffee",
+        "type": "menu-category",
+        "title": "COFFEE",
+        "label": "Coffee",
+        "note": "Double shots as standard. Oat, soy or lactose-free milk add $0.80. Decaf costs the same.",
+        "items": [
+          {
+            "id": "espresso",
+            "name": "Espresso",
+            "description": "A double shot of the house blend. Cocoa, a little orange, no sugar needed.",
+            "price": "$4.00",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          },
+          {
+            "id": "macchiato",
+            "name": "Macchiato",
+            "description": "A double espresso marked with a spoon of milk foam.",
+            "price": "$4.50",
+            "tags": [
+              "v",
+              "gf"
+            ]
+          },
+          {
+            "id": "long-black",
+            "name": "Long black",
+            "description": "A double shot over hot water. Ask for it short if you like it stronger.",
+            "price": "$4.50",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          },
+          {
+            "id": "flat-white",
+            "name": "Flat white",
+            "description": "Double shot, steamed milk, thin foam. The cup most regulars order.",
+            "price": "$5.50",
+            "tags": [
+              "v",
+              "gf"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-01.jpg",
+            "alt": "A flat white in a ceramic cup with a fern poured into the foam."
+          },
+          {
+            "id": "cappuccino",
+            "name": "Cappuccino",
+            "description": "Equal parts espresso, milk and thick foam, dusted with chocolate.",
+            "price": "$5.50",
+            "tags": [
+              "v",
+              "gf"
+            ]
+          },
+          {
+            "id": "latte",
+            "name": "Latte",
+            "description": "The namesake. A double shot and a tall pour of steamed milk.",
+            "price": "$5.50",
+            "tags": [
+              "v",
+              "gf"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-02.jpg",
+            "alt": "A tall latte with a rosetta in the foam, on a wooden table."
+          },
+          {
+            "id": "batch-filter",
+            "name": "Batch filter",
+            "description": "A single-origin filter, brewed fresh every hour. Today's origin is on the board.",
+            "price": "$4.50",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-03.jpg",
+            "alt": "Filter coffee being poured from a glass server into a cup."
+          },
+          {
+            "id": "cold-brew",
+            "name": "Cold brew",
+            "description": "Steeped for 16 hours and served over ice. Milk on the side if you ask.",
+            "price": "$6.50",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "not-coffee",
+        "type": "menu-category",
+        "title": "NOT COFFEE",
+        "label": "Not coffee",
+        "note": "For the people who came for the conversation.",
+        "items": [
+          {
+            "id": "masala-chai",
+            "name": "Masala chai",
+            "description": "Black tea simmered with ginger, cardamom and clove. Made in a pot, not from syrup.",
+            "price": "$5.50",
+            "tags": [
+              "v",
+              "gf"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-04.jpg",
+            "alt": "A cup of spiced milk tea with whole spices beside it."
+          },
+          {
+            "id": "pot-of-tea",
+            "name": "Pot of tea",
+            "description": "Loose leaf: breakfast, Earl Grey, green, peppermint or chamomile.",
+            "price": "$5.00",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          },
+          {
+            "id": "hot-chocolate",
+            "name": "Hot chocolate",
+            "description": "Dark chocolate melted into steamed milk. Not too sweet.",
+            "price": "$5.50",
+            "tags": [
+              "v",
+              "gf"
+            ]
+          },
+          {
+            "id": "fresh-orange-juice",
+            "name": "Fresh orange juice",
+            "description": "Squeezed to order. Nothing else in the glass.",
+            "price": "$6.50",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          },
+          {
+            "id": "house-lemonade",
+            "name": "House lemonade",
+            "description": "Lemon, mint and sparkling water, made each morning.",
+            "price": "$5.50",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "breakfast",
+        "type": "menu-category",
+        "title": "BREAKFAST UNTIL 11:30",
+        "label": "Breakfast until 11:30",
+        "note": "Served from opening until 11:30 am, every day.",
+        "items": [
+          {
+            "id": "sourdough-toast",
+            "name": "Sourdough toast",
+            "description": "Two thick slices with salted butter and house jam or marmalade.",
+            "price": "$7.00",
+            "tags": [
+              "v"
+            ]
+          },
+          {
+            "id": "porridge-with-brown-sugar",
+            "name": "Porridge with brown sugar",
+            "description": "Steel-cut oats cooked in oat milk, with this week's stewed fruit.",
+            "price": "$10.00",
+            "tags": [
+              "vg",
+              "df"
+            ]
+          },
+          {
+            "id": "bircher-muesli",
+            "name": "Bircher muesli",
+            "description": "Oats soaked overnight with apple and yoghurt, topped with almonds and honey.",
+            "price": "$11.00",
+            "tags": [
+              "v",
+              "n"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-07.jpg",
+            "alt": "A bowl of bircher muesli topped with apple, almonds and honey."
+          },
+          {
+            "id": "eggs-on-toast",
+            "name": "Eggs on toast",
+            "description": "Two eggs, poached, fried or scrambled, on buttered sourdough.",
+            "price": "$12.00",
+            "tags": [
+              "v"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-08.jpg",
+            "alt": "Two poached eggs on buttered sourdough toast."
+          },
+          {
+            "id": "bacon-and-egg-roll",
+            "name": "Bacon and egg roll",
+            "description": "Smoked bacon, a fried egg and tomato relish in a soft milk bun.",
+            "price": "$13.00",
+            "tags": []
+          },
+          {
+            "id": "masala-omelette",
+            "name": "Masala omelette",
+            "description": "Three eggs with onion, green chilli, tomato and coriander. Toast on the side.",
+            "price": "$15.00",
+            "tags": [
+              "v"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "brunch-lunch",
+        "type": "menu-category",
+        "title": "BRUNCH AND LUNCH",
+        "label": "Brunch and lunch",
+        "note": "From 11:30 am until 3:00 pm, or until the kitchen runs out.",
+        "items": [
+          {
+            "id": "eggs-greens-sourdough",
+            "name": "Eggs, greens, sourdough",
+            "description": "Two fried eggs, garlicky greens, chilli oil and grilled sourdough.",
+            "price": "$18.00",
+            "tags": [
+              "v"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-10.jpg",
+            "alt": "A brunch plate of fried eggs, greens and grilled sourdough."
+          },
+          {
+            "id": "avocado-on-rye",
+            "name": "Avocado on rye",
+            "description": "Smashed avocado, lemon, pickled red onion and seeds on dark rye.",
+            "price": "$16.00",
+            "tags": [
+              "vg",
+              "df"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-09.jpg",
+            "alt": "Smashed avocado on dark rye with pickled onion and seeds."
+          },
+          {
+            "id": "mushrooms-on-toast",
+            "name": "Mushrooms on toast",
+            "description": "Roast field mushrooms, thyme, ricotta and a poached egg on sourdough.",
+            "price": "$17.00",
+            "tags": [
+              "v"
+            ]
+          },
+          {
+            "id": "smoked-trout-plate",
+            "name": "Smoked trout plate",
+            "description": "Hot-smoked trout, potato salad, a soft egg, pickles and rye crisps.",
+            "price": "$19.00",
+            "tags": []
+          },
+          {
+            "id": "soup-of-the-day",
+            "name": "Soup of the day",
+            "description": "Made each morning and always vegetarian. Comes with bread and butter.",
+            "price": "$12.00",
+            "tags": [
+              "v"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-11.jpg",
+            "alt": "A bowl of vegetable soup with a slice of bread and butter."
+          },
+          {
+            "id": "toasted-cheese-sandwich",
+            "name": "Toasted cheese sandwich",
+            "description": "Sharp cheddar, leek and mustard on sourdough, pressed until it crackles.",
+            "price": "$13.00",
+            "tags": [
+              "v"
+            ]
+          },
+          {
+            "id": "grain-bowl",
+            "name": "Grain bowl",
+            "description": "Brown rice, roast pumpkin, chickpeas, greens, tahini and toasted seeds.",
+            "price": "$17.00",
+            "tags": [
+              "vg",
+              "gf",
+              "df"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cakes-pastry",
+        "type": "menu-category",
+        "title": "CAKES AND PASTRY",
+        "label": "Cakes and pastry",
+        "note": "In the cabinet from opening. When it is gone, it is gone.",
+        "items": [
+          {
+            "id": "butter-croissant",
+            "name": "Butter croissant",
+            "description": "Baked at six each morning. Usually gone by eleven.",
+            "price": "$5.00",
+            "tags": [
+              "v"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-05.jpg",
+            "alt": "A golden butter croissant on a small plate."
+          },
+          {
+            "id": "almond-croissant",
+            "name": "Almond croissant",
+            "description": "Yesterday's croissant, filled with almond cream and baked again.",
+            "price": "$6.50",
+            "tags": [
+              "v",
+              "n"
+            ]
+          },
+          {
+            "id": "cheese-scone",
+            "name": "Cheese scone",
+            "description": "Cheddar and chive, served warm with butter.",
+            "price": "$5.50",
+            "tags": [
+              "v"
+            ]
+          },
+          {
+            "id": "cardamom-cake",
+            "name": "Cardamom cake",
+            "description": "A soft, spiced loaf cake with a lemon glaze. On the counter since day one.",
+            "price": "$7.50",
+            "tags": [
+              "v"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-06.jpg",
+            "alt": "A slice of loaf cake with a pale glaze and a fork."
+          },
+          {
+            "id": "flourless-chocolate-cake",
+            "name": "Flourless chocolate cake",
+            "description": "Dense and dark, made with ground almonds instead of flour.",
+            "price": "$8.00",
+            "tags": [
+              "v",
+              "gf",
+              "n"
+            ]
+          },
+          {
+            "id": "oat-and-date-slice",
+            "name": "Oat and date slice",
+            "description": "Oats, dates, coconut oil and a pinch of salt.",
+            "price": "$5.50",
+            "tags": [
+              "vg",
+              "df"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "thursday-plates",
+        "type": "menu-category",
+        "title": "THURSDAY NIGHT PLATES",
+        "label": "Thursday night plates",
+        "note": "Recording nights from 6:30 pm, last plates at 8:30 pm. Order before 7:00 pm, at the break, or after the recording. Also served Friday and Saturday evenings until 9:00 pm.",
+        "items": [
+          {
+            "id": "olives-and-warm-bread",
+            "name": "Olives and warm bread",
+            "description": "Marinated olives, olive oil and a quarter loaf from the oven.",
+            "price": "$9.00",
+            "tags": [
+              "vg",
+              "df"
+            ]
+          },
+          {
+            "id": "hummus-and-flatbread",
+            "name": "Hummus and flatbread",
+            "description": "Hummus, chilli oil, pickled vegetables and warm flatbread.",
+            "price": "$12.00",
+            "tags": [
+              "vg",
+              "df"
+            ]
+          },
+          {
+            "id": "toastie-of-the-night",
+            "name": "Toastie of the night",
+            "description": "Whatever the kitchen built that afternoon. Ask at the counter.",
+            "price": "$13.00",
+            "tags": []
+          },
+          {
+            "id": "cheese-board",
+            "name": "Cheese board",
+            "description": "Three cheeses, quince paste, walnuts and crackers. Enough for two.",
+            "price": "$19.00",
+            "tags": [
+              "v",
+              "n"
+            ],
+            "featured": true,
+            "image": "assets/images/menu-12.jpg",
+            "alt": "A wooden board with three cheeses, walnuts, quince paste and crackers."
+          }
+        ]
+      },
+      {
+        "id": "notes",
+        "type": "notes",
+        "title": "BEFORE YOU ORDER",
+        "items": [
+          {
+            "id": "allergens",
+            "title": "Allergens",
+            "body": "Tell us about any allergy when you order, every time. One small kitchen handles nuts, gluten, dairy, eggs, sesame and fish, so we cannot promise that any dish is free of traces. GF means made with gluten-free ingredients, not made in a gluten-free kitchen."
+          },
+          {
+            "id": "sourcing",
+            "title": "Where it comes from",
+            "body": "Coffee from a roaster two streets over. Bread, croissants and cakes baked here each morning. Eggs are free range. Vegetables come from the Saturday market when the season allows."
+          },
+          {
+            "id": "prices",
+            "title": "Prices at the counter",
+            "body": "The prices are for a cup at the counter. A seat by the window, or at the corner table, costs the same. Prices include tax. There is no service charge, and tips are shared evenly across the team."
+          },
+          {
+            "id": "groups",
+            "title": "Large groups",
+            "body": "We can seat up to 8 on one booking. For a bigger group, call or email us a few days ahead and we will plan the tables and, if you like, a set menu."
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Every dish, price, tag and sourcing claim is a placeholder menu for the study build. The client must supply the real menu and an allergen matrix before launch."
+      },
+      {
+        "id": "book",
+        "type": "cta",
+        "title": "HUNGRY?",
+        "text": "Walk in any time, or book a table and we will keep one for you.",
+        "ctas": [
+          {
+            "label": "Book a table",
+            "href": "book.html"
+          },
+          {
+            "label": "Large group? Write to us",
+            "href": "contact.html?topic=booking"
+          }
+        ]
+      }
+    ]
+  },
+  "podcast": {
+    "meta": {
+      "title": "The Podcast | Latte with Lata",
+      "description": "Candid, unhurried conversations with mission-driven leaders about the decisions that shaped their work. Recorded live in the cafe every Thursday night."
+    },
+    "hero": {
+      "eyebrow": "The podcast",
+      "title": "PULL UP A CHAIR",
+      "intro": "Coffee. Leadership. Purpose. Real conversation. A new episode every Thursday, recorded live at the corner table.",
+      "image": "assets/images/page-podcast.jpg",
+      "alt": "Two microphones on a cafe table with coffee cups, the room softly lit behind them."
+    },
+    "sections": [
+      {
+        "id": "about",
+        "type": "text",
+        "eyebrow": "What the show is",
+        "title": "THERE'S MORE BEHIND EVERY MISSION",
+        "lead": "Thoughtful conversations with people building careers, organizations, and movements around purpose.",
+        "paragraphs": [
+          "Latte with Lata is a conversational podcast with mission-driven leaders: people who have built careers, organizations or movements around purpose rather than profit alone. It has the warmth and pace of a conversation over coffee, and the substance of a real discussion about leadership, impact and the decisions that shape the work.",
+          "Most leadership shows are about scale, growth and metrics. This one is about the person behind the mission: their motivations, their doubts, and the human decisions behind the work. Real leadership lessons come out over coffee, not in a boardroom.",
+          "Behind every organization, movement, and meaningful career are difficult decisions, unexpected lessons, doubts, and defining moments. Latte with Lata brings those stories to the table."
+        ],
+        "kicker": "Pull up a chair and discover the stories behind mission-driven work.",
+        "facts": [
+          {
+            "label": "New episode",
+            "value": "Every Thursday"
+          },
+          {
+            "label": "Length",
+            "value": "35 to 50 minutes"
+          },
+          {
+            "label": "Recorded",
+            "value": "Live, at the corner table"
+          },
+          {
+            "label": "Episodes so far",
+            "value": "88"
+          }
+        ]
+      },
+      {
+        "id": "audience",
+        "type": "list",
+        "eyebrow": "Who it is for",
+        "title": "FOR PEOPLE BUILDING WITH PURPOSE",
+        "lead": "For leaders, aspiring leaders, professionals, and anyone searching for more meaning in the work they do.",
+        "items": [
+          "Current and aspiring leaders in nonprofit, healthcare, public sector and social-impact organizations.",
+          "Professionals working out a career shift toward more purpose-driven work.",
+          "Listeners who prefer a long, honest conversation to polished expert content.",
+          "People who like leadership content but are tired of growth hacks and hustle."
+        ],
+        "kicker": "Latte with Lata is a space for conversations about leadership, impact, purpose, and the realities of mission-driven work."
+      },
+      {
+        "id": "pillars",
+        "type": "pillars",
+        "eyebrow": "The format",
+        "title": "THE SAME FOUR PARTS, EVERY WEEK",
+        "intro": "Every conversation moves through the same four parts. Guests know them in advance. They do not get the questions.",
+        "items": [
+          {
+            "n": 1,
+            "id": "origin-story",
+            "title": "The Origin Story",
+            "short": "What actually pulled this leader into mission-driven work.",
+            "body": "We start with what actually pulled the guest into this work, which is rarely the version in the annual report. It is usually a person, a phone call or a bad week."
+          },
+          {
+            "n": 2,
+            "id": "hard-trade-off",
+            "title": "The Hard Trade-off",
+            "short": "A real decision where mission and practicality were in tension.",
+            "body": "One real decision where the mission and the practical answer pulled in different directions. We ask what it cost, who disagreed, and whether they would make the same call again."
+          },
+          {
+            "n": 3,
+            "id": "what-no-one-tells-you",
+            "title": "What No One Tells You",
+            "short": "An honest, unpolished lesson from the work.",
+            "body": "The honest, unpolished lesson: the thing the guest wishes someone had said in year one. No frameworks, just what happened and what they do differently now."
+          },
+          {
+            "n": 4,
+            "id": "coffee-break",
+            "title": "The Coffee Break",
+            "short": "A lighter, personal closing segment.",
+            "body": "We finish lighter. What they are reading, how they take their coffee, and what they do when they are not doing this."
+          }
+        ],
+        "note": "Every episode has all four parts. The tag marks the part the conversation leaned on most."
+      },
+      {
+        "id": "how-it-works",
+        "type": "steps",
+        "eyebrow": "Thursday nights",
+        "title": "HOW AN EPISODE WORKS",
+        "intro": "Every episode is recorded live in the cafe, in front of whoever turns up. There is no studio and no second take.",
+        "steps": [
+          {
+            "time": "6:30 pm",
+            "title": "Doors",
+            "body": "The cafe reopens and the chairs turn to face the corner table. It is free. Seats are first come, first seated, or you can reserve one."
+          },
+          {
+            "time": "7:00 pm",
+            "title": "Recording",
+            "body": "One guest, one conversation, four parts, with a short break halfway. We finish by 8:15 pm. No slides, no panel, no pitch."
+          },
+          {
+            "time": "8:15 pm",
+            "title": "The guest stays for a coffee",
+            "body": "There is no question time on the recording. The guest stays in the room afterwards, so ask them in person."
+          },
+          {
+            "time": "The next Thursday",
+            "title": "The episode comes out",
+            "body": "We cut the evening down to about 45 minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning."
+          }
+        ],
+        "ctas": [
+          {
+            "label": "What's on",
+            "href": "events.html"
+          },
+          {
+            "label": "Reserve a seat",
+            "href": "book.html?type=recording"
+          }
+        ]
+      },
+      {
+        "id": "host",
+        "type": "host",
+        "eyebrow": "The host",
+        "title": "MEET LATA",
+        "name": "Lata Singh",
+        "role": "Host",
+        "image": {
+          "src": "assets/images/founder-portrait.jpg",
+          "fallback": "assets/brand/lata-singh.jpg",
+          "alt": "Lata Singh, host of Latte with Lata."
+        },
+        "paragraphs": [
+          "Lata Singh hosts Latte with Lata. She comes to these conversations as a practitioner, not as an outside observer.",
+          "By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, overseeing operations, quality, workforce and finance at scale. That work has given her hands-on fluency in what mission-driven organizations deal with every day: compliance, funding structures, workforce and public accountability.",
+          "She is also pursuing doctoral study in leadership and innovation, which brings an academic and reflective lens to the table alongside the operational one.",
+          "That is the edge of the show. She is fluent in the pressures, the trade-offs and the quiet victories that come with running a purpose-built organization, and those are the things she asks about."
+        ],
+        "credentials": [
+          "Senior operating leader in one of the country's largest safety-net healthcare networks: operations, quality, workforce and finance at scale.",
+          "Hands-on fluency in compliance, funding structures, workforce and public accountability.",
+          "Doctoral study in leadership and innovation."
+        ],
+        "pullQuote": {
+          "text": "The most honest things leaders have told me were said over coffee, after the meeting, with nothing left to prove. I want that conversation, with the microphone switched on.",
+          "attribution": "Lata Singh, Host",
+          "context": "On why the show exists",
+          "kind": "statement-of-intent",
+          "placeholder": true,
+          "placeholderNote": "Written for the site in the host's voice from the approved 'Meet Lata' copy. It is a statement of intent, not a quotation from an interview. Needs Lata's sign-off before launch."
+        },
+        "independence": {
+          "title": "A personal platform",
+          "text": "Latte with Lata is a personal platform. It is independent of any employer or institution, and nothing said here is official communication on anyone's behalf."
+        },
+        "cta": {
+          "label": "Join the conversation",
+          "href": "episodes.html"
+        }
+      },
+      {
+        "id": "guest",
+        "type": "cta-block",
+        "eyebrow": "The other chair",
+        "title": "BE A GUEST, OR SUGGEST ONE",
+        "paragraphs": [
+          "We look for people who run something built around a mission: a clinic, a council service, a charity, a school, a social enterprise. Job title matters less than whether you have a decision you are willing to talk about honestly.",
+          "You do not need media training or a book to promote. You need an evening, an origin story and one hard trade-off."
+        ],
+        "checklist": [
+          "Who you are, or who you are suggesting, and what they run.",
+          "The decision or lesson you think is worth an hour.",
+          "Thursdays you could be in Harrowfield."
+        ],
+        "note": "We read everything and reply within 2 working days. We cannot say yes to everyone, and nobody pays to be on the show.",
+        "cta": {
+          "label": "Suggest a guest",
+          "href": "contact.html?topic=podcast-guest"
+        }
+      },
+      {
+        "id": "listen",
+        "type": "platforms",
+        "eyebrow": "Listen",
+        "title": "WHEREVER YOU ALREADY LISTEN",
+        "intro": "A new conversation every Thursday, wherever you already listen.",
+        "platforms": [
+          {
+            "name": "Spotify",
+            "href": "#",
+            "icon": "i-spotify",
+            "placeholder": true
+          },
+          {
+            "name": "Apple Podcasts",
+            "href": "#",
+            "icon": "i-apple",
+            "placeholder": true
+          },
+          {
+            "name": "YouTube",
+            "href": "#",
+            "icon": "i-youtube",
+            "placeholder": true
+          },
+          {
+            "name": "RSS",
+            "href": "#",
+            "icon": "i-rss",
+            "placeholder": true
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Platform URLs are # until the show's real feeds exist."
+      },
+      {
+        "id": "episodes-cta",
+        "type": "cta",
+        "title": "START WITH THE LATEST",
+        "text": "Episode 88: The grant we turned down, with Marisol Vega.",
+        "latest": {
+          "n": 88,
+          "title": "The grant we turned down",
+          "guest": "Marisol Vega",
+          "duration": "44 min",
+          "href": "episodes.html#ep-88"
+        },
+        "ctas": [
+          {
+            "label": "All episodes",
+            "href": "episodes.html"
+          },
+          {
+            "label": "Come to a recording",
+            "href": "events.html"
+          }
+        ]
+      }
+    ]
+  },
+  "episodes": {
+    "meta": {
+      "title": "Episodes | Latte with Lata",
+      "description": "Every recent episode of Latte with Lata: mission-driven leaders on origin stories, hard trade-offs and what no one tells you. New every Thursday."
+    },
+    "hero": {
+      "eyebrow": "Episodes",
+      "title": "THE CONVERSATIONS",
+      "intro": "Eighty-eight Thursdays so far. Here are the most recent, with notes on what each guest was willing to say out loud.",
+      "image": "assets/images/page-episodes.jpg",
+      "alt": "Headphones and a cup of coffee beside a notebook on a wooden cafe table."
+    },
+    "filters": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "origin-story",
+        "label": "The Origin Story"
+      },
+      {
+        "id": "hard-trade-off",
+        "label": "The Hard Trade-off"
+      },
+      {
+        "id": "what-no-one-tells-you",
+        "label": "What No One Tells You"
+      },
+      {
+        "id": "coffee-break",
+        "label": "The Coffee Break"
+      }
+    ],
+    "items": [
+      {
+        "n": 88,
+        "id": "ep-88",
+        "title": "The grant we turned down",
+        "guest": "Marisol Vega",
+        "role": "Executive director, Harrowfield Food Bank",
+        "org": "Harrowfield Food Bank",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "duration": "44 min",
+        "date": "2026-09-10",
+        "dateLabel": "Thu 10 Sep 2026",
+        "blurb": "Marisol said no to the biggest cheque in her nonprofit's history. On strings, dignity, and the board meeting that followed.",
+        "notes": [
+          "Why the largest grant on offer came with terms that would have changed who the food bank could serve.",
+          "How she took the decision to her board, and what the vote looked like.",
+          "What she now tells other directors: read the conditions before you read the amount."
+        ],
+        "quote": "The cheque was real. So were the strings. I had to decide which one we could live with.",
+        "quoteBy": "Marisol Vega",
+        "cover": "assets/images/episode-01.jpg",
+        "coverAlt": "Cover image for episode 88: The grant we turned down.",
+        "audio": null,
+        "href": "episodes.html#ep-88"
+      },
+      {
+        "n": 87,
+        "id": "ep-87",
+        "title": "What no one tells you about a waiting room",
+        "guest": "Dr Kwame Boateng",
+        "role": "Medical director, safety-net community clinic",
+        "org": "Eastgate Community Clinic",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "duration": "47 min",
+        "date": "2026-09-03",
+        "dateLabel": "Thu 3 Sep 2026",
+        "blurb": "Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.",
+        "notes": [
+          "The arithmetic of a walk-in clinic: forty chairs, two doctors and a Tuesday morning.",
+          "Why he stopped judging a day by how fast the room empties.",
+          "The lesson no residency teaches: people need to feel they were right to come."
+        ],
+        "quote": "Nobody trains you for the waiting room. It is where most of the care actually happens.",
+        "quoteBy": "Dr Kwame Boateng",
+        "cover": "assets/images/episode-02.jpg",
+        "coverAlt": "Cover image for episode 87: What no one tells you about a waiting room.",
+        "audio": null,
+        "href": "episodes.html#ep-87"
+      },
+      {
+        "n": 86,
+        "id": "ep-86",
+        "title": "Fixing a form nobody could finish",
+        "guest": "Hannah Lindgren",
+        "role": "Chief innovation officer, city government",
+        "org": "City of Harrowfield",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "duration": "39 min",
+        "date": "2026-08-27",
+        "dateLabel": "Thu 27 Aug 2026",
+        "blurb": "Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.",
+        "notes": [
+          "A benefits form that half of all applicants gave up on, and how her team found out where.",
+          "Trading a fast relaunch for six months of testing with the people who fill it in.",
+          "Who gets to say a public service worked: the department, the auditor or the applicant."
+        ],
+        "quote": "We asked people to prove they were struggling in forty-one questions. We got it down to twelve.",
+        "quoteBy": "Hannah Lindgren",
+        "cover": "assets/images/episode-03.jpg",
+        "coverAlt": "Cover image for episode 86: Fixing a form nobody could finish.",
+        "audio": null,
+        "href": "episodes.html#ep-86"
+      },
+      {
+        "n": 85,
+        "id": "ep-85",
+        "title": "The origin story is not the pitch",
+        "guest": "Elias Okonkwo",
+        "role": "Founder, Second Shift social enterprise",
+        "org": "Second Shift",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "duration": "42 min",
+        "date": "2026-08-20",
+        "dateLabel": "Thu 20 Aug 2026",
+        "blurb": "Elias hires people on the day they leave prison. On the phone call that started it, a first year of losses, and keeping the door open.",
+        "notes": [
+          "The phone call from a former colleague that started Second Shift.",
+          "A first year of losses, and the month he nearly closed the doors.",
+          "Why he hires on release day, before anyone has a reference."
+        ],
+        "quote": "The pitch says we had a vision. The truth is a man called me and needed a job by Monday.",
+        "quoteBy": "Elias Okonkwo",
+        "cover": "assets/images/episode-04.jpg",
+        "coverAlt": "Cover image for episode 85: The origin story is not the pitch.",
+        "audio": null,
+        "href": "episodes.html#ep-85"
+      },
+      {
+        "n": 84,
+        "id": "ep-84",
+        "title": "Showing up is the whole strategy",
+        "guest": "Rosa Delgado",
+        "role": "Community organiser, Fenwick Tenants' Union",
+        "org": "Fenwick Tenants' Union",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "duration": "36 min",
+        "date": "2026-08-13",
+        "dateLabel": "Thu 13 Aug 2026",
+        "blurb": "Rosa has knocked on more doors than she can count. On patience, small wins, and what a street knows that a strategy deck does not.",
+        "notes": [
+          "What knocking on doors teaches you that a survey never will.",
+          "Why small wins, like a fixed stairwell light, build a union faster than big demands.",
+          "How she handles burnout, her own and other people's."
+        ],
+        "quote": "A street knows things no strategy deck will tell you. You just have to keep turning up.",
+        "quoteBy": "Rosa Delgado",
+        "cover": "assets/images/episode-05.jpg",
+        "coverAlt": "Cover image for episode 84: Showing up is the whole strategy.",
+        "audio": null,
+        "href": "episodes.html#ep-84"
+      },
+      {
+        "n": 83,
+        "id": "ep-83",
+        "title": "Who stays when everyone is leaving",
+        "guest": "Grace Mbeki",
+        "role": "Director of nursing, St Oswin's Hospice",
+        "org": "St Oswin's Hospice",
+        "pillar": "The Coffee Break",
+        "pillarId": "coffee-break",
+        "duration": "51 min",
+        "date": "2026-08-06",
+        "dateLabel": "Thu 6 Aug 2026",
+        "blurb": "Grace kept a hospice team together through the hardest three years in nursing. On staying, and the coffee break that saved a shift.",
+        "notes": [
+          "How she kept a hospice team together while nurses were leaving the profession.",
+          "The ten-minute coffee break she made compulsory, and what it did for a shift.",
+          "A lighter close: night-shift snacks, bad pens and the playlist in her car."
+        ],
+        "quote": "I could not pay them more. I could make sure nobody ate lunch standing up.",
+        "quoteBy": "Grace Mbeki",
+        "cover": "assets/images/episode-06.jpg",
+        "coverAlt": "Cover image for episode 83: Who stays when everyone is leaving.",
+        "audio": null,
+        "href": "episodes.html#ep-83"
+      },
+      {
+        "n": 82,
+        "id": "ep-82",
+        "title": "The budget line nobody wanted to own",
+        "guest": "Tomasz Wieczorek",
+        "role": "Finance director, Northgate Housing Trust",
+        "org": "Northgate Housing Trust",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "duration": "41 min",
+        "date": "2026-07-30",
+        "dateLabel": "Thu 30 Jul 2026",
+        "blurb": "Tomasz had to choose between fixing roofs and keeping rents flat. On spreadsheets with people in them, and telling tenants the truth.",
+        "notes": [
+          "Why a housing trust could not afford repairs and a rent freeze in the same year, and how he showed the board.",
+          "The tenant meeting where he put the real numbers on the wall.",
+          "What finance people owe the front line: plain words, early."
+        ],
+        "quote": "Every line in that budget was somebody's kitchen ceiling. You cannot hide behind the word variance.",
+        "quoteBy": "Tomasz Wieczorek",
+        "cover": "assets/images/gallery-04.jpg",
+        "coverAlt": "Condenser microphone on a desk with guitars hanging on the wall behind",
+        "audio": null,
+        "href": "episodes.html#ep-82"
+      },
+      {
+        "n": 81,
+        "id": "ep-81",
+        "title": "I came for a summer job",
+        "guest": "Leilani Kahale",
+        "role": "Director, Riverbend Youth Works",
+        "org": "Riverbend Youth Works",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "duration": "38 min",
+        "date": "2026-07-23",
+        "dateLabel": "Thu 23 Jul 2026",
+        "blurb": "Leilani took a summer job at a youth centre and never left. On being needed at nineteen, and learning to run the place at thirty.",
+        "notes": [
+          "The summer job that was meant to last ten weeks.",
+          "What changed when she went from youth worker to the person who signs the payroll.",
+          "Why she still runs the Friday drop-in herself."
+        ],
+        "quote": "I did not choose the sector. A fourteen-year-old asked if I was coming back on Monday, and I was.",
+        "quoteBy": "Leilani Kahale",
+        "cover": "assets/images/cafe-05.jpg",
+        "coverAlt": "Freshly roasted coffee beans turning in the cooling tray of a roaster",
+        "audio": null,
+        "href": "episodes.html#ep-81"
+      },
+      {
+        "n": 80,
+        "id": "ep-80",
+        "title": "What no one tells you about a merger",
+        "guest": "Anjali Varma",
+        "role": "Chief executive, Two Rivers Family Services",
+        "org": "Two Rivers Family Services",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "duration": "46 min",
+        "date": "2026-07-16",
+        "dateLabel": "Thu 16 Jul 2026",
+        "blurb": "Anjali merged two charities that had competed for twenty years. On grief in the staff room, and the logo row that was never about a logo.",
+        "notes": [
+          "Why two organizations with the same mission spent twenty years competing for the same grants.",
+          "The staff-room grief nobody put in the merger plan.",
+          "What she would do in the first ninety days if she did it again."
+        ],
+        "quote": "Nobody warned me a merger is a bereavement. People were mourning a letterhead, and they were right to.",
+        "quoteBy": "Anjali Varma",
+        "cover": "assets/images/cafe-04.jpg",
+        "coverAlt": "Wooden folding bistro chairs and a table on the pavement against a terracotta-red wall",
+        "audio": null,
+        "href": "episodes.html#ep-80"
+      },
+      {
+        "n": 79,
+        "id": "ep-79",
+        "title": "The night shift taught me to lead",
+        "guest": "Mateus Figueira",
+        "role": "Operations manager, Harrowfield Ambulance Service",
+        "org": "Harrowfield Ambulance Service",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "duration": "40 min",
+        "date": "2026-07-09",
+        "dateLabel": "Thu 9 Jul 2026",
+        "blurb": "Mateus spent eleven years on an ambulance before he ran the roster. On what 3 am teaches about calm, and why he still rides along.",
+        "notes": [
+          "Eleven years on the road, and the call that made him apply for the office job.",
+          "Building a roster that treats sleep as a safety issue.",
+          "Why he still works one night shift a month."
+        ],
+        "quote": "At 3 am nobody cares about your title. They care whether you are calm. I try to manage like that.",
+        "quoteBy": "Mateus Figueira",
+        "cover": "assets/images/gallery-06.jpg",
+        "coverAlt": "Cafe bar counter with a large lampshade and staff working behind it",
+        "audio": null,
+        "href": "episodes.html#ep-79"
+      },
+      {
+        "n": 78,
+        "id": "ep-78",
+        "title": "Closing the programme that worked",
+        "guest": "Naledi Khumalo",
+        "role": "Head of programmes, Open Book Literacy Trust",
+        "org": "Open Book Literacy Trust",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "duration": "43 min",
+        "date": "2026-07-02",
+        "dateLabel": "Thu 2 Jul 2026",
+        "blurb": "Naledi closed a reading programme with strong results and no funding. On ending things well, and telling forty volunteers the truth.",
+        "notes": [
+          "How a programme can hit every target and still lose its funding.",
+          "The choice between stretching it thin and closing it properly.",
+          "How to tell forty volunteers, and what she handed over to the schools."
+        ],
+        "quote": "It worked, and we still had to stop. Those two facts sat at the same table for a long time.",
+        "quoteBy": "Naledi Khumalo",
+        "cover": "assets/images/story-a-2.jpg",
+        "coverAlt": "Three friends toasting with coffee cups above a wooden cafe table",
+        "audio": null,
+        "href": "episodes.html#ep-78"
+      },
+      {
+        "n": 77,
+        "id": "ep-77",
+        "title": "Late fees, long walks and lending a book twice",
+        "guest": "Eleanor Whitcombe",
+        "role": "City librarian, Harrowfield Public Library",
+        "org": "Harrowfield Public Library",
+        "pillar": "The Coffee Break",
+        "pillarId": "coffee-break",
+        "duration": "34 min",
+        "date": "2026-06-25",
+        "dateLabel": "Thu 25 Jun 2026",
+        "blurb": "Eleanor scrapped late fees and watched the books come back. A lighter one: walking to work, conference coffee, and what she lends twice.",
+        "notes": [
+          "What happened to returns in the year after the library dropped late fees.",
+          "Her forty-minute walk to work, and why she will not give it up.",
+          "The three books she presses on people, and the one she stopped recommending."
+        ],
+        "quote": "A library is the last place you can sit all day and nobody asks what you are buying.",
+        "quoteBy": "Eleanor Whitcombe",
+        "cover": "assets/images/host-corner.jpg",
+        "coverAlt": "Silver condenser microphone in a shock mount with a pop filter in a dark studio",
+        "audio": null,
+        "href": "episodes.html#ep-77"
+      },
+      {
+        "n": 76,
+        "id": "ep-76",
+        "title": "Nobody trains you to be your friends' boss",
+        "guest": "Daniyal Hashmi",
+        "role": "Principal, Fenwick Lane Community School",
+        "org": "Fenwick Lane Community School",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "duration": "45 min",
+        "date": "2026-06-18",
+        "dateLabel": "Thu 18 Jun 2026",
+        "blurb": "Daniyal went from the staff room to the principal's office in one summer. On lonely lunches, hard reviews, and keeping friendships honest.",
+        "notes": [
+          "Going from colleague to principal over one summer holiday.",
+          "The first performance review he had to give a friend.",
+          "Where a school leader finds peers when the staff room is no longer his."
+        ],
+        "quote": "The day I got the job, the staff room went quiet when I walked in. Nobody tells you about that.",
+        "quoteBy": "Daniyal Hashmi",
+        "cover": "assets/images/cafe-03.jpg",
+        "coverAlt": "A small round table with flowers and two chairs in a bright corner next to an old upright piano",
+        "audio": null,
+        "href": "episodes.html#ep-76"
+      },
+      {
+        "n": 75,
+        "id": "ep-75",
+        "title": "We said yes to the contract",
+        "guest": "Emiko Tanabe",
+        "role": "Executive director, Harbourside Shelter",
+        "org": "Harbourside Shelter",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "duration": "48 min",
+        "date": "2026-06-11",
+        "dateLabel": "Thu 11 Jun 2026",
+        "blurb": "Emiko took a public contract that doubled her shelter's beds and its paperwork. On what the money changed, and what she would sign again.",
+        "notes": [
+          "Why she said yes to a contract her own staff were split on.",
+          "What reporting requirements did to the front desk, and how they fixed it.",
+          "The clause she would negotiate harder next time."
+        ],
+        "quote": "We got forty more beds and four hundred more pages. I would still sign it. I would read it slower.",
+        "quoteBy": "Emiko Tanabe",
+        "cover": "assets/images/story-a-1.jpg",
+        "coverAlt": "Barista in a flat cap and apron working at an espresso machine",
+        "audio": null,
+        "href": "episodes.html#ep-75"
+      },
+      {
+        "n": 74,
+        "id": "ep-74",
+        "title": "My mother's kitchen table",
+        "guest": "Beatriz Fonseca",
+        "role": "Director, Mesa Larga Advice Centre",
+        "org": "Mesa Larga Advice Centre",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "duration": "37 min",
+        "date": "2026-06-04",
+        "dateLabel": "Thu 4 Jun 2026",
+        "blurb": "Beatriz grew up translating letters for her neighbours. On turning a kitchen table into an advice centre, and the first case she lost.",
+        "notes": [
+          "Translating official letters for neighbours at nine years old.",
+          "From a kitchen table to a registered advice centre with four staff.",
+          "The first case she lost, and what it changed about how she promises help."
+        ],
+        "quote": "I was nine, reading a landlord's letter to a grown man. That was the first day of this job.",
+        "quoteBy": "Beatriz Fonseca",
+        "cover": "assets/images/cafe-01.jpg",
+        "coverAlt": "A cappuccino, a paperback and a pot of purple flowers on a small wooden table by a cushioned window bench",
+        "audio": null,
+        "href": "episodes.html#ep-74"
+      },
+      {
+        "n": 73,
+        "id": "ep-73",
+        "title": "What no one tells you about public money",
+        "guest": "Farid Haidari",
+        "role": "Grants manager, county health department",
+        "org": "Marlow County Health Department",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "duration": "42 min",
+        "date": "2026-05-28",
+        "dateLabel": "Thu 28 May 2026",
+        "blurb": "Farid hands out public money for a living and says the job is mostly listening. On audits, trust, and the application he still thinks about.",
+        "notes": [
+          "What a grants manager actually does between the deadline and the decision.",
+          "Why audits are not the enemy, and when they are.",
+          "The application he turned down and still thinks about."
+        ],
+        "quote": "Public money comes with a thousand rules and one question: could you explain this to a neighbour?",
+        "quoteBy": "Farid Haidari",
+        "cover": "assets/images/event-02.jpg",
+        "coverAlt": "A studio condenser microphone in a shock mount against warm red tones",
+        "audio": null,
+        "href": "episodes.html#ep-73"
+      },
+      {
+        "n": 72,
+        "id": "ep-72",
+        "title": "A choir, a van and a very old dog",
+        "guest": "Siobhan Keane",
+        "role": "Volunteer coordinator, Bellwood Community Kitchen",
+        "org": "Bellwood Community Kitchen",
+        "pillar": "The Coffee Break",
+        "pillarId": "coffee-break",
+        "duration": "33 min",
+        "date": "2026-05-21",
+        "dateLabel": "Thu 21 May 2026",
+        "blurb": "Siobhan coordinates ninety volunteers and sings alto on Tuesdays. A lighter one: the delivery van, her old dog, and never saying busy.",
+        "notes": [
+          "How she keeps ninety volunteers turning up, and why she learns every name.",
+          "The delivery van that has outlasted three coordinators.",
+          "Choir on Tuesdays, and why she has banned the word busy."
+        ],
+        "quote": "Volunteers do not leave because of the work. They leave because nobody learned their name.",
+        "quoteBy": "Siobhan Keane",
+        "cover": "assets/images/gallery-01.jpg",
+        "coverAlt": "Cafe interior with a dark leather banquette, wooden tables and a copper pendant lamp",
+        "audio": null,
+        "href": "episodes.html#ep-72"
+      },
+      {
+        "n": 71,
+        "id": "ep-71",
+        "title": "Starting again at fifty",
+        "guest": "Henry Tso",
+        "role": "Founder, Spoke and Chain Bike Workshop",
+        "org": "Spoke and Chain Bike Workshop",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "duration": "40 min",
+        "date": "2026-05-14",
+        "dateLabel": "Thu 14 May 2026",
+        "blurb": "Henry left a bank at fifty to teach teenagers to fix bikes. On a pay cut, a cold garage, and the first kid who came back to teach.",
+        "notes": [
+          "Leaving a thirty-year banking career without a plan B.",
+          "The first winter in an unheated garage with six teenagers and four bikes.",
+          "What it meant when a former trainee came back as an instructor."
+        ],
+        "quote": "I spent thirty years moving numbers. Now a kid rides off on something we fixed. I can see that.",
+        "quoteBy": "Henry Tso",
+        "cover": "assets/images/cafe-06.jpg",
+        "coverAlt": "Loaves, pastries and fruit slices piled on a bakery counter under black pendant lamps, staff blurred behind",
+        "audio": null,
+        "href": "episodes.html#ep-71"
+      }
+    ],
+    "audioNote": {
+      "title": "Audio is coming to this page",
+      "text": "We are still wiring the player. Until then, every episode is on your podcast platform: search for Latte with Lata, or use the links below.",
+      "buttonLabel": "Listen on your platform",
+      "platforms": [
+        {
+          "name": "Spotify",
+          "href": "#",
+          "icon": "i-spotify",
+          "placeholder": true
+        },
+        {
+          "name": "Apple Podcasts",
+          "href": "#",
+          "icon": "i-apple",
+          "placeholder": true
+        },
+        {
+          "name": "YouTube",
+          "href": "#",
+          "icon": "i-youtube",
+          "placeholder": true
+        },
+        {
+          "name": "RSS",
+          "href": "#",
+          "icon": "i-rss",
+          "placeholder": true
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "latest",
+        "type": "episode-feature",
+        "eyebrow": "Latest episode",
+        "title": "THIS WEEK",
+        "episodeId": "ep-88",
+        "itemsFrom": "episodes.items[0]",
+        "cta": {
+          "label": "Read the notes",
+          "href": "#ep-88"
+        }
+      },
+      {
+        "id": "all-episodes",
+        "type": "episode-list",
+        "eyebrow": "Episodes 71 to 88",
+        "title": "ALL EPISODES",
+        "intro": "Every episode has all four parts. The tag marks the part the conversation leaned on most.",
+        "filterLabel": "Filter by part",
+        "filters": [
+          {
+            "id": "all",
+            "label": "All"
+          },
+          {
+            "id": "origin-story",
+            "label": "The Origin Story"
+          },
+          {
+            "id": "hard-trade-off",
+            "label": "The Hard Trade-off"
+          },
+          {
+            "id": "what-no-one-tells-you",
+            "label": "What No One Tells You"
+          },
+          {
+            "id": "coffee-break",
+            "label": "The Coffee Break"
+          }
+        ],
+        "emptyText": "No episodes under that part yet. Try another.",
+        "countText": "{count} episodes",
+        "labels": {
+          "guest": "Guest",
+          "duration": "Length",
+          "released": "Released",
+          "notes": "In this episode",
+          "quote": "From the conversation",
+          "listen": "Listen on your platform",
+          "showNotes": "Show notes",
+          "hideNotes": "Hide notes",
+          "episode": "Episode"
+        },
+        "itemsFrom": "episodes.items",
+        "archiveNote": "Episodes 1 to 70 are on your podcast platform. The notes for them are being added here in batches.",
+        "placeholder": true,
+        "placeholderNote": "Every guest, organization, title, quote and note is fictional. Replace with real episodes before launch."
+      },
+      {
+        "id": "audio",
+        "type": "notice",
+        "title": "AUDIO IS COMING TO THIS PAGE",
+        "text": "We are still wiring the player. Until then, every episode is on your podcast platform: search for Latte with Lata, or use the links below.",
+        "platforms": [
+          {
+            "name": "Spotify",
+            "href": "#",
+            "icon": "i-spotify",
+            "placeholder": true
+          },
+          {
+            "name": "Apple Podcasts",
+            "href": "#",
+            "icon": "i-apple",
+            "placeholder": true
+          },
+          {
+            "name": "YouTube",
+            "href": "#",
+            "icon": "i-youtube",
+            "placeholder": true
+          },
+          {
+            "name": "RSS",
+            "href": "#",
+            "icon": "i-rss",
+            "placeholder": true
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "No audio files exist yet. Every episode has audio: null and the platform links are #."
+      },
+      {
+        "id": "next",
+        "type": "cta",
+        "title": "HEAR THE NEXT ONE IN THE ROOM",
+        "text": "Every episode is recorded live on a Thursday night. It is free, and there is a chair for you.",
+        "ctas": [
+          {
+            "label": "What's on",
+            "href": "events.html"
+          },
+          {
+            "label": "Suggest a guest",
+            "href": "contact.html?topic=podcast-guest"
+          }
+        ]
+      }
+    ]
+  },
+  "events": {
+    "meta": {
+      "title": "Events | Latte with Lata",
+      "description": "Thursday recording nights at Latte with Lata: free, doors 6:30 pm, recording from 7:00 pm. See who is at the corner table next and reserve a seat."
+    },
+    "hero": {
+      "eyebrow": "What's on",
+      "title": "THURSDAY NIGHTS, LIVE",
+      "intro": "Every Thursday the chairs turn to face the corner table. Free, doors at 6:30 pm, and there is a chair for you.",
+      "image": "assets/images/page-events.jpg",
+      "alt": "The cafe at night, tables full and warm light in the windows."
+    },
+    "upcoming": [
+      {
+        "id": "rec-2026-09-24",
+        "date": "2026-09-24",
+        "dateLabel": "Thu 24 Sep 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "The clinic between the dryers",
+        "guest": "Dr Laila Mansour",
+        "role": "Family physician and co-director, Washday Health Project",
+        "org": "Washday Health Project",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "blurb": "Laila started seeing patients in a laundromat because that is where people already were. On going to the waiting room instead of building one.",
+        "image": "assets/images/event-01.jpg",
+        "alt": "The cafe at night with the chairs turned toward the corner table.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-09-24"
+      },
+      {
+        "id": "rec-2026-10-01",
+        "date": "2026-10-01",
+        "dateLabel": "Thu 1 Oct 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "A living wage on a charity budget",
+        "guest": "Jerome Baptiste",
+        "role": "Chief executive, Harrowfield Disability Alliance",
+        "org": "Harrowfield Disability Alliance",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "blurb": "Jerome raised every wage to a living wage and cut a programme to pay for it. On the sums, the board, and the letter he wrote to families.",
+        "image": "assets/images/event-02.jpg",
+        "alt": "A microphone on a stand under a warm lamp in the cafe.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-10-01"
+      },
+      {
+        "id": "rec-2026-10-08",
+        "date": "2026-10-08",
+        "dateLabel": "Thu 8 Oct 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "What no one tells you about your first board",
+        "guest": "Mei-Ling Zhou",
+        "role": "Board chair, Lantern Arts Trust",
+        "org": "Lantern Arts Trust",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "blurb": "Mei-Ling joined a board at twenty-eight and chaired it at thirty-four. On reading accounts, asking the obvious question, and when to resign.",
+        "image": "assets/images/event-03.jpg",
+        "alt": "An audience at small cafe tables listening to a conversation.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-10-08"
+      },
+      {
+        "id": "rec-2026-10-15",
+        "date": "2026-10-15",
+        "dateLabel": "Thu 15 Oct 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "Allotments, marathons and a terrible first boss",
+        "guest": "Tobias Engel",
+        "role": "Director, Greenway Parks Conservancy",
+        "org": "Greenway Parks Conservancy",
+        "pillar": "The Coffee Break",
+        "pillarId": "coffee-break",
+        "blurb": "Tobias looks after eleven parks and one stubborn allotment. A lighter evening: on running slowly, growing leeks, and the boss who taught him what not to do.",
+        "image": "assets/images/event-04.jpg",
+        "alt": "Two people talking across a table with microphones between them.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-10-15"
+      },
+      {
+        "id": "rec-2026-10-22",
+        "date": "2026-10-22",
+        "dateLabel": "Thu 22 Oct 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "From the classroom to the council chamber",
+        "guest": "Renata Kowalczyk",
+        "role": "City councillor and former teacher, Harrowfield",
+        "org": "Harrowfield City Council",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "blurb": "Renata taught history for fifteen years before she stood for election. On the pothole that started it, and what a classroom teaches about a chamber.",
+        "image": "assets/images/event-01.jpg",
+        "alt": "The cafe at night with the chairs turned toward the corner table.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-10-22"
+      },
+      {
+        "id": "rec-2026-10-29",
+        "date": "2026-10-29",
+        "dateLabel": "Thu 29 Oct 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "When the funder is wrong",
+        "guest": "Arjun Pillai",
+        "role": "Executive director, Clearwater Rivers Trust",
+        "org": "Clearwater Rivers Trust",
+        "pillar": "The Hard Trade-off",
+        "pillarId": "hard-trade-off",
+        "blurb": "Arjun told his largest funder their flagship project would not work. On evidence, nerve, and keeping the relationship after the meeting.",
+        "image": "assets/images/event-02.jpg",
+        "alt": "A microphone on a stand under a warm lamp in the cafe.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-10-29"
+      },
+      {
+        "id": "rec-2026-11-05",
+        "date": "2026-11-05",
+        "dateLabel": "Thu 5 Nov 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "What no one tells you about leaving",
+        "guest": "Ruth Abernathy",
+        "role": "Outgoing director, Fenwick Women's Refuge",
+        "org": "Fenwick Women's Refuge",
+        "pillar": "What No One Tells You",
+        "pillarId": "what-no-one-tells-you",
+        "blurb": "Ruth is handing over the refuge she has run for nineteen years. On succession, staying out of the way, and what she is afraid of missing.",
+        "image": "assets/images/event-03.jpg",
+        "alt": "An audience at small cafe tables listening to a conversation.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-11-05"
+      },
+      {
+        "id": "rec-2026-11-12",
+        "date": "2026-11-12",
+        "dateLabel": "Thu 12 Nov 2026",
+        "doors": "18:30",
+        "doorsLabel": "6:30 pm",
+        "start": "19:00",
+        "end": "20:15",
+        "title": "A school in a church hall",
+        "guest": "Ibrahim Saleh",
+        "role": "Head teacher, Open Door Community School",
+        "org": "Open Door Community School",
+        "pillar": "The Origin Story",
+        "pillarId": "origin-story",
+        "blurb": "Ibrahim opened a school with thirty pupils, borrowed chairs and no playground. On the first inspection, and the parents who stayed.",
+        "image": "assets/images/event-04.jpg",
+        "alt": "Two people talking across a table with microphones between them.",
+        "seats": 40,
+        "price": "Free",
+        "reserveHref": "book.html?type=recording&date=2026-11-12"
+      }
+    ],
+    "sections": [
+      {
+        "id": "recording-night",
+        "type": "explainer",
+        "eyebrow": "Every Thursday",
+        "title": "THE RECORDING NIGHT",
+        "lead": "Coffee. Leadership. Purpose. Real conversation. Thursday nights from 6:30 pm the chairs turn to face the corner table, and there is one for you.",
+        "paragraphs": [
+          "Every episode of the podcast is recorded live in the cafe on a Thursday night, in front of whoever turns up. One guest, one conversation, four parts, with a short break halfway.",
+          "It is free. Seats are first come, first seated. If you want to be sure of a chair, reserve one online and we will hold it until 6:50 pm.",
+          "The kitchen runs a short list of plates until 8:30 pm and the counter stays open. When the recording ends the guest stays for a coffee, and so can you."
+        ],
+        "facts": [
+          {
+            "label": "Price",
+            "value": "Free"
+          },
+          {
+            "label": "Seats",
+            "value": "40. First come, first seated, or reserve to be sure."
+          },
+          {
+            "label": "Doors",
+            "value": "6:30 pm"
+          },
+          {
+            "label": "Recording",
+            "value": "7:00 pm to 8:15 pm"
+          },
+          {
+            "label": "Kitchen",
+            "value": "Night plates until 8:30 pm"
+          }
+        ],
+        "timeline": [
+          {
+            "time": "6:00 pm",
+            "label": "The cafe closes for half an hour while we turn the room."
+          },
+          {
+            "time": "6:30 pm",
+            "label": "Doors. Find a seat, order a drink, order a plate."
+          },
+          {
+            "time": "6:50 pm",
+            "label": "Reserved seats that are still empty go to the room."
+          },
+          {
+            "time": "7:00 pm",
+            "label": "Recording starts. Phones on silent. There is a short break halfway."
+          },
+          {
+            "time": "8:15 pm",
+            "label": "Recording ends. The guest stays for a coffee."
+          },
+          {
+            "time": "8:30 pm",
+            "label": "Last plates from the kitchen."
+          },
+          {
+            "time": "9:30 pm",
+            "label": "We lock up, give or take a conversation."
+          }
+        ],
+        "ctas": [
+          {
+            "label": "Reserve a seat",
+            "href": "book.html?type=recording"
+          },
+          {
+            "label": "See the night plates",
+            "href": "menu.html#thursday-plates"
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "The 6:50 pm release time and the 9:30 pm close are placeholders. Price, doors, recording and kitchen times come from the brief."
+      },
+      {
+        "id": "upcoming",
+        "type": "event-list",
+        "eyebrow": "Coming up",
+        "title": "AT THE CORNER TABLE NEXT",
+        "intro": "The next eight Thursdays. Guests sometimes change at short notice; this page is always the current list.",
+        "labels": {
+          "doors": "Doors",
+          "guest": "Guest",
+          "seatsLeft": "{n} seats left",
+          "full": "Reserved seats are gone. Walk-in seats on the night.",
+          "free": "Free",
+          "reserve": "Reserve a seat",
+          "part": "Leans on"
+        },
+        "items": [
+          {
+            "id": "rec-2026-09-24",
+            "date": "2026-09-24",
+            "dateLabel": "Thu 24 Sep 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "The clinic between the dryers",
+            "guest": "Dr Laila Mansour",
+            "role": "Family physician and co-director, Washday Health Project",
+            "org": "Washday Health Project",
+            "pillar": "The Origin Story",
+            "pillarId": "origin-story",
+            "blurb": "Laila started seeing patients in a laundromat because that is where people already were. On going to the waiting room instead of building one.",
+            "image": "assets/images/event-01.jpg",
+            "alt": "The cafe at night with the chairs turned toward the corner table.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-09-24"
+          },
+          {
+            "id": "rec-2026-10-01",
+            "date": "2026-10-01",
+            "dateLabel": "Thu 1 Oct 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "A living wage on a charity budget",
+            "guest": "Jerome Baptiste",
+            "role": "Chief executive, Harrowfield Disability Alliance",
+            "org": "Harrowfield Disability Alliance",
+            "pillar": "The Hard Trade-off",
+            "pillarId": "hard-trade-off",
+            "blurb": "Jerome raised every wage to a living wage and cut a programme to pay for it. On the sums, the board, and the letter he wrote to families.",
+            "image": "assets/images/event-02.jpg",
+            "alt": "A microphone on a stand under a warm lamp in the cafe.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-10-01"
+          },
+          {
+            "id": "rec-2026-10-08",
+            "date": "2026-10-08",
+            "dateLabel": "Thu 8 Oct 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "What no one tells you about your first board",
+            "guest": "Mei-Ling Zhou",
+            "role": "Board chair, Lantern Arts Trust",
+            "org": "Lantern Arts Trust",
+            "pillar": "What No One Tells You",
+            "pillarId": "what-no-one-tells-you",
+            "blurb": "Mei-Ling joined a board at twenty-eight and chaired it at thirty-four. On reading accounts, asking the obvious question, and when to resign.",
+            "image": "assets/images/event-03.jpg",
+            "alt": "An audience at small cafe tables listening to a conversation.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-10-08"
+          },
+          {
+            "id": "rec-2026-10-15",
+            "date": "2026-10-15",
+            "dateLabel": "Thu 15 Oct 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "Allotments, marathons and a terrible first boss",
+            "guest": "Tobias Engel",
+            "role": "Director, Greenway Parks Conservancy",
+            "org": "Greenway Parks Conservancy",
+            "pillar": "The Coffee Break",
+            "pillarId": "coffee-break",
+            "blurb": "Tobias looks after eleven parks and one stubborn allotment. A lighter evening: on running slowly, growing leeks, and the boss who taught him what not to do.",
+            "image": "assets/images/event-04.jpg",
+            "alt": "Two people talking across a table with microphones between them.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-10-15"
+          },
+          {
+            "id": "rec-2026-10-22",
+            "date": "2026-10-22",
+            "dateLabel": "Thu 22 Oct 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "From the classroom to the council chamber",
+            "guest": "Renata Kowalczyk",
+            "role": "City councillor and former teacher, Harrowfield",
+            "org": "Harrowfield City Council",
+            "pillar": "The Origin Story",
+            "pillarId": "origin-story",
+            "blurb": "Renata taught history for fifteen years before she stood for election. On the pothole that started it, and what a classroom teaches about a chamber.",
+            "image": "assets/images/event-01.jpg",
+            "alt": "The cafe at night with the chairs turned toward the corner table.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-10-22"
+          },
+          {
+            "id": "rec-2026-10-29",
+            "date": "2026-10-29",
+            "dateLabel": "Thu 29 Oct 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "When the funder is wrong",
+            "guest": "Arjun Pillai",
+            "role": "Executive director, Clearwater Rivers Trust",
+            "org": "Clearwater Rivers Trust",
+            "pillar": "The Hard Trade-off",
+            "pillarId": "hard-trade-off",
+            "blurb": "Arjun told his largest funder their flagship project would not work. On evidence, nerve, and keeping the relationship after the meeting.",
+            "image": "assets/images/event-02.jpg",
+            "alt": "A microphone on a stand under a warm lamp in the cafe.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-10-29"
+          },
+          {
+            "id": "rec-2026-11-05",
+            "date": "2026-11-05",
+            "dateLabel": "Thu 5 Nov 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "What no one tells you about leaving",
+            "guest": "Ruth Abernathy",
+            "role": "Outgoing director, Fenwick Women's Refuge",
+            "org": "Fenwick Women's Refuge",
+            "pillar": "What No One Tells You",
+            "pillarId": "what-no-one-tells-you",
+            "blurb": "Ruth is handing over the refuge she has run for nineteen years. On succession, staying out of the way, and what she is afraid of missing.",
+            "image": "assets/images/event-03.jpg",
+            "alt": "An audience at small cafe tables listening to a conversation.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-11-05"
+          },
+          {
+            "id": "rec-2026-11-12",
+            "date": "2026-11-12",
+            "dateLabel": "Thu 12 Nov 2026",
+            "doors": "18:30",
+            "doorsLabel": "6:30 pm",
+            "start": "19:00",
+            "end": "20:15",
+            "title": "A school in a church hall",
+            "guest": "Ibrahim Saleh",
+            "role": "Head teacher, Open Door Community School",
+            "org": "Open Door Community School",
+            "pillar": "The Origin Story",
+            "pillarId": "origin-story",
+            "blurb": "Ibrahim opened a school with thirty pupils, borrowed chairs and no playground. On the first inspection, and the parents who stayed.",
+            "image": "assets/images/event-04.jpg",
+            "alt": "Two people talking across a table with microphones between them.",
+            "seats": 40,
+            "price": "Free",
+            "reserveHref": "book.html?type=recording&date=2026-11-12"
+          }
+        ],
+        "emptyText": "No recording nights are listed right now. Check back on Monday.",
+        "placeholder": true,
+        "placeholderNote": "Every upcoming guest and organization is fictional."
+      },
+      {
+        "id": "house-rules",
+        "type": "list",
+        "eyebrow": "In the room",
+        "title": "HOUSE RULES",
+        "intro": "There are not many.",
+        "items": [
+          {
+            "title": "Phones on silent",
+            "body": "The microphones hear everything. So does the person next to you."
+          },
+          {
+            "title": "Applause is welcome",
+            "body": "So is laughing. It is a live room and it should sound like one."
+          },
+          {
+            "title": "You may appear in photos",
+            "body": "We record audio and sometimes take photos for the show. We say so at the door. If you would rather stay out of frame, tell a member of staff and we will seat you accordingly."
+          },
+          {
+            "title": "Be seated by 6:50 pm",
+            "body": "Reserved seats are released at 6:50 pm. Once the recording starts we seat latecomers at the back, between parts."
+          },
+          {
+            "title": "Save your questions for afterwards",
+            "body": "There is no question time on the recording. The guest stays for a coffee, so ask them in person."
+          }
+        ]
+      },
+      {
+        "id": "other-events",
+        "type": "cards",
+        "eyebrow": "Also on",
+        "title": "OTHER WAYS TO USE THE ROOM",
+        "items": [
+          {
+            "id": "open-table",
+            "title": "Open table",
+            "when": "First Saturday of the month, 9:00 am to 10:30 am",
+            "body": "No guest and no microphones. One long table, a pot of filter coffee and one question about work on a card in the middle. Free. Just turn up and buy your own breakfast.",
+            "next": [
+              {
+                "date": "2026-10-03",
+                "dateLabel": "Sat 3 Oct 2026"
+              },
+              {
+                "date": "2026-11-07",
+                "dateLabel": "Sat 7 Nov 2026"
+              },
+              {
+                "date": "2026-12-05",
+                "dateLabel": "Sat 5 Dec 2026"
+              }
+            ],
+            "cta": {
+              "label": "Ask about Open table",
+              "href": "contact.html?topic=events"
+            }
+          },
+          {
+            "id": "private-hire",
+            "title": "Private hire",
+            "when": "Monday to Wednesday evenings, from 6:30 pm",
+            "body": "The room seats up to 40 for a board away-day dinner, a team evening or a book launch. We can run the night plates or a set menu, and the corner table microphones if you want the evening recorded.",
+            "cta": {
+              "label": "Ask about private hire",
+              "href": "contact.html?topic=events"
+            }
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Open table and private hire details are placeholders."
+      },
+      {
+        "id": "faqs",
+        "type": "faq",
+        "eyebrow": "Good to know",
+        "title": "BEFORE YOU COME",
+        "items": [
+          {
+            "id": "ticket",
+            "q": "Do I need a ticket?",
+            "a": "No. It is free and you can walk in. If you want to be sure of a seat, reserve one online. Reserved seats are held until 6:50 pm."
+          },
+          {
+            "id": "children",
+            "q": "Can I bring children?",
+            "a": "Yes, if they can sit through an hour of grown-up conversation. The talk is for adults and sometimes covers illness, prison, loss and money."
+          },
+          {
+            "id": "access",
+            "q": "Is the room accessible?",
+            "a": "Entry is step-free and there is an accessible toilet. Tell us what you need when you reserve and we will hold a seat that works, including space for a wheelchair."
+          },
+          {
+            "id": "recording",
+            "q": "Will I be on the recording?",
+            "a": "You will be heard clapping and laughing with everyone else. We never record audience conversations, and we say at the door when photos are being taken."
+          }
+        ]
+      },
+      {
+        "id": "reserve",
+        "type": "cta",
+        "title": "THERE IS A CHAIR FOR YOU",
+        "text": "Reserve a seat for a recording night, or catch up on the conversations you missed.",
+        "ctas": [
+          {
+            "label": "Reserve a seat",
+            "href": "book.html?type=recording"
+          },
+          {
+            "label": "All episodes",
+            "href": "episodes.html"
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | Latte with Lata",
+      "description": "Find Latte with Lata at 27 Bellwood Street, Harrowfield. Opening hours, directions, and how to write to us about bookings, events, press or the podcast."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "COME AND FIND US",
+      "intro": "27 Bellwood Street, on the corner of Fenwick Lane. Call, write, or just walk in.",
+      "image": "assets/images/page-contact.jpg",
+      "alt": "The front of the cafe from the street, door open and tables outside."
+    },
+    "topics": [
+      {
+        "value": "general",
+        "label": "A general question",
+        "hint": "Opening hours, lost property, anything that does not fit below."
+      },
+      {
+        "value": "booking",
+        "label": "A booking or a large group",
+        "hint": "Parties over 8, changes to a booking, accessibility needs."
+      },
+      {
+        "value": "events",
+        "label": "Events and private hire",
+        "hint": "Recording nights, Open table, or hiring the room."
+      },
+      {
+        "value": "podcast-guest",
+        "label": "Be a guest or suggest one",
+        "hint": "Tell us who, what they run, and the decision worth an hour."
+      },
+      {
+        "value": "press",
+        "label": "Press and partnerships",
+        "hint": "Interviews, features, images and speaking requests."
+      },
+      {
+        "value": "other",
+        "label": "Something else",
+        "hint": "Feedback, a complaint, or a kind word for the kitchen."
+      }
+    ],
+    "sections": [
+      {
+        "id": "find-us",
+        "type": "find-us",
+        "eyebrow": "Find us",
+        "title": "WHERE WE ARE",
+        "address": {
+          "name": "Latte with Lata",
+          "line1": "27 Bellwood Street",
+          "line2": "Corner of Fenwick Lane",
+          "city": "Harrowfield"
+        },
+        "phone": "(555) 014-2024",
+        "tel": "tel:+15550142024",
+        "email": "hello@lattewithlata.example",
+        "mailto": "mailto:hello@lattewithlata.example",
+        "directions": [
+          {
+            "mode": "On foot",
+            "icon": "walk",
+            "text": "Five minutes from Harrowfield Market Square. Walk north up Bellwood Street and we are on the corner of Fenwick Lane, under the brown awning.",
+            "placeholder": true
+          },
+          {
+            "mode": "By bus or train",
+            "icon": "transit",
+            "text": "Buses 4 and 11 stop at Fenwick Lane, right outside. Harrowfield Central station is a 12-minute walk.",
+            "placeholder": true
+          },
+          {
+            "mode": "By bike",
+            "icon": "bike",
+            "text": "There are six bike stands on Fenwick Lane, beside the side door.",
+            "placeholder": true
+          },
+          {
+            "mode": "By car",
+            "icon": "parking",
+            "text": "Street parking on Bellwood Street is free for 2 hours. The Market Square car park is five minutes away. There is one accessible bay outside the door.",
+            "placeholder": true
+          }
+        ],
+        "map": {
+          "label": "Open in maps",
+          "href": "#",
+          "placeholder": true,
+          "note": "No map embed. Link the real map URL when the address is real."
+        },
+        "hoursTitle": "Opening hours",
+        "hours": [
+          {
+            "days": "Mon - Wed",
+            "open": "7:00 am",
+            "close": "6:00 pm"
+          },
+          {
+            "days": "Thu",
+            "open": "7:00 am",
+            "close": "6:00 pm",
+            "note": "Reopens 6:30 pm for the recording"
+          },
+          {
+            "days": "Fri",
+            "open": "7:00 am",
+            "close": "10:00 pm"
+          },
+          {
+            "days": "Sat",
+            "open": "8:00 am",
+            "close": "10:00 pm"
+          },
+          {
+            "days": "Sun",
+            "open": "8:00 am",
+            "close": "3:00 pm"
+          }
+        ],
+        "hoursNote": "Thursdays we reopen at 6:30 pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.",
+        "kitchenNote": "Breakfast until 11:30 am. Brunch and lunch 11:30 am to 3:00 pm. Cakes, pastry and drinks until close.",
+        "ctas": [
+          {
+            "label": "Book a table",
+            "href": "book.html"
+          },
+          {
+            "label": "What's on",
+            "href": "events.html"
+          }
+        ],
+        "placeholder": true,
+        "placeholderNote": "Address, phone, email, hours and every direction line are fictional placeholders (Harrowfield does not exist; 555 numbers and .example domains cannot be reached)."
+      },
+      {
+        "id": "write",
+        "type": "contact-form",
+        "eyebrow": "Write to us",
+        "title": "SEND A MESSAGE",
+        "intro": "Pick what it is about so it reaches the right person. We reply within 2 working days.",
+        "responsePromise": "We reply to every message within 2 working days, Monday to Friday. If it is about a booking today, call us instead.",
+        "topicParam": "topic",
+        "topics": [
+          {
+            "value": "general",
+            "label": "A general question",
+            "hint": "Opening hours, lost property, anything that does not fit below."
+          },
+          {
+            "value": "booking",
+            "label": "A booking or a large group",
+            "hint": "Parties over 8, changes to a booking, accessibility needs."
+          },
+          {
+            "value": "events",
+            "label": "Events and private hire",
+            "hint": "Recording nights, Open table, or hiring the room."
+          },
+          {
+            "value": "podcast-guest",
+            "label": "Be a guest or suggest one",
+            "hint": "Tell us who, what they run, and the decision worth an hour."
+          },
+          {
+            "value": "press",
+            "label": "Press and partnerships",
+            "hint": "Interviews, features, images and speaking requests."
+          },
+          {
+            "value": "other",
+            "label": "Something else",
+            "hint": "Feedback, a complaint, or a kind word for the kitchen."
+          }
+        ],
+        "fields": {
+          "name": {
+            "label": "Your name",
+            "autocomplete": "name"
+          },
+          "email": {
+            "label": "Email",
+            "autocomplete": "email",
+            "inputmode": "email",
+            "help": "We only use it to reply."
+          },
+          "phone": {
+            "label": "Phone (optional)",
+            "autocomplete": "tel",
+            "inputmode": "tel"
+          },
+          "topic": {
+            "label": "What is it about?",
+            "placeholder": "Choose a topic"
+          },
+          "message": {
+            "label": "Your message",
+            "help": "A few sentences is plenty. 2,000 characters at most.",
+            "maxLength": 2000
+          }
+        },
+        "consent": "I agree that Latte with Lata may store this message and my contact details so it can reply. I have read the privacy summary.",
+        "consentLink": {
+          "label": "privacy summary",
+          "href": "#privacy"
+        },
+        "submitLabel": "Send message",
+        "sendingLabel": "Sending...",
+        "success": {
+          "title": "Message sent",
+          "text": "Thank you. It is in, and we will reply within 2 working days. For anything about a booking today, call (555) 014-2024."
+        },
+        "validation": {
+          "name": {
+            "required": "Tell us your name.",
+            "invalid": "Use at least 2 characters."
+          },
+          "email": {
+            "required": "We need an email address to reply to.",
+            "invalid": "That email does not look right. Check it and try again."
+          },
+          "phone": {
+            "invalid": "Enter a phone number with 7 to 15 digits, or leave it blank."
+          },
+          "topic": {
+            "required": "Choose what your message is about."
+          },
+          "message": {
+            "required": "Write your message.",
+            "tooShort": "Give us a little more to go on: at least 10 characters.",
+            "tooLong": "Keep it under 2,000 characters."
+          },
+          "consent": {
+            "required": "Please tick the box so we can store and answer your message."
+          }
+        },
+        "errors": {
+          "validation": "Some of the form needs another look. The details are next to each field.",
+          "rate_limited": "That is a lot of messages in a short time. Wait a few minutes and try again.",
+          "server_error": "Something went wrong on our side and your message was not sent. Try again, or email hello@lattewithlata.example.",
+          "unavailable": "We could not send your message just now. Try again, or email hello@lattewithlata.example.",
+          "network": "You seem to be offline. Check your connection and try again."
+        },
+        "fallback": "Online booking and messages are switched off on this copy of the site. Call (555) 014-2024 or email hello@lattewithlata.example and we will sort it out by hand."
+      },
+      {
+        "id": "press-guests",
+        "type": "guidance",
+        "eyebrow": "Press and guests",
+        "title": "PITCHING US",
+        "columns": [
+          {
+            "title": "Press",
+            "paragraphs": [
+              "For interviews, features or images, choose Press and partnerships and tell us your outlet, your deadline and what you need. We can supply photos of the room, the logo and a short description of the show.",
+              "Lata speaks about the podcast in a personal capacity only. She does not comment on behalf of any employer or institution, and requests about her day job will be declined."
+            ],
+            "cta": {
+              "label": "Write to us about press",
+              "href": "contact.html?topic=press#write"
+            }
+          },
+          {
+            "title": "Guests",
+            "paragraphs": [
+              "We look for people who run something built around a mission and have a decision they are willing to talk about honestly. Tell us who they are, what they run, and the origin story or trade-off that is worth an hour.",
+              "Please do not send a press kit. Three sentences is enough. Nobody pays to appear, and we do not take pitches for products."
+            ],
+            "cta": {
+              "label": "Suggest a guest",
+              "href": "contact.html?topic=podcast-guest#write"
+            }
+          }
+        ]
+      },
+      {
+        "id": "privacy",
+        "type": "legal",
+        "eyebrow": "Privacy",
+        "title": "WHAT WE DO WITH YOUR DETAILS",
+        "template": true,
+        "reviewNote": "Template for legal review. Written in plain language for the study build; it has not been checked by a lawyer and must be reviewed against local privacy law before launch.",
+        "intro": "This is a plain summary of what this site collects, why, and how long we keep it. We collect as little as we can.",
+        "blocks": [
+          {
+            "title": "Who we are",
+            "body": "Latte with Lata, 27 Bellwood Street, Harrowfield. For anything about your data, email hello@lattewithlata.example or ask at the counter."
+          },
+          {
+            "title": "When you book a table or reserve a seat",
+            "body": "We collect your name, email, phone number, the date, time and size of your party, and any occasion or notes you choose to add. We use them to hold your table, to contact you if something changes, and to recognise you if you book again. We keep booking records for 12 months after the date of the booking, then delete them."
+          },
+          {
+            "title": "When you send us a message",
+            "body": "We collect your name, email, phone number if you give one, the topic and your message. We use them to reply. We keep messages for 12 months after our last reply, then delete them."
+          },
+          {
+            "title": "When you join the newsletter",
+            "body": "We collect your email address, the date you agreed and the page you signed up on. We use it to send one email a week. We keep it until you unsubscribe, which you can do from any email or by asking us."
+          },
+          {
+            "title": "Marketing",
+            "body": "We only send marketing email if you tick the box. Booking without ticking it changes nothing about your booking."
+          },
+          {
+            "title": "Who sees it",
+            "body": "Cafe staff who need it to run bookings and answer messages. We do not sell your details, share them with advertisers or pass them to the host's employer or any other institution."
+          },
+          {
+            "title": "Cookies",
+            "body": "The public site sets no advertising or tracking cookies. The staff sign-in to the booking system uses one essential cookie."
+          },
+          {
+            "title": "Recording nights",
+            "body": "Thursday recordings are audio-recorded and sometimes photographed. We say so at the door. Tell a member of staff if you would rather stay out of photos."
+          },
+          {
+            "title": "Asking us to delete or correct something",
+            "body": "Email hello@lattewithlata.example from the address you used, or ask at the counter. Tell us what you want removed: a booking, a message, your newsletter sign-up or everything. We confirm within 2 working days and finish within 30 days. We may need to keep anything the law requires us to keep."
+          }
+        ],
+        "retention": [
+          {
+            "data": "Bookings",
+            "period": "12 months after the booking date"
+          },
+          {
+            "data": "Messages",
+            "period": "12 months after our last reply"
+          },
+          {
+            "data": "Newsletter sign-ups",
+            "period": "Until you unsubscribe"
+          }
+        ],
+        "updated": "Last updated 17 Sep 2026",
+        "placeholder": true,
+        "placeholderNote": "Retention for messages (12 months), the 30-day completion time and the cookie statement are proposals. Only the 12-month booking retention comes from the brief."
+      },
+      {
+        "id": "credits",
+        "type": "credits",
+        "eyebrow": "Photo credits",
+        "title": "WHO TOOK THE PHOTOS",
+        "text": "Apart from the portrait of Lata Singh, which is her own, the photos and the home-page video on this site are licensed images from Wikimedia Commons, used under CC0, CC BY or CC BY-SA terms. Every photographer, licence and source link is listed in the site's asset register (ASSETS.md) and in the Photo credits panel in the footer.",
+        "note": "Spotted a missing or wrong credit? Write to us and we will fix it within 2 working days.",
+        "cta": {
+          "label": "Report a credit",
+          "href": "contact.html?topic=other#write"
+        }
+      }
+    ]
+  },
+  "book": {
+    "meta": {
+      "title": "Book a Table | Latte with Lata",
+      "description": "Book a table at Latte with Lata in Harrowfield, or reserve a free seat at a Thursday recording night. It takes about a minute. No deposit, no account."
+    },
+    "hero": {
+      "eyebrow": "Bookings",
+      "title": "BOOK A TABLE",
+      "intro": "Pick a day, a time and a party size. It takes about a minute, and you get a booking reference straight away.",
+      "image": "assets/images/page-book.jpg",
+      "alt": "A set table by the cafe window with two cups and a small reserved sign."
+    },
+    "sections": [
+      {
+        "id": "booking",
+        "type": "booking-form",
+        "eyebrow": "Book online",
+        "title": "RESERVE YOUR SPOT",
+        "intro": "No deposit and no account. Walk-ins are always welcome too; booking just means the table is waiting.",
+        "typeToggle": {
+          "legend": "What would you like to book?",
+          "options": [
+            {
+              "value": "table",
+              "label": "A table",
+              "hint": "Breakfast, lunch, coffee or a Friday evening. Up to 8 people."
+            },
+            {
+              "value": "recording",
+              "label": "A seat at the recording",
+              "hint": "Thursday nights. Free. Doors at 6:30 pm. Up to 4 seats."
+            }
+          ],
+          "recordingExplainer": {
+            "title": "About recording nights",
+            "text": "Every Thursday we record the podcast live at the corner table. It is free and most seats are first come, first seated. Reserving holds your seats until 6:50 pm. Doors open at 6:30 pm, the recording runs from 7:00 pm to 8:15 pm, and the kitchen serves plates until 8:30 pm.",
+            "link": {
+              "label": "See who is on",
+              "href": "events.html#upcoming"
+            }
+          }
+        },
+        "steps": [
+          {
+            "id": "when",
+            "n": 1,
+            "label": "When",
+            "title": "Pick a day",
+            "help": "We take bookings up to 60 days ahead. Days we are closed or full are greyed out.",
+            "helpRecording": "Recording nights are Thursdays. Pick one from the list."
+          },
+          {
+            "id": "time",
+            "n": 2,
+            "label": "Time",
+            "title": "Pick a time",
+            "help": "Times are shown in 30-minute steps. A sitting is 90 minutes. Greyed-out times are full.",
+            "helpRecording": "Doors open at 6:30 pm. Be seated by 6:50 pm."
+          },
+          {
+            "id": "party",
+            "n": 3,
+            "label": "Party",
+            "title": "How many of you?",
+            "help": "Up to 8 online. For a bigger group, call or email and we will plan the tables.",
+            "helpRecording": "Up to 4 seats on one reservation, so there is room for everyone. Count children too.",
+            "max": 8,
+            "maxRecording": 4
+          },
+          {
+            "id": "details",
+            "n": 4,
+            "label": "Your details",
+            "title": "Who is it for?",
+            "help": "We use these to hold the booking and to reach you if something changes. Nothing else."
+          },
+          {
+            "id": "confirm",
+            "n": 5,
+            "label": "Confirm",
+            "title": "Check and confirm",
+            "help": "Have a last look. You can cancel online up to 2 hours before."
+          }
+        ],
+        "fields": {
+          "date": {
+            "label": "Date"
+          },
+          "time": {
+            "label": "Time"
+          },
+          "party": {
+            "label": "Number of people",
+            "inputmode": "numeric",
+            "decrease": "One fewer",
+            "increase": "One more",
+            "unitOne": "person",
+            "unitMany": "people",
+            "seatOne": "seat",
+            "seatMany": "seats"
+          },
+          "name": {
+            "label": "Name for the booking",
+            "autocomplete": "name"
+          },
+          "email": {
+            "label": "Email",
+            "autocomplete": "email",
+            "inputmode": "email",
+            "help": "You need this, with your reference, to change or cancel."
+          },
+          "phone": {
+            "label": "Mobile number",
+            "autocomplete": "tel",
+            "inputmode": "tel",
+            "help": "Only used if something changes on the day."
+          },
+          "occasion": {
+            "label": "Occasion (optional)",
+            "placeholder": "No occasion"
+          },
+          "notes": {
+            "label": "Anything we should know? (optional)",
+            "help": "Allergies, a high chair, step-free seating, a quiet corner. 500 characters at most.",
+            "maxLength": 500
+          }
+        },
+        "occasions": [
+          {
+            "value": "none",
+            "label": "No occasion"
+          },
+          {
+            "value": "birthday",
+            "label": "Birthday"
+          },
+          {
+            "value": "meeting",
+            "label": "Work meeting"
+          },
+          {
+            "value": "date",
+            "label": "Date"
+          },
+          {
+            "value": "recording-guest",
+            "label": "Here for the recording night"
+          },
+          {
+            "value": "other",
+            "label": "Something else"
+          }
+        ],
+        "availability": {
+          "loading": "Checking the book...",
+          "closed": "We are closed that day. Pick another date.",
+          "noSlots": "Nothing left for that party size on this day. Try another day, or call us.",
+          "seatsLeft": "{n} seats left",
+          "lastFew": "Last few",
+          "full": "Full",
+          "recordingFull": "Reserved seats for this night are gone. Walk-in seats are first come, first seated from 6:30 pm.",
+          "timezoneNote": "All times are Harrowfield local time.",
+          "reasons": {
+            "invalid_date": "That date does not look right. Pick another.",
+            "past": "That date has passed. Pick today or later.",
+            "too_far": "We take bookings up to 60 days ahead. Pick an earlier date.",
+            "blocked": "We are not taking bookings on that date. Pick another, or call us.",
+            "closed": "We are closed that day. Pick another date.",
+            "not_recording_night": "Recording nights are Thursdays, doors at 6:30 pm. Pick a Thursday.",
+            "too_late_today": "Online booking has closed for today. Call us and we will do our best.",
+            "full": "We are fully booked for that party size on this date. Try another day, or call us."
+          }
+        },
+        "summary": {
+          "title": "Your booking",
+          "type": "Booking",
+          "typeTable": "A table",
+          "typeRecording": "Seats at the recording",
+          "date": "Date",
+          "time": "Time",
+          "party": "Party",
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "occasion": "Occasion",
+          "notes": "Notes",
+          "edit": "Change"
+        },
+        "consent": "I agree that Latte with Lata may store these details to manage my booking. I have read the privacy summary.",
+        "consentLink": {
+          "label": "privacy summary",
+          "href": "contact.html#privacy"
+        },
+        "marketingOptIn": "Also send me the Thursday email: who is at the corner table next, and what the kitchen is doing. One email a week, unsubscribe any time.",
+        "buttons": {
+          "next": "Next",
+          "back": "Back",
+          "confirm": "Confirm booking",
+          "confirmRecording": "Reserve my seats",
+          "sending": "Booking...",
+          "startOver": "Start again"
+        },
+        "validation": {
+          "type": {
+            "required": "Choose a table or a seat at the recording."
+          },
+          "date": {
+            "required": "Pick a date.",
+            "invalid": "That date does not look right.",
+            "past": "That date has passed. Pick today or later.",
+            "tooFar": "We take bookings up to 60 days ahead.",
+            "closed": "We are closed that day. Pick another date.",
+            "notRecordingNight": "Recording nights are Thursdays. Pick a Thursday."
+          },
+          "time": {
+            "required": "Pick a time.",
+            "invalid": "Pick one of the times shown.",
+            "unavailable": "That time has just been taken. Pick another."
+          },
+          "party": {
+            "required": "Tell us how many people are coming.",
+            "invalid": "Enter a number from 1 to 8.",
+            "min": "A booking needs at least 1 person.",
+            "max": "Online bookings go up to 8. For a bigger group, call or email us.",
+            "maxRecording": "Recording night seats are limited to 4 per reservation."
+          },
+          "name": {
+            "required": "Tell us the name for the booking.",
+            "invalid": "Use at least 2 characters.",
+            "tooLong": "Keep the name under 80 characters."
+          },
+          "email": {
+            "required": "We need an email so you can find or cancel your booking.",
+            "invalid": "That email does not look right. Check it and try again."
+          },
+          "phone": {
+            "required": "We need a number in case something changes on the day.",
+            "invalid": "Enter a phone number with 7 to 15 digits."
+          },
+          "occasion": {
+            "invalid": "Choose an occasion from the list, or leave it blank."
+          },
+          "notes": {
+            "tooLong": "Keep notes under 500 characters."
+          },
+          "consent": {
+            "required": "Please tick the box so we can hold the booking."
+          }
+        },
+        "errors": {
+          "validation": "Some details need another look. The messages are next to each field.",
+          "slot_full": "Someone just took the last table at that time. Pick another time and we will hold it for you.",
+          "duplicate": "You already have a booking at that time under this email. Use Manage a booking to check or cancel it.",
+          "rate_limited": "That is a lot of attempts in a short time. Wait a few minutes and try again, or call us.",
+          "unavailable": "The booking system is not answering right now. Try again in a minute, or call (555) 014-2024.",
+          "party_too_large": "Online bookings go up to 8. For a bigger group, call (555) 014-2024 or email hello@lattewithlata.example.",
+          "closed": "We are closed at that time. Pick another day or time.",
+          "tonight_closed": "Online booking for tonight has closed. Come to the door: walk-ins are seated if there is room.",
+          "server_error": "Something went wrong on our side. Your booking was not made. Try again, or call (555) 014-2024.",
+          "network": "You seem to be offline. Check your connection and try again."
+        },
+        "success": {
+          "title": "You are booked",
+          "titleRecording": "Your seats are reserved",
+          "text": "A table for {party} on {date} at {time}. Your reference is {reference}.",
+          "textRecording": "{party} at the recording on {date}. Doors open at {time}. Your reference is {reference}.",
+          "partyTokenNote": "{party} is always a counted label, never a bare number: '1 person' / '2 people' for a table, '1 seat' / '2 seats' for a recording night (fields.party.unitOne / unitMany / seatOne / seatMany). The same rule applies to the manage copy.",
+          "referenceLabel": "Booking reference",
+          "keep": "Keep this reference. You need it, with your email, to change or cancel the booking.",
+          "hold": "We hold tables for 15 minutes. If you are running late, call (555) 014-2024.",
+          "holdRecording": "Reserved seats are held until 6:50 pm, then released to the room.",
+          "pending": "Your request is in, and we will confirm it shortly. Your reference is {reference}.",
+          "emailLine": "We have also sent these details to your email.",
+          "emailLineNote": "Show emailLine only once confirmation emails are really sent. The study build writes to an outbox file and sends nothing.",
+          "actions": [
+            {
+              "label": "See the menu",
+              "href": "menu.html"
+            },
+            {
+              "label": "Manage this booking",
+              "href": "#manage"
+            },
+            {
+              "label": "Book another",
+              "href": "#booking"
+            }
+          ]
+        },
+        "fallback": "Online booking and messages are switched off on this copy of the site. Call (555) 014-2024 or email hello@lattewithlata.example and we will sort it out by hand."
+      },
+      {
+        "id": "policy",
+        "type": "list",
+        "eyebrow": "The small print",
+        "title": "HOW BOOKINGS WORK",
+        "items": [
+          {
+            "id": "hold",
+            "title": "We hold your table for 15 minutes",
+            "body": "After that it goes back to the room. Call if you are running late and we will do what we can."
+          },
+          {
+            "id": "sitting",
+            "title": "Sittings are 90 minutes",
+            "body": "Long enough for breakfast and a second coffee. If nobody is waiting, stay as long as you like."
+          },
+          {
+            "id": "large",
+            "title": "Parties over 8: call or email",
+            "body": "We plan big tables by hand. Call (555) 014-2024 or email hello@lattewithlata.example a few days ahead."
+          },
+          {
+            "id": "cancel",
+            "title": "Cancel up to 2 hours before",
+            "body": "Use Manage a booking with your reference and email. Inside 2 hours, please call so the table can go to someone else."
+          },
+          {
+            "id": "free",
+            "title": "No deposit, no card",
+            "body": "Booking is free. Recording nights are free too."
+          }
+        ],
+        "contact": {
+          "phone": "(555) 014-2024",
+          "tel": "tel:+15550142024",
+          "email": "hello@lattewithlata.example",
+          "mailto": "mailto:hello@lattewithlata.example"
+        }
+      },
+      {
+        "id": "manage",
+        "type": "manage-booking",
+        "eyebrow": "Already booked?",
+        "title": "MANAGE A BOOKING",
+        "intro": "Enter your booking reference and the email you booked with.",
+        "fields": {
+          "reference": {
+            "label": "Booking reference",
+            "placeholder": "LWL-XXXXXX",
+            "help": "Six characters after LWL-. It was shown when you booked.",
+            "autocomplete": "off"
+          },
+          "email": {
+            "label": "Email",
+            "autocomplete": "email",
+            "inputmode": "email"
+          }
+        },
+        "submitLabel": "Find my booking",
+        "searchingLabel": "Looking...",
+        "found": {
+          "title": "Your booking",
+          "text": "{party} on {date} at {time}. Reference {reference}.",
+          "statusLabel": "Status",
+          "statuses": {
+            "pending": "Waiting for confirmation",
+            "confirmed": "Confirmed",
+            "seated": "Seated",
+            "completed": "Completed",
+            "cancelled": "Cancelled",
+            "no_show": "Missed"
+          }
+        },
+        "cancel": {
+          "button": "Cancel this booking",
+          "confirmTitle": "Cancel this booking?",
+          "confirmText": "Your booking for {party} on {date} at {time} will be cancelled. This cannot be undone.",
+          "confirmYes": "Yes, cancel it",
+          "confirmNo": "Keep my booking",
+          "done": "Booking {reference} is cancelled. Thank you for letting us know.",
+          "tooLate": "It is less than 2 hours before your booking, so it cannot be cancelled online. Please call (555) 014-2024.",
+          "alreadyCancelled": "This booking has already been cancelled."
+        },
+        "change": "To change the day, time or party size, cancel this booking and make a new one, or call us and we will move it for you.",
+        "validation": {
+          "reference": {
+            "required": "Enter your booking reference.",
+            "invalid": "A reference looks like LWL-ABC123."
+          },
+          "email": {
+            "required": "Enter the email you booked with.",
+            "invalid": "That email does not look right. Check it and try again."
+          }
+        },
+        "errors": {
+          "not_found": "We could not find a booking with that reference and email. Check both and try again.",
+          "too_late": "It is less than 2 hours before your booking, so it cannot be cancelled online. Please call (555) 014-2024.",
+          "not_cancellable": "This booking can no longer be cancelled online. Please call (555) 014-2024.",
+          "already_cancelled": "This booking has already been cancelled.",
+          "server_error": "Something went wrong on our side. Nothing was changed. Try again, or call (555) 014-2024.",
+          "rate_limited": "That is a lot of attempts in a short time. Wait a few minutes and try again.",
+          "unavailable": "The booking system is not answering right now. Try again in a minute, or call (555) 014-2024.",
+          "network": "You seem to be offline. Check your connection and try again."
+        }
+      },
+      {
+        "id": "help",
+        "type": "cta",
+        "title": "RATHER TALK TO A PERSON?",
+        "text": "Call (555) 014-2024 during opening hours, or write to us and we will reply within 2 working days.",
+        "ctas": [
+          {
+            "label": "Call (555) 014-2024",
+            "href": "tel:+15550142024"
+          },
+          {
+            "label": "Write to us",
+            "href": "contact.html?topic=booking"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+<main id="signin" class="signin" aria-labelledby="signin-title" hidden>
+  <div class="signin__brand">
+    <img class="signin__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+    <p class="signin__wordmark">Latte with Lata</p>
+    <p class="signin__tagline">Real Conversations. Built on Purpose.</p>
+  </div>
+  <div class="signin__panel">
+    <div class="signin__card">
+      <p class="a-eyebrow">Staff only</p>
+      <h1 id="signin-title" class="signin__title" tabindex="-1">Front of house</h1>
+      <p class="signin__lead">Sign in with the staff token to see today's tables, guests and messages.</p>
+      <form id="signin-form" class="form" novalidate>
+        <div class="field">
+          <label class="field__label" for="signin-token">Staff token</label>
+          <input class="input" id="signin-token" name="token" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" required aria-describedby="signin-token-hint signin-token-error">
+          <p class="field__hint" id="signin-token-hint">The token is never saved in this browser. A session lasts 12 hours.</p>
+          <p class="field__error" id="signin-token-error" aria-live="polite"></p>
+        </div>
+        <p class="notice" id="signin-notice" role="alert" hidden></p>
+        <button class="a-btn a-btn--primary a-btn--block a-btn--lg" type="submit" id="signin-submit">Sign in</button>
+      </form>
+      <p class="signin__foot"><a href="index.html">Back to the website</a></p>
+    </div>
+  </div>
+</main>

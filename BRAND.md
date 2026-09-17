@@ -103,6 +103,6 @@ side (`--markClear`). Tagline "Real Conversations. Built on Purpose." lives in t
    coffee all week and, Thursday nights, a candid conversation with a mission-driven leader." (`brand.shortDescription` is the fallback).
 6. **Focus ring** is drawn as `outline: 2px solid var(--colFocus)` in base.css; the band classes flip `--colFocus` to white, so no section
    needs an override. `--focusRing` stays in tokens.css for reference only (a custom property resolves `var()` where it is declared).
-7. **Motion controls**: the hero video has a visible 48 px pause / play disc in every mode (fades in with the tagline); the 08 ticker has a
+7. **Motion controls** (updated 2026-09-17, client decision): the hero video has NO visible pause / play control - it autoplays muted, pauses when scrolled off screen, and never plays under prefers-reduced-motion or Save-Data (poster shown). The 08 ticker has a
    44 px pause / play disc at the row's right edge (hidden under reduced motion, where the loop never runs). The visitor's choice wins
    over the in-view scroll triggers.

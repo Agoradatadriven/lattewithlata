@@ -1,0 +1,48 @@
+<div id="app" class="crm" hidden>
+  <a class="a-skip" href="#page-content">Skip to content</a>
+
+  <header class="crm__side" id="crm-side">
+    <a class="crm__brand" href="#/today" aria-label="Latte with Lata front of house, go to Today">
+      <img src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <span class="crm__brand-text"><strong>Latte with Lata</strong><span>Front of house</span></span>
+    </a>
+    <nav class="crm__nav" aria-label="Sections">
+      <ul>
+        <li><a href="#/today" data-nav="today"><svg class="a-icon" aria-hidden="true"><use href="#ai-today"></use></svg><span>Today</span></a></li>
+        <li><a href="#/bookings" data-nav="bookings"><svg class="a-icon" aria-hidden="true"><use href="#ai-calendar"></use></svg><span>Bookings</span></a></li>
+        <li><a href="#/customers" data-nav="customers"><svg class="a-icon" aria-hidden="true"><use href="#ai-users"></use></svg><span>Customers</span></a></li>
+        <li><a href="#/messages" data-nav="messages"><svg class="a-icon" aria-hidden="true"><use href="#ai-mail"></use></svg><span>Messages</span><span class="crm__count" data-count="messages" hidden></span></a></li>
+        <li><a href="#/subscribers" data-nav="subscribers"><svg class="a-icon" aria-hidden="true"><use href="#ai-at"></use></svg><span>Subscribers</span></a></li>
+        <li><a href="#/activity" data-nav="activity"><svg class="a-icon" aria-hidden="true"><use href="#ai-activity"></use></svg><span>Activity</span></a></li>
+        <li><a href="#/settings" data-nav="settings"><svg class="a-icon" aria-hidden="true"><use href="#ai-settings"></use></svg><span>Settings</span></a></li>
+      </ul>
+    </nav>
+    <div class="crm__side-foot">
+      <button type="button" class="crm__side-btn" data-action="export"><svg class="a-icon" aria-hidden="true"><use href="#ai-download"></use></svg><span>Export CSV</span></button>
+      <a class="crm__side-btn" href="index.html"><svg class="a-icon" aria-hidden="true"><use href="#ai-external"></use></svg><span>View website</span></a>
+      <button type="button" class="crm__side-btn" data-action="signout"><svg class="a-icon" aria-hidden="true"><use href="#ai-logout"></use></svg><span>Sign out</span></button>
+    </div>
+  </header>
+
+  <header class="crm__top">
+    <a class="crm__top-brand" href="#/today" aria-label="Latte with Lata front of house, go to Today">
+      <img src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+    </a>
+    <p class="crm__top-title" id="crm-top-title" aria-hidden="true">Today</p>
+    <button type="button" class="crm__top-btn" data-action="add-booking" aria-label="Add booking"><svg class="a-icon" aria-hidden="true"><use href="#ai-plus"></use></svg></button>
+  </header>
+
+  <main id="page-content" class="crm__main" tabindex="-1">
+    <div id="view" class="view"></div>
+  </main>
+
+  <nav class="crm__tabs" aria-label="Sections">
+    <ul>
+      <li><a href="#/today" data-nav="today"><svg class="a-icon" aria-hidden="true"><use href="#ai-today"></use></svg><span>Today</span></a></li>
+      <li><a href="#/bookings" data-nav="bookings"><svg class="a-icon" aria-hidden="true"><use href="#ai-calendar"></use></svg><span>Bookings</span></a></li>
+      <li><a href="#/customers" data-nav="customers"><svg class="a-icon" aria-hidden="true"><use href="#ai-users"></use></svg><span>Customers</span></a></li>
+      <li><a href="#/messages" data-nav="messages"><svg class="a-icon" aria-hidden="true"><use href="#ai-mail"></use></svg><span>Messages</span><span class="crm__count" data-count="messages" hidden></span></a></li>
+      <li><button type="button" data-action="more" data-nav="more" aria-haspopup="dialog"><svg class="a-icon" aria-hidden="true"><use href="#ai-more"></use></svg><span>More</span></button></li>
+    </ul>
+  </nav>
+</div>

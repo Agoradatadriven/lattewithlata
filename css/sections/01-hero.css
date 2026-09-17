@@ -6,7 +6,8 @@
                 SC = IC(eberg)/source/css/inline-scoped.beautified.css
                 DD = teardowns/BEST-PARTS-latte-with-lata.md
    Scoped under #s-01-hero. Every ported value cites file:line; invented = INFERRED.
-   Z-order inside the section (BUILD-SPEC 01 (c)): media 0 > video 1, overlay (::before) 1, mark 2, wordmark 2, tagline 2, play control 3.
+   Z-order inside the section (BUILD-SPEC 01 (c)): media 0 > video 1, overlay (::before) 1, mark 2, wordmark 2, tagline 2.
+   PAGES UPDATE (2026-09-17): the play / pause disc and all of its rules were removed (PAGES-SPEC 1b - no visible video control).
    BRAND EDITION (2026-09-17, BK = brand kit): colour tokens, Creato type roles (sizes unchanged), the white mark above the
    wordmark, the kit tagline, a readability overlay under the white text (design-system "video-first hero, 40-60% dark overlay").
    Geometry, clip-path slot, char roll and drift are untouched.
@@ -18,7 +19,7 @@
     height: 100vh;                                     /* CS:239-241 (.home .banner__slide { height: 100vh }); SC:936 */
     background: var(--colNero);                        /* CS:235 (.banner { background: var(--colNero) }) = BK espresso */
     color: var(--colOnBrand);                          /* SC:1037 / 1096 (logo + sentence: var(--color-white)) re-expressed as the token */
-    --colFocus: var(--colOnBrand);                     /* white focus ring over the dark media (play control) - INFERRED; base.css reads --colFocus directly */
+    --colFocus: var(--colOnBrand);                     /* white focus ring over the dark media - INFERRED; base.css reads --colFocus directly */
     overflow: hidden;                                  /* RH:155 (.banner style="overflow: hidden", set by _page-scroll.beautified.js:364 s.css({overflow:"hidden"})) */
     z-index: var(--z-content);                         /* Z-INDEX PLAN: section content plane */
 }
@@ -169,26 +170,3 @@ html:not(.js-ok) #s-01-hero .hero__row .char { transform: none; }
     opacity: 0;                                        /* start state: the timeline fades it in at initial+=2 (M9, INFERRED substitution for DrawSVG) */
 }
 html:not(.js-ok) #s-01-hero .hero__tagline { opacity: 1; }   /* no-JS fallback - INFERRED */
-
-/* ---- play/pause control - always available (WCAG 2.2.2: the looping video runs > 5 s; review MUST-FIX 3); shown from the start when autoplay is withheld
-        (reduced motion / Save-Data), faded in with the tagline otherwise (01-hero.js). Disc geometry = .button--rounded (PZ _button.scss:150-155) at 3em ---- */
-#s-01-hero .hero__play {
-    position: absolute;
-    right: var(--vpad);
-    bottom: calc(var(--vpad) * 2);
-    z-index: 3;
-    width: 3em; height: 3em;
-    border-radius: 50%;
-    border: 1px solid var(--colOnBrand);
-    background: var(--colOverlayStrong);               /* BK --colBrandDeep at 60% (was rgba(26,20,17,.6)) */
-    color: var(--colOnBrand);
-    display: inline-flex; align-items: center; justify-content: center;
-    cursor: pointer;                                   /* _splide.beautified.js:32 (l.style.cursor = "pointer") */
-}
-#s-01-hero .hero__play:hover { background: var(--colBrand); }   /* BK hover feedback: solid brand disc, no movement - INFERRED */
-@media screen and (prefers-reduced-motion: no-preference) { #s-01-hero .hero__play { transition: background-color var(--aniUi) var(--easeInOutSine); } }
-#s-01-hero .hero__play[hidden] { display: none; }
-#s-01-hero .hero__play .icon { width: 1.25em; height: 1.25em; }
-#s-01-hero .hero__play .hero__play-icon--pause { display: none; }
-#s-01-hero .hero__play[aria-pressed="true"] .hero__play-icon--play { display: none; }
-#s-01-hero .hero__play[aria-pressed="true"] .hero__play-icon--pause { display: block; }

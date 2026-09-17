@@ -105,3 +105,12 @@ All ten SVGs: served as `image/svg+xml`, no `width`/`height` attributes, `<title
 artwork bounds listed above, fills resolve to `rgb(80,37,6)` / `rgb(255,255,255)` / `rgb(0,0,0)` / the inherited
 `color` for currentColor; the mask, `<img>` and external `<use>` paths all render (contact sheet 16-128px on white,
 brown and accent). OG image: 1200x630 JPEG q88, 38.9 KB.
+
+
+## Update 2026-09-17 (pages pass) - supersedes the header rows above
+
+- **Header:** carries NO logo and no wordmark text (client decision). Layout is burger left, "Book a table" right. The header rows in the tables above are historical.
+- **After the hero:** the brown mark sits alone, centred above the first title (`.mark-row`, 72px desktop / 56px mobile, decorative `alt=""`). Every sub-page repeats this directly after its page hero.
+- **Drawer:** still shows the white mark at 72px, now linked to `index.html` (the way home, since the header has no logo).
+- **Host section:** the illustrated cup `assets/svg/cup-branded.svg` embeds the official mark paths unmodified on the cup body.
+- **Footer, favicon, stamp, social image:** unchanged.

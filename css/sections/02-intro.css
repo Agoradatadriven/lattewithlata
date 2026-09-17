@@ -17,3 +17,11 @@
 /* BRAND EDITION (2026-09-17): everything else is the base roles - h1.strip__title1 = Creato Bold 700 uppercase ls -.01em in --colTitle
    (--colBrand, 13.1:1 on white), paragraphs = Creato Regular 400 --colText 16/1.6 (17px at >= 60em via base.css `main p:not([class])`,
    10.8:1), .read-more = Creato Bold .9em ls .08em in --colBrand with the accent hover + 44px hit box (base.css s10). Nothing to add. */
+
+/* PAGES UPDATE (2026-09-17, PAGES-SPEC 1c): .mark-row - "just the logo" right after the hero: the brown cup mark centred above the h1, 72px
+   (56px below 48em), decorative. Same values as the sub-page kit (css/pages/_shell.css .mark-row - the home page does not load that file).
+   Brown on white per LOGO-USAGE; never stretched (height + width:auto; the width/height attrs reserve the 0.844 box, no CLS); clear space
+   below = --vpad/2 (28.8 / 12.8px) >= the saucer height (8.2 / 6.4px). It reveals with the section's own .anima--bottom-in class. */
+#s-02-intro .mark-row { display: flex; justify-content: center; margin: 0 0 calc(var(--vpad) / 2); }
+#s-02-intro .mark-row__mark { display: block; height: 56px; width: auto; max-width: none; }
+@media (min-width: 48em) { #s-02-intro .mark-row__mark { height: 72px; } }

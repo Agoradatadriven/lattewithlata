@@ -22,6 +22,14 @@
 #s-09-episodes .strip { --bgStrip: var(--colNero); --strip-text-color: var(--colOnBrand); }
 #s-09-episodes a:not(.button) { color: inherit; }                          /* PZ main.1:7154-7156 .bg-np-black a:not(.button) */
 #s-09-episodes a:not(.button):hover { color: var(--colAccent); }           /* PZ main.1:7158-7160 (read-more label + disc turn accent on hover, as the source) */
+/* FINAL home check 2026-09-17 (shared-polish request): caramel text on the brand-brown band was 2.00:1 on hover. The read-more now stays white
+   (13.06:1) with an underline on hover / focus; the disc is currentColor (white) and the arrow brand brown on it (13.06:1) - the pattern
+   11-live already uses. Before: hover disc caramel 2.00:1 on the band, and on keyboard focus the white arrow sat on a white disc (1:1). */
+#s-09-episodes a.read-more:hover, #s-09-episodes a.read-more:focus-visible {
+    color: var(--colOnBrand);
+    text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .3em;   /* decoration only: no layout shift */
+}
+#s-09-episodes .read-more::after { background-color: var(--colBrand); }
 
 /* ---- rail: base.css s12 (PZ _strip_site.scss:163-211). Only the picture-rail assumptions are lifted for a text card. */
 #s-09-episodes .strip__gallery { text-align: left; }                       /* base .strip__gallery { text-align: center } (PZ main.1:5059-5066) - the card is left-aligned copy */

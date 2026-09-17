@@ -1,56 +1,120 @@
 {
   "brand": {
     "name": "Latte with Lata",
-    "wordmarkLines": ["LATTE", "WITH LATA"],
+    "wordmarkLines": [
+      "LATTE",
+      "WITH LATA"
+    ],
     "tagline": "Real Conversations. Built on Purpose.",
     "shortDescription": "A podcast cafe in Harrowfield: good coffee all week, and every Thursday night a candid, unhurried conversation with a mission-driven leader, recorded live.",
     "metaShort": "A podcast cafe in Harrowfield: coffee all week and, Thursday nights, a candid conversation with a mission-driven leader.",
     "mark": "assets/svg/mark.svg"
   },
-
   "nav": [
-    { "label": "The Cafe", "href": "#s-02-intro" },
-    { "label": "Menu", "href": "#s-06-menu" },
-    { "label": "The Podcast", "href": "#s-08-podcast" },
-    { "label": "Episodes", "href": "#s-09-episodes" },
-    { "label": "Hosts", "href": "#s-10-hosts" },
-    { "label": "Events", "href": "#s-11-live" },
-    { "label": "Contact", "href": "#s-12-visit-listen" }
+    {
+      "label": "Home",
+      "href": "index.html"
+    },
+    {
+      "label": "The Cafe",
+      "href": "cafe.html"
+    },
+    {
+      "label": "Menu",
+      "href": "menu.html"
+    },
+    {
+      "label": "The Podcast",
+      "href": "podcast.html"
+    },
+    {
+      "label": "Episodes",
+      "href": "episodes.html"
+    },
+    {
+      "label": "The Host",
+      "href": "podcast.html#host"
+    },
+    {
+      "label": "Events",
+      "href": "events.html"
+    },
+    {
+      "label": "Contact",
+      "href": "contact.html"
+    }
   ],
   "bookingLabel": "Book a table",
-  "bookingUrl": "#book",
+  "bookingUrl": "book.html",
+  "manageBooking": {
+    "label": "Manage a booking",
+    "href": "book.html#manage"
+  },
   "listenOn": [
-    { "name": "Spotify", "href": "#", "icon": "i-spotify" },
-    { "name": "Apple Podcasts", "href": "#", "icon": "i-apple" },
-    { "name": "YouTube", "href": "#", "icon": "i-youtube" },
-    { "name": "RSS", "href": "#", "icon": "i-rss" }
+    {
+      "name": "Spotify",
+      "href": "#",
+      "icon": "i-spotify"
+    },
+    {
+      "name": "Apple Podcasts",
+      "href": "#",
+      "icon": "i-apple"
+    },
+    {
+      "name": "YouTube",
+      "href": "#",
+      "icon": "i-youtube"
+    },
+    {
+      "name": "RSS",
+      "href": "#",
+      "icon": "i-rss"
+    }
   ],
-
   "hero": {
     "poster": "assets/images/hero-poster.jpg",
     "video": "assets/video/hero.webm",
     "tagline": "Real Conversations. Built on Purpose.",
     "sr": "Latte with Lata. A short, silent video of milk being poured into a latte at the counter of a warm, sunlit cafe."
   },
-
   "intro": {
     "title": "A CAFE WITH A MICROPHONE",
     "paragraphs": [
       "Thoughtful conversations with people building careers, organizations, and movements around purpose.",
       "Pull up a chair and discover the stories behind mission-driven work."
     ],
-    "cta": { "label": "The cafe", "href": "#s-04-story-a" }
+    "cta": {
+      "label": "The cafe",
+      "href": "cafe.html"
+    }
   },
-
   "gallery": [
-    { "src": "assets/images/gallery-01.jpg", "alt": "The cafe room in the morning: wooden tables, a long bench under the window and light on the floor." },
-    { "src": "assets/images/gallery-02.jpg", "alt": "Steamed milk being poured into a latte at the counter." },
-    { "src": "assets/images/gallery-03.jpg", "alt": "Croissants and slices of cake lined up in the pastry cabinet." },
-    { "src": "assets/images/gallery-04.jpg", "alt": "The corner table with two microphones on stands and a pair of headphones." },
-    { "src": "assets/images/gallery-05.jpg", "alt": "A latte with a rosetta poured into the foam, seen from above." },
-    { "src": "assets/images/gallery-06.jpg", "alt": "The counter, the grinder and the espresso machine with cups stacked on top." }
+    {
+      "src": "assets/images/gallery-01.jpg",
+      "alt": "The cafe room in the morning: wooden tables, a long bench under the window and light on the floor."
+    },
+    {
+      "src": "assets/images/gallery-02.jpg",
+      "alt": "Steamed milk being poured into a latte at the counter."
+    },
+    {
+      "src": "assets/images/gallery-03.jpg",
+      "alt": "Croissants and slices of cake lined up in the pastry cabinet."
+    },
+    {
+      "src": "assets/images/gallery-04.jpg",
+      "alt": "The corner table with two microphones on stands and a pair of headphones."
+    },
+    {
+      "src": "assets/images/gallery-05.jpg",
+      "alt": "A latte with a rosetta poured into the foam, seen from above."
+    },
+    {
+      "src": "assets/images/gallery-06.jpg",
+      "alt": "The counter, the grinder and the espresso machine with cups stacked on top."
+    }
   ],
-
   "storyA": {
     "title": "FROM FIRST POUR TO LAST WORD",
     "paragraphs": [
@@ -58,45 +122,85 @@
       "The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.",
       "The machine has since been replaced. The rule has not."
     ],
-    "cta": { "label": "Discover the story", "href": "#cafe" },
+    "cta": {
+      "label": "Discover the story",
+      "href": "cafe.html#story"
+    },
     "images": [
-      { "src": "assets/images/story-a-1.jpg", "alt": "A barista tamping a portafilter at the espresso machine." },
-      { "src": "assets/images/story-a-2.jpg", "alt": "A table by the window with two cups, a saucer of crumbs and a folded newspaper." }
+      {
+        "src": "assets/images/story-a-1.jpg",
+        "alt": "A barista tamping a portafilter at the espresso machine."
+      },
+      {
+        "src": "assets/images/story-a-2.jpg",
+        "alt": "A table by the window with two cups, a saucer of crumbs and a folded newspaper."
+      }
     ]
   },
-
   "strip": {
     "src": "assets/images/strip-wide.jpg",
     "alt": "The cafe from the street in daylight, door open, a few tables outside under the awning."
   },
-
   "menu": {
     "title": "ON THE MENU",
     "paragraph": "Espresso from a roaster two streets over, croissants baked at six, and brunch until the kitchen runs out. The prices are for a cup at the counter; a seat by the window, or at the corner table, costs the same.",
     "items": [
-      { "src": "assets/images/food-01.jpg", "alt": "A double espresso in a small white cup on a saucer.", "name": "Espresso", "price": "$4.00" },
-      { "src": "assets/images/food-02.jpg", "alt": "A cappuccino with thick foam, dusted with chocolate.", "name": "Cappuccino", "price": "$5.50" },
-      { "src": "assets/images/food-03.jpg", "alt": "A butter croissant on a plate, torn open to show the layers.", "name": "Butter croissant", "price": "$5.00" },
-      { "src": "assets/images/food-04.jpg", "alt": "A slice of cardamom cake with a fork on a small plate.", "name": "Cardamom cake", "price": "$7.50" },
-      { "src": "assets/images/food-05.jpg", "alt": "A brunch plate: fried eggs, greens and grilled sourdough.", "name": "Eggs, greens, sourdough", "price": "$18.00" },
-      { "src": "assets/images/food-06.jpg", "alt": "A tall glass of cold brew over ice on a wooden table.", "name": "Cold brew", "price": "$6.50" }
+      {
+        "src": "assets/images/food-01.jpg",
+        "alt": "A double espresso in a small white cup on a saucer.",
+        "name": "Espresso",
+        "price": "$4.00"
+      },
+      {
+        "src": "assets/images/food-02.jpg",
+        "alt": "A cappuccino with thick foam, dusted with chocolate.",
+        "name": "Cappuccino",
+        "price": "$5.50"
+      },
+      {
+        "src": "assets/images/food-03.jpg",
+        "alt": "A butter croissant on a plate, torn open to show the layers.",
+        "name": "Butter croissant",
+        "price": "$5.00"
+      },
+      {
+        "src": "assets/images/food-04.jpg",
+        "alt": "A slice of cardamom cake with a fork on a small plate.",
+        "name": "Cardamom cake",
+        "price": "$7.50"
+      },
+      {
+        "src": "assets/images/food-05.jpg",
+        "alt": "A brunch plate: fried eggs, greens and grilled sourdough.",
+        "name": "Eggs, greens, sourdough",
+        "price": "$18.00"
+      },
+      {
+        "src": "assets/images/food-06.jpg",
+        "alt": "A tall glass of cold brew over ice on a wooden table.",
+        "name": "Cold brew",
+        "price": "$6.50"
+      }
     ],
     "ctas": [
-      { "label": "See the menu", "href": "#menu" },
-      { "label": "Book a table", "href": "#book" }
+      {
+        "label": "See the menu",
+        "href": "menu.html"
+      },
+      {
+        "label": "Book a table",
+        "href": "book.html"
+      }
     ]
   },
-
   "manifesto": {
     "sentence": "Behind every organization, movement and meaningful career are difficult decisions, unexpected lessons, doubts and defining moments - we bring those stories to the table."
   },
-
   "podcast": {
     "ticker": "LATTE WITH LATA - NEW EPISODE EVERY THURSDAY",
     "eyebrow": "There's more behind every mission",
     "paragraph": "Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish."
   },
-
   "episodes": [
     {
       "n": 88,
@@ -107,7 +211,7 @@
       "date": "2026-09-10",
       "blurb": "Marisol said no to the biggest cheque in her nonprofit's history. On strings, dignity, and the board meeting that followed.",
       "cover": "assets/images/episode-01.jpg",
-      "href": "#"
+      "href": "episodes.html#ep-88"
     },
     {
       "n": 87,
@@ -118,7 +222,7 @@
       "date": "2026-09-03",
       "blurb": "Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.",
       "cover": "assets/images/episode-02.jpg",
-      "href": "#"
+      "href": "episodes.html#ep-87"
     },
     {
       "n": 86,
@@ -129,7 +233,7 @@
       "date": "2026-08-27",
       "blurb": "Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.",
       "cover": "assets/images/episode-03.jpg",
-      "href": "#"
+      "href": "episodes.html#ep-86"
     },
     {
       "n": 85,
@@ -140,7 +244,7 @@
       "date": "2026-08-20",
       "blurb": "Elias hires people on the day they leave prison. On the phone call that started it, a first year of losses, and keeping the door open.",
       "cover": "assets/images/episode-04.jpg",
-      "href": "#"
+      "href": "episodes.html#ep-85"
     },
     {
       "n": 84,
@@ -151,7 +255,7 @@
       "date": "2026-08-13",
       "blurb": "Rosa has knocked on more doors than she can count. On patience, small wins, and what a street knows that a strategy deck does not.",
       "cover": "assets/images/episode-05.jpg",
-      "href": "#"
+      "href": "episodes.html#ep-84"
     },
     {
       "n": 83,
@@ -162,47 +266,90 @@
       "date": "2026-08-06",
       "blurb": "Grace kept a hospice team together through the hardest three years in nursing. On staying, and the coffee break that saved a shift.",
       "cover": "assets/images/episode-06.jpg",
-      "href": "#"
+      "href": "episodes.html#ep-83"
     }
   ],
-  "episodesCta": { "label": "All episodes", "href": "#episodes" },
-
+  "episodesCta": {
+    "label": "All episodes",
+    "href": "episodes.html"
+  },
   "hosts": {
     "title": "MEET LATA",
     "name": "Lata Singh",
-    "role": "Founder and host",
+    "role": "Host",
     "paragraphs": [
-      "Lata Singh is the founder and host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.",
+      "Lata Singh is the host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.",
       "She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.",
       "She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on."
     ],
-    "cta": { "label": "Join the conversation", "href": "#hosts" },
+    "cta": {
+      "label": "Join the conversation",
+      "href": "podcast.html"
+    },
     "images": [
-      { "src": "assets/brand/lata-singh.jpg", "alt": "Lata Singh, founder and host of Latte with Lata, seated in her office and looking at the camera." },
-      { "src": "assets/images/host-corner.jpg", "alt": "The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table." }
+      {
+        "src": "assets/images/founder-portrait.jpg",
+        "alt": "Lata Singh, host of Latte with Lata"
+      },
+      {
+        "src": "assets/images/host-corner.jpg",
+        "alt": "The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table."
+      }
     ]
   },
-
   "live": {
     "eyebrow": "Pull up a chair",
     "quote": "Coffee. Leadership. Purpose. Real conversation. Thursday nights from 6:30 pm the chairs turn to face the corner table, and there is one for you.",
     "images": [
-      { "src": "assets/images/mosaic-01.jpg", "alt": "The cafe at night from the street, windows glowing and every table taken." },
-      { "src": "assets/images/mosaic-02.jpg", "alt": "People at small tables leaning in to listen, cups and glasses in front of them." },
-      { "src": "assets/images/mosaic-03.jpg", "alt": "Lata and a guest talking at the corner table, microphones between them." },
-      { "src": "assets/images/mosaic-04.jpg", "alt": "A microphone on a stand under a warm lamp, the room out of focus behind it." },
-      { "src": "assets/images/mosaic-05.jpg", "alt": "The audience seen from the corner table, faces lit by the window lights." }
+      {
+        "src": "assets/images/mosaic-01.jpg",
+        "alt": "The cafe at night from the street, windows glowing and every table taken."
+      },
+      {
+        "src": "assets/images/mosaic-02.jpg",
+        "alt": "People at small tables leaning in to listen, cups and glasses in front of them."
+      },
+      {
+        "src": "assets/images/mosaic-03.jpg",
+        "alt": "Lata and a guest talking at the corner table, microphones between them."
+      },
+      {
+        "src": "assets/images/mosaic-04.jpg",
+        "alt": "A microphone on a stand under a warm lamp, the room out of focus behind it."
+      },
+      {
+        "src": "assets/images/mosaic-05.jpg",
+        "alt": "The audience seen from the corner table, faces lit by the window lights."
+      }
     ],
-    "cta": { "label": "What's on", "href": "#events" }
+    "cta": {
+      "label": "What's on",
+      "href": "events.html"
+    }
   },
-
   "visit": {
     "title": "VISIT",
     "hours": [
-      { "days": "Mon - Thu", "open": "7:00 am", "close": "6:00 pm" },
-      { "days": "Fri", "open": "7:00 am", "close": "10:00 pm" },
-      { "days": "Sat", "open": "8:00 am", "close": "10:00 pm" },
-      { "days": "Sun", "open": "8:00 am", "close": "3:00 pm" }
+      {
+        "days": "Mon - Thu",
+        "open": "7:00 am",
+        "close": "6:00 pm"
+      },
+      {
+        "days": "Fri",
+        "open": "7:00 am",
+        "close": "10:00 pm"
+      },
+      {
+        "days": "Sat",
+        "open": "8:00 am",
+        "close": "10:00 pm"
+      },
+      {
+        "days": "Sun",
+        "open": "8:00 am",
+        "close": "3:00 pm"
+      }
     ],
     "note": "Thursdays we reopen at 6:30 pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.",
     "address": {
@@ -212,26 +359,41 @@
     },
     "phone": "(555) 014-2024",
     "phoneHref": "tel:+15550142024",
-    "bookingUrl": "#book",
-    "directionsUrl": "#directions"
+    "bookingUrl": "book.html",
+    "directionsLabel": "Get directions",
+    "directionsUrl": "contact.html#find-us"
   },
-
   "listen": {
     "title": "LISTEN",
     "intro": "For leaders, aspiring leaders, professionals, and anyone searching for more meaning in the work they do. A new conversation every Thursday, wherever you already listen.",
     "platforms": [
-      { "name": "Spotify", "href": "#", "icon": "i-spotify" },
-      { "name": "Apple Podcasts", "href": "#", "icon": "i-apple" },
-      { "name": "YouTube", "href": "#", "icon": "i-youtube" },
-      { "name": "RSS", "href": "#", "icon": "i-rss" }
+      {
+        "name": "Spotify",
+        "href": "#",
+        "icon": "i-spotify"
+      },
+      {
+        "name": "Apple Podcasts",
+        "href": "#",
+        "icon": "i-apple"
+      },
+      {
+        "name": "YouTube",
+        "href": "#",
+        "icon": "i-youtube"
+      },
+      {
+        "name": "RSS",
+        "href": "#",
+        "icon": "i-rss"
+      }
     ],
     "latest": {
       "title": "The grant we turned down",
       "duration": "44 min",
-      "href": "#"
+      "href": "episodes.html"
     }
   },
-
   "newsletter": {
     "eyebrow": "Stay for the conversation",
     "paragraph": "The conversation doesn't end with the podcast. Follow along for meaningful moments, leadership insights, guest stories and upcoming conversations. One email a week, never more.",
@@ -240,16 +402,31 @@
     "submitLabel": "Subscribe",
     "success": "You are on the list. See you Thursday.",
     "error": "That address did not go through. Check it and try once more.",
-    "endpoint": "#",
+    "endpoint": "/api/subscribe",
+    "privacyUrl": "contact.html#privacy",
     "follow": [
-      { "label": "Spotify", "href": "#" },
-      { "label": "Apple Podcasts", "href": "#" },
-      { "label": "YouTube", "href": "#" },
-      { "label": "RSS", "href": "#" },
-      { "label": "Instagram", "href": "#" }
+      {
+        "label": "Spotify",
+        "href": "#"
+      },
+      {
+        "label": "Apple Podcasts",
+        "href": "#"
+      },
+      {
+        "label": "YouTube",
+        "href": "#"
+      },
+      {
+        "label": "RSS",
+        "href": "#"
+      },
+      {
+        "label": "Instagram",
+        "href": "#"
+      }
     ]
   },
-
   "footer": {
     "legal": "Copyright 2026 Latte with Lata. All rights reserved. Latte with Lata is a personal platform and is independent of any employer or institution.",
     "columns": {
@@ -269,25 +446,81 @@
         "Thursday recordings: doors 6:30 pm"
       ],
       "sitemap": [
-        { "label": "The Cafe", "href": "#s-02-intro" },
-        { "label": "Menu", "href": "#s-06-menu" },
-        { "label": "The Podcast", "href": "#s-08-podcast" },
-        { "label": "Episodes", "href": "#s-09-episodes" },
-        { "label": "Hosts", "href": "#s-10-hosts" },
-        { "label": "Events", "href": "#s-11-live" },
-        { "label": "Contact", "href": "#s-12-visit-listen" }
+        {
+          "label": "The Cafe",
+          "href": "cafe.html"
+        },
+        {
+          "label": "Menu",
+          "href": "menu.html"
+        },
+        {
+          "label": "The Podcast",
+          "href": "podcast.html"
+        },
+        {
+          "label": "Episodes",
+          "href": "episodes.html"
+        },
+        {
+          "label": "Events",
+          "href": "events.html"
+        },
+        {
+          "label": "Contact",
+          "href": "contact.html"
+        },
+        {
+          "label": "Book a table",
+          "href": "book.html"
+        }
+      ],
+      "legalLinks": [
+        {
+          "label": "Privacy",
+          "href": "contact.html#privacy"
+        },
+        {
+          "label": "Photo credits",
+          "href": "contact.html#credits"
+        },
+        {
+          "label": "Manage a booking",
+          "href": "book.html#manage"
+        }
       ],
       "listen": [
-        { "label": "Spotify", "href": "#" },
-        { "label": "Apple Podcasts", "href": "#" },
-        { "label": "YouTube", "href": "#" },
-        { "label": "RSS", "href": "#" }
+        {
+          "label": "Spotify",
+          "href": "#"
+        },
+        {
+          "label": "Apple Podcasts",
+          "href": "#"
+        },
+        {
+          "label": "YouTube",
+          "href": "#"
+        },
+        {
+          "label": "RSS",
+          "href": "#"
+        }
       ],
       "socials": [
-        { "label": "Instagram", "href": "#", "icon": "i-instagram" },
-        { "label": "YouTube", "href": "#", "icon": "i-youtube" }
+        {
+          "label": "Instagram",
+          "href": "#",
+          "icon": "i-instagram"
+        },
+        {
+          "label": "YouTube",
+          "href": "#",
+          "icon": "i-youtube"
+        }
       ]
     },
+    "homeUrl": "index.html",
     "wordmark": "LATTE WITH LATA",
     "backToTop": "Back to top",
     "credit": "Site by Agora Data Driven"

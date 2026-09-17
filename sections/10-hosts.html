@@ -4,16 +4,49 @@
       [281].strip__data.strip__column.strip__column--2.pt-md.md:pb-md.text-narrow.js-image-anime.anima--right-in (h2, p x6 incl. &nbsp; spacers, p > a.read-more, figure --after)).
      No .mobile-first (source): the portrait column stays first on phones. The <p>&nbsp;</p> spacer lines become margins in css/sections/10-hosts.css (INFERRED, as 04).
      Stamp: the source column 1 carries .strip--stamp; the class is kept but the mark is switched OFF in the CSS (DD Pick 13: 4 instances = 05, 04, 08, 14).
-     Copy: content/site.json hosts.* (verbatim: title, name, role, paragraphs[0..2], cta, images[0..1].alt). Images eager (initImageAnime strips loading="lazy" anyway, PZ _page-scroll.beautified.js:143-145).
-     BRAND 2026-09-17 (lane C): portrait = the founder photo (assets/images/founder-portrait.jpg, a 1200x1800 2:3 crop of assets/brand/lata-singh.jpg at focus 50%/20%,
-     object-position 50% 20%); hosts.name + hosts.role rendered as a byline (Bold name + eyebrow role) between the h2 and the paragraphs, inside the existing text block. -->
+     Copy: content/site.json hosts.* (title, name, role, paragraphs[0..2], cta, images[0..1].alt). Images eager (initImageAnime strips loading="lazy" anyway, PZ _page-scroll.beautified.js:143-145).
+
+     PAGES UPDATE 2026-09-17 (lane FOUNDER, PAGES-SPEC 1.d / 1.e):
+     - "Founder" is gone: she is "Lata Singh" / "Host" (byline, lower third, first paragraph "Lata Singh is the host.", img alt).
+     - Portrait re-framed: assets/images/founder-portrait.jpg is now a 1600x2000 4:5 crop of assets/brand/lata-singh.jpg (2048 square) =
+       box x 190-1828, y 0-2048: the FULL source height, the 4:5 ratio is the only thing that trims (205 px left, 220 px right). Face centre
+       38% from the top, whole head + hair + both shoulders in frame. Crop + Lanczos downscale only: her photo is never retouched,
+       recoloured, generated or composited. founder-portrait-wide.jpg = the full square at 1600x1600 (spare, for 1:1 slots).
+     - "In the podcast": a DESIGNED broadcast frame AROUND the unedited photo - every layer is an HTML/CSS/SVG overlay, aria-hidden,
+       pointer-events none, and none of them covers her eyes or mouth at any width or scroll position (face box = x 35-73%, y 12-55% of the
+       figure; the layers live at x < 27%, x > 78% or y > 80%):
+         .hosts__onair   "ON AIR" chip, top-left (white plate, caramel dot, 2 s pulse)
+         .hosts__mic     studio microphone line art on a boom arm from the top-right corner (assets/svg/podcast-mic.svg, CSS mask, white 90%)
+         .hosts__lower   video-podcast lower third, bottom-left: 7-bar level meter + "LATA SINGH" Bold / "HOST" Medium tracked, on a
+                         brand-brown 85% plate with a 2px caramel rule
+         .hosts__cup     the branded latte cup (assets/svg/cup-branded.svg: original flat illustration + the OFFICIAL mark on the cup body,
+                         the kit's own path data placed by <use>, never redrawn) hanging over the bottom-right corner, with two steam lines
+     - figure.hosts__stage is the positioning box (overflow visible, so the cup can hang over the corner); the zoom-settle clip window
+       .strip__image moved one level down and holds ONLY the photo, so core's `.strip__image img` query never reaches an overlay.
+     - DROP-IN SLOT for a real podcast photograph: put the file at assets/images/founder-podcast.jpg (4:5 portrait, >= 1600x2000, her face in
+       the middle third) and set data-podcast-photo="assets/images/founder-podcast.jpg" on figure.hosts__stage below. js/sections/10-hosts.js
+       probes it with an Image(); on load it becomes the figure image (4:5 cover) and the drawn microphone hides (.hosts__stage--photo);
+       on error nothing changes. The attribute is EMPTY by default = no request at all. Optional data-podcast-focus="50% 30%" = object-position.
+     - id="host" on the h2: deep-link target (index.html#host); the site-wide "The Host" link points at podcast.html#host (PAGES-SPEC s3). -->
 <section id="s-10-hosts" class="strip strip--columns bg-band-black strip--wide story story--inverted hosts">
   <div class="container">
     <div class="strip__data strip__column strip__column--1 pt-md md-pb-md strip--stamp js-image-anime anima--left-in">
       <div class="strip__column__content">
         <div class="strip__text">
-          <figure class="strip__image strip__image--after hosts__portrait">
-            <img src="assets/images/founder-portrait.jpg" width="1200" height="1800" alt="Lata Singh, founder and host of Latte with Lata, seated in her office and looking at the camera." loading="eager" decoding="async">
+          <figure class="hosts__stage" data-podcast-photo="" data-podcast-focus="">
+            <div class="strip__image strip__image--after hosts__portrait">
+              <img class="hosts__photo" src="assets/images/founder-portrait.jpg" width="1600" height="2000" alt="Lata Singh, host of Latte with Lata" loading="eager" decoding="async">
+            </div>
+            <span class="hosts__mic" aria-hidden="true"></span>
+            <div class="hosts__onair" aria-hidden="true"><span class="hosts__onair-dot"></span><span class="hosts__onair-label">On air</span></div>
+            <div class="hosts__lower" aria-hidden="true">
+              <span class="hosts__meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="hosts__lower-text"><span class="hosts__lower-name">Lata Singh</span><span class="hosts__lower-role">Host</span></span>
+            </div>
+            <div class="hosts__cup" aria-hidden="true">
+              <svg class="hosts__steam" viewBox="0 0 60 80" focusable="false"><path pathLength="100" d="M22 78c-10-12 8-20 0-34s8-22 2-40"/><path pathLength="100" d="M40 78c8-12-8-22 0-36s-6-20 0-34"/></svg>
+              <img class="hosts__cup-art" src="assets/svg/cup-branded.svg" width="320" height="290" alt="" decoding="async">
+            </div>
           </figure>
         </div>
       </div>
@@ -21,12 +54,12 @@
     <div class="strip__data strip__column strip__column--2 pt-md md-pb-md text-narrow js-image-anime anima--right-in">
       <div class="strip__column__content">
         <div class="strip__text">
-          <h2 class="strip__title1 js-split">MEET LATA</h2>
-          <p class="hosts__byline"><span class="hosts__name">Lata Singh</span> <span class="hosts__role">Founder and host</span></p>
-          <p>Lata Singh is the founder and host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.</p>
+          <h2 id="host" class="strip__title1 js-split">MEET LATA</h2>
+          <p class="hosts__byline"><span class="hosts__name">Lata Singh</span> <span class="hosts__role">Host</span></p>
+          <p>Lata Singh is the host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.</p>
           <p>She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.</p>
           <p>She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on.</p>
-          <p><a class="read-more" href="#hosts">Join the conversation</a></p>
+          <p><a class="read-more" href="podcast.html">Join the conversation</a></p>
           <figure class="strip__image strip__image--after">
             <img src="assets/images/host-corner.jpg" width="1200" height="1800" alt="The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table." loading="eager" decoding="async">
           </figure>

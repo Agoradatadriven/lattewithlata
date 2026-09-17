@@ -1,0 +1,177 @@
+<!-- events 03-upcoming - the next eight recording nights. Static cards = content/pages.json events.upcoming (verbatim) so the page works with no API;
+     js/pages/events.js overlays GET /api/events (seats left, Full, not bookable) on the cards by id, drops past nights and builds any night the API adds.
+     Every reserve button goes to book.html?type=recording&date=YYYY-MM-DD (the booking page owns the form). Anchor: #upcoming; each card id = rec-YYYY-MM-DD.
+     data-label-* on the list = the runtime strings (events.sections[upcoming].labels). -->
+<section id="p-events-03-upcoming" class="strip strip--normal bg-band-cream2 upcoming" aria-labelledby="upcoming-title">
+  <div id="upcoming" class="upcoming__wrap pt-lg pb-lg">
+    <div class="container">
+      <div class="upcoming__head">
+        <div class="strip__data">
+          <p class="eyebrow mb-xs">Coming up</p>
+          <h2 id="upcoming-title" class="strip__title1">AT THE CORNER TABLE NEXT</h2>
+        </div>
+        <div class="upcoming__intro anima--bottom-in">
+          <p>The next eight Thursdays. Guests sometimes change at short notice; this page is always the current list.</p>
+          <p class="caption caption--muted upcoming__pillar-note">Every episode has all four parts. The tag marks the part the conversation leaned on most.</p>
+        </div>
+      </div>
+      <ul class="event-list mt-md" data-events data-pill-away
+          data-label-seats="{n} seats left" data-label-full="Reserved seats are gone. Walk-in seats on the night." data-label-full-badge="Full" data-label-reserve="Reserve a seat"
+          data-mailto="mailto:hello@lattewithlata.example">
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-09-24" data-event data-date="2026-09-24" aria-labelledby="rec-2026-09-24-title">
+          <p class="event__date"><time datetime="2026-09-24"><span class="event__dow">Thu</span> <span class="event__day">24</span> <span class="event__month">Sep</span></time></p>
+          <div class="event__media"><img src="assets/images/event-01.jpg" alt="A cafe at night seen from behind the bar: a small audience facing a speaker in a lit alcove" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>The Origin Story</span></p>
+            <h3 id="rec-2026-09-24-title" class="event__title" data-title>The clinic between the dryers</h3>
+            <p class="event__guest"><strong data-guest>Dr Laila Mansour</strong> <span data-role>Family physician and co-director, Washday Health Project</span></p>
+            <p class="event__blurb" data-blurb>Laila started seeing patients in a laundromat because that is where people already were. On going to the waiting room instead of building one.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 24 Sep 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-09-24">Reserve a seat<span class="a11y-only">, Thu 24 Sep 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%2024%20Sep%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 24 Sep 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-10-01" data-event data-date="2026-10-01" aria-labelledby="rec-2026-10-01-title">
+          <p class="event__date"><time datetime="2026-10-01"><span class="event__dow">Thu</span> <span class="event__day">1</span> <span class="event__month">Oct</span></time></p>
+          <div class="event__media"><img src="assets/images/event-02.jpg" alt="A studio condenser microphone in a shock mount against warm red tones" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>The Hard Trade-off</span></p>
+            <h3 id="rec-2026-10-01-title" class="event__title" data-title>A living wage on a charity budget</h3>
+            <p class="event__guest"><strong data-guest>Jerome Baptiste</strong> <span data-role>Chief executive, Harrowfield Disability Alliance</span></p>
+            <p class="event__blurb" data-blurb>Jerome raised every wage to a living wage and cut a programme to pay for it. On the sums, the board, and the letter he wrote to families.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 1 Oct 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-10-01">Reserve a seat<span class="a11y-only">, Thu 1 Oct 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%201%20Oct%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 1 Oct 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-10-08" data-event data-date="2026-10-08" aria-labelledby="rec-2026-10-08-title">
+          <p class="event__date"><time datetime="2026-10-08"><span class="event__dow">Thu</span> <span class="event__day">8</span> <span class="event__month">Oct</span></time></p>
+          <div class="event__media"><img src="assets/images/event-03.jpg" alt="A seated audience seen from behind, listening to a panel in a brick-walled room lined with bookshelves" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>What No One Tells You</span></p>
+            <h3 id="rec-2026-10-08-title" class="event__title" data-title>What no one tells you about your first board</h3>
+            <p class="event__guest"><strong data-guest>Mei-Ling Zhou</strong> <span data-role>Board chair, Lantern Arts Trust</span></p>
+            <p class="event__blurb" data-blurb>Mei-Ling joined a board at twenty-eight and chaired it at thirty-four. On reading accounts, asking the obvious question, and when to resign.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 8 Oct 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-10-08">Reserve a seat<span class="a11y-only">, Thu 8 Oct 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%208%20Oct%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 8 Oct 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-10-15" data-event data-date="2026-10-15" aria-labelledby="rec-2026-10-15-title">
+          <p class="event__date"><time datetime="2026-10-15"><span class="event__dow">Thu</span> <span class="event__day">15</span> <span class="event__month">Oct</span></time></p>
+          <div class="event__media"><img src="assets/images/event-04.jpg" alt="Two people in red armchairs speaking into microphones in a wood-panelled cafe, audience in the foreground" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>The Coffee Break</span></p>
+            <h3 id="rec-2026-10-15-title" class="event__title" data-title>Allotments, marathons and a terrible first boss</h3>
+            <p class="event__guest"><strong data-guest>Tobias Engel</strong> <span data-role>Director, Greenway Parks Conservancy</span></p>
+            <p class="event__blurb" data-blurb>Tobias looks after eleven parks and one stubborn allotment. A lighter evening: on running slowly, growing leeks, and the boss who taught him what not to do.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 15 Oct 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-10-15">Reserve a seat<span class="a11y-only">, Thu 15 Oct 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%2015%20Oct%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 15 Oct 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-10-22" data-event data-date="2026-10-22" aria-labelledby="rec-2026-10-22-title">
+          <p class="event__date"><time datetime="2026-10-22"><span class="event__dow">Thu</span> <span class="event__day">22</span> <span class="event__month">Oct</span></time></p>
+          <div class="event__media"><img src="assets/images/event-01.jpg" alt="A cafe at night seen from behind the bar: a small audience facing a speaker in a lit alcove" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>The Origin Story</span></p>
+            <h3 id="rec-2026-10-22-title" class="event__title" data-title>From the classroom to the council chamber</h3>
+            <p class="event__guest"><strong data-guest>Renata Kowalczyk</strong> <span data-role>City councillor and former teacher, Harrowfield</span></p>
+            <p class="event__blurb" data-blurb>Renata taught history for fifteen years before she stood for election. On the pothole that started it, and what a classroom teaches about a chamber.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 22 Oct 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-10-22">Reserve a seat<span class="a11y-only">, Thu 22 Oct 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%2022%20Oct%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 22 Oct 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-10-29" data-event data-date="2026-10-29" aria-labelledby="rec-2026-10-29-title">
+          <p class="event__date"><time datetime="2026-10-29"><span class="event__dow">Thu</span> <span class="event__day">29</span> <span class="event__month">Oct</span></time></p>
+          <div class="event__media"><img src="assets/images/event-02.jpg" alt="A studio condenser microphone in a shock mount against warm red tones" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>The Hard Trade-off</span></p>
+            <h3 id="rec-2026-10-29-title" class="event__title" data-title>When the funder is wrong</h3>
+            <p class="event__guest"><strong data-guest>Arjun Pillai</strong> <span data-role>Executive director, Clearwater Rivers Trust</span></p>
+            <p class="event__blurb" data-blurb>Arjun told his largest funder their flagship project would not work. On evidence, nerve, and keeping the relationship after the meeting.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 29 Oct 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-10-29">Reserve a seat<span class="a11y-only">, Thu 29 Oct 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%2029%20Oct%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 29 Oct 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-11-05" data-event data-date="2026-11-05" aria-labelledby="rec-2026-11-05-title">
+          <p class="event__date"><time datetime="2026-11-05"><span class="event__dow">Thu</span> <span class="event__day">5</span> <span class="event__month">Nov</span></time></p>
+          <div class="event__media"><img src="assets/images/event-03.jpg" alt="A seated audience seen from behind, listening to a panel in a brick-walled room lined with bookshelves" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>What No One Tells You</span></p>
+            <h3 id="rec-2026-11-05-title" class="event__title" data-title>What no one tells you about leaving</h3>
+            <p class="event__guest"><strong data-guest>Ruth Abernathy</strong> <span data-role>Outgoing director, Fenwick Women's Refuge</span></p>
+            <p class="event__blurb" data-blurb>Ruth is handing over the refuge she has run for nineteen years. On succession, staying out of the way, and what she is afraid of missing.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 5 Nov 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-11-05">Reserve a seat<span class="a11y-only">, Thu 5 Nov 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%205%20Nov%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 5 Nov 2026</span></a>
+          </div>
+        </article>
+      </li>
+      <li class="event-row anima--bottom-in">
+        <article class="event" id="rec-2026-11-12" data-event data-date="2026-11-12" aria-labelledby="rec-2026-11-12-title">
+          <p class="event__date"><time datetime="2026-11-12"><span class="event__dow">Thu</span> <span class="event__day">12</span> <span class="event__month">Nov</span></time></p>
+          <div class="event__media"><img src="assets/images/event-04.jpg" alt="Two people in red armchairs speaking into microphones in a wood-panelled cafe, audience in the foreground" width="1600" height="1067" loading="lazy" decoding="async"></div>
+          <div class="event__body">
+            <p class="event__pillar"><span class="event__pillar-label">Leans on</span> <span class="tag" data-pillar>The Origin Story</span></p>
+            <h3 id="rec-2026-11-12-title" class="event__title" data-title>A school in a church hall</h3>
+            <p class="event__guest"><strong data-guest>Ibrahim Saleh</strong> <span data-role>Head teacher, Open Door Community School</span></p>
+            <p class="event__blurb" data-blurb>Ibrahim opened a school with thirty pupils, borrowed chairs and no playground. On the first inspection, and the parents who stayed.</p>
+          </div>
+          <div class="event__aside">
+            <p class="event__meta"><span data-datelabel>Thu 12 Nov 2026</span><span>Doors <span data-doors>6:30&nbsp;pm</span></span><span>Free</span></p>
+            <p class="event__seats" data-seats hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span data-seats-text></span></p>
+            <p class="event__note" data-note hidden></p>
+            <a class="button event__reserve" data-reserve href="book.html?type=recording&amp;date=2026-11-12">Reserve a seat<span class="a11y-only">, Thu 12 Nov 2026</span></a>
+            <a class="button button--outlined event__waitlist" data-waitlist hidden href="mailto:hello@lattewithlata.example?subject=Waitlist%20-%20Thu%2012%20Nov%202026%20recording%20night">Join the waitlist by email<span class="a11y-only">, Thu 12 Nov 2026</span></a>
+          </div>
+        </article>
+      </li>
+      </ul>
+      <p class="upcoming__empty lead" data-events-empty hidden>No recording nights are listed right now. Check back on Monday.</p>
+    </div>
+  </div>
+</section>

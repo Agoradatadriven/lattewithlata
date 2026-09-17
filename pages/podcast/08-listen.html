@@ -1,0 +1,33 @@
+<!-- podcast 08-listen - platform links with icons (# placeholders until the feeds exist), 44px+ targets, on the brand band. Opens with the home 08
+     glow ticker (copy = content/site.json podcast.ticker verbatim; own scoped CSS loop + pause control in js/pages/podcast.js; static without JS / under
+     reduced motion; the moving copies are aria-hidden, the sentence is read once from the .visual-hide line). Copy: podcast.sections[listen] verbatim. -->
+<section id="p-podcast-08-listen" class="strip bg-band-brand pod-listen" aria-labelledby="pod-listen-title" data-pill-away>
+  <div class="pod-ticker">
+    <p class="visual-hide">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY</p>
+    <div class="pod-marquee" aria-hidden="true">
+      <div class="pod-marquee__track">
+        <div class="pod-marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
+        <div class="pod-marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
+      </div>
+    </div>
+    <button class="pod-marquee__pause" type="button" hidden aria-label="Pause ticker" aria-pressed="false">
+      <svg class="icon pod-marquee__icon pod-marquee__icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
+      <svg class="icon pod-marquee__icon pod-marquee__icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
+    </button>
+  </div>
+  <div id="listen" class="container pod-listen__inner">
+    <div class="strip__data pod-head">
+      <p class="eyebrow pod-eyebrow anima--bottom-in">Listen</p>
+      <h2 id="pod-listen-title" class="strip__title1">WHEREVER YOU ALREADY&nbsp;LISTEN</h2>
+      <p class="lead pod-head__lead anima--bottom-in">A new conversation every Thursday, wherever you already listen.</p>
+    </div>
+    <div class="pod-listen__list anima--bottom-in">
+        <ul class="pod-platforms">
+          <li><a class="pod-platforms__link" href="#"><svg class="icon pod-platforms__icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-spotify"></use></svg><span class="pod-platforms__name">Spotify</span><svg class="icon pod-platforms__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg></a></li>
+          <li><a class="pod-platforms__link" href="#"><svg class="icon pod-platforms__icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-apple"></use></svg><span class="pod-platforms__name">Apple Podcasts</span><svg class="icon pod-platforms__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg></a></li>
+          <li><a class="pod-platforms__link" href="#"><svg class="icon pod-platforms__icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-youtube"></use></svg><span class="pod-platforms__name">YouTube</span><svg class="icon pod-platforms__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg></a></li>
+          <li><a class="pod-platforms__link" href="#"><svg class="icon pod-platforms__icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-rss"></use></svg><span class="pod-platforms__name">RSS</span><svg class="icon pod-platforms__arrow" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg></a></li>
+        </ul>
+    </div>
+  </div>
+</section>

@@ -1,35 +1,32 @@
-<!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill.
+<!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill. Shared by EVERY page (build-site.cjs inlines it on the home page and on all sub-pages).
      Sits BEFORE <main>. Source skeleton: PZ/source/rendered.html #page-header (BUILD-SPEC 00 (b)); pill: Iceberg .home__about-button.
-     Copy: content/site.json -> brand.name, nav[], bookingLabel/bookingUrl, listenOn[], newsletter.eyebrow (side link), visit.directionsUrl.
+     Copy: content/site.json -> nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
      Note: .header__container is NOT a .container (the source header is a full-width flex row, measured 1440x78 / 390x63).
-     BRAND (2026-09-17, LOGO-USAGE.md "Markup contracts"): the mark is the kit's white cup mark as a fixed-colour <img> (white in every
-     header state: over the hero video and on the brown plate), 44px tall (56px at >= 60em), wordmark text beside it (mark only < 36em);
-     the drawer carries the same white mark at 72px (decorative, alt=""). width/height attrs = the viewBox box (0.844) so nothing shifts on load. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the header row is burger LEFT + "Book a table" RIGHT - the logo mark and the
+     "LATTE WITH LATA" wordmark text were removed from the bar (client request; the brown mark now opens section 02 / every page's first
+     strip as .mark-row). The drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC navigation map:
+     real pages, no same-page anchors, platform links stay "#" placeholders. -->
 <header id="page-header" class="header page__header">
   <div class="header__container">
     <button class="header__burger menu__switcher js-menu-switcher" type="button" aria-label="Menu" aria-haspopup="true" aria-controls="menu-container" aria-expanded="false"><span class="menu__burger"><u></u></span></button>
 
-    <a class="header__book" href="#book">Book a table</a>
-
-    <a class="header__logo" href="#top" aria-label="Latte with Lata">
-      <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
-      <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
-    </a>
+    <a class="header__book" href="book.html">Book a table</a>
 
     <aside class="menu__screen js-menu-switcher" aria-hidden="true"></aside>
 
     <div id="menu-container" class="menu__container drawer" aria-hidden="true">
-      <img class="menu__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <a class="menu__home" href="index.html" aria-label="Latte with Lata - home"><img class="menu__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async"></a>
       <div class="menu__row">
         <nav id="menu-main" class="menu__main js-menu-main" aria-label="Main">
           <ul>
-            <li><a href="#s-02-intro"><div>The Cafe</div><div aria-hidden="true">The Cafe</div></a></li>
-            <li><a href="#s-06-menu"><div>Menu</div><div aria-hidden="true">Menu</div></a></li>
-            <li><a href="#s-08-podcast"><div>The Podcast</div><div aria-hidden="true">The Podcast</div></a></li>
-            <li><a href="#s-09-episodes"><div>Episodes</div><div aria-hidden="true">Episodes</div></a></li>
-            <li><a href="#s-10-hosts"><div>Hosts</div><div aria-hidden="true">Hosts</div></a></li>
-            <li><a href="#s-11-live"><div>Events</div><div aria-hidden="true">Events</div></a></li>
-            <li><a href="#s-12-visit-listen"><div>Contact</div><div aria-hidden="true">Contact</div></a></li>
+            <li><a href="index.html" data-nav="home"><div>Home</div><div aria-hidden="true">Home</div></a></li>
+            <li><a href="cafe.html" data-nav="cafe"><div>The Cafe</div><div aria-hidden="true">The Cafe</div></a></li>
+            <li><a href="menu.html" data-nav="menu"><div>Menu</div><div aria-hidden="true">Menu</div></a></li>
+            <li><a href="podcast.html" data-nav="podcast"><div>The Podcast</div><div aria-hidden="true">The Podcast</div></a></li>
+            <li><a href="episodes.html" data-nav="episodes"><div>Episodes</div><div aria-hidden="true">Episodes</div></a></li>
+            <li><a href="podcast.html#host"><div>The Host</div><div aria-hidden="true">The Host</div></a></li>
+            <li><a href="events.html" data-nav="events"><div>Events</div><div aria-hidden="true">Events</div></a></li>
+            <li><a href="contact.html" data-nav="contact"><div>Contact</div><div aria-hidden="true">Contact</div></a></li>
           </ul>
         </nav>
       </div>
@@ -37,12 +34,12 @@
       <div class="menu__mid">
         <nav id="menu-side" class="menu__side" aria-label="Tools">
           <ul>
-            <!-- INFERRED side links (no side links in site.json): "Get directions" is the hard-coded label sanctioned by copy.md; "First to know" = newsletter.eyebrow (brand pass) -->
-            <li><a href="#directions"><div>Get directions</div><div aria-hidden="true">Get directions</div></a></li>
+            <!-- side links: "Get directions" = the contact page's find-us block (navigation map); the newsletter block ships on every page, so its anchor stays same-page -->
+            <li><a href="contact.html#find-us"><div>Get directions</div><div aria-hidden="true">Get directions</div></a></li>
             <li><a href="#s-13-newsletter"><div>Stay for the conversation</div><div aria-hidden="true">Stay for the conversation</div></a></li>
           </ul>
         </nav>
-        <a class="button button--outlined button--no-icon button--squared" href="#book"><strong>Book a table</strong></a>
+        <a class="button button--outlined button--no-icon button--squared" href="book.html" data-nav="book"><strong>Book a table</strong></a>
       </div>
 
       <div class="menu__footer">
@@ -61,5 +58,5 @@
 </header>
 <!-- Iceberg mobile pill (I11): wrapper = .home__about-button (fixed, full width, faded by GSAP), link = .vertical-button__link -->
 <div id="book-pill-wrap" class="book-pill__wrap">
-  <a id="book-pill" class="book-pill" href="#book"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span>Book a table</span></a>
+  <a id="book-pill" class="book-pill" href="book.html"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-cup"></use></svg><span>Book a table</span></a>
 </div>

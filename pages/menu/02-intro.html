@@ -1,0 +1,70 @@
+<!-- menu 02-intro - .mark-row, title, the two intro paragraphs | service times (.info-list), then the menu tools: tag legend + the dietary filter
+     (aria-pressed chips; js/pages/menu.js hides non-matching items and announces the count in the role=status line; hidden without JS because it
+     would do nothing), then the category chips (.page-nav--sticky).
+     STICKY NOTE: the shell's sticky chips only stick inside their parent. The six category sections are separate fragments (04..09), so the nav sits
+     in .menu-rail__track - an absolutely positioned, click-through box that js/pages/menu.js stretches from here to the end of 09 (--railH). Native
+     position: sticky does the rest (top offsets + header hand-over = css/pages/_shell.css). Without JS the track is as tall as the nav: plain chips.
+     Copy: content/pages.json menu.sections[intro] + menu.tags verbatim. "Filter the menu", the chip labels and the status line are UI microcopy. -->
+<section id="p-menu-02-intro" class="strip pt-md">
+  <div class="container">
+    <div class="mark-row anima--bottom-in"><img class="mark-row__mark" src="assets/brand/logo/latte-with-lata-mark-brown.svg" alt="" width="482" height="571" decoding="async"></div>
+  </div>
+  <div id="intro" class="strip strip--normal menu-intro">
+    <div class="container">
+      <div class="sec-head sec-head--center text-center anima--bottom-in">
+        <h2 class="strip__title1">A SHORT MENU, DONE WELL</h2>
+      </div>
+      <div class="menu-intro__cols mt-md">
+        <div class="menu-intro__copy anima--left-in">
+          <p class="lead">Espresso from a roaster two streets over, croissants baked at six, and brunch until the kitchen runs out. The prices are for a cup at the counter; a seat by the window, or at the corner table, costs the same.</p>
+          <p>The kitchen is small, so the list is short and it changes with the season. What is printed here is what we cook most weeks. The board by the counter has today&rsquo;s soup, today&rsquo;s filter coffee and anything new.</p>
+        </div>
+        <div class="menu-intro__times anima--right-in">
+          <dl class="info-list">
+            <div class="info-list__row"><dt>Breakfast</dt><dd>Opening until 11:30&nbsp;am</dd></div>
+            <div class="info-list__row"><dt>Brunch and lunch</dt><dd>11:30&nbsp;am to 3:00&nbsp;pm</dd></div>
+            <div class="info-list__row"><dt>Cakes, pastry and drinks</dt><dd>All day</dd></div>
+            <div class="info-list__row"><dt>Thursday night plates</dt><dd>Recording nights, 6:30&nbsp;pm to 8:30&nbsp;pm. Also Friday and Saturday evenings until 9:00&nbsp;pm.</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="menu-tools mt-md anima--bottom-in">
+        <div class="menu-legend">
+          <h3 class="menu-tools__title">How to read the tags</h3>
+          <ul class="menu-legend__list">
+            <li><span class="diet" data-tag="v" aria-hidden="true">V</span><span>Vegetarian</span></li>
+            <li><span class="diet" data-tag="vg" aria-hidden="true">VG</span><span>Vegan</span></li>
+            <li><span class="diet" data-tag="gf" aria-hidden="true">GF</span><span>Gluten-free ingredients</span></li>
+            <li><span class="diet" data-tag="df" aria-hidden="true">DF</span><span>Dairy-free</span></li>
+            <li><span class="diet" data-tag="n" aria-hidden="true">N</span><span>Contains nuts</span></li>
+          </ul>
+          <p class="menu-legend__note">Vegan dishes are also vegetarian; they carry VG only.</p>
+        </div>
+        <div class="menu-filter" role="group" aria-labelledby="menu-filter-title">
+          <h3 class="menu-tools__title" id="menu-filter-title">Filter the menu</h3>
+          <div class="menu-filter__chips">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">Show all</button>
+            <button type="button" class="chip" data-filter="v" aria-pressed="false">Vegetarian</button>
+            <button type="button" class="chip" data-filter="vg" aria-pressed="false">Vegan</button>
+            <button type="button" class="chip" data-filter="gf" aria-pressed="false">Gluten-free</button>
+          </div>
+          <p class="menu-filter__status" role="status" data-total="36">Showing all 36 items</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-rail">
+    <div class="menu-rail__track">
+      <nav class="page-nav page-nav--sticky page-nav--center" aria-label="Menu categories">
+        <ul class="page-nav__list">
+          <li><a href="#coffee">Coffee</a></li>
+          <li><a href="#not-coffee">Not coffee</a></li>
+          <li><a href="#breakfast">Breakfast until 11:30</a></li>
+          <li><a href="#brunch-lunch">Brunch and lunch</a></li>
+          <li><a href="#cakes-pastry">Cakes and pastry</a></li>
+          <li><a href="#thursday-plates">Thursday night plates</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>

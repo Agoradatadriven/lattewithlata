@@ -12,7 +12,11 @@
        spec 14 (b)): "Find us", "Explore", "Listen & follow", legal nav "Privacy" / "Photo credits". The photo-credit list
        (closed <details>, id="credits") satisfies verify/handoff/assets.md ("not optional" for the CC BY / CC BY-SA files).
      Brand mark (brand pass 2026-09-17, LOGO-USAGE.md): the kit's cup mark, brown variant, as an <img> 120px tall (--markFooter) with the
-       tagline brand.tagline under it (one saucer-height of clear space); footer.legal = copyright + the independence disclaimer. -->
+       tagline brand.tagline under it (one saucer-height of clear space); footer.legal = copyright + the independence disclaimer.
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 3): shared by every page. The mark links home (index.html); the sitemap = the six pages + "Book a table"
+       (content/site.json footer.columns.sitemap; "The Host" lives in the drawer only); Privacy -> contact.html#privacy; Photo credits -> contact.html#credits. The photo-credit
+       <details> stays in the footer as id="footer-credits" (the id "credits" belongs to the contact page now - no duplicate ids on contact.html);
+       14-footer.js opens it whenever a #credits link is followed on a page that has no #credits block of its own. -->
 <footer id="page-footer" class="page__footer footer">
   <!-- brand pass: stamp instance 4 is OFF (data-stamp="off", CSS hides the pseudo-element) - it straddled the brown 13 band (brown mark on brown,
        LOGO-USAGE) and doubled the 120px footer mark one viewport later; the aside + its tween stay so data-stamp="on" restores it. -->
@@ -26,14 +30,14 @@
           <div class="footer__top">
 
             <div class="footer__column footer__column--1">
-              <a class="footer__logo" href="#top" aria-label="Latte with Lata - back to top">
+              <a class="footer__logo" href="index.html" aria-label="Latte with Lata - home">
                 <img class="footer__mark" src="assets/brand/logo/latte-with-lata-mark-brown.svg" alt="" width="482" height="571" loading="lazy" decoding="async">
               </a>
               <p class="footer__tagline">Real Conversations. Built on Purpose.</p>
               <nav class="footer__menu" aria-label="Legal">
                 <ul>
-                  <li><a href="#privacy">Privacy</a></li>
-                  <li><a href="#credits">Photo credits</a></li>
+                  <li><a href="contact.html#privacy">Privacy</a></li>
+                  <li><a href="contact.html#credits">Photo credits</a></li>
                 </ul>
               </nav>
             </div>
@@ -63,13 +67,13 @@
               <h3 class="footer__title">Explore</h3>
               <nav class="footer__shortcuts" aria-label="Sitemap">
                 <ul>
-                  <li><a href="#s-02-intro">The Cafe</a></li>
-                  <li><a href="#s-06-menu">Menu</a></li>
-                  <li><a href="#s-08-podcast">The Podcast</a></li>
-                  <li><a href="#s-09-episodes">Episodes</a></li>
-                  <li><a href="#s-10-hosts">Hosts</a></li>
-                  <li><a href="#s-11-live">Events</a></li>
-                  <li><a href="#s-12-visit-listen">Contact</a></li>
+                  <li><a href="cafe.html">The Cafe</a></li>
+                  <li><a href="menu.html">Menu</a></li>
+                  <li><a href="podcast.html">The Podcast</a></li>
+                  <li><a href="episodes.html">Episodes</a></li>
+                  <li><a href="events.html">Events</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="book.html">Book a table</a></li>
                 </ul>
               </nav>
             </div>
@@ -100,7 +104,7 @@
             <div class="footer__mid">
               <div class="footer__legal">
                 <p>Copyright 2026 Latte with Lata. All rights reserved.</p>
-                <details id="credits" class="footer__photo-credits">
+                <details id="footer-credits" class="footer__photo-credits">
                   <summary>Photo credits</summary>
                   <ul>
                     <li>“Latte art 0.jpg” by Angela CoffeeRank, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Latte_art_0.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>

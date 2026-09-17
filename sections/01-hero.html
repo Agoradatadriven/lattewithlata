@@ -8,7 +8,7 @@
      BRAND (2026-09-17): the kit's white cup mark sits ABOVE the live wordmark (72px / 96px, LOGO-USAGE.md) as a decorative <img> (the wordmark
      carries the sr text) and fades in with the header at initial+=1.5 (01-hero.js reuses the header tween); the tagline is the kit's
      "Real Conversations. Built on Purpose." (hero.tagline); the readability overlay is CSS (#s-01-hero::before) above the media, below the text. -->
-<section id="s-01-hero" class="strip strip--wide hero banner" aria-label="Latte with Lata">
+<section id="s-01-hero" class="strip strip--wide hero banner" aria-label="Latte with Lata" data-banner>
   <div class="hero__media parallax" data-parallax="20">
     <!-- data-parallax="20" = PZ _page-scroll.beautified.js:371 default (i.attr("data-parallax") || 20); the drift is ported in 01-hero.js (M5) -->
     <video class="hero__video" muted playsinline loop autoplay preload="metadata" poster="assets/images/hero-poster.jpg" width="1920" height="1080"
@@ -21,9 +21,6 @@
     <span class="visual-hide">Latte with Lata</span><span class="hero__line js-chars" aria-hidden="true">LATTE</span><span class="hero__line js-chars" aria-hidden="true">WITH LATA</span>
   </p>
   <p class="hero__tagline">Real Conversations. Built on Purpose.</p>
-  <!-- INFERRED: visible play/pause control, shown only when autoplay is withheld (prefers-reduced-motion / Save-Data) - DD Pick 19 "hero video click-to-play", PZ _splide.beautified.js:32-34 -->
-  <button class="hero__play" type="button" hidden aria-label="Play video" aria-pressed="false">
-    <svg class="icon hero__play-icon hero__play-icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
-    <svg class="icon hero__play-icon hero__play-icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
-  </button>
+  <!-- PAGES UPDATE (2026-09-17, PAGES-SPEC 1b): the play / pause disc was removed at the client's request - no visible video control. The autoplay rules
+       stay in 01-hero.js: under prefers-reduced-motion or Save-Data the video never starts and the poster shows; off-screen the loop is paused. -->
 </section>

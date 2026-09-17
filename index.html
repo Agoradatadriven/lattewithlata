@@ -49,17 +49,21 @@
 <!-- ===== sections/00-header.html ===== -->
 <!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill. Shared by EVERY page (build-site.cjs inlines it on the home page and on all sub-pages).
      Sits BEFORE <main>. Source skeleton: PZ/source/rendered.html #page-header (BUILD-SPEC 00 (b)); pill: Iceberg .home__about-button.
-     Copy: content/site.json -> nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
+     Copy: content/site.json -> brand.name (lockup wordmark + aria-label), nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
      Note: .header__container is NOT a .container (the source header is a full-width flex row, measured 1440x78 / 390x63).
-     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the header row is burger LEFT + "Book a table" RIGHT - the logo mark and the
-     "LATTE WITH LATA" wordmark text were removed from the bar (client request; the brown mark now opens section 02 / every page's first
-     strip as .mark-row). The drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC navigation map:
-     real pages, no same-page anchors, platform links stay "#" placeholders. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC
+     navigation map: real pages, no same-page anchors, platform links stay "#" placeholders.
+     UPDATE-3 (2026-09-17, client request): the header row is burger LEFT + the logo lockup RIGHT again - the white cup mark (decorative img,
+     482x571 attrs = the viewBox box so nothing shifts on load; 44px, 56px at >= 60em) + the "LATTE WITH LATA" wordmark text (hidden below
+     36em: mark only), one link home. "Book a table" left the bar; it stays in the drawer, the mobile pill and every page CTA. -->
 <header id="page-header" class="header page__header">
   <div class="header__container">
     <button class="header__burger menu__switcher js-menu-switcher" type="button" aria-label="Menu" aria-haspopup="true" aria-controls="menu-container" aria-expanded="false"><span class="menu__burger"><u></u></span></button>
 
-    <a class="header__book" href="book.html">Book a table</a>
+    <a class="header__logo" href="index.html" aria-label="Latte with Lata, home">
+      <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
+    </a>
 
     <aside class="menu__screen js-menu-switcher" aria-hidden="true"></aside>
 
@@ -116,7 +120,9 @@
      Skeleton: BUILD-SPEC 01 (b). Source: PZ/source/rendered.html:155-160 (div.banner > .banner__slider.parallax > video.banner__video)
      + IC/source/rendered.html section.intro > video.intro__video / div.intro__logo > .intro__logo-inner x3 / svg.intro__sentence.
      Copy: content/site.json brand.name, brand.wordmarkLines (one .hero__line per item, never re-split), hero.tagline, hero.sr, hero.poster, hero.video.
-     Poster: content/assets-manifest.json "assets/images/hero-poster.jpg" (1920x1080); video 854x480 VP9 webm, loopHint 33.5 s (assets.md).
+     Poster: content/assets-manifest.json "assets/images/hero-poster.jpg" (1920x1080) = frame 0 of the loop.
+     UPDATE-3 (2026-09-17, lane L3): podcast highlight loop, 1920x1080 25 fps, 17.44 s, no audio - hero.webm (VP9) then hero.mp4 (H.264 fallback);
+     the edit ends on the frame before its first frame, so the native `loop` is seamless (no data-loop-end cut). Source + credit: ASSETS.md.
      JS (js/sections/01-hero.js) builds three stacked .hero__row copies per line and splits them into .char (Iceberg rows); the HTML keeps
      one copy of each line for no-JS. The wordmark is a <p>, not an h1: copy.md reserves the page's only h1 for intro.title (02) - INFERRED.
      BRAND (2026-09-17): the kit's white cup mark sits ABOVE the live wordmark (72px / 96px, LOGO-USAGE.md) as a decorative <img> (the wordmark
@@ -126,8 +132,9 @@
   <div class="hero__media parallax" data-parallax="20">
     <!-- data-parallax="20" = PZ _page-scroll.beautified.js:371 default (i.attr("data-parallax") || 20); the drift is ported in 01-hero.js (M5) -->
     <video class="hero__video" muted playsinline loop autoplay preload="metadata" poster="assets/images/hero-poster.jpg" width="1920" height="1080"
-      aria-label="Latte with Lata. A short, silent video of milk being poured into a latte at the counter of a warm, sunlit cafe." data-loop-end="33.5">
+      aria-label="Latte with Lata. A short, silent loop from a recording booth: a studio microphone, a pop filter, headphones and handwritten notes in warm, low light.">
       <source src="assets/video/hero.webm" type="video/webm">
+      <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
   </div>
   <img class="hero__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
@@ -245,8 +252,8 @@
       <div class="strip__column__content">
         <div class="strip__text">
           <h2 class="strip__title1 js-split">FROM FIRST POUR TO LAST WORD</h2>
-          <p>Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.</p>
-          <p>The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.</p>
+          <p>The cafe opened in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.</p>
+          <p>The talking turned out to be the point. By autumn there were microphones on the corner table, and leaders from clinics, councils and charities were coming in to say what they could not say at a podium.</p>
           <p>The machine has since been replaced. The rule has not.</p>
           <p><a class="read-more" href="cafe.html#story">Discover the story</a></p>
           <figure class="strip__image strip__image--after">
@@ -387,7 +394,7 @@
                        IC section.home-podcast-top > div.home-podcast-top__text (paragraph) re-expressed as the PZ 24-col column 1.
      Copy: content/site.json podcast.ticker / podcast.eyebrow / podcast.paragraph (verbatim; " - " appended to each ticker copy per copy.md);
            hosts.name / hosts.role for the "Hosted by" line (BRAND 2026-09-17, lane C: inside the existing text block, links to #s-10-hosts;
-           avatar = assets/images/founder-avatar.jpg, a 320x320 crop of hosts.images[0] assets/brand/lata-singh.jpg, decorative - the link text names her).
+           avatar = assets/images/founder-avatar.jpg, a 320x320 crop of hosts.images[0] assets/brand/lata-singh-podcast.jpg, decorative - the link text names her).
      Root is a band wrapper (not a .strip): the three rows are the strips (nested strips would reset the band, base.css s4). The brown band continues into 09. -->
 <section id="s-08-podcast" class="podcast bg-band-black">
 
@@ -408,11 +415,7 @@
         <div class="marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
         <div class="marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
       </div>
-      <!-- brand pass (WCAG 2.2.2 / review MUST-FIX 3): pause control for the 21 s loop - un-hidden by 08-podcast.js only when the loop runs (never under reduced motion / no-JS) -->
-      <button class="marquee__pause" type="button" hidden aria-label="Pause ticker" aria-pressed="false">
-        <svg class="icon marquee__pause-icon marquee__pause-icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
-        <svg class="icon marquee__pause-icon marquee__pause-icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
-      </button>
+      <!-- UPDATE-3 (2026-09-17, client decision): no pause / play control. 08-podcast.js runs the loop only while this row is on screen; static under reduced motion / no JS -->
     </div>
   </div>
 
@@ -423,7 +426,7 @@
         <div class="strip__column__content">
           <div class="strip__text">
             <p class="eyebrow podcast__eyebrow">There's more behind every mission</p>
-            <p class="podcast__lead lead">Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish.</p>
+            <p class="podcast__lead lead">Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode moves through the same four parts: The Origin Story, The Hard Trade-off, What No One Tells You and The Coffee Break.</p>
             <p class="podcast__hosted">
               <a class="podcast__host" href="podcast.html#host">
                 <img class="podcast__avatar" src="assets/images/founder-avatar.jpg" width="320" height="320" alt="" loading="lazy" decoding="async">
@@ -460,7 +463,7 @@
 
               <li class="splide__slide strip__gallery__item">
                 <article class="episode-card">
-                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-88" aria-label="Play episode 88: The grant we turned down">
+                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-88" aria-label="Episode 88: The grant we turned down, show notes">
                     <img src="assets/images/episode-01.jpg" width="1600" height="1067" alt="Hand writing in a notebook next to a cup of coffee, glasses and a laptop" loading="eager" decoding="async">
                     <span class="episode-card__play" aria-hidden="true"><svg class="icon" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg></span>
                   </a>
@@ -472,7 +475,7 @@
                     <dl class="episode-card__meta">
                       <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Marisol Vega, Executive director, Harrowfield Food Bank</dd></div>
                       <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>44&nbsp;min</dd></div>
-                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-09-10">10 Sep 2026</time></dd></div>
+                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-09-10">Thu 10 Sep 2026</time></dd></div>
                     </dl>
                   </div>
                 </article>
@@ -480,7 +483,7 @@
 
               <li class="splide__slide strip__gallery__item">
                 <article class="episode-card">
-                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-87" aria-label="Play episode 87: What no one tells you about a waiting room">
+                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-87" aria-label="Episode 87: What no one tells you about a waiting room, show notes">
                     <img src="assets/images/episode-02.jpg" width="1600" height="1067" alt="Kettle pouring water into a pour-over coffee brewer" loading="eager" decoding="async">
                     <span class="episode-card__play" aria-hidden="true"><svg class="icon" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg></span>
                   </a>
@@ -490,9 +493,9 @@
                       <p class="episode-card__blurb">Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.</p>
                     </div>
                     <dl class="episode-card__meta">
-                      <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Dr Kwame Boateng, Medical director, safety-net community clinic</dd></div>
+                      <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Dr Kwame Boateng, Medical director, Eastgate Community Clinic</dd></div>
                       <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>47&nbsp;min</dd></div>
-                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-09-03">3 Sep 2026</time></dd></div>
+                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-09-03">Thu 3 Sep 2026</time></dd></div>
                     </dl>
                   </div>
                 </article>
@@ -500,7 +503,7 @@
 
               <li class="splide__slide strip__gallery__item">
                 <article class="episode-card">
-                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-86" aria-label="Play episode 86: Fixing a form nobody could finish">
+                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-86" aria-label="Episode 86: Fixing a form nobody could finish, show notes">
                     <img src="assets/images/episode-03.jpg" width="1600" height="1067" alt="People sitting at a cafe window bar looking out at a city skyline" loading="eager" decoding="async">
                     <span class="episode-card__play" aria-hidden="true"><svg class="icon" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg></span>
                   </a>
@@ -510,9 +513,9 @@
                       <p class="episode-card__blurb">Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.</p>
                     </div>
                     <dl class="episode-card__meta">
-                      <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Hannah Lindgren, Chief innovation officer, city government</dd></div>
+                      <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Hannah Lindgren, Chief innovation officer, City of Harrowfield</dd></div>
                       <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>39&nbsp;min</dd></div>
-                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-27">27 Aug 2026</time></dd></div>
+                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-27">Thu 27 Aug 2026</time></dd></div>
                     </dl>
                   </div>
                 </article>
@@ -520,7 +523,7 @@
 
               <li class="splide__slide strip__gallery__item">
                 <article class="episode-card">
-                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-85" aria-label="Play episode 85: The origin story is not the pitch">
+                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-85" aria-label="Episode 85: The origin story is not the pitch, show notes">
                     <img src="assets/images/episode-04.jpg" width="1600" height="1067" alt="Person sitting alone at a long table in a cafe, backlit by large windows" loading="lazy" decoding="async">
                     <span class="episode-card__play" aria-hidden="true"><svg class="icon" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg></span>
                   </a>
@@ -532,7 +535,7 @@
                     <dl class="episode-card__meta">
                       <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Elias Okonkwo, Founder, Second Shift social enterprise</dd></div>
                       <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>42&nbsp;min</dd></div>
-                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-20">20 Aug 2026</time></dd></div>
+                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-20">Thu 20 Aug 2026</time></dd></div>
                     </dl>
                   </div>
                 </article>
@@ -540,7 +543,7 @@
 
               <li class="splide__slide strip__gallery__item">
                 <article class="episode-card">
-                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-84" aria-label="Play episode 84: Showing up is the whole strategy">
+                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-84" aria-label="Episode 84: Showing up is the whole strategy, show notes">
                     <img src="assets/images/episode-05.jpg" width="1600" height="1067" alt="Notebooks, a pen and a latte on a weathered wooden table" loading="lazy" decoding="async">
                     <span class="episode-card__play" aria-hidden="true"><svg class="icon" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg></span>
                   </a>
@@ -552,7 +555,7 @@
                     <dl class="episode-card__meta">
                       <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Rosa Delgado, Community organiser, Fenwick Tenants' Union</dd></div>
                       <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>36&nbsp;min</dd></div>
-                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-13">13 Aug 2026</time></dd></div>
+                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-13">Thu 13 Aug 2026</time></dd></div>
                     </dl>
                   </div>
                 </article>
@@ -560,7 +563,7 @@
 
               <li class="splide__slide strip__gallery__item">
                 <article class="episode-card">
-                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-83" aria-label="Play episode 83: Who stays when everyone is leaving">
+                  <a class="episode-card__cover strip__gallery__link" href="episodes.html#ep-83" aria-label="Episode 83: Who stays when everyone is leaving, show notes">
                     <img src="assets/images/episode-06.jpg" width="1600" height="1067" alt="Barista pouring espresso into two glass jars of milk at a cafe bar" loading="lazy" decoding="async">
                     <span class="episode-card__play" aria-hidden="true"><svg class="icon" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg></span>
                   </a>
@@ -572,7 +575,7 @@
                     <dl class="episode-card__meta">
                       <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Grace Mbeki, Director of nursing, St Oswin's Hospice</dd></div>
                       <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>51&nbsp;min</dd></div>
-                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-06">6 Aug 2026</time></dd></div>
+                      <div class="episode-card__date"><dt class="visual-hide">Date</dt><dd><time datetime="2026-08-06">Thu 6 Aug 2026</time></dd></div>
                     </dl>
                   </div>
                 </article>
@@ -607,46 +610,34 @@
      Stamp: the source column 1 carries .strip--stamp; the class is kept but the mark is switched OFF in the CSS (DD Pick 13: 4 instances = 05, 04, 08, 14).
      Copy: content/site.json hosts.* (title, name, role, paragraphs[0..2], cta, images[0..1].alt). Images eager (initImageAnime strips loading="lazy" anyway, PZ _page-scroll.beautified.js:143-145).
 
-     PAGES UPDATE 2026-09-17 (lane FOUNDER, PAGES-SPEC 1.d / 1.e):
-     - "Founder" is gone: she is "Lata Singh" / "Host" (byline, lower third, first paragraph "Lata Singh is the host.", img alt).
-     - Portrait re-framed: assets/images/founder-portrait.jpg is now a 1600x2000 4:5 crop of assets/brand/lata-singh.jpg (2048 square) =
-       box x 190-1828, y 0-2048: the FULL source height, the 4:5 ratio is the only thing that trims (205 px left, 220 px right). Face centre
-       38% from the top, whole head + hair + both shoulders in frame. Crop + Lanczos downscale only: her photo is never retouched,
-       recoloured, generated or composited. founder-portrait-wide.jpg = the full square at 1600x1600 (spare, for 1:1 slots).
-     - "In the podcast": a DESIGNED broadcast frame AROUND the unedited photo - every layer is an HTML/CSS/SVG overlay, aria-hidden,
-       pointer-events none, and none of them covers her eyes or mouth at any width or scroll position (face box = x 35-73%, y 12-55% of the
-       figure; the layers live at x < 27%, x > 78% or y > 80%):
-         .hosts__onair   "ON AIR" chip, top-left (white plate, caramel dot, 2 s pulse)
-         .hosts__mic     studio microphone line art on a boom arm from the top-right corner (assets/svg/podcast-mic.svg, CSS mask, white 90%)
-         .hosts__lower   video-podcast lower third, bottom-left: 7-bar level meter + "LATA SINGH" Bold / "HOST" Medium tracked, on a
-                         brand-brown 85% plate with a 2px caramel rule
-         .hosts__cup     the branded latte cup (assets/svg/cup-branded.svg: original flat illustration + the OFFICIAL mark on the cup body,
-                         the kit's own path data placed by <use>, never redrawn) hanging over the bottom-right corner, with two steam lines
-     - figure.hosts__stage is the positioning box (overflow visible, so the cup can hang over the corner); the zoom-settle clip window
-       .strip__image moved one level down and holds ONLY the photo, so core's `.strip__image img` query never reaches an overlay.
-     - DROP-IN SLOT for a real podcast photograph: put the file at assets/images/founder-podcast.jpg (4:5 portrait, >= 1600x2000, her face in
-       the middle third) and set data-podcast-photo="assets/images/founder-podcast.jpg" on figure.hosts__stage below. js/sections/10-hosts.js
-       probes it with an Image(); on load it becomes the figure image (4:5 cover) and the drawn microphone hides (.hosts__stage--photo);
-       on error nothing changes. The attribute is EMPTY by default = no request at all. Optional data-podcast-focus="50% 30%" = object-position.
+     UPDATE-3 2026-09-17 (lane L2 HOST PHOTO) - the client's own podcast photograph replaces the office portrait and the drawn podcast props:
+     - Photo: assets/images/founder-podcast.jpg = 1200x1500 (4:5) crop of assets/brand/lata-singh-podcast.jpg (1024x1536), box x 0-1024, y 60-1340,
+       Lanczos resample only (never retouched): whole head with 17.6% headroom, both shoulders, both hands, the real microphone and the real latte.
+       It is the drop-in slot file: data-podcast-photo points at it and the <img> already uses it, so the probe in js/sections/10-hosts.js hits the
+       memory cache (one request) and a no-JS visit shows the same photo.
+     - Broadcast frame, every layer aria-hidden + pointer-events none, none over her face, hands, the real mic or the real latte (a real-photo safe
+       map lives in the CSS header):
+         .hosts__onair   "ON AIR" tab straddling the TOP-LEFT edge of the photo (half on the band, half on the photo, above the chalkboard lettering)
+         .hosts__lower   lower third: 7-bar level meter + "LATA SINGH" / "HOST" on a solid brand plate with a caramel rule, straddling the
+                         BOTTOM-RIGHT edge (below the mic base; the photo's own latte owns the bottom-left corner)
+     - Removed: the drawn studio microphone (the photo has a real one) and the cup hanging over the photo corner. No photo corner is free for the
+       illustrated branded cup (bottom-left = the real latte, bottom-right = mic base + lower third, top-right = the neon sign, top-left = the tab),
+       so it is SMALLER (110px, the kit mark on it = 32.3px, the LOGO-USAGE minimum) and OFF the photo: it heads the byline, beside "Lata Singh / Host".
+     - Copy: L4 CONTENT requests R3 ("pursuing doctoral study") and R4 (the personal-platform paragraph replaces the invented "opened a cafe" line) applied.
      - id="host" on the h2: deep-link target (index.html#host); the site-wide "The Host" link points at podcast.html#host (PAGES-SPEC s3). -->
 <section id="s-10-hosts" class="strip strip--columns bg-band-black strip--wide story story--inverted hosts">
   <div class="container">
     <div class="strip__data strip__column strip__column--1 pt-md md-pb-md strip--stamp js-image-anime anima--left-in">
       <div class="strip__column__content">
         <div class="strip__text">
-          <figure class="hosts__stage" data-podcast-photo="" data-podcast-focus="">
+          <figure class="hosts__stage" data-podcast-photo="assets/images/founder-podcast.jpg" data-podcast-focus="">
             <div class="strip__image strip__image--after hosts__portrait">
-              <img class="hosts__photo" src="assets/images/founder-portrait.jpg" width="1600" height="2000" alt="Lata Singh, host of Latte with Lata" loading="eager" decoding="async">
+              <img class="hosts__photo" src="assets/images/founder-podcast.jpg" width="1200" height="1500" alt="Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte" loading="eager" decoding="async">
             </div>
-            <span class="hosts__mic" aria-hidden="true"></span>
             <div class="hosts__onair" aria-hidden="true"><span class="hosts__onair-dot"></span><span class="hosts__onair-label">On air</span></div>
             <div class="hosts__lower" aria-hidden="true">
               <span class="hosts__meter"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
               <span class="hosts__lower-text"><span class="hosts__lower-name">Lata Singh</span><span class="hosts__lower-role">Host</span></span>
-            </div>
-            <div class="hosts__cup" aria-hidden="true">
-              <svg class="hosts__steam" viewBox="0 0 60 80" focusable="false"><path pathLength="100" d="M22 78c-10-12 8-20 0-34s8-22 2-40"/><path pathLength="100" d="M40 78c8-12-8-22 0-36s-6-20 0-34"/></svg>
-              <img class="hosts__cup-art" src="assets/svg/cup-branded.svg" width="320" height="290" alt="" decoding="async">
             </div>
           </figure>
         </div>
@@ -656,10 +647,10 @@
       <div class="strip__column__content">
         <div class="strip__text">
           <h2 id="host" class="strip__title1 js-split">MEET LATA</h2>
-          <p class="hosts__byline"><span class="hosts__name">Lata Singh</span> <span class="hosts__role">Host</span></p>
+          <p class="hosts__byline"><span class="hosts__cup" aria-hidden="true"><svg class="hosts__steam" viewBox="0 0 60 80" focusable="false"><path pathLength="100" d="M22 78c-10-12 8-20 0-34s8-22 2-40"/><path pathLength="100" d="M40 78c8-12-8-22 0-36s-6-20 0-34"/></svg><img class="hosts__cup-art" src="assets/svg/cup-branded.svg" width="320" height="290" alt="" decoding="async"></span><span class="hosts__byline-text"><span class="hosts__name">Lata Singh</span> <span class="hosts__role">Host</span></span></p>
           <p>Lata Singh is the host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.</p>
-          <p>She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.</p>
-          <p>She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on.</p>
+          <p>She is also pursuing doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.</p>
+          <p>Latte with Lata is her personal platform, separate from her day job: unguarded conversations with the people building mission-driven organizations, because real leadership lessons come out over coffee, not in a boardroom.</p>
           <p><a class="read-more" href="podcast.html">Join the conversation</a></p>
           <figure class="strip__image strip__image--after">
             <img src="assets/images/host-corner.jpg" width="1200" height="1800" alt="The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table." loading="eager" decoding="async">
@@ -1004,7 +995,7 @@
                     <li>“A coffee cup featuring intricate latte art sits on a wooden table next to an open laptop.jpg” by Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_coffee_cup_featuring_intricate_latte_art_sits_on_a_wooden_table_next_to_an_open_laptop.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“A cup of cappuccino.jpg” by Vee Satayamas, <a href="https://creativecommons.org/licenses/by/4.0" rel="noopener" target="_blank">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_cup_of_cappuccino.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“BoulderCoffeeOpenMicNight2018.jpg” by DanielPenfield, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BoulderCoffeeOpenMicNight2018.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> - this crop is a derivative shared under the same CC BY-SA licence.</li>
-                    <li>“Macro Espresso Process” (video) by Scott Schiller from San Francisco, CA, USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm" rel="noopener" target="_blank">Wikimedia Commons</a>.</li>
+                    <li>“Guerrilla on air – Fatti d’arte teaser” (video) by M. Capriglione, M. Rainò and R. Romita, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Guerrilla_on_air_%E2%80%93_Fatti_d%27arte_teaser.mpg" rel="noopener" target="_blank">Wikimedia Commons</a> - cut, slowed, colour-graded and looped; this edit is shared under the same CC BY-SA licence.</li>
                     <li>All other photographs: CC0 (public domain dedication) via Wikimedia Commons - full register in the site's ASSETS.md.</li>
                   </ul>
                 </details>

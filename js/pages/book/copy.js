@@ -25,7 +25,7 @@ export const COPY = {
         full: "Full",
         past: "Passed",
         groupPast: "No longer bookable today.",
-        recordingFull: "Reserved seats for this night are gone. Walk-in seats are first come, first seated from 6:30 pm.",
+        recordingFull: "This night is fully reserved. Walk in anyway: reserved seats still empty at 6:50 pm go to the room.",
         slotGone: "That time has just been taken. Pick another.",
         doors: "Doors {time}",
         groups: { morning: "Morning", afternoon: "Afternoon", evening: "Evening" },
@@ -78,7 +78,7 @@ export const COPY = {
     errors: {
         validation: "Some details need another look. The messages are next to each field.",
         slot_full: "Someone just took the last table at that time. Pick another time and we will hold it for you.",
-        slot_full_recording: "Someone just took the last reserved seats for that night. Walk-in seats are first come, first seated from 6:30 pm.",
+        slot_full_recording: "Someone just took the last seats for that night. Walk in anyway: reserved seats still empty at 6:50 pm go to the room.",
         duplicate: "You already have a booking at that time under this email.",
         duplicateLink: "Use Manage a booking to check or cancel it.",
         rate_limited: "That is a lot of attempts in a short time. Wait a few minutes and try again, or call us.",

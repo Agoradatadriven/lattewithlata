@@ -76,7 +76,7 @@
     "poster": "assets/images/hero-poster.jpg",
     "video": "assets/video/hero.webm",
     "tagline": "Real Conversations. Built on Purpose.",
-    "sr": "Latte with Lata. A short, silent video of milk being poured into a latte at the counter of a warm, sunlit cafe."
+    "sr": "Latte with Lata. A short, silent loop from a recording booth: a studio microphone, a pop filter, headphones and handwritten notes in warm, low light."
   },
   "intro": {
     "title": "A CAFE WITH A MICROPHONE",
@@ -118,8 +118,8 @@
   "storyA": {
     "title": "FROM FIRST POUR TO LAST WORD",
     "paragraphs": [
-      "Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.",
-      "The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.",
+      "The cafe opened in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.",
+      "The talking turned out to be the point. By autumn there were microphones on the corner table, and leaders from clinics, councils and charities were coming in to say what they could not say at a podium.",
       "The machine has since been replaced. The rule has not."
     ],
     "cta": {
@@ -199,7 +199,7 @@
   "podcast": {
     "ticker": "LATTE WITH LATA - NEW EPISODE EVERY THURSDAY",
     "eyebrow": "There's more behind every mission",
-    "paragraph": "Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish."
+    "paragraph": "Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode moves through the same four parts: The Origin Story, The Hard Trade-off, What No One Tells You and The Coffee Break."
   },
   "episodes": [
     {
@@ -217,7 +217,7 @@
       "n": 87,
       "title": "What no one tells you about a waiting room",
       "guest": "Dr Kwame Boateng",
-      "role": "Medical director, safety-net community clinic",
+      "role": "Medical director, Eastgate Community Clinic",
       "duration": "47 min",
       "date": "2026-09-03",
       "blurb": "Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.",
@@ -228,7 +228,7 @@
       "n": 86,
       "title": "Fixing a form nobody could finish",
       "guest": "Hannah Lindgren",
-      "role": "Chief innovation officer, city government",
+      "role": "Chief innovation officer, City of Harrowfield",
       "duration": "39 min",
       "date": "2026-08-27",
       "blurb": "Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.",
@@ -279,8 +279,8 @@
     "role": "Host",
     "paragraphs": [
       "Lata Singh is the host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.",
-      "She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.",
-      "She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on."
+      "She is also pursuing doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.",
+      "Latte with Lata is her personal platform, separate from her day job: unguarded conversations with the people building mission-driven organizations, because real leadership lessons come out over coffee, not in a boardroom."
     ],
     "cta": {
       "label": "Join the conversation",
@@ -288,8 +288,8 @@
     },
     "images": [
       {
-        "src": "assets/images/founder-portrait.jpg",
-        "alt": "Lata Singh, host of Latte with Lata"
+        "src": "assets/images/founder-podcast.jpg",
+        "alt": "Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte"
       },
       {
         "src": "assets/images/host-corner.jpg",
@@ -311,7 +311,7 @@
       },
       {
         "src": "assets/images/mosaic-03.jpg",
-        "alt": "Lata and a guest talking at the corner table, microphones between them."
+        "alt": "Open-mic night in a coffee house with a performer on a small stage and people at tables"
       },
       {
         "src": "assets/images/mosaic-04.jpg",

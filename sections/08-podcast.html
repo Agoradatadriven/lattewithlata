@@ -4,7 +4,7 @@
                        IC section.home-podcast-top > div.home-podcast-top__text (paragraph) re-expressed as the PZ 24-col column 1.
      Copy: content/site.json podcast.ticker / podcast.eyebrow / podcast.paragraph (verbatim; " - " appended to each ticker copy per copy.md);
            hosts.name / hosts.role for the "Hosted by" line (BRAND 2026-09-17, lane C: inside the existing text block, links to #s-10-hosts;
-           avatar = assets/images/founder-avatar.jpg, a 320x320 crop of hosts.images[0] assets/brand/lata-singh.jpg, decorative - the link text names her).
+           avatar = assets/images/founder-avatar.jpg, a 320x320 crop of hosts.images[0] assets/brand/lata-singh-podcast.jpg, decorative - the link text names her).
      Root is a band wrapper (not a .strip): the three rows are the strips (nested strips would reset the band, base.css s4). The brown band continues into 09. -->
 <section id="s-08-podcast" class="podcast bg-band-black">
 
@@ -25,11 +25,7 @@
         <div class="marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
         <div class="marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
       </div>
-      <!-- brand pass (WCAG 2.2.2 / review MUST-FIX 3): pause control for the 21 s loop - un-hidden by 08-podcast.js only when the loop runs (never under reduced motion / no-JS) -->
-      <button class="marquee__pause" type="button" hidden aria-label="Pause ticker" aria-pressed="false">
-        <svg class="icon marquee__pause-icon marquee__pause-icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
-        <svg class="icon marquee__pause-icon marquee__pause-icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
-      </button>
+      <!-- UPDATE-3 (2026-09-17, client decision): no pause / play control. 08-podcast.js runs the loop only while this row is on screen; static under reduced motion / no JS -->
     </div>
   </div>
 
@@ -40,7 +36,7 @@
         <div class="strip__column__content">
           <div class="strip__text">
             <p class="eyebrow podcast__eyebrow">There's more behind every mission</p>
-            <p class="podcast__lead lead">Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish.</p>
+            <p class="podcast__lead lead">Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode moves through the same four parts: The Origin Story, The Hard Trade-off, What No One Tells You and The Coffee Break.</p>
             <p class="podcast__hosted">
               <a class="podcast__host" href="podcast.html#host">
                 <img class="podcast__avatar" src="assets/images/founder-avatar.jpg" width="320" height="320" alt="" loading="lazy" decoding="async">

@@ -1,6 +1,8 @@
-# Latte with Lata - site copy (human-readable, brand pass + social copy pass + pages pass 2026-09-17)
+# Latte with Lata - site copy (human-readable, brand pass + social copy pass + pages pass + UPDATE-3 content pass 2026-09-17)
 
 Source of truth: `content/site.json` (this file mirrors it, section by section, with notes). If the two ever disagree, `site.json` wins - fix this file, not the JSON.
+
+**UPDATE-3 content pass (2026-09-17, lane L4).** Every word re-checked against `assets/brand/brand-position.txt` and against the server defaults (`lib/settings.cjs`, `lib/events.cjs`). Home changes: story A no longer gives Lata an invented biography (she did not open the cafe); hosts paragraphs 2-3 follow the paper word for word in substance (doctoral study "pursuing", the personal platform separate from her day job); the 08 paragraph names the four pillars exactly; two guest roles name their organisation (ep 87 no longer echoes the host's "safety-net" employer description); home episode dates read "Thu 10 Sep 2026" like every other page; the host photo alt is the UPDATE-3 alt; the mosaic-03 alt no longer claims to show Lata. Full table, the single-value fact table and the dependencies on other lanes: "UPDATE-3 content pass (2026-09-17) - addenda" at the end of this file. Hand-off: `verify/handoff-update3/L4.md`.
 
 **Pages pass note (2026-09-17).** The site is now multi-page. Lata Singh is the **Host**: the word "founder" no longer describes her anywhere (`hosts.role`, `hosts.paragraphs[0]`, the portrait alt). A guest whose own title is "Founder, ..." keeps it (episode 85). Every nav, CTA and footer href now points at a real page per `PAGES-SPEC.md` section 3; the nav gains **Home** first and "Hosts" is now **The Host**. No other home copy changed and every length guard still holds. Sub-page copy lives in `content/pages.json` / `content/COPY-PAGES.md`. Full change table: "Pages pass (2026-09-17) - addenda" at the end of this file.
 
@@ -13,10 +15,10 @@ Source of truth: `content/site.json` (this file mirrors it, section by section, 
 | Fact | Value used everywhere | Where it appears |
 |---|---|---|
 | Host | Lata Singh, Host (real; `hosts.name`, `hosts.role` = "Host" since the pages pass 2026-09-17) | intro, story A, podcast, hosts |
-| Host credibility | senior operating leader in one of the country's largest safety-net healthcare networks (operations, quality, workforce, finance); doctoral study in leadership and innovation (real, from the paper; employer deliberately unnamed) | hosts |
-| Independence line | "Latte with Lata is a personal platform and is independent of any employer or institution." (required by the paper) | footer legal |
+| Host credibility | senior operating leader in one of the country's largest safety-net healthcare networks (operations, quality, workforce, finance); doctoral study in leadership and innovation (real, from the paper; employer deliberately unnamed). Nothing else: she did not open, found or own the cafe, and no quotation is invented for her (UPDATE-3) | hosts |
+| Independence line | "Latte with Lata is a personal platform and is independent of any employer or institution." (required by the paper; one wording everywhere: footer legal on every page, `pages.json shared.independence`, the podcast-page host notice) | footer legal |
 | Producer | none named (the earlier "Ravi Menon" line is gone; the third hosts paragraph is now why she opened a cafe with a microphone) | - |
-| Opened | spring 2024 | story A |
+| Cafe opened | spring 2024 - the cafe's own history, not Lata's biography (UPDATE-3; was "Lata Singh opened the doors") | story A, `pages.json cafe#story` |
 | Podcast | recorded live at the corner table, Thursday evenings from 6:30 pm; new episode every Thursday; first episode January 2025 (so episode 88 on 2026-09-10) | podcast, episodes, live, listen, visit note, footer hours |
 | Content pillars | The Origin Story · The Hard Trade-off · What No One Tells You · The Coffee Break (named once, lowercase, as "the same four parts" in the podcast paragraph; the live quote no longer refers to them - social copy pass 2026-09-17) | podcast, episode titles |
 | Address | 27 Bellwood Street, corner of Fenwick Lane, Harrowfield (fictional town, no postcode) | visit, footer |
@@ -25,7 +27,7 @@ Source of truth: `content/site.json` (this file mirrors it, section by section, 
 | Hours | Mon-Thu 7:00 am-6:00 pm; Fri 7:00 am-10:00 pm; Sat 8:00 am-10:00 pm; Sun 8:00 am-3:00 pm; Thursdays reopen 6:30 pm for the recording | visit, footer |
 | Currency / prices | $ (single currency); $4.00-$18.00 | menu |
 | Roaster / bakery | "a roaster two streets over"; croissants baked in-house at six | menu |
-| Guests | Marisol Vega, Dr Kwame Boateng, Hannah Lindgren, Elias Okonkwo, Rosa Delgado, Grace Mbeki - all fictional, as are their organisations (Harrowfield Food Bank, Second Shift, Fenwick Tenants' Union, St Oswin's Hospice) | episodes |
+| Guests | Marisol Vega, Dr Kwame Boateng, Hannah Lindgren, Elias Okonkwo, Rosa Delgado, Grace Mbeki - all fictional, as are their organisations (Harrowfield Food Bank, Eastgate Community Clinic, City of Harrowfield, Second Shift, Fenwick Tenants' Union, St Oswin's Hospice) | episodes |
 | Booking URL | `book.html` (pages pass 2026-09-17; was `#book`); manage a booking -> `book.html#manage` (`manageBooking`) | header, drawer, menu, visit, mobile pill |
 | Platform / social URLs | `#` (Spotify, Apple Podcasts, YouTube, RSS, Instagram) | header, listen, newsletter, footer |
 | Page CTAs | live since the pages pass 2026-09-17: `cafe.html`, `cafe.html#story`, `menu.html`, `episodes.html`, `episodes.html#ep-<n>`, `podcast.html`, `events.html`, `contact.html#find-us`, `book.html` (no dead anchors left) | intro, story A, menu, episodes, hosts, live, visit |
@@ -51,6 +53,7 @@ Note: nav labels use Title Case ("The Cafe"); the drawer renders them uppercase 
 - Wordmark rolls up in two rows: **LATTE** / **WITH LATA** (the brand mark sits above it - lane C)
 - Tagline (live text, fades in at +2 s, 37 chars): **Real Conversations. Built on Purpose.**
 - Screen-reader description of the video/poster: Latte with Lata. A short, silent video of milk being poured into a latte at the counter of a warm, sunlit cafe.
+- UPDATE-3 dependency: the hero video becomes podcast footage (lane L3). `hero.sr` must then equal the `aria-label` L3 puts on `.hero__video` (and `hero.video` / `hero.poster` its file paths); the orchestrator copies L3's final values into `site.json` (see `verify/handoff-update3/L4.md`).
 
 Tone: the kit's tagline, verbatim, with its two full stops and Title Case. Do not uppercase it via CSS (it is a sentence, not a title) and do not repeat it in 02.
 
@@ -77,14 +80,14 @@ Unchanged. Alt text placeholders (the asset researcher's `assets-manifest.json` 
 ## 04 - Story row A (cream)
 
 - h2: **FROM FIRST POUR TO LAST WORD** (two lines: FROM FIRST POUR / TO LAST WORD)
-- Paragraph 1: Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.
-- Paragraph 2: The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.
+- Paragraph 1 (UPDATE-3; was "Lata Singh opened the doors ..."): The cafe opened in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.
+- Paragraph 2 (UPDATE-3; was "... and the people she had spent a career alongside, in clinics, councils and charities, started coming in ..."): The talking turned out to be the point. By autumn there were microphones on the corner table, and leaders from clinics, councils and charities were coming in to say what they could not say at a podium.
 - Paragraph 3: The machine has since been replaced. The rule has not.
 - Read-more: **Discover the story** -> `cafe.html#story` (pages pass 2026-09-17; was `#cafe`; label = the Tile 2 CTA, social copy pass 2026-09-17)
 - Image 1 (`story-a-1.jpg`, column 1, carries the stamp): A barista tamping a portafilter at the espresso machine.
 - Image 2 (`story-a-2.jpg`, under the text): A table by the window with two cups, a saucer of crumbs and a folded newspaper.
 
-83 words across the three paragraphs (guard: 90). Paragraph 3 is the punchline; keep it on its own line. "Clinics, councils and charities" is the audience in three words (healthcare, public sector, nonprofit).
+74 words across the three paragraphs (guard: 90; was 83). Paragraph 3 is the punchline; keep it on its own line. "Clinics, councils and charities" is the audience in three words (healthcare, public sector, nonprofit). UPDATE-3: this is the cafe's story, told by the cafe. The brand paper gives Lata no cafe, no councils and no charities on her CV, so the story no longer says she opened the doors or spent a career alongside those leaders (it made her the cafe's founder). Paragraphs 1-2 are repeated verbatim as `pages.json cafe#story` paragraphs 1-2.
 
 ## 05 - Wide parallax strip
 
@@ -119,10 +122,11 @@ The Tile 2 body + kicker of the client's social set, lightly joined with the ASC
 
 - Ticker (marquee, display type; the builder duplicates the string and inserts a separator between copies) - UNCHANGED on purpose so the glow-char timing stays measured: **LATTE WITH LATA - NEW EPISODE EVERY THURSDAY**
 - Eyebrow: There's more behind every mission (the Tile 2 headline, social copy pass 2026-09-17)
-- Paragraph (52 words, guard 60; social copy pass 2026-09-17 - the Tile 3 body + the four pillars): Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish.
+- Paragraph (51 words, guard 60; social copy pass 2026-09-17 - the Tile 3 body + the four pillars; UPDATE-3: the pillars by their exact names and "moves through", as on the podcast page): Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode moves through the same four parts: The Origin Story, The Hard Trade-off, What No One Tells You and The Coffee Break.
+- Social copy pass paragraph (52 words, replaced by UPDATE-3): ... every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish.
 - Previous paragraph (brand pass, 59 words, kept for reference): Latte with Lata is a weekly conversation with mission-driven leaders, recorded at the corner table of the cafe on Thursday nights. Lata Singh talks with the people running nonprofits, safety-net clinics, public agencies and social enterprises about the decisions behind the work: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish.
 
-The four content pillars are still named once, in the last clause, in the paper's order and lowercase (they are segments, not brands); the audience list moved to the 12 LISTEN intro. Optional avatar next to a "Hosted by Lata Singh" line: lane C's call; if used, the image is `hosts.images[0]` and the text is `hosts.name` / `hosts.role`.
+The four content pillars are named once, in the last clause, in the paper's order; UPDATE-3 writes them exactly as everywhere else on the site (Title Case, "The Coffee Break", not "a coffee break") so the names have one spelling; the audience list moved to the 12 LISTEN intro. Optional avatar next to a "Hosted by Lata Singh" line: lane C's call; if used, the image is `hosts.images[0]` and the text is `hosts.name` / `hosts.role`.
 
 ## 09 - Episodes rail (6 cards, newest first)
 
@@ -131,13 +135,13 @@ Card anatomy unchanged: cover image (67%) + panel (33%) with uppercase title, hi
 | # | Title (panel, uppercase) | Pillar | Guest | Role | Length | Date | Blurb (hover line) | Cover |
 |---|---|---|---|---|---|---|---|---|
 | 88 | The grant we turned down | The Hard Trade-off | Marisol Vega | Executive director, Harrowfield Food Bank | 44 min | 2026-09-10 | Marisol said no to the biggest cheque in her nonprofit's history. On strings, dignity, and the board meeting that followed. | `episode-01.jpg` |
-| 87 | What no one tells you about a waiting room | What No One Tells You | Dr Kwame Boateng | Medical director, safety-net community clinic | 47 min | 2026-09-03 | Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches. | `episode-02.jpg` |
-| 86 | Fixing a form nobody could finish | The Hard Trade-off | Hannah Lindgren | Chief innovation officer, city government | 39 min | 2026-08-27 | Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked. | `episode-03.jpg` |
+| 87 | What no one tells you about a waiting room | What No One Tells You | Dr Kwame Boateng | Medical director, Eastgate Community Clinic | 47 min | 2026-09-03 | Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches. | `episode-02.jpg` |
+| 86 | Fixing a form nobody could finish | The Hard Trade-off | Hannah Lindgren | Chief innovation officer, City of Harrowfield | 39 min | 2026-08-27 | Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked. | `episode-03.jpg` |
 | 85 | The origin story is not the pitch | The Origin Story | Elias Okonkwo | Founder, Second Shift social enterprise | 42 min | 2026-08-20 | Elias hires people on the day they leave prison. On the phone call that started it, a first year of losses, and keeping the door open. | `episode-04.jpg` |
 | 84 | Showing up is the whole strategy | What No One Tells You | Rosa Delgado | Community organiser, Fenwick Tenants' Union | 36 min | 2026-08-13 | Rosa has knocked on more doors than she can count. On patience, small wins, and what a street knows that a strategy deck does not. | `episode-05.jpg` |
 | 83 | Who stays when everyone is leaving | The Coffee Break | Grace Mbeki | Director of nursing, St Oswin's Hospice | 51 min | 2026-08-06 | Grace kept a hospice team together through the hardest three years in nursing. On staying, and the coffee break that saved a shift. | `episode-06.jpg` |
 
-All blurbs are 120-135 characters (guard 140). Every `href` is `episodes.html#ep-<n>` (pages pass 2026-09-17; was `#`) - the card and its play disc both go there. These six are repeated verbatim as the newest six of the 18 in `pages.json` `episodes.items` (title, guest, role, duration, date, blurb, cover must stay equal). Roles are now "title, organisation" and a little longer than before (up to 45 chars): builders should let the guest meta line wrap to two lines on the card rather than truncate. Suggested meta line format: `Marisol Vega, Executive director, Harrowfield Food Bank` / `44 min` / `10 Sep 2026`.
+All blurbs are 120-135 characters (guard 140). Every `href` is `episodes.html#ep-<n>` (pages pass 2026-09-17; was `#`) - the card and its play disc both go there. Cover-link label (fragment `aria-label`, UPDATE-3, coordinator request via L1): **Episode 88: The grant we turned down, show notes** (was "Play episode 88: ..." - there is no player yet, every `audio` is null, and the link opens the episode's notes). These six are repeated verbatim as the newest six of the 18 in `pages.json` `episodes.items` (title, guest, role, duration, date, blurb, cover must stay equal). Roles are "title, organisation" and always name the organisation (UPDATE-3: ep 87 was "safety-net community clinic", which echoed the host's employer description; ep 86 was "city government"); up to 45 chars on these six (49 on the episodes page): builders let the guest meta line wrap to two lines on the card rather than truncate. Meta line format (UPDATE-3: the date carries the weekday, as on every other page, PAGES-SPEC 6): `Marisol Vega, Executive director, Harrowfield Food Bank` / `44 min` / `Thu 10 Sep 2026`. The same six cards, with the same text, open `episodes.html` and (first three) close `podcast.html`.
 
 - Closing read-more: **All episodes** -> `episodes.html` (pages pass 2026-09-17; was `#episodes`)
 
@@ -146,13 +150,13 @@ All blurbs are 120-135 characters (guard 140). Every `href` is `episodes.html#ep
 - h2: **MEET LATA**
 - Keys: `hosts.name` = **Lata Singh**, `hosts.role` = **Host** (pages pass 2026-09-17; was "Founder and host") (for the caption under the portrait, the 08 avatar line and any `<figcaption>`/aria text; not a new visible slot unless lane C adds one)
 - Paragraph 1 (pages pass 2026-09-17: "the founder and host" became "the host"): Lata Singh is the host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.
-- Paragraph 2: She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.
-- Paragraph 3: She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on.
+- Paragraph 2 (UPDATE-3: "partway through" -> "pursuing", the paper's "actively pursuing doctoral-level study"): She is also pursuing doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.
+- Paragraph 3 (UPDATE-3; was "She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee ..." - invented biography that made her the cafe's founder): Latte with Lata is her personal platform, separate from her day job: unguarded conversations with the people building mission-driven organizations, because real leadership lessons come out over coffee, not in a boardroom.
 - Read-more: **Join the conversation** -> `podcast.html` (pages pass 2026-09-17; was `#hosts`; label = the Tile 4 CTA, social copy pass 2026-09-17; was "About Lata", before that "The hosts"). The host block on the podcast page is `podcast.html#host`.
-- Image 1 (`assets/brand/lata-singh.jpg`, column 1, bleeds left; the FOUNDER lane re-frames it - its crop files are `assets/images/founder-*.jpg`): Lata Singh, host of Latte with Lata, seated in her office and looking at the camera. (alt, pages pass 2026-09-17: "founder and host" became "host")
+- Image 1 (UPDATE-3: the client's new photo `assets/brand/lata-singh-podcast.jpg`, Lata at a cafe table with a podcast microphone, a latte and a notebook; lane L2 crops it into `assets/images/founder-*.jpg`, crop and scale only): Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte (the UPDATE-3 alt, identical on every photo of Lata; `hosts.images[0].alt`)
 - Image 2 (`host-corner.jpg`, under the text): The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table.
 
-The employer is never named (the paper describes it; the footer disclaimer separates the platform from it). Paragraph 3 answers "why a cafe with a microphone" and is the only place that phrase recurs after the h1.
+The employer is never named (the paper describes it; the footer disclaimer separates the platform from it). Paragraph 3 (UPDATE-3) answers "why the show" with the paper's own positioning and independence points; "a cafe with a microphone" now appears only in the 02 h1. Hosts copy is 108 words (was 116), so the 10 layout only gets shorter.
 
 ## 11 - Live sessions mosaic
 
@@ -162,7 +166,7 @@ The employer is never named (the paper describes it; the footer disclaimer separ
 - Mosaic alts - unchanged:
   1. `mosaic-01.jpg` - The cafe at night from the street, windows glowing and every table taken.
   2. `mosaic-02.jpg` - People at small tables leaning in to listen, cups and glasses in front of them.
-  3. `mosaic-03.jpg` - Lata and a guest talking at the corner table, microphones between them. (centre image - the one that zooms)
+  3. `mosaic-03.jpg` - Open-mic night in a coffee house with a performer on a small stage and people at tables (centre image - the one that zooms; UPDATE-3: the manifest alt of the delivered stock photo. The brief's "Lata and a guest talking at the corner table" described a photo of Lata that does not exist; every photo of Lata is the client's own)
   4. `mosaic-04.jpg` - A microphone on a stand under a warm lamp, the room out of focus behind it.
   5. `mosaic-05.jpg` - The audience seen from the corner table, faces lit by the window lights.
 - Read-more: **What's on** -> `events.html` (pages pass 2026-09-17; was `#events`)
@@ -208,6 +212,7 @@ The Tile 3 sub is the quote's first line; "there is one for you" answers the eye
 - Column 3 - sitemap (pages pass 2026-09-17; still seven rows, so the column rhythm is unchanged): The Cafe · Menu · The Podcast · Episodes · Events · Contact · Book a table = the six pages + `book.html` ("Hosts" left the footer; the host lives at `podcast.html#host`). New key `footer.columns.legalLinks`: Privacy -> `contact.html#privacy` · Photo credits -> `contact.html#credits` · Manage a booking -> `book.html#manage`. New key `footer.homeUrl` = `index.html` (the footer mark links home).
 - Column 4 - heading **Follow us on our socials** (the Tile 5 CTA as the column title, social copy pass 2026-09-17; was "Listen & follow" - a hard-coded builder label, not a JSON key); listen: Spotify · Apple Podcasts · YouTube · RSS; socials: Instagram (`i-instagram`) · YouTube (`i-youtube`)
 - Legal row credit: Site by Agora Data Driven (unchanged)
+- Photo credits panel (`details#footer-credits`, fragment text only): UPDATE-3 dependency - its "Macro Espresso Process (video)" line credits the old hero video; when lane L3 delivers the podcast footage, that line is replaced with L3's credit (source, author, licence) and the hero video row in `pages/contact/06-credits.html` changes with it.
 - Back-to-top disc label (visually hidden / aria-label): Back to top
 - Cropped wordmark (edge to edge, cut at the bottom): **LATTE WITH LATA**
 
@@ -278,3 +283,60 @@ Source: `PAGES-SPEC.md` sections 1d and 3. Rule kept: no home-page copy changed 
 | `footer.columns.legalLinks`, `footer.homeUrl` (new) | - | Privacy / Photo credits / Manage a booking; `index.html` |
 
 Unchanged on purpose: platform and social links stay `#` (Spotify, Apple Podcasts, YouTube, RSS, Instagram); `visit.hours` keeps its four rows (the backend parses them); episode 85's guest role "Founder, Second Shift social enterprise"; `hosts.images[0].src` (the FOUNDER lane owns the portrait crop).
+
+## UPDATE-3 content pass (2026-09-17) - addenda
+
+Source: `UPDATE-3-SPEC.md` item 5, `assets/brand/brand-position.txt`, `assets/brand/social-copy.md`, and the server defaults in `lib/settings.cjs` / `lib/events.cjs` (read only). Rule kept: text only - every element, class, id, data attribute and split-text hook is unchanged (checked by a markup-skeleton diff). Validator: scratch `update3/L4/validate.cjs` (JSON + the eight built pages + the booking runtime strings; 616 checks, all green once the other lanes apply the requests in `verify/handoff-update3/L4.md`). Sub-page changes: the change log at the top of `content/COPY-PAGES.md`.
+
+### site.json
+
+| Key | Before | After |
+|---|---|---|
+| `storyA.paragraphs[0]` | Lata Singh opened the doors in the spring of 2024 ... | The cafe opened in the spring of 2024 ... |
+| `storyA.paragraphs[1]` | ... and the people she had spent a career alongside, in clinics, councils and charities, started coming in ... | ... and leaders from clinics, councils and charities were coming in ... |
+| `podcast.paragraph` | ... every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish. | ... every episode moves through the same four parts: The Origin Story, The Hard Trade-off, What No One Tells You and The Coffee Break. |
+| `episodes[1].role` (ep 87) | Medical director, safety-net community clinic | Medical director, Eastgate Community Clinic |
+| `episodes[2].role` (ep 86) | Chief innovation officer, city government | Chief innovation officer, City of Harrowfield |
+| `hosts.paragraphs[1]` | She is also partway through doctoral study ... | She is also pursuing doctoral study ... |
+| `hosts.paragraphs[2]` | She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee ... | Latte with Lata is her personal platform, separate from her day job: unguarded conversations with the people building mission-driven organizations, because real leadership lessons come out over coffee, not in a boardroom. |
+| `hosts.images[0].alt` | Lata Singh, host of Latte with Lata | Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte |
+| `hosts.images[0].src` | assets/images/founder-portrait.jpg | assets/images/founder-podcast.jpg (the crop lane L2 now renders in `sections/10-hosts.html`; follow L2 if its final file differs) |
+| `live.images[2].alt` | Lata and a guest talking at the corner table, microphones between them. | Open-mic night in a coffee house with a performer on a small stage and people at tables |
+
+Home fragments changed (text only): `sections/04-story-a.html` (paragraphs 1-2), `sections/09-episodes.html` (roles of ep 87 / 86; the six dates now "Thu 10 Sep 2026" etc.; the six cover-link labels "Play episode NN: title" -> "Episode NN: title, show notes", because no audio exists yet). The 08 paragraph and the 10 paragraphs live in other lanes' files: requested in the hand-off.
+
+### One value everywhere (fact table)
+
+| Fact | Value | Server | Where it appears |
+|---|---|---|---|
+| Opening hours | Mon - Thu 7:00 am - 6:00 pm, Fri 7:00 am - 10:00 pm, Sat 8:00 am - 10:00 pm, Sun 8:00 am - 3:00 pm; Thursdays reopen 6:30 pm for the recording (sub-pages split Thu into its own row) | `DEFAULT_HOURS` = `hoursFromSite(site.visit.hours)` = `/api/config` hours | `site.json` visit.hours, visit.note, footer hours; `pages.json` shared.hours (rows, homeRows, machine), cafe#visit, contact#find-us; home 12, every footer, cafe 07, contact 02 |
+| Address | 27 Bellwood Street, Corner of Fenwick Lane, Harrowfield | `contactFromSite` (visit.address) | home 12, every footer, cafe hero + 07, contact hero + 02 + privacy, map description |
+| Phone | (555) 014-2024, `tel:+15550142024` | `contactFromSite` (visit.phone) | home 12, every footer, cafe 07, contact 02 / 03, book 02 / 03 / 04 / 05, fallback notices, copy.js |
+| Email | hello@lattewithlata.example | `contactFromSite` (footer address column) | every footer, newsletter notice, cafe 07, contact 02 / 03 / 05, book notices, events waitlist mailto |
+| Recording night | Thursday; doors 6:30 pm; recording 7:00 pm to 8:15 pm; reserved seats held until 6:50 pm; night plates until 8:30 pm; lock-up about 9:30 pm | `recordingWeekday` 4, `recordingDoors` 18:30 (start / end: `pages.json shared.hours.recording`, copy.js `recordingEnd` 20:15) | home 11 quote, 12 note, footers; podcast hero / 05; events hero / meta / 02 / 03 / 04 / 06; menu 02 / 09; book 02 |
+| Recording seats | 40 per night, all reservable online, up to 4 per reservation; walk-ins take unreserved seats and the 6:50 pm releases | `recordingSeats` 40, `recordingMaxParty` 4 | events 02 facts, 03 cards + full label, book 02 hint / explainer / validation, `events.upcoming[].seats` |
+| Room | seats about 40 inside, 8 outside; private hire up to 40 | - | cafe 04 / 06, events 05 |
+| Table bookings | up to 8 online (bigger groups call or email); 30-minute steps; 90-minute sittings; tables held 15 minutes; up to 60 days ahead | `maxParty` 8, `slotMinutes` 30, `turnMinutes` 90, `leadDays` 60 (the 15-minute hold is copy only) | book 02 / 03 / 05, cafe FAQ, menu notes, contact topics |
+| Cancellation | online up to 2 hours before | `cancelCutoffMinutes` 120 | book 02 / 03 / 04, copy.js, confirmation email |
+| Reply time | within 2 working days | - | podcast 07, contact 03 / 04 / 06, cafe FAQ, book 05 |
+| Timezone note | All times are local cafe time. | `timezoneNote` | book 02 |
+| Episodes | 88 so far, weekly on Thursdays; the site lists 71 to 88 (1 to 70 on the platforms); about 40 minutes each | - | home 08 ticker / 09 / 12; podcast 02 / 05 / 09; episodes hero / 02 / 03 |
+| Newest episode | 88, "The grant we turned down", Marisol Vega, Thu 10 Sep 2026, 44 min | - | home 09 + 12 LISTEN; podcast 09; episodes 02 + 03 |
+| Newest six | episodes 88 to 83 with identical title, guest, role, length, date, blurb and cover | - | home 09 (6), episodes 03 (first 6), podcast 09 (first 3) |
+| Upcoming nights | 8 Thursdays, Thu 24 Sep to Thu 12 Nov 2026 | `events.cjs` reads `pages.json events.upcoming` | events 03 (home 11 lists none: it links to events.html); book 02 "Coming up" via `/api/events` |
+| Pillars | The Origin Story, The Hard Trade-off, What No One Tells You, The Coffee Break (this order, this spelling) | - | home 08; podcast 04; episodes filters + tags; events tags; `pages.json` shared.pillars / podcast#pillars / filters |
+| Tagline | Real Conversations. Built on Purpose. | - | home hero, home `<title>` + meta description, every footer |
+| Independence | Latte with Lata is a personal platform and is independent of any employer or institution. | - | every footer, `pages.json shared.independence`, podcast 06 notice (+ "Nothing said here is official communication on anyone's behalf.") |
+| Host | Lata Singh, Host | - | home 08 "Hosted by", 10; podcast 06; drawer "The Host" |
+| Menu (home band) | Espresso $4.00, Cappuccino $5.50, Butter croissant $5.00, Cardamom cake $7.50, Eggs, greens, sourdough $18.00, Cold brew $6.50 - same price on the menu page | - | home 06; menu 03 / 04 / 07 / 08 |
+
+### Placeholders (home) after UPDATE-3
+
+Unchanged list above, with three corrections: the cafe history is the cafe's, not Lata's; the host has no invented quotation anywhere; guest organisations now also include Eastgate Community Clinic and City of Harrowfield. Still to confirm with the client: the whole cafe (town, address, phone, email, hours, menu, room), every guest and episode, the recording-night schedule details and the seat model (all 40 seats reservable).
+
+### Waiting on other lanes (exact requests in `verify/handoff-update3/L4.md`)
+
+- `sections/08-podcast.html` (L1): the pillar sentence above. `pages/podcast/05-how-it-works.html` (L1): "about 45 minutes" -> "about 40 minutes".
+- `sections/10-hosts.html` (L2): hosts paragraphs 2-3 above. `pages/podcast/06-host.html` (L2): independence notice, pull quote (the paper's positioning line, attributed to Latte with Lata).
+- `pages/contact/06-credits.html` (L3): "portrait" -> "photo"; the hero-video credit. `sections/14-footer.html` (L4 file, L3 facts): the video line of the photo-credits panel. `site.json hero.sr` / `hero.video` / `hero.poster`: L3's final values.
+- `js/pages/book/copy.js` (orchestrator): the two "full recording night" strings. `lib/` (orchestrator): three server messages.

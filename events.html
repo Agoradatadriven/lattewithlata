@@ -39,17 +39,21 @@
 <!-- ===== sections/00-header.html ===== -->
 <!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill. Shared by EVERY page (build-site.cjs inlines it on the home page and on all sub-pages).
      Sits BEFORE <main>. Source skeleton: PZ/source/rendered.html #page-header (BUILD-SPEC 00 (b)); pill: Iceberg .home__about-button.
-     Copy: content/site.json -> nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
+     Copy: content/site.json -> brand.name (lockup wordmark + aria-label), nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
      Note: .header__container is NOT a .container (the source header is a full-width flex row, measured 1440x78 / 390x63).
-     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the header row is burger LEFT + "Book a table" RIGHT - the logo mark and the
-     "LATTE WITH LATA" wordmark text were removed from the bar (client request; the brown mark now opens section 02 / every page's first
-     strip as .mark-row). The drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC navigation map:
-     real pages, no same-page anchors, platform links stay "#" placeholders. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC
+     navigation map: real pages, no same-page anchors, platform links stay "#" placeholders.
+     UPDATE-3 (2026-09-17, client request): the header row is burger LEFT + the logo lockup RIGHT again - the white cup mark (decorative img,
+     482x571 attrs = the viewBox box so nothing shifts on load; 44px, 56px at >= 60em) + the "LATTE WITH LATA" wordmark text (hidden below
+     36em: mark only), one link home. "Book a table" left the bar; it stays in the drawer, the mobile pill and every page CTA. -->
 <header id="page-header" class="header page__header">
   <div class="header__container">
     <button class="header__burger menu__switcher js-menu-switcher" type="button" aria-label="Menu" aria-haspopup="true" aria-controls="menu-container" aria-expanded="false"><span class="menu__burger"><u></u></span></button>
 
-    <a class="header__book" href="book.html">Book a table</a>
+    <a class="header__logo" href="index.html" aria-label="Latte with Lata, home">
+      <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
+    </a>
 
     <aside class="menu__screen js-menu-switcher" aria-hidden="true"></aside>
 
@@ -186,7 +190,7 @@
         </div>
       </div>
       <ul class="event-list mt-md" data-events data-pill-away
-          data-label-seats="{n} seats left" data-label-full="Reserved seats are gone. Walk-in seats on the night." data-label-full-badge="Full" data-label-reserve="Reserve a seat"
+          data-label-seats="{n} seats left" data-label-full="Fully reserved. Walk in anyway: reserved seats still empty at 6:50&nbsp;pm go to the room." data-label-full-badge="Full" data-label-reserve="Reserve a seat"
           data-mailto="mailto:hello@lattewithlata.example">
       <li class="event-row anima--bottom-in">
         <article class="event" id="rec-2026-09-24" data-event data-date="2026-09-24" aria-labelledby="rec-2026-09-24-title">
@@ -400,7 +404,7 @@
               <div class="card__body">
                 <p class="card__eyebrow">Monday to Wednesday evenings, from 6:30&nbsp;pm</p>
                 <h3 id="private-hire-title" class="card__title other__title">Private hire</h3>
-                <p class="card__text">The room seats up to 40 for a board away-day dinner, a team evening or a book launch. We can run the night plates or a set menu, and the corner table microphones if you want the evening recorded.</p>
+                <p class="card__text">The room seats up to 40 for a board evening, a team away-day or a community meeting: somewhere a group can talk properly. We can run the night plates or a set menu.</p>
                 <p class="card__actions"><a class="read-more" href="contact.html?topic=events">Ask about private hire</a></p>
               </div>
             </article>
@@ -632,7 +636,7 @@
                     <li>“A coffee cup featuring intricate latte art sits on a wooden table next to an open laptop.jpg” by Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_coffee_cup_featuring_intricate_latte_art_sits_on_a_wooden_table_next_to_an_open_laptop.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“A cup of cappuccino.jpg” by Vee Satayamas, <a href="https://creativecommons.org/licenses/by/4.0" rel="noopener" target="_blank">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_cup_of_cappuccino.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“BoulderCoffeeOpenMicNight2018.jpg” by DanielPenfield, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BoulderCoffeeOpenMicNight2018.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> - this crop is a derivative shared under the same CC BY-SA licence.</li>
-                    <li>“Macro Espresso Process” (video) by Scott Schiller from San Francisco, CA, USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm" rel="noopener" target="_blank">Wikimedia Commons</a>.</li>
+                    <li>“Guerrilla on air – Fatti d’arte teaser” (video) by M. Capriglione, M. Rainò and R. Romita, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Guerrilla_on_air_%E2%80%93_Fatti_d%27arte_teaser.mpg" rel="noopener" target="_blank">Wikimedia Commons</a> - cut, slowed, colour-graded and looped; this edit is shared under the same CC BY-SA licence.</li>
                     <li>All other photographs: CC0 (public domain dedication) via Wikimedia Commons - full register in the site's ASSETS.md.</li>
                   </ul>
                 </details>

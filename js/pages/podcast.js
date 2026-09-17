@@ -4,7 +4,8 @@
    { gsap, ScrollTrigger, SplitText, reduceMotion, isTouch, isMouse, mm, refresh, initCarousel, api, core, page, refreshCarousels }.
    Every part no-ops when its DOM is absent, is idempotent (data-init), and leaves the page fully readable when it does not run:
      1. ticker      #p-podcast-08-listen .pod-marquee - the home 08 glow ticker as a CSS loop; this module only measures the duration, splits the
-                    glow chars, runs it while in view and wires the pause control (WCAG 2.2.2). Reduced motion: nothing moves, no control.
+                    glow chars and runs it while it is on screen. No visible pause / play control (UPDATE-3, client decision). Reduced motion /
+                    no JS: nothing moves (static white line).
      2. quote scrub #p-podcast-06-host [data-scrub] - the home 07 colour scrub, word by word (words keep the sentence readable for assistive
                     tech), --colAccentTint -> --colOnBrand. Reduced motion / no GSAP: the CSS default (white) stays.
      3. meter       the lower-third level meter only animates while the portrait is on screen (.is-live).
@@ -30,11 +31,10 @@ function once(el, key) {
 function initTicker(ctx) {
     const marquee = document.querySelector("#p-podcast-08-listen .pod-marquee");
     if (!marquee || !once(marquee, "ticker")) return null;
-    if (ctx.reduceMotion) return "static";                                   // static white line, the pause control stays hidden
+    if (ctx.reduceMotion) return "static";                                   // static white line (the CSS loop only runs with .is-running)
     const track = marquee.querySelector(".pod-marquee__track");
     const copies = Array.from(marquee.querySelectorAll(".pod-marquee__copy"));
-    const pauseBtn = document.querySelector("#p-podcast-08-listen .pod-marquee__pause");
-    if (!track || copies.length < 2 || !pauseBtn) return null;
+    if (!track || copies.length < 2) return null;
 
     const SPEED = window.matchMedia("(min-width: 1025px)").matches && ctx.isMouse ? 350 : 300;   // px / s - the home ticker's two tiers
     const measure = () => {
@@ -48,21 +48,14 @@ function initTicker(ctx) {
     }
     measure();
 
-    let userPaused = false, inView = false;
-    const apply = () => marquee.classList.toggle("is-paused", !(inView && !userPaused));
+    /* in view (80px margin) = running; everywhere else .is-paused freezes the track and drops the glow (CSS). No pause control (UPDATE-3). */
+    const setInView = (inView) => marquee.classList.toggle("is-paused", !inView);
     marquee.classList.add("is-running", "is-paused");
-    pauseBtn.hidden = false;
-    pauseBtn.addEventListener("click", () => {
-        userPaused = !userPaused;
-        pauseBtn.setAttribute("aria-pressed", userPaused ? "true" : "false");
-        pauseBtn.setAttribute("aria-label", userPaused ? "Play ticker" : "Pause ticker");
-        apply();
-    });
     if ("IntersectionObserver" in window) {
-        new IntersectionObserver((entries) => { inView = entries[0].isIntersecting; apply(); }, { rootMargin: "80px 0px" }).observe(marquee);
-    } else { inView = true; apply(); }
+        new IntersectionObserver((entries) => setInView(entries[entries.length - 1].isIntersecting), { rootMargin: "80px 0px" }).observe(marquee);   // latest entry wins when a batch holds more than one
+    } else { setInView(true); }
     if (ctx.ScrollTrigger) ctx.ScrollTrigger.addEventListener("refresh", measure);   // resize / font swap -> same speed at the new width
-    return { marquee, pauseBtn };
+    return { marquee };
 }
 
 /* ---- 2. pull-quote colour scrub (home 07 engine: start "top 90%", scrub .75, stagger .1, ease none; end "bottom 72%" instead of 60% so the sentence is fully white once it sits in the middle of the screen) ---- */

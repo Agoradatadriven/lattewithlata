@@ -48,13 +48,13 @@ Preload Regular + Bold. A `font-weight: 600` request resolves to 700. Fraunces a
 | Marquee | `#s-08-podcast .marquee` | 700 | `clamp(64px, 10vw, 160px)` | 1 | -.01em | upper |
 | Card title | `.episode-card__title` | 700 | `clamp(18px, 1.6vw, 24px)` | 1 | -.01em | upper |
 | Twin-card title | `.twin-card__title` | 700 | `clamp(32px, 3.5vw, 51px)` | 1 | -.01em | upper |
-| Header wordmark text | `.header__wordmark` | 700 | 15px (header lane) | 1 | .12em | upper |
+| Header wordmark text | `.header__wordmark` | 700 | 15px (hidden below 36em: mark only) | 1 | .12em | upper |
 | Manifesto / quote | `.text-decorated` (07, 11) | 500 | `clamp(37.5px, 5.5vw, 50px)` | 1.15 | -.01em | upper (`.text-decorated--sentence` opt-in) |
 | Lead | `.podcast__lead`, `.lead` | 500 | `clamp(20px, 1.8vw, 26px)` | 1.25 | -.01em | sentence |
 | Eyebrow | `.eyebrow` | 500 | 12px | 1 | .14em | upper |
 | Body | `body`, `main p` | 400 | 16px; **17px at >= 60em** (plain `main p` only) | 1.6 | 0 | sentence |
 | Caption / meta | `.caption`, `figcaption`, card blurb + meta | 400 | 14px | 1.5 (cards 1.2) | 0 | sentence |
-| Button / read-more | `.button`, `.read-more`, `.header__book`, `#book-pill` | 700 | .9em | 1.2 / inherit | .08em | upper |
+| Button / read-more | `.button`, `.read-more`, `#book-pill` | 700 | .9em | 1.2 / inherit | .08em | upper |
 | Tagline | `.hero__tagline` | 500 | 16px | 1.5 | .08em | upper |
 
 `--titleSize` is now `3.75rem` (was `3.75em`) so the title clamps stay at the same px with the 17px body.
@@ -64,14 +64,15 @@ Preload Regular + Bold. A `font-weight: 600` request resolves to 700. Fraunces a
 `--vpad` 1.6rem < 36em, 2.7rem >= 36em, 3.3rem >= 48em, 3.6rem >= 60em (57.6px @1440, 25.6px @390); `.mt/.mb/.pt/.pb-{xs,sm,md,lg}` =
 vpad/4, /2, x1, x2; container 75rem + 2 x vpad; narrow 56.25rem; xnarrow 37.5rem; 24-col grid 12/12 at >= 50em; title margins
 vpad/2 above, vpad/4 below. Touch targets: `--tapMin` 44px (buttons, read-mores via padding + negative margin, carousel arrows,
-burger, socials, pill). Focus: `--focusRing` 2px solid `--colFocus` (accent; white on brand bands), offset 2px, `:focus-visible` only.
+burger, header lockup link 47 / 62px tall, socials, pill). Focus: `--focusRing` 2px solid `--colFocus` (accent; white on brand bands), offset 2px, `:focus-visible` only.
 Motion tiers: `--aniFast` .3s links, `--aniSlow` .6s reveals/buttons, `--aniUi` .2s hover feedback; `prefers-reduced-motion` kills all.
 
 ## 4. Logo
 
 Files: `assets/brand/logo/latte_with_lata_{brown,white,black}.svg` (+ PNG), page mark `assets/svg/mark.svg` (currentColor, used by
 `.strip--stamp::after` via mask: brown on light bands, white on brand bands through `--colStamp`). Sizes in tokens: `--markHeader` 44px
-(56px >= 60em, white, wordmark text beside it, mark only on phones), `--markDrawer` 72px white, `--markHero` clamp(96px, 9vw, 128px)
+(56px >= 60em, white, wordmark text beside it, mark only below 36em; the header bar is burger left + this lockup right, one link home -
+there is no "Book a table" link in the bar since UPDATE-3, booking lives in the drawer, the mobile pill and the page CTAs), `--markDrawer` 72px white, `--markHero` clamp(96px, 9vw, 128px)
 white above the wordmark, `--markFooter` 120px brown + tagline, favicon brown on white. Clear space = the saucer height on every
 side (`--markClear`). Tagline "Real Conversations. Built on Purpose." lives in the hero, the footer, the meta description and og:title only.
 
@@ -103,6 +104,11 @@ side (`--markClear`). Tagline "Real Conversations. Built on Purpose." lives in t
    coffee all week and, Thursday nights, a candid conversation with a mission-driven leader." (`brand.shortDescription` is the fallback).
 6. **Focus ring** is drawn as `outline: 2px solid var(--colFocus)` in base.css; the band classes flip `--colFocus` to white, so no section
    needs an override. `--focusRing` stays in tokens.css for reference only (a custom property resolves `var()` where it is declared).
-7. **Motion controls** (updated 2026-09-17, client decision): the hero video has NO visible pause / play control - it autoplays muted, pauses when scrolled off screen, and never plays under prefers-reduced-motion or Save-Data (poster shown). The 08 ticker has a
-   44 px pause / play disc at the row's right edge (hidden under reduced motion, where the loop never runs). The visitor's choice wins
-   over the in-view scroll triggers.
+7. **Motion controls** (UPDATE-3, 2026-09-17, client decision): there is NO visible pause / play control anywhere on the site - not on
+   the hero video, not on the home 08 ticker, not on the podcast page ticker (08 listen). What stays: the hero video autoplays muted,
+   pauses when scrolled off screen and never plays under prefers-reduced-motion or Save-Data (poster shown); both tickers move only
+   while on screen (home: ScrollTrigger play / pause of the GSAP loop + the glow class; podcast page: IntersectionObserver toggling
+   `.is-paused` on the CSS loop) and are a static white line under prefers-reduced-motion or without JS. The moving copies are
+   `aria-hidden`; the sentence is read once from a `.visual-hide` line. Accepted trade-off: WCAG 2.2.2 (Pause, Stop, Hide, level A)
+   asks for a pause mechanism on moving content longer than 5 s; the operating system's reduced-motion setting is now the only way
+   to stop the tickers.

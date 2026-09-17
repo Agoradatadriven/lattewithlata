@@ -8,7 +8,7 @@
    prefers-reduced-motion (base.css s15 also kills them globally). Home echoes are re-written here because the home section sheets are id-scoped and
    are not loaded on sub-pages.
    Contrast (WCAG 2.x): --colAccent on white 6.54 / on soft 5.74; --colText on white 10.83 / soft 9.50; --colTextMuted on white 5.43 / soft 4.76;
-   white on --colBrand 13.06, white .8 on brand 10.7; white on --colAccent 6.54; lower-third plate (brand .9 over a white pixel) 9.7.
+   white on --colBrand 13.06, white .8 on brand 10.7; white on --colAccent 6.54; lower-third plate (solid brand since UPDATE-3) 13.06.
    ========================================================================== */
 body[data-page="podcast"] {
     --secPad: calc(var(--vpad) * 2);                     /* section rhythm: 115px @1440, 51px @390 */
@@ -142,15 +142,28 @@ body[data-page="podcast"] .pod-actions .button + .button { margin: 0; }
 /* ==========================================================================  06 host (white) + pull quote (accent) */
 #p-podcast-06-host .pod-host__row { padding: var(--secPad) 0; background: var(--colBg); }
 #p-podcast-06-host .pod-host__grid { display: grid; gap: var(--vpad); }
-#p-podcast-06-host .pod-host__stage { position: relative; margin: 0; width: 100%; max-width: 34rem; }
+/* UPDATE-3 2026-09-17 (lane L2 HOST PHOTO): founder-portrait.jpg = 1200x1500 crop of the client's podcast photograph (box y 60-1340 of 1024x1536).
+   Safe map, fractions of the 4:5 photo box: head (hair + face) x 38.6-76.2% / y 17.6-43.4%; hands x 14.2-59.6% / y 74.2-84.0%; real microphone
+   x 58.0-77.3% / y 52.3-94.1%; real latte + saucer x 3.7-31.6% / y 83.3-99.2%. The latte owns the bottom-left corner, so the lower third moved to the
+   bottom-right and straddles the bottom edge from 96.5% down (below the mic base). */
+#p-podcast-06-host .pod-host__stage { position: relative; isolation: isolate; margin: 0 0 44px; width: 100%; max-width: 34rem; }   /* 44px: the lower third hangs ~45px below the photo (stacked layout) */
+/* depth: a --colBrandSoft panel offset half a vpad up and left behind the photo (12.8px @390, 28.8px @1440) - rhymes with the cream notice in the
+   text column; decorative, behind the figure (z-index -1 inside the isolated stage), clear of the lower third at the bottom-right */
+#p-podcast-06-host .pod-host__stage::before {
+    content: ""; position: absolute; z-index: -1;
+    inset: calc(var(--vpad) * -.5) calc(var(--vpad) * .5) calc(var(--vpad) * .5) calc(var(--vpad) * -.5);
+    background: var(--colBrandSoft);
+}
 #p-podcast-06-host .pod-host__portrait { aspect-ratio: 4 / 5; overflow: hidden; background: var(--colBrandSoft); }   /* the file is exactly 4:5: cover never crops her photo */
-#p-podcast-06-host .pod-host__photo { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 30%; }
-/* lower third: video-podcast caption, bottom-left, flush to the figure edge; sits over her jacket (y > 84%), never over the face */
+/* 50% 23.4%: a no-op for the 4:5 file; if the uncropped 2:3 source is ever used, cover + this position reproduces the delivered crop (60 / 256 of the spare height) */
+#p-podcast-06-host .pod-host__photo { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 23.4%; }
+/* lower third: video-podcast caption on a SOLID brand plate (13.06:1 whatever the photo), caramel rule on top, flush right; the top 4.5% sits on the
+   photo (the table under the mic base), the rest hangs below it like a tab */
 #p-podcast-06-host .pod-host__lower {
-    position: absolute; left: 0; bottom: 5%;
+    position: absolute; top: 96.5%; right: 0;
     display: inline-flex; align-items: center; gap: .85em;
     max-width: 88%; padding: .75em 1.2em .75em .95em;
-    background: rgb(var(--colBrand-rgb) / .9);
+    background: var(--colBrand);
     border-top: 2px solid var(--colAccent);
     color: var(--colOnBrand); text-align: left;
     font-size: 1rem;
@@ -182,7 +195,7 @@ body[data-page="podcast"] .pod-actions .button + .button { margin: 0; }
 #p-podcast-06-host .pod-host__cta { margin-top: calc(var(--vpad) / 1.6); }
 @media (min-width: 60em) {
     #p-podcast-06-host .pod-host__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: calc(var(--vpad) * 2); align-items: start; }
-    #p-podcast-06-host .pod-host__stage { max-width: none; position: sticky; top: calc(var(--hH, 78) * 1px + var(--vpad) / 2); }   /* the portrait keeps her company while the prose scrolls (main is overflow: clip, so sticky works) */
+    #p-podcast-06-host .pod-host__stage { max-width: none; margin-bottom: 0; position: sticky; top: calc(var(--hH, 78) * 1px + var(--vpad) / 2); }   /* the portrait keeps her company while the prose scrolls (main is overflow: clip, so sticky works); the row padding holds the overhang */
 }
 /* the quote band: the home 07 manifesto role (.text-decorated--sentence = Creato Medium 500, lh 1.15, sentence case) on --colAccent.
    Default colour = white (no JS / reduced motion / a failed script all read 6.54:1); js/pages/podcast.js sets the transient tint and scrubs it to white. */
@@ -190,7 +203,7 @@ body[data-page="podcast"] .pod-actions .button + .button { margin: 0; }
 #p-podcast-06-host .pod-quote__fig { margin: 0 auto; max-width: 58rem; text-align: center; }
 #p-podcast-06-host .pod-quote__context { margin: 0 0 2em; color: var(--colOnBrand); }
 #p-podcast-06-host .pod-quote__block { margin: 0; }
-#p-podcast-06-host .pod-quote__text { margin: 0; font-size: clamp(27px, 4.4vw, 50px); color: var(--colOnBrand); text-wrap: pretty; }
+#p-podcast-06-host .pod-quote__text { margin: 0; font-size: clamp(27px, 4.4vw, 50px); color: var(--colOnBrand); text-wrap: balance; }   /* balance: the one-sentence positioning line (UPDATE-3) sits on even centred lines */
 #p-podcast-06-host .pod-quote__text .word { display: inline-block; will-change: color; }
 #p-podcast-06-host .pod-quote__by {
     margin-top: 2.2em; padding-top: 1.6em; position: relative;
@@ -219,9 +232,9 @@ body[data-page="podcast"] .pod-actions .button + .button { margin: 0; }
 /* ==========================================================================  08 listen (brand band): glow ticker + platform rows */
 #p-podcast-08-listen { padding: 0 0 var(--secPad); }
 /* ticker = the home 08 marquee re-expressed as a CSS loop: two identical copies in a max-content track, translate -50%, duration set by the module
-   (copy width / 320 px per second). It only ever runs when js/pages/podcast.js adds .is-running (so there is always a pause control next to a moving
-   ticker - WCAG 2.2.2); no JS / reduced motion = a static line. */
-#p-podcast-08-listen .pod-ticker { position: relative; border-bottom: 1px solid var(--colLineOnBrand); }
+   (copy width / 320 px per second). It only ever runs when js/pages/podcast.js adds .is-running (it runs only while on screen; no pause
+   control - UPDATE-3 client decision); no JS / reduced motion = a static line. */
+#p-podcast-08-listen .pod-ticker { border-bottom: 1px solid var(--colLineOnBrand); }
 #p-podcast-08-listen .pod-marquee {
     overflow: hidden; white-space: nowrap;
     font-weight: var(--wTitle); font-size: clamp(64px, 10vw, 160px); line-height: var(--lhTitle); letter-spacing: var(--trackTitle); text-transform: uppercase;
@@ -238,20 +251,6 @@ body[data-page="podcast"] .pod-actions .button + .button { margin: 0; }
 @keyframes pod-marquee { to { transform: translate3d(-50%, 0, 0); } }
 @keyframes pod-glow { 0%, 100% { text-shadow: 0 0 0 var(--colOnBrand); } 50% { text-shadow: 0 0 .17em var(--colOnBrand); } }
 @media (max-width: 63.9375em) { @keyframes pod-glow { 0%, 100% { text-shadow: 0 0 0 var(--colOnBrand); } 50% { text-shadow: 0 0 .08em var(--colOnBrand); } } }
-#p-podcast-08-listen .pod-marquee__pause {
-    position: absolute; right: var(--vpad); top: 50%; transform: translateY(-50%); z-index: var(--z-content);
-    width: var(--tapMin); height: var(--tapMin); border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    background: var(--colBrandDeep); color: var(--colOnBrand); border: 1px solid var(--colOnBrand);
-    cursor: pointer;
-}
-#p-podcast-08-listen .pod-marquee__pause[hidden] { display: none; }
-#p-podcast-08-listen .pod-marquee__pause:hover, #p-podcast-08-listen .pod-marquee__pause:focus-visible { background: var(--colAccent); }
-@media (prefers-reduced-motion: no-preference) { #p-podcast-08-listen .pod-marquee__pause { transition: background-color var(--aniUi) var(--easeInOutSine); } }
-#p-podcast-08-listen .pod-marquee__icon { width: 1.1em; height: 1.1em; }
-#p-podcast-08-listen .pod-marquee__icon--play { display: none; }
-#p-podcast-08-listen .pod-marquee__pause[aria-pressed="true"] .pod-marquee__icon--pause { display: none; }
-#p-podcast-08-listen .pod-marquee__pause[aria-pressed="true"] .pod-marquee__icon--play { display: block; }
 
 #p-podcast-08-listen .pod-listen__inner { padding-top: var(--secPad); display: grid; gap: var(--vpad); }
 #p-podcast-08-listen .strip__title1 { max-width: 15ch; }                      /* room for the &nbsp;-joined "ALREADY LISTEN" */

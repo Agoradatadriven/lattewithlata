@@ -7,8 +7,9 @@
                 SC = IC(eberg)/source/css/inline-scoped.beautified.css
    Scoped under #page-header / #menu-container / #book-pill-wrap. Every ported value cites file:line; invented = INFERRED.
    BRAND EDITION (2026-09-17, BK = the client's brand kit, see BRAND.md / LOGO-USAGE.md): colour + type + mark only.
-   Geometry (header row 78/63, drawer clamp, pill) is unchanged. PAGES UPDATE (2026-09-17): the logo lockup left the bar (its CSS is deleted),
-   "Book a table" sits at the far right at every width, the drawer mark is a home link. Type roles come from tokens.css
+   Geometry (header row 78/63, logo box 265x30 / 132x15, drawer clamp, pill) is unchanged. PAGES UPDATE (2026-09-17): the drawer mark is a
+   home link. UPDATE-3 (2026-09-17, client request): the header's "Book a table" link is gone (its CSS is deleted) and the rebuild-v2 logo
+   lockup is back at the far right (mark + wordmark text, mark only below 36em). Type roles come from tokens.css
    (--fontBrand is inherited from body - no font-family here); the 44px hit boxes use padding + equal negative margin.
    ========================================================================== */
 
@@ -100,22 +101,46 @@ body:not(.opaque) #page-header::before { opacity: 0; } /* IC:1089-1091 (.home:no
 /* ---- burger hit box: 48x15 / 24x15 lines -> 47 tall (WIG / WCAG 2.5.5 44px); padding + equal negative margin = zero layout change ---- */
 #page-header .header__burger { padding: 1em .75em; margin: -1em -.75em; }   /* moved here from base.css s17 (tokens hand-off request 2) */
 
-/* ---- "Book a table" text link, far right of the row (PAGES-SPEC 1a, 2026-09-17: it took the place of the logo lockup; burger left, link right
-        via the row's space-between). Visible at EVERY width: at 390 the row is burger 24px + link ~122px inside 338px, so it fits; the mobile
-        pill still covers the scrolled state (the bar hides on scroll-down). Type = the BK button role it always had. All values INFERRED. ---- */
-#page-header .header__book {
-    display: inline-block;
-    margin-left: auto;                                 /* right-anchored even if the burger is ever removed */
-    font-size: .9em; font-weight: var(--wButton); line-height: 1;     /* BK button role: Creato Bold 700 .9em ls .08em (= .button); lh 1 keeps the 14.4px line box under the 15px row content (63px bar on phones) */
-    letter-spacing: var(--trackButton);
-    text-transform: uppercase;
+/* ---- logo lockup, far right of the row (UPDATE-3 2026-09-17, client request: "Book a table" left the bar and the brand lockup came back
+        in its place - burger left, lockup right via the row's space-between). One link home: href index.html, aria-label "Latte with Lata,
+        home"; the mark is decorative (alt="") and the wordmark text aria-hidden. Values = the brand-pass header (rebuild-v2), unchanged:
+        IC:1102-1111 (.header__logo__marchio 132x15 -> 265x30 @36em), measured x 1117.4 (right gap = --vpad)
+        BK lockup (LOGO-USAGE.md): white mark 44px (56px >= 60em) + "LATTE WITH LATA" Creato Bold 15px uppercase ls .12em, one clear
+        space (the saucer = 11.4% of the mark height) between them; below 36em the mark only. The link keeps its measured 132x15 / 265x30
+        margin box (header row stays 78 / 63): the mark is centred in it and overhangs it top and bottom, the hit box is the padded
+        47 / 62px band (padding + equal negative margin; the border-box height includes the padding so the content box stays 15 / 30).
+        White in every state (--colOnBrand): over the hero scrims and on the brown plate. ---- */
+#page-header .header__logo {
+    display: flex;                                     /* IC:1101 (.header__logo{display:flex}) */
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(var(--markHeader) * .114);               /* BK clear space = saucer height (5px @44, 6.4px @56) */
+    margin-left: auto;
+    width: 132px; height: calc(15px + 2em);            /* IC:1103-1107 (15px content box) + the 1em hit-box padding below */
+    padding-block: 1em; margin-block: -1em;            /* 44px hit box, margin box = 15 / 30 as measured (moved here from base.css s17) */
+    font-size: 1em;                                    /* IC:994 */
+    line-height: 1;
     white-space: nowrap;
-    padding: 1.1em .5em; margin: -1.1em -.5em;         /* 14.4px line + 2 x 15.8 = 46px tall hit box with zero layout change (WIG 44px); the half-em sides keep the ring off the glyphs */
+    color: var(--colOnBrand);
 }
-.is-mouse #page-header .header__book:hover { opacity: .7; }   /* CS:213-216 (.menu__socials a:hover) pattern - opacity only, no layout shift */
-/* the row keeps its measured height now that the 15 / 30px logo box is gone: 1.5em + 15px + 1.5em = 63 (< 36em), 1.5em + 30px + 1.5em = 78 */
-#page-header .header__container { min-height: calc(15px + 3em); }
-@media screen and (min-width: 36em) { #page-header .header__container { min-height: calc(30px + 3em); } }
+@media screen and (min-width: 36em) { #page-header .header__logo { width: 265px; height: calc(30px + 2em); } }   /* IC:1108-1111 */
+#page-header .header__mark {
+    display: block;
+    height: var(--markHeader);                         /* BK 44px -> 56px at >= 60em (tokens.css) */
+    width: auto;                                       /* never stretched: 0.844 x height (the width/height attrs reserve the box) */
+    max-width: none;
+    flex: 0 0 auto;
+}
+#page-header .header__wordmark {                       /* BK header wordmark text: Creato Bold 15px uppercase, tracking .12em (LOGO-USAGE.md) */
+    display: none;                                     /* < 36em: mark only */
+    font-weight: var(--wTitle);
+    font-size: .9375rem;                               /* 15px */
+    letter-spacing: var(--trackWordmark);
+    text-transform: uppercase;
+    line-height: 1;
+}
+@media screen and (min-width: 36em) { #page-header .header__wordmark { display: block; } }
+.is-mouse #page-header .header__logo:hover { opacity: .7; }   /* CS:213-216 pattern - INFERRED (opacity only: no layout shift, WIG) */
 
 /* ---- screen + drawer boxes - IC:1276-1292, M1:8342-8372, CS:22-52 ---- */
 #page-header .menu__screen,

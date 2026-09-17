@@ -46,25 +46,8 @@
     will-change: transform;                              /* IC:1325 */
 }
 #s-08-podcast .marquee .char { display: inline-block; }  /* SplitText chars (IC .chars) */
-/* ---- ticker pause control (brand pass, WCAG 2.2.2 / review MUST-FIX 3): 44px disc at the row's right edge, vertically centred, over the
-        moving text; deep-brown fill + white hairline (the hero play control's family) so it reads as a media control; hover = accent. Absolute -> the measured row height is untouched. */
-#s-08-podcast .podcast__ticker .container { position: relative; }
-#s-08-podcast .marquee__pause {
-    position: absolute; right: var(--vpad); top: 50%; transform: translateY(-50%);
-    z-index: var(--z-content);
-    width: var(--tapMin); height: var(--tapMin); border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    background: var(--colBrandDeep); color: var(--colOnBrand);   /* same family as the hero play control: deep disc, white hairline */
-    border: 1px solid var(--colOnBrand);
-    cursor: pointer;
-}
-#s-08-podcast .marquee__pause[hidden] { display: none; }
-#s-08-podcast .marquee__pause:hover, #s-08-podcast .marquee__pause:focus-visible { background: var(--colAccent); border-color: var(--colOnBrand); }
-@media screen and (prefers-reduced-motion: no-preference) { #s-08-podcast .marquee__pause { transition: background-color var(--aniUi) var(--easeInOutSine), border-color var(--aniUi) var(--easeInOutSine); } }
-#s-08-podcast .marquee__pause .icon { width: 1.1em; height: 1.1em; }
-#s-08-podcast .marquee__pause .marquee__pause-icon--play { display: none; }
-#s-08-podcast .marquee__pause[aria-pressed="true"] .marquee__pause-icon--pause { display: none; }
-#s-08-podcast .marquee__pause[aria-pressed="true"] .marquee__pause-icon--play { display: block; }
+/* UPDATE-3 (2026-09-17, client decision): the ticker has NO pause / play control - its rules are gone. The loop runs only while the row is
+   on screen (08-podcast.js) and is static under reduced motion / without JS (below). */
 
 /* glow: IC:1328-1334 (.is-animated .chars) + @keyframes blur (:1336-1343). The source nests an @media inside the keyframe (invalid, ignored);
    the intended small-tier radius (10/768, 10/393) is written as a SEPARATE keyframes block (DD Pick 9 "Write separate keyframes per breakpoint").

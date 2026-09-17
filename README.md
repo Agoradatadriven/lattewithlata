@@ -95,7 +95,6 @@ These are placeholders in the current build and need real values:
 - No confirmation emails are sent; messages are written to `data/outbox.json` (the swap-in point for an email provider is described in `API.md`).
 - The privacy summary on the contact page is a template for legal review.
 - The host's pull quote on the podcast page needs Lata's sign-off.
-- The hero video ships as WebM only; add an H.264 MP4 for older iOS Safari.
 - Four event photos show real performers at a distance; replace them with the cafe's own photos.
 
 ## Brand
@@ -108,7 +107,7 @@ Full token sheet and usage rules are in `BRAND.md` and `LOGO-USAGE.md`.
 
 ## Photo and video credits
 
-Photography and the hero clip come from Wikimedia Commons under CC0, CC BY and CC BY-SA licences. Attribution is required for the CC BY and CC BY-SA items; every file, author, licence and a ready-to-paste credit line is in `ASSETS.md`, and the contact page lists them. The host portrait and the logo files are the property of Latte with Lata.
+Photography and the hero podcast clip ("Guerrilla on air – Fatti d'arte teaser", CC BY-SA 4.0, cut and colour-graded for this site) come from Wikimedia Commons under CC0, CC BY and CC BY-SA licences. Attribution is required for the CC BY and CC BY-SA items; every file, author, licence and a ready-to-paste credit line is in `ASSETS.md`, and the contact page lists them. The photo of Lata Singh and the logo files are the property of Latte with Lata.
 
 Latte with Lata is a personal platform and is independent of any employer or institution.
 

@@ -39,17 +39,21 @@
 <!-- ===== sections/00-header.html ===== -->
 <!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill. Shared by EVERY page (build-site.cjs inlines it on the home page and on all sub-pages).
      Sits BEFORE <main>. Source skeleton: PZ/source/rendered.html #page-header (BUILD-SPEC 00 (b)); pill: Iceberg .home__about-button.
-     Copy: content/site.json -> nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
+     Copy: content/site.json -> brand.name (lockup wordmark + aria-label), nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
      Note: .header__container is NOT a .container (the source header is a full-width flex row, measured 1440x78 / 390x63).
-     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the header row is burger LEFT + "Book a table" RIGHT - the logo mark and the
-     "LATTE WITH LATA" wordmark text were removed from the bar (client request; the brown mark now opens section 02 / every page's first
-     strip as .mark-row). The drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC navigation map:
-     real pages, no same-page anchors, platform links stay "#" placeholders. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC
+     navigation map: real pages, no same-page anchors, platform links stay "#" placeholders.
+     UPDATE-3 (2026-09-17, client request): the header row is burger LEFT + the logo lockup RIGHT again - the white cup mark (decorative img,
+     482x571 attrs = the viewBox box so nothing shifts on load; 44px, 56px at >= 60em) + the "LATTE WITH LATA" wordmark text (hidden below
+     36em: mark only), one link home. "Book a table" left the bar; it stays in the drawer, the mobile pill and every page CTA. -->
 <header id="page-header" class="header page__header">
   <div class="header__container">
     <button class="header__burger menu__switcher js-menu-switcher" type="button" aria-label="Menu" aria-haspopup="true" aria-controls="menu-container" aria-expanded="false"><span class="menu__burger"><u></u></span></button>
 
-    <a class="header__book" href="book.html">Book a table</a>
+    <a class="header__logo" href="index.html" aria-label="Latte with Lata, home">
+      <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
+    </a>
 
     <aside class="menu__screen js-menu-switcher" aria-hidden="true"></aside>
 
@@ -134,7 +138,7 @@
       </div>
       <dl class="info-list info-list--stack pod-about__facts anima--bottom-in">
         <div class="info-list__row"><dt>New episode</dt><dd>Every Thursday</dd></div>
-        <div class="info-list__row"><dt>Length</dt><dd>35 to 50 minutes</dd></div>
+        <div class="info-list__row"><dt>Length</dt><dd>About 40 minutes</dd></div>
         <div class="info-list__row"><dt>Recorded</dt><dd>Live, at the corner table</dd></div>
         <div class="info-list__row"><dt>Episodes so far</dt><dd>88</dd></div>
       </dl>
@@ -260,7 +264,7 @@
       <li class="pod-step anima--bottom-in">
         <p class="pod-step__time">The next Thursday</p>
         <h3 class="pod-step__title">The episode comes out</h3>
-        <p class="pod-step__body">We cut the evening down to about 45&nbsp;minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning.</p>
+        <p class="pod-step__body">We cut the evening down to about 40&nbsp;minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning.</p>
       </li>
     </ol>
     <p class="pod-actions anima--bottom-in"><a class="button" href="book.html?type=recording">Reserve a seat</a><a class="button button--outlined" href="events.html">What's on</a></p>
@@ -268,17 +272,21 @@
 </section>
 
 <!-- ===== pages/podcast/06-host.html ===== -->
-<!-- podcast 06-host - #host (the site-wide "The Host" link lands here). Lata Singh - Host. Her real photo only: assets/images/founder-portrait.jpg is the
-     FOUNDER lane's 4:5 crop (1600x2000) of the kit photo, shown uncropped in a 4:5 window; the lower third (name / role + a small level meter) is an HTML/CSS
-     layer that sits below her shoulders line (y > 84%) and never touches her face. The meter is decorative (aria-hidden). Own scoped block (css/pages/podcast.css),
-     nothing borrowed from #s-10-hosts. Copy: podcast.sections[host] verbatim: paragraphs (the credibility prose = the brand paper's three bullets as prose;
-     the duplicate "credentials" list is not printed), independence statement, pull quote (kind: statement-of-intent, placeholder: needs Lata's sign-off) with
-     its attribution + context, CTA. Row 2 = the quote on the caramel band with the home 07 colour scrub (js/pages/podcast.js; white without JS / reduced motion). -->
+<!-- podcast 06-host - #host (the site-wide "The Host" link lands here). Lata Singh - Host. Her own photo only.
+     UPDATE-3 2026-09-17 (lane L2 HOST PHOTO): assets/images/founder-portrait.jpg is now the 1200x1500 (4:5) crop of the client's podcast photograph
+     assets/brand/lata-singh-podcast.jpg (box x 0-1024, y 60-1340, resampled only): whole head with 17.6% headroom, both shoulders and hands, the real
+     microphone and the real latte. It fills a 4:5 window uncropped. The lower third (name / role + a small level meter) is a solid brand plate that
+     straddles the photo's BOTTOM-RIGHT edge - below the mic base (y > 96.5%) and right of the latte, never over her face or hands; the meter is
+     decorative (aria-hidden). Own scoped block (css/pages/podcast.css), nothing borrowed from #s-10-hosts.
+     Copy: podcast.sections[host] verbatim: paragraphs (the credibility prose = the brand paper's three bullets as prose; the duplicate "credentials"
+     list is not printed), independence statement (the site-wide sentence), pull quote = the brand paper's positioning line, attributed to the show
+     (L4 requests R5-R7 applied), CTA. Row 2 = the quote on the caramel band with the home 07 colour scrub (js/pages/podcast.js; white without JS /
+     reduced motion). -->
 <section id="p-podcast-06-host" class="strip pod-host" aria-labelledby="pod-host-title">
   <div id="host" class="pod-host__row">
     <div class="container pod-host__grid">
       <figure class="pod-host__stage anima--left-in">
-        <div class="pod-host__portrait"><img class="pod-host__photo" src="assets/images/founder-portrait.jpg" alt="Lata Singh, host of Latte with Lata." width="1600" height="2000" loading="eager" decoding="async"></div>
+        <div class="pod-host__portrait"><img class="pod-host__photo" src="assets/images/founder-podcast.jpg" alt="Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte" width="1200" height="1500" loading="eager" decoding="async"></div>
         <figcaption class="pod-host__lower">
           <span class="pod-host__meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
           <span class="pod-host__lower-text"><span class="pod-host__lower-name">Lata Singh</span><span class="pod-host__lower-role">Host</span></span>
@@ -296,7 +304,7 @@
           <p>She is also pursuing doctoral study in leadership and innovation, which brings an academic and reflective lens to the table alongside the operational one.</p>
           <p>That is the edge of the show. She is fluent in the pressures, the trade-offs and the quiet victories that come with running a purpose-built organization, and those are the things she asks about.</p>
         </div>
-        <div class="notice pod-host__indep anima--bottom-in"><div><p class="notice__title">A personal platform</p><p>Latte with Lata is a personal platform. It is independent of any employer or institution, and nothing said here is official communication on anyone's behalf.</p></div></div>
+        <div class="notice pod-host__indep anima--bottom-in"><div><p class="notice__title">A personal platform</p><p>Latte with Lata is a personal platform and is independent of any employer or institution. Nothing said here is official communication on anyone's behalf.</p></div></div>
         <p class="pod-host__cta anima--bottom-in"><a class="read-more" href="episodes.html">Join the conversation</a></p>
       </div>
     </div>
@@ -306,9 +314,9 @@
       <figure class="pod-quote__fig">
         <p class="eyebrow pod-quote__context">On why the show exists</p>
         <blockquote class="pod-quote__block">
-          <p class="pod-quote__text text-decorated text-decorated--sentence" data-scrub>&ldquo;The most honest things leaders have told me were said over coffee, after the meeting, with nothing left to prove. I want that conversation, with the microphone switched on.&rdquo;</p>
+          <p class="pod-quote__text text-decorated text-decorated--sentence" data-scrub>&ldquo;Real leadership lessons come out over coffee, not in a boardroom.&rdquo;</p>
         </blockquote>
-        <figcaption class="pod-quote__by">Lata Singh, Host</figcaption>
+        <figcaption class="pod-quote__by">Latte with Lata</figcaption>
       </figure>
     </div>
   </div>
@@ -344,8 +352,9 @@
 
 <!-- ===== pages/podcast/08-listen.html ===== -->
 <!-- podcast 08-listen - platform links with icons (# placeholders until the feeds exist), 44px+ targets, on the brand band. Opens with the home 08
-     glow ticker (copy = content/site.json podcast.ticker verbatim; own scoped CSS loop + pause control in js/pages/podcast.js; static without JS / under
-     reduced motion; the moving copies are aria-hidden, the sentence is read once from the .visual-hide line). Copy: podcast.sections[listen] verbatim. -->
+     glow ticker (copy = content/site.json podcast.ticker verbatim; own scoped CSS loop in js/pages/podcast.js, running only while on screen; static
+     without JS / under reduced motion; the moving copies are aria-hidden, the sentence is read once from the .visual-hide line). No pause / play control
+     (UPDATE-3, 2026-09-17, client decision). Copy: podcast.sections[listen] verbatim. -->
 <section id="p-podcast-08-listen" class="strip bg-band-brand pod-listen" aria-labelledby="pod-listen-title" data-pill-away>
   <div class="pod-ticker">
     <p class="visual-hide">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY</p>
@@ -355,10 +364,6 @@
         <div class="pod-marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
       </div>
     </div>
-    <button class="pod-marquee__pause" type="button" hidden aria-label="Pause ticker" aria-pressed="false">
-      <svg class="icon pod-marquee__icon pod-marquee__icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
-      <svg class="icon pod-marquee__icon pod-marquee__icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
-    </button>
   </div>
   <div id="listen" class="container pod-listen__inner">
     <div class="strip__data pod-head">
@@ -421,7 +426,7 @@
               <p class="episode-card__blurb">Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.</p>
             </div>
             <dl class="episode-card__meta">
-              <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Dr Kwame Boateng, Medical director, safety-net community clinic</dd></div>
+              <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Dr Kwame Boateng, Medical director, Eastgate Community Clinic</dd></div>
               <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>47&nbsp;min</dd></div>
               <div class="episode-card__date"><dt class="visual-hide">Released</dt><dd><time datetime="2026-09-03">Thu 3 Sep 2026</time></dd></div>
             </dl>
@@ -441,7 +446,7 @@
               <p class="episode-card__blurb">Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.</p>
             </div>
             <dl class="episode-card__meta">
-              <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Hannah Lindgren, Chief innovation officer, city government</dd></div>
+              <div class="episode-card__guest"><dt class="visual-hide">Guest</dt><dd>Hannah Lindgren, Chief innovation officer, City of Harrowfield</dd></div>
               <div class="episode-card__duration"><dt class="visual-hide">Length</dt><dd>39&nbsp;min</dd></div>
               <div class="episode-card__date"><dt class="visual-hide">Released</dt><dd><time datetime="2026-08-27">Thu 27 Aug 2026</time></dd></div>
             </dl>
@@ -630,7 +635,7 @@
                     <li>“A coffee cup featuring intricate latte art sits on a wooden table next to an open laptop.jpg” by Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_coffee_cup_featuring_intricate_latte_art_sits_on_a_wooden_table_next_to_an_open_laptop.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“A cup of cappuccino.jpg” by Vee Satayamas, <a href="https://creativecommons.org/licenses/by/4.0" rel="noopener" target="_blank">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_cup_of_cappuccino.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“BoulderCoffeeOpenMicNight2018.jpg” by DanielPenfield, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BoulderCoffeeOpenMicNight2018.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> - this crop is a derivative shared under the same CC BY-SA licence.</li>
-                    <li>“Macro Espresso Process” (video) by Scott Schiller from San Francisco, CA, USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm" rel="noopener" target="_blank">Wikimedia Commons</a>.</li>
+                    <li>“Guerrilla on air – Fatti d’arte teaser” (video) by M. Capriglione, M. Rainò and R. Romita, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Guerrilla_on_air_%E2%80%93_Fatti_d%27arte_teaser.mpg" rel="noopener" target="_blank">Wikimedia Commons</a> - cut, slowed, colour-graded and looped; this edit is shared under the same CC BY-SA licence.</li>
                     <li>All other photographs: CC0 (public domain dedication) via Wikimedia Commons - full register in the site's ASSETS.md.</li>
                   </ul>
                 </details>

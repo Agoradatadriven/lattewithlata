@@ -2,7 +2,9 @@
      Skeleton: BUILD-SPEC 01 (b). Source: PZ/source/rendered.html:155-160 (div.banner > .banner__slider.parallax > video.banner__video)
      + IC/source/rendered.html section.intro > video.intro__video / div.intro__logo > .intro__logo-inner x3 / svg.intro__sentence.
      Copy: content/site.json brand.name, brand.wordmarkLines (one .hero__line per item, never re-split), hero.tagline, hero.sr, hero.poster, hero.video.
-     Poster: content/assets-manifest.json "assets/images/hero-poster.jpg" (1920x1080); video 854x480 VP9 webm, loopHint 33.5 s (assets.md).
+     Poster: content/assets-manifest.json "assets/images/hero-poster.jpg" (1920x1080) = frame 0 of the loop.
+     UPDATE-3 (2026-09-17, lane L3): podcast highlight loop, 1920x1080 25 fps, 17.44 s, no audio - hero.webm (VP9) then hero.mp4 (H.264 fallback);
+     the edit ends on the frame before its first frame, so the native `loop` is seamless (no data-loop-end cut). Source + credit: ASSETS.md.
      JS (js/sections/01-hero.js) builds three stacked .hero__row copies per line and splits them into .char (Iceberg rows); the HTML keeps
      one copy of each line for no-JS. The wordmark is a <p>, not an h1: copy.md reserves the page's only h1 for intro.title (02) - INFERRED.
      BRAND (2026-09-17): the kit's white cup mark sits ABOVE the live wordmark (72px / 96px, LOGO-USAGE.md) as a decorative <img> (the wordmark
@@ -12,8 +14,9 @@
   <div class="hero__media parallax" data-parallax="20">
     <!-- data-parallax="20" = PZ _page-scroll.beautified.js:371 default (i.attr("data-parallax") || 20); the drift is ported in 01-hero.js (M5) -->
     <video class="hero__video" muted playsinline loop autoplay preload="metadata" poster="assets/images/hero-poster.jpg" width="1920" height="1080"
-      aria-label="Latte with Lata. A short, silent video of milk being poured into a latte at the counter of a warm, sunlit cafe." data-loop-end="33.5">
+      aria-label="Latte with Lata. A short, silent loop from a recording booth: a studio microphone, a pop filter, headphones and handwritten notes in warm, low light.">
       <source src="assets/video/hero.webm" type="video/webm">
+      <source src="assets/video/hero.mp4" type="video/mp4">
     </video>
   </div>
   <img class="hero__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">

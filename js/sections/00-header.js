@@ -8,6 +8,7 @@
    PAGES UPDATE (2026-09-17): this module runs on EVERY page (js/main.js on the home page, js/page.js on the sub-pages). The banner the
    plate / hide-show maths key off is the first [data-banner] element (every sub-page hero: .page-hero[data-banner]) with #s-01-hero as the
    fallback (home). The drawer links are real pages now, so the drawer closes on any link click and marks the current page.
+   UPDATE-3 (2026-09-17): the bar's "Book a table" link was replaced by the logo lockup link (markup + CSS only - nothing here keyed off it).
    ========================================================================== */
 export default function init(ctx) {
     const header = document.getElementById("page-header");
@@ -59,7 +60,7 @@ export default function init(ctx) {
         const list = trapList();
         if (!list.length) return;
         const i = list.indexOf(document.activeElement);
-        // every Tab step is driven here (the header's own "Book a table" link sits outside the list and under the screen)
+        // every Tab step is driven here (the header's logo lockup link sits outside the list and under the screen)
         const next = e.shiftKey
             ? (i <= 0 ? list[list.length - 1] : list[i - 1])                                  // Shift+Tab: burger (or outside) -> last drawer link
             : (i === -1 || i === list.length - 1 ? list[0] : list[i + 1]);                   // Tab: past the last link (or outside) -> burger

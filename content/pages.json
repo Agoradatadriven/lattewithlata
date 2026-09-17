@@ -224,12 +224,12 @@
   "cafe": {
     "meta": {
       "title": "The Cafe | Latte with Lata",
-      "description": "A neighbourhood cafe in Harrowfield with microphones on the corner table. Coffee from two streets over, breakfast done properly, a room built for talking."
+      "description": "The cafe where Latte with Lata is recorded: a neighbourhood room in Harrowfield built for honest conversation, with good coffee and breakfast all week."
     },
     "hero": {
       "eyebrow": "The cafe",
       "title": "A ROOM BUILT FOR TALKING",
-      "intro": "Good coffee, a kitchen that takes breakfast seriously, and music quiet enough to talk over. 27 Bellwood Street, Harrowfield.",
+      "intro": "Good coffee, music quiet enough to talk over, and the corner table where Latte with Lata is recorded. 27 Bellwood Street, Harrowfield.",
       "image": "assets/images/page-cafe.jpg",
       "alt": "The cafe room in daylight: wooden tables, a long bench under the window and the counter at the back."
     },
@@ -240,11 +240,11 @@
         "eyebrow": "Our story",
         "title": "FROM FIRST POUR TO LAST WORD",
         "paragraphs": [
-          "Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.",
-          "The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.",
-          "The microphones were not part of the plan. One Thursday a friend who runs a food bank stayed past closing to talk through a decision she could not raise at her own board table. Lata borrowed a recorder so they would remember what was said. The week after, someone at the next table asked if they could listen in.",
-          "So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp. Nobody has asked for the corner table back.",
-          "It is still a cafe first. Most of the week the corner table is just a table, and the most important thing we make is breakfast. On Thursday nights it is where someone with a hard job says what it actually took.",
+          "The cafe opened in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.",
+          "The talking turned out to be the point. By autumn there were microphones on the corner table, and leaders from clinics, councils and charities were coming in to say what they could not say at a podium.",
+          "The microphones were not part of the plan. One Thursday a food bank director stayed past closing to talk through a decision she could not raise at her own board table, and the tables around her went quiet to listen. The week after, people came back for the next conversation.",
+          "So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp, and Latte with Lata had a home. Nobody has asked for the corner table back.",
+          "It is still a cafe first. Most of the week the corner table is just a table, and the room belongs to anyone who wants a good coffee and an unhurried conversation. On Thursday nights it is where someone with a hard job says what it actually took.",
           "The machine has since been replaced. The rule has not."
         ],
         "images": [
@@ -258,7 +258,7 @@
           }
         ],
         "placeholder": true,
-        "placeholderNote": "Cafe history (spring 2024, the quiet-music rule, how the microphones arrived) is brand fiction for the study build. Confirm or replace with the client."
+        "placeholderNote": "Cafe history (spring 2024, the quiet-music rule, how the microphones arrived) is brand fiction for the study build. It is the cafe's story, not Lata Singh's biography: her facts come only from the brand position paper. Confirm or replace with the client."
       },
       {
         "id": "values",
@@ -1198,7 +1198,7 @@
           },
           {
             "label": "Length",
-            "value": "35 to 50 minutes"
+            "value": "About 40 minutes"
           },
           {
             "label": "Recorded",
@@ -1287,7 +1287,7 @@
           {
             "time": "The next Thursday",
             "title": "The episode comes out",
-            "body": "We cut the evening down to about 45 minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning."
+            "body": "We cut the evening down to about 40 minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning."
           }
         ],
         "ctas": [
@@ -1310,8 +1310,8 @@
         "role": "Host",
         "image": {
           "src": "assets/images/founder-portrait.jpg",
-          "fallback": "assets/brand/lata-singh.jpg",
-          "alt": "Lata Singh, host of Latte with Lata."
+          "fallback": "assets/brand/lata-singh-podcast.jpg",
+          "alt": "Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte"
         },
         "paragraphs": [
           "Lata Singh hosts Latte with Lata. She comes to these conversations as a practitioner, not as an outside observer.",
@@ -1325,16 +1325,16 @@
           "Doctoral study in leadership and innovation."
         ],
         "pullQuote": {
-          "text": "The most honest things leaders have told me were said over coffee, after the meeting, with nothing left to prove. I want that conversation, with the microphone switched on.",
-          "attribution": "Lata Singh, Host",
+          "text": "Real leadership lessons come out over coffee, not in a boardroom.",
+          "attribution": "Latte with Lata",
           "context": "On why the show exists",
-          "kind": "statement-of-intent",
-          "placeholder": true,
-          "placeholderNote": "Written for the site in the host's voice from the approved 'Meet Lata' copy. It is a statement of intent, not a quotation from an interview. Needs Lata's sign-off before launch."
+          "kind": "positioning",
+          "placeholder": false,
+          "placeholderNote": "Not invented: the positioning line of the brand position paper (section 2), used as the pull quote. It is the show's line, not a quotation from Lata Singh, so it is attributed to Latte with Lata."
         },
         "independence": {
           "title": "A personal platform",
-          "text": "Latte with Lata is a personal platform. It is independent of any employer or institution, and nothing said here is official communication on anyone's behalf."
+          "text": "Latte with Lata is a personal platform and is independent of any employer or institution. Nothing said here is official communication on anyone's behalf."
         },
         "cta": {
           "label": "Join the conversation",
@@ -1486,7 +1486,7 @@
         "id": "ep-87",
         "title": "What no one tells you about a waiting room",
         "guest": "Dr Kwame Boateng",
-        "role": "Medical director, safety-net community clinic",
+        "role": "Medical director, Eastgate Community Clinic",
         "org": "Eastgate Community Clinic",
         "pillar": "What No One Tells You",
         "pillarId": "what-no-one-tells-you",
@@ -1511,7 +1511,7 @@
         "id": "ep-86",
         "title": "Fixing a form nobody could finish",
         "guest": "Hannah Lindgren",
-        "role": "Chief innovation officer, city government",
+        "role": "Chief innovation officer, City of Harrowfield",
         "org": "City of Harrowfield",
         "pillar": "The Hard Trade-off",
         "pillarId": "hard-trade-off",
@@ -1836,7 +1836,7 @@
         "id": "ep-73",
         "title": "What no one tells you about public money",
         "guest": "Farid Haidari",
-        "role": "Grants manager, county health department",
+        "role": "Grants manager, Marlow County Health Department",
         "org": "Marlow County Health Department",
         "pillar": "What No One Tells You",
         "pillarId": "what-no-one-tells-you",
@@ -1886,8 +1886,8 @@
         "id": "ep-71",
         "title": "Starting again at fifty",
         "guest": "Henry Tso",
-        "role": "Founder, Spoke and Chain Bike Workshop",
-        "org": "Spoke and Chain Bike Workshop",
+        "role": "Founder, Spoke and Chain Youth Bike Project",
+        "org": "Spoke and Chain Youth Bike Project",
         "pillar": "The Origin Story",
         "pillarId": "origin-story",
         "duration": "40 min",
@@ -2319,7 +2319,7 @@
           "doors": "Doors",
           "guest": "Guest",
           "seatsLeft": "{n} seats left",
-          "full": "Reserved seats are gone. Walk-in seats on the night.",
+          "full": "Fully reserved. Walk in anyway: reserved seats still empty at 6:50 pm go to the room.",
           "free": "Free",
           "reserve": "Reserve a seat",
           "part": "Leans on"
@@ -2561,7 +2561,7 @@
             "id": "private-hire",
             "title": "Private hire",
             "when": "Monday to Wednesday evenings, from 6:30 pm",
-            "body": "The room seats up to 40 for a board away-day dinner, a team evening or a book launch. We can run the night plates or a set menu, and the corner table microphones if you want the evening recorded.",
+            "body": "The room seats up to 40 for a board evening, a team away-day or a community meeting: somewhere a group can talk properly. We can run the night plates or a set menu.",
             "cta": {
               "label": "Ask about private hire",
               "href": "contact.html?topic=events"
@@ -2962,7 +2962,7 @@
         "type": "credits",
         "eyebrow": "Photo credits",
         "title": "WHO TOOK THE PHOTOS",
-        "text": "Apart from the portrait of Lata Singh, which is her own, the photos and the home-page video on this site are licensed images from Wikimedia Commons, used under CC0, CC BY or CC BY-SA terms. Every photographer, licence and source link is listed in the site's asset register (ASSETS.md) and in the Photo credits panel in the footer.",
+        "text": "Apart from the photo of Lata Singh, which is her own, the photos and the home-page video on this site are licensed images from Wikimedia Commons, used under CC0, CC BY or CC BY-SA terms. Every photographer, licence and source link is listed in the site's asset register (ASSETS.md) and in the Photo credits panel in the footer.",
         "note": "Spotted a missing or wrong credit? Write to us and we will fix it within 2 working days.",
         "cta": {
           "label": "Report a credit",
@@ -2988,7 +2988,7 @@
         "id": "booking",
         "type": "booking-form",
         "eyebrow": "Book online",
-        "title": "RESERVE YOUR SPOT",
+        "title": "A TABLE OR A SEAT",
         "intro": "No deposit and no account. Walk-ins are always welcome too; booking just means the table is waiting.",
         "typeToggle": {
           "legend": "What would you like to book?",
@@ -2996,7 +2996,7 @@
             {
               "value": "table",
               "label": "A table",
-              "hint": "Breakfast, lunch, coffee or a Friday evening. Up to 8 people."
+              "hint": "Breakfast, lunch, coffee or a Friday or Saturday evening. Up to 8 people."
             },
             {
               "value": "recording",
@@ -3006,7 +3006,7 @@
           ],
           "recordingExplainer": {
             "title": "About recording nights",
-            "text": "Every Thursday we record the podcast live at the corner table. It is free and most seats are first come, first seated. Reserving holds your seats until 6:50 pm. Doors open at 6:30 pm, the recording runs from 7:00 pm to 8:15 pm, and the kitchen serves plates until 8:30 pm.",
+            "text": "Every Thursday we record the podcast live at the corner table. It is free: walk in, or reserve up to 4 seats and we will hold them until 6:50 pm. Doors open at 6:30 pm, the recording runs from 7:00 pm to 8:15 pm, and the kitchen serves plates until 8:30 pm.",
             "link": {
               "label": "See who is on",
               "href": "events.html#upcoming"
@@ -3131,8 +3131,8 @@
           "seatsLeft": "{n} seats left",
           "lastFew": "Last few",
           "full": "Full",
-          "recordingFull": "Reserved seats for this night are gone. Walk-in seats are first come, first seated from 6:30 pm.",
-          "timezoneNote": "All times are Harrowfield local time.",
+          "recordingFull": "This night is fully reserved. Walk in anyway: reserved seats still empty at 6:50 pm go to the room.",
+          "timezoneNote": "All times are local cafe time.",
           "reasons": {
             "invalid_date": "That date does not look right. Pick another.",
             "past": "That date has passed. Pick today or later.",

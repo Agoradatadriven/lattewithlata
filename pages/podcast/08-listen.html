@@ -1,6 +1,7 @@
 <!-- podcast 08-listen - platform links with icons (# placeholders until the feeds exist), 44px+ targets, on the brand band. Opens with the home 08
-     glow ticker (copy = content/site.json podcast.ticker verbatim; own scoped CSS loop + pause control in js/pages/podcast.js; static without JS / under
-     reduced motion; the moving copies are aria-hidden, the sentence is read once from the .visual-hide line). Copy: podcast.sections[listen] verbatim. -->
+     glow ticker (copy = content/site.json podcast.ticker verbatim; own scoped CSS loop in js/pages/podcast.js, running only while on screen; static
+     without JS / under reduced motion; the moving copies are aria-hidden, the sentence is read once from the .visual-hide line). No pause / play control
+     (UPDATE-3, 2026-09-17, client decision). Copy: podcast.sections[listen] verbatim. -->
 <section id="p-podcast-08-listen" class="strip bg-band-brand pod-listen" aria-labelledby="pod-listen-title" data-pill-away>
   <div class="pod-ticker">
     <p class="visual-hide">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY</p>
@@ -10,10 +11,6 @@
         <div class="pod-marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
       </div>
     </div>
-    <button class="pod-marquee__pause" type="button" hidden aria-label="Pause ticker" aria-pressed="false">
-      <svg class="icon pod-marquee__icon pod-marquee__icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
-      <svg class="icon pod-marquee__icon pod-marquee__icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
-    </button>
   </div>
   <div id="listen" class="container pod-listen__inner">
     <div class="strip__data pod-head">

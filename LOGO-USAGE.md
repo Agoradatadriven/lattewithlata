@@ -67,15 +67,17 @@ starts one clear-space below it. The lockup files bake this gap in (65 units).
 
 ## Markup contracts
 
-Decorative use inside a link that already carries `aria-label` (header, footer):
+Decorative use inside a link that already carries `aria-label` (header, footer). The header lockup as shipped (UPDATE-3, every page):
 
 ```html
-<a class="header__logo" href="#top" aria-label="Latte with Lata">
+<a class="header__logo" href="index.html" aria-label="Latte with Lata, home">
   <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
   <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
 </a>
 ```
-CSS: `.header__mark { height: 44px; width: auto } @media (min-width: 60em) { .header__mark { height: 56px } }`.
+CSS: `.header__mark { height: 44px; width: auto } @media (min-width: 60em) { .header__mark { height: 56px } }`;
+`.header__wordmark { font-weight: 700; font-size: 15px; letter-spacing: .12em; text-transform: uppercase }`, `display: none` below 36em;
+gap mark -> wordmark = one clear space (`--markHeader * .114`).
 `width`/`height` attributes = the viewBox size so the browser reserves the 0.844 box before the SVG loads (no CLS).
 
 currentColor use (when the colour must follow `color:`):
@@ -107,10 +109,23 @@ artwork bounds listed above, fills resolve to `rgb(80,37,6)` / `rgb(255,255,255)
 brown and accent). OG image: 1200x630 JPEG q88, 38.9 KB.
 
 
-## Update 2026-09-17 (pages pass) - supersedes the header rows above
+## Update 2026-09-17 (pages pass)
 
-- **Header:** carries NO logo and no wordmark text (client decision). Layout is burger left, "Book a table" right. The header rows in the tables above are historical.
+- **Header (superseded by Update 3 below):** carried no logo and no wordmark text; the layout was burger left, "Book a table" right.
 - **After the hero:** the brown mark sits alone, centred above the first title (`.mark-row`, 72px desktop / 56px mobile, decorative `alt=""`). Every sub-page repeats this directly after its page hero.
-- **Drawer:** still shows the white mark at 72px, now linked to `index.html` (the way home, since the header has no logo).
+- **Drawer:** still shows the white mark at 72px, now linked to `index.html`.
 - **Host section:** the illustrated cup `assets/svg/cup-branded.svg` embeds the official mark paths unmodified on the cup body.
 - **Footer, favicon, stamp, social image:** unchanged.
+
+## Update 3 - 2026-09-17 (client request) - the header lockup is back
+
+- **Header, every page:** burger left; on the right the white cup mark + the "LATTE WITH LATA" wordmark text, exactly the sizes in
+  the tables above (mark 44px, 56px at >= 60em; wordmark Creato Display Bold 15px, uppercase, tracking .12em, one clear space after
+  the mark; below 36em the mark only). One link: `href="index.html"`, `aria-label="Latte with Lata, home"`, mark `alt=""`, wordmark
+  `aria-hidden` (markup contract above). White in every state: over the hero video / page-hero photo scrims and on the brown plate.
+  Link margin box 132x15 (< 36em) / 265x30 with a right gap of `--vpad`, so the header row stays 63 / 78px; hit box 47 / 62px tall.
+- **No "Book a table" link in the header bar.** Booking stays in the drawer (outlined button), in the mobile pill (< 48em) and in
+  every page's own CTAs.
+- **Drawer, after-hero `.mark-row`, host cup, footer, favicon, stamp, social image:** unchanged (the drawer mark still links home).
+- **No pause / play controls anywhere** (client decision, BRAND.md s6 item 7): the hero video and both tickers have no visible
+  control; they pause off screen and stay static under prefers-reduced-motion.

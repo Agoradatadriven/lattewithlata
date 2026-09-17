@@ -6,19 +6,19 @@
 <script>document.documentElement.classList.replace("no-js","js-ok")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Cafe | Latte with Lata</title>
-<meta name="description" content="A neighbourhood cafe in Harrowfield with microphones on the corner table. Coffee from two streets over, breakfast done properly, a room built for talking.">
+<meta name="description" content="The cafe where Latte with Lata is recorded: a neighbourhood room in Harrowfield built for honest conversation, with good coffee and breakfast all week.">
 <meta name="theme-color" content="#502506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Latte with Lata">
 <meta property="og:title" content="The Cafe | Latte with Lata">
-<meta property="og:description" content="A neighbourhood cafe in Harrowfield with microphones on the corner table. Coffee from two streets over, breakfast done properly, a room built for talking.">
+<meta property="og:description" content="The cafe where Latte with Lata is recorded: a neighbourhood room in Harrowfield built for honest conversation, with good coffee and breakfast all week.">
 <meta property="og:image" content="assets/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Latte with Lata - Real Conversations. Built on Purpose.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Cafe | Latte with Lata">
-<meta name="twitter:description" content="A neighbourhood cafe in Harrowfield with microphones on the corner table. Coffee from two streets over, breakfast done properly, a room built for talking.">
+<meta name="twitter:description" content="The cafe where Latte with Lata is recorded: a neighbourhood room in Harrowfield built for honest conversation, with good coffee and breakfast all week.">
 <meta name="twitter:image" content="assets/images/og-image.jpg">
 <link rel="icon" href="assets/svg/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/brand/fonts/creato_display/CreatoDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -39,17 +39,21 @@
 <!-- ===== sections/00-header.html ===== -->
 <!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill. Shared by EVERY page (build-site.cjs inlines it on the home page and on all sub-pages).
      Sits BEFORE <main>. Source skeleton: PZ/source/rendered.html #page-header (BUILD-SPEC 00 (b)); pill: Iceberg .home__about-button.
-     Copy: content/site.json -> nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
+     Copy: content/site.json -> brand.name (lockup wordmark + aria-label), nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
      Note: .header__container is NOT a .container (the source header is a full-width flex row, measured 1440x78 / 390x63).
-     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the header row is burger LEFT + "Book a table" RIGHT - the logo mark and the
-     "LATTE WITH LATA" wordmark text were removed from the bar (client request; the brown mark now opens section 02 / every page's first
-     strip as .mark-row). The drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC navigation map:
-     real pages, no same-page anchors, platform links stay "#" placeholders. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC
+     navigation map: real pages, no same-page anchors, platform links stay "#" placeholders.
+     UPDATE-3 (2026-09-17, client request): the header row is burger LEFT + the logo lockup RIGHT again - the white cup mark (decorative img,
+     482x571 attrs = the viewBox box so nothing shifts on load; 44px, 56px at >= 60em) + the "LATTE WITH LATA" wordmark text (hidden below
+     36em: mark only), one link home. "Book a table" left the bar; it stays in the drawer, the mobile pill and every page CTA. -->
 <header id="page-header" class="header page__header">
   <div class="header__container">
     <button class="header__burger menu__switcher js-menu-switcher" type="button" aria-label="Menu" aria-haspopup="true" aria-controls="menu-container" aria-expanded="false"><span class="menu__burger"><u></u></span></button>
 
-    <a class="header__book" href="book.html">Book a table</a>
+    <a class="header__logo" href="index.html" aria-label="Latte with Lata, home">
+      <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
+    </a>
 
     <aside class="menu__screen js-menu-switcher" aria-hidden="true"></aside>
 
@@ -108,7 +112,7 @@
   <div class="container page-hero__content">
     <p class="page-hero__eyebrow">The cafe</p>
     <h1 id="p-cafe-title" class="page-hero__title">A ROOM BUILT FOR TALKING</h1>
-    <p class="page-hero__intro">Good coffee, a kitchen that takes breakfast seriously, and music quiet enough to talk over. 27 Bellwood Street, Harrowfield.</p>
+    <p class="page-hero__intro">Good coffee, music quiet enough to talk over, and the corner table where Latte with Lata is recorded. 27 Bellwood Street, Harrowfield.</p>
   </div>
 </section>
 
@@ -138,9 +142,9 @@
             <div class="strip__text story__copy">
               <p class="eyebrow">Our story</p>
               <h2 class="strip__title1">FROM FIRST POUR TO LAST WORD</h2>
-              <p>Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.</p>
-              <p>The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.</p>
-              <p>The microphones were not part of the plan. One Thursday a friend who runs a food bank stayed past closing to talk through a decision she could not raise at her own board table. Lata borrowed a recorder so they would remember what was said. The week after, someone at the next table asked if they could listen in.</p>
+              <p>The cafe opened in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.</p>
+              <p>The talking turned out to be the point. By autumn there were microphones on the corner table, and leaders from clinics, councils and charities were coming in to say what they could not say at a podium.</p>
+              <p>The microphones were not part of the plan. One Thursday a food bank director stayed past closing to talk through a decision she could not raise at her own board table, and the tables around her went quiet to listen. The week after, people came back for the next conversation.</p>
             </div>
           </div>
         </div>
@@ -151,8 +155,8 @@
         <div class="strip__data strip__column strip__column--1 anima--left-in v-center">
           <div class="strip__column__content">
             <div class="strip__text story__copy">
-              <p>So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp. Nobody has asked for the corner table back.</p>
-              <p>It is still a cafe first. Most of the week the corner table is just a table, and the most important thing we make is breakfast. On Thursday nights it is where someone with a hard job says what it actually took.</p>
+              <p>So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp, and Latte with Lata had a home. Nobody has asked for the corner table back.</p>
+              <p>It is still a cafe first. Most of the week the corner table is just a table, and the room belongs to anyone who wants a good coffee and an unhurried conversation. On Thursday nights it is where someone with a hard job says what it actually took.</p>
               <p class="lead story__last">The machine has since been replaced. The rule has not.</p>
             </div>
           </div>
@@ -616,7 +620,7 @@
                     <li>“A coffee cup featuring intricate latte art sits on a wooden table next to an open laptop.jpg” by Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_coffee_cup_featuring_intricate_latte_art_sits_on_a_wooden_table_next_to_an_open_laptop.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“A cup of cappuccino.jpg” by Vee Satayamas, <a href="https://creativecommons.org/licenses/by/4.0" rel="noopener" target="_blank">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_cup_of_cappuccino.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“BoulderCoffeeOpenMicNight2018.jpg” by DanielPenfield, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BoulderCoffeeOpenMicNight2018.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> - this crop is a derivative shared under the same CC BY-SA licence.</li>
-                    <li>“Macro Espresso Process” (video) by Scott Schiller from San Francisco, CA, USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm" rel="noopener" target="_blank">Wikimedia Commons</a>.</li>
+                    <li>“Guerrilla on air – Fatti d’arte teaser” (video) by M. Capriglione, M. Rainò and R. Romita, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Guerrilla_on_air_%E2%80%93_Fatti_d%27arte_teaser.mpg" rel="noopener" target="_blank">Wikimedia Commons</a> - cut, slowed, colour-graded and looped; this edit is shared under the same CC BY-SA licence.</li>
                     <li>All other photographs: CC0 (public domain dedication) via Wikimedia Commons - full register in the site's ASSETS.md.</li>
                   </ul>
                 </details>

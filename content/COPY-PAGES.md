@@ -1,43 +1,62 @@
-# Latte with Lata - sub-page copy (human-readable, pages pass 2026-09-17)
+# Latte with Lata - sub-page copy (human-readable; pages pass + UPDATE-3 content pass, 2026-09-17)
 
-Source of truth: `content/pages.json`. This file is rendered from it (scratch `pages-run/content/gen-copy-md.cjs`), section by section, so the two cannot disagree. If you change copy, change the JSON and re-render; if you cannot re-render, change both by hand. The home page copy stays in `content/site.json` / `content/COPY.md`.
+Source of truth: `content/pages.json`. This file is rendered from it (scratch `update3/L4/gen-copy-md.cjs`, based on `pages-run/content/gen-copy-md.cjs`), section by section, so the two cannot disagree. If you change copy, change the JSON and re-render; if you cannot re-render, change both by hand. The home page copy stays in `content/site.json` / `content/COPY.md` (which also holds the single-value fact table).
 
-**Voice.** Warm, substantive, candid, grounded, independent (brand position paper, section 5). Short sentences. Specific about coffee and specific about the work. No marketing words (no "elevate", "curated", "journey", "unforgettable"), no hustle framing. Client-approved social-tile lines are reused verbatim where they fit: podcast hero title (Tile 3 headline), podcast hero intro (Tile 3 sub), `podcast#about` title / lead / third paragraph / kicker (Tile 2 headline, Tile 1 eyebrow, Tile 2 body + kicker, Tile 1 support), `podcast#audience` title / lead / kicker (Tile 4), `podcast#host` CTA label (Tile 4 CTA), `events#recording-night` lead (= `site.json live.quote`, Tile 3 sub).
+**Brand.** Every line follows `assets/brand/brand-position.txt`: Latte with Lata is a conversational podcast with mission-driven leaders (nonprofit, healthcare, public sector, social impact), warm and unhurried, candid, grounded and independent, recorded live at the corner table of the cafe on Thursday nights. The cafe copy serves that purpose: a room built for honest conversation, not a food pitch.
 
-**Host naming.** Lata Singh is "Host" everywhere. The word "founder" never describes her. Two fictional guests keep their own title "Founder, ..." (episode 85 Elias Okonkwo, episode 71 Henry Tso). The asset path `assets/images/founder-portrait.jpg` is the FOUNDER lane's file name, not copy.
+**Voice.** Warm, substantive, candid, grounded, independent (brand position paper, section 5). Short sentences. Specific about coffee and specific about the work. No marketing words (no "elevate", "curated", "journey", "unforgettable", "spot"), no hustle framing. Client-approved social-tile lines are reused verbatim where they fit: podcast hero title (Tile 3 headline), podcast hero intro (Tile 3 sub), `podcast#about` title / lead / third paragraph / kicker (Tile 2 headline, Tile 1 eyebrow, Tile 2 body + kicker, Tile 1 support), `podcast#audience` title / lead / kicker (Tile 4), `podcast#host` CTA label (Tile 4 CTA), `events#recording-night` lead (= `site.json live.quote`, Tile 3 sub). The `podcast#host` pull quote is the paper's positioning line (section 2), attributed to the show.
 
-**Conventions.** Titles are stored uppercase-ready. Text is ASCII (straight quotes, " - " for a dash); builders may add `&nbsp;` before am / pm / min and curly quotes in the fragments. Dates are ISO plus a `dateLabel` in the site format (Thu 24 Sep 2026); times are shown as "6:30 pm". Tokens in braces are replaced at runtime: `{reference}` `{date}` `{time}` `{party}` `{n}` `{count}`. `placeholder: true` marks invented facts. `itemsFrom` means the section renders the named page-level array (`episodes.items`, `menu.featured`); `events#upcoming` carries its items inline AND at `events.upcoming` (the API reads the latter; both are generated from one list and are identical).
+**Host.** Lata Singh is "Host" everywhere; the word "founder" never describes her. Her facts come only from the brand paper: senior operating leader in one of the country's largest safety-net healthcare networks (operations, quality, workforce, finance), hands-on fluency in compliance, funding structures, workforce and public accountability, doctoral study in leadership and innovation. Her employer is never named, she did not open or own the cafe, and no quotation is put in her mouth. Two fictional guests keep their own title "Founder, ..." (episode 85 Elias Okonkwo, episode 71 Henry Tso). The asset paths `assets/images/founder-*.jpg` are file names, not copy.
+
+**Conventions.** Titles are stored uppercase-ready. Text is ASCII (straight quotes, " - " for a dash); builders may add `&nbsp;` before am / pm / min and curly quotes in the fragments. Dates are ISO plus a `dateLabel` in the site format (Thu 24 Sep 2026, also on the home cards since UPDATE-3); times are shown as "6:30 pm". Guest roles are "title, Organisation" and always name the organisation. Pillar names are always written in full, Title Case, in the paper's order. Tokens in braces are replaced at runtime: `{reference}` `{date}` `{time}` `{party}` `{n}` `{count}`. `placeholder: true` marks invented facts. `itemsFrom` means the section renders the named page-level array (`episodes.items`, `menu.featured`); `events#upcoming` carries its items inline AND at `events.upcoming` (the API reads the latter; both are generated from one list and are identical).
+
+## Change log
+
+**2026-09-17 - UPDATE-3 content pass (lane L4 CONTENT).** Audit against the brand paper + consistency pass against the server defaults (`lib/settings.cjs`, `lib/events.cjs`). Hand-off: `verify/handoff-update3/L4.md`.
+
+- `cafe.meta.description`, `cafe.hero.intro`: the cafe is introduced as the room where Latte with Lata is recorded (was a breakfast-first description).
+- `cafe#story` paragraphs 1-5: Lata no longer "opened the doors", "spent a career" in councils and charities or "borrowed a recorder" (invented biography that also made her the cafe's founder). The story is the cafe's own; paragraph 4 ends "and Latte with Lata had a home"; paragraph 5 centres an unhurried conversation instead of "the most important thing we make is breakfast". Paragraphs 1-2 stay identical to `site.json storyA`.
+- `podcast#about` Length fact: "35 to 50 minutes" -> "About 40 minutes" (the 18 episodes run 33 to 51 min, mean 41); `podcast#how-it-works` step 4: "about 45 minutes" -> "about 40 minutes".
+- `podcast#host`: image alt = the UPDATE-3 alt, fallback = `assets/brand/lata-singh-podcast.jpg`; pull quote = the paper's positioning line "Real leadership lessons come out over coffee, not in a boardroom.", attributed to Latte with Lata (was an invented first-person statement); independence text now opens with the site's one independence sentence.
+- `episodes.items`: roles name their organisation - ep 87 "Medical director, Eastgate Community Clinic" (was "safety-net community clinic", which echoed the host's employer description), ep 86 "Chief innovation officer, City of Harrowfield", ep 73 "Grants manager, Marlow County Health Department"; ep 71 organisation "Spoke and Chain Youth Bike Project" (was "Bike Workshop", read as a shop). Ids, numbers, dates and covers unchanged.
+- `events#upcoming.labels.full` and `book#booking.availability.recordingFull`: the server lets all 40 recording seats be reserved, so a full night now says "walk in anyway: reserved seats still empty at 6:50 pm go to the room" (was a promise of separate walk-in seats); `book#booking` recording explainer no longer says "most seats are first come".
+- `events#other-events` private hire: the show's corner-table microphones are no longer offered for hire; the room is pitched for a board evening, a team away-day or a community meeting.
+- `book#booking`: title "RESERVE YOUR SPOT" -> "A TABLE OR A SEAT"; table hint adds Saturday evenings (the server opens Fri and Sat until 10 pm); timezone note = the server's "All times are local cafe time.".
+- `contact#credits`: "portrait of Lata Singh" -> "photo of Lata Singh" (the new client photo).
+- This file re-rendered from the JSON (it had drifted: episode covers 82-71, `seatOne` / `seatMany`, `textRecording`, `partyTokenNote`).
+
+**2026-09-17 - pages pass.** First version of `pages.json` and this file (seven sub-pages).
 
 ## Placeholders - confirm with the client before launch
 
-Everything below is invented for the study build. Real, from the brand paper and NOT placeholders: the host's name and role, her credibility (senior operating leader in a large safety-net healthcare network; operations, quality, workforce, finance; doctoral study in leadership and innovation; employer never named), the audience, the voice, the four pillars, the independence statement, and the five social tiles.
+Everything below is invented for the study build. Real, from the brand paper and NOT placeholders: the host's name and role, her credibility (senior operating leader in a large safety-net healthcare network; operations, quality, workforce, finance; doctoral study in leadership and innovation; employer never named), the audience, the voice, the four pillars, the positioning line used as the pull quote, the independence statement, and the five social tiles. The host photo (`assets/brand/lata-singh-podcast.jpg`) is client-supplied.
 
 | # | Placeholder | Where |
 |---|---|---|
-| 1 | Town, address, phone, email, hours (inherited from site.json) | every page; `shared.contact`, `shared.hours` |
-| 2 | Cafe history: opened spring 2024, the quiet-music rule, how the microphones arrived (a friend from a food bank, a borrowed recorder, a shoebox of microphones) | `cafe#story` |
+| 1 | Town, address, phone, email, hours (inherited from site.json; the server reads the hours and contact from site.json) | every page; `shared.contact`, `shared.hours` |
+| 2 | Cafe history: opened spring 2024, the quiet-music rule, how the microphones arrived (a food bank director's late conversation, a shoebox of microphones). It is the cafe's story, not Lata Singh's | `cafe#story` (= `site.json storyA` 1-2) |
 | 3 | Values claims: roaster two streets over, in-house baking at six, living wage, shared tips | `cafe#values`, `menu#notes` |
 | 4 | Room: about 40 seats inside, 8 outside, corner table seats 4, wifi, payment methods | `cafe#room` |
 | 5 | Accessibility: step-free entry, accessible toilet, high chairs, changing table, dogs outside, assistance dogs, large-print menus, accessible parking bay | `cafe#room`, `cafe#faqs`, `events#faqs`, `contact#find-us` |
 | 6 | Policies: laptop hours, pram folding, walk-in tables, private hire Mon-Wed evenings for up to 40 | `cafe#faqs`, `events#other-events` |
 | 7 | The whole menu: 36 dishes, descriptions, prices, dietary tags, milk surcharge, service times, Friday / Saturday evening plates, sourcing (free-range eggs, Saturday market), tax and tipping lines | `menu` |
-| 8 | All 18 episodes: guests, titles, organizations, durations, blurbs, notes, quotes (all fictional people and organizations) | `episodes.items` |
-| 9 | Episode archive note (episodes 1 to 70 on the platforms) and "88 episodes so far" | `episodes#all-episodes`, `podcast#about` |
+| 8 | All 18 episodes: guests, titles, organisations, durations, blurbs, notes, quotes (all fictional people and organisations; the dataset stops at episode 88 on Thu 10 Sep 2026) | `episodes.items` |
+| 9 | Episode archive note (episodes 1 to 70 on the platforms), "88 episodes so far" and the length fact "About 40 minutes" | `episodes#all-episodes`, `podcast#about`, `podcast#how-it-works` |
 | 10 | No audio files: every `audio` is null; Spotify / Apple Podcasts / YouTube / RSS / map links are `#` | `episodes`, `podcast#listen`, `contact#find-us` |
-| 11 | All 8 upcoming recording nights: guests, titles, organizations, blurbs (all fictional) | `events.upcoming` |
-| 12 | Recording-night details beyond the brief: reserved seats released at 6:50 pm, a short break halfway, lock-up around 9:30 pm, episodes cut to about 45 minutes and released the next Thursday | `events#recording-night`, `events#house-rules`, `podcast#how-it-works`, `book#booking` |
+| 11 | All 8 upcoming recording nights: guests, titles, organisations, blurbs (all fictional; the list starts Thu 24 Sep 2026) | `events.upcoming` |
+| 12 | Recording-night details beyond the brief: reserved seats released at 6:50 pm, a short break halfway, lock-up around 9:30 pm, episodes cut to about 40 minutes and released the next Thursday | `events#recording-night`, `events#house-rules`, `podcast#how-it-works`, `book#booking` |
 | 13 | Open table (first Saturday, 9:00 am to 10:30 am) and its next three dates | `events#other-events` |
 | 14 | Directions: Market Square, buses 4 and 11, Harrowfield Central, bike stands, 2-hour parking | `contact#find-us` |
-| 15 | Host pull quote: a statement of intent written in Lata's voice from the approved "Meet Lata" copy - needs her sign-off; not a quotation from an interview | `podcast#host` |
+| 15 | Recording-night seat model: all 40 seats can be reserved online (server `recordingSeats` 40, up to 4 per reservation); walk-ins take unreserved seats and the 6:50 pm releases. Confirm whether the client wants seats held back for walk-ins | `events#recording-night`, `events#upcoming`, `book#booking` |
 | 16 | Press line: Lata speaks in a personal capacity only and declines requests about her day job (follows the paper's independence position; confirm the wording) | `contact#press-guests` |
 | 17 | Privacy summary: a TEMPLATE for legal review. Only the 12-month booking retention comes from the brief; message retention (12 months), 30-day completion, cookie statement are proposals | `contact#privacy` |
-| 18 | Booking rules shown in copy (must match the live settings): 60-day window, 30-minute slots, 90-minute sittings, 15-minute hold, max 8 online (4 for recording nights), cancel up to 2 hours before | `book` |
+| 18 | Booking rules shown in copy (equal to the server defaults in lib/settings.cjs): 60-day window, 30-minute slots, 90-minute sittings, 15-minute hold (copy only), max 8 online (4 for recording nights), cancel up to 2 hours before | `book` |
 | 19 | Confirmation email line (`success.emailLine`): do NOT show until emails are really sent; the build only writes to data/outbox.json | `book#booking` |
 | 20 | Photo alt text for page-*.jpg, cafe-01..04, menu-01..12, event-01..04 describes the BRIEFED subject; `content/assets-manifest.json` alt wins once the ASSETS lane delivers | every hero, `cafe#gallery`, `menu.featured`, `events.upcoming` |
 
 Placeholder notes carried inside the JSON (`placeholderNote`):
 
-- `cafe#story` - Cafe history (spring 2024, the quiet-music rule, how the microphones arrived) is brand fiction for the study build. Confirm or replace with the client.
+- `cafe#story` - Cafe history (spring 2024, the quiet-music rule, how the microphones arrived) is brand fiction for the study build. It is the cafe's story, not Lata Singh's biography: her facts come only from the brand position paper. Confirm or replace with the client.
 - `cafe#values` - Roaster, in-house baking, living-wage and tip-sharing claims are placeholders. Confirm each with the client before launch.
 - `cafe#room` - Seat counts and every accessibility line are placeholders until the client confirms the real premises.
 - `cafe#faqs` - Laptop hours, dog, pram and private-hire policies are placeholders.
@@ -74,13 +93,13 @@ Placeholder notes carried inside the JSON (`placeholderNote`):
 ## cafe.html
 
 - `<title>`: The Cafe | Latte with Lata (26 chars)
-- Meta description (154 chars): A neighbourhood cafe in Harrowfield with microphones on the corner table. Coffee from two streets over, breakfast done properly, a room built for talking.
+- Meta description (151 chars): The cafe where Latte with Lata is recorded: a neighbourhood room in Harrowfield built for honest conversation, with good coffee and breakfast all week.
 
 ### 01 hero
 
 - Eyebrow: The cafe
 - h1: **A ROOM BUILT FOR TALKING** (24 chars)
-- Intro (124 chars): Good coffee, a kitchen that takes breakfast seriously, and music quiet enough to talk over. 27 Bellwood Street, Harrowfield.
+- Intro (134 chars): Good coffee, music quiet enough to talk over, and the corner table where Latte with Lata is recorded. 27 Bellwood Street, Harrowfield.
 - Image: `assets/images/page-cafe.jpg` - alt: The cafe room in daylight: wooden tables, a long bench under the window and the counter at the back.
 
 ### 02 #story (story) - PLACEHOLDER CONTENT
@@ -88,11 +107,11 @@ Placeholder notes carried inside the JSON (`placeholderNote`):
 - **eyebrow:** Our story
 - **title:** FROM FIRST POUR TO LAST WORD
 - **paragraphs:**
-  1. Lata Singh opened the doors in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.
-  2. The talking turned out to be the point. By autumn there were microphones on the corner table, and the people she had spent a career alongside, in clinics, councils and charities, started coming in to say what they could not say at a podium.
-  3. The microphones were not part of the plan. One Thursday a friend who runs a food bank stayed past closing to talk through a decision she could not raise at her own board table. Lata borrowed a recorder so they would remember what was said. The week after, someone at the next table asked if they could listen in.
-  4. So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp. Nobody has asked for the corner table back.
-  5. It is still a cafe first. Most of the week the corner table is just a table, and the most important thing we make is breakfast. On Thursday nights it is where someone with a hard job says what it actually took.
+  1. The cafe opened in the spring of 2024 with a second-hand espresso machine, a borrowed oven and one rule: the music stays quiet enough to talk over.
+  2. The talking turned out to be the point. By autumn there were microphones on the corner table, and leaders from clinics, councils and charities were coming in to say what they could not say at a podium.
+  3. The microphones were not part of the plan. One Thursday a food bank director stayed past closing to talk through a decision she could not raise at her own board table, and the tables around her went quiet to listen. The week after, people came back for the next conversation.
+  4. So the chairs were turned to face the corner. Two second-hand microphones arrived in a shoebox, then a small mixer, then a lamp, and Latte with Lata had a home. Nobody has asked for the corner table back.
+  5. It is still a cafe first. Most of the week the corner table is just a table, and the room belongs to anyone who wants a good coffee and an unhurried conversation. On Thursday nights it is where someone with a hard job says what it actually took.
   6. The machine has since been replaced. The rule has not.
 - **images:**
   - src: assets/images/story-a-1.jpg | alt: A barista tamping a portafilter at the espresso machine.
@@ -361,7 +380,7 @@ Tag legend: V = Vegetarian · VG = Vegan · GF = Gluten-free ingredients · DF =
 - **kicker:** Pull up a chair and discover the stories behind mission-driven work.
 - **facts:**
   - label: New episode | value: Every Thursday
-  - label: Length | value: 35 to 50 minutes
+  - label: Length | value: About 40 minutes
   - label: Recorded | value: Live, at the corner table
   - label: Episodes so far | value: 88
 
@@ -398,7 +417,7 @@ Tag legend: V = Vegetarian · VG = Vegan · GF = Gluten-free ingredients · DF =
   - time: 6:30 pm | title: Doors | body: The cafe reopens and the chairs turn to face the corner table. It is free. Seats are first come, first seated, or you can reserve one.
   - time: 7:00 pm | title: Recording | body: One guest, one conversation, four parts, with a short break halfway. We finish by 8:15 pm. No slides, no panel, no pitch.
   - time: 8:15 pm | title: The guest stays for a coffee | body: There is no question time on the recording. The guest stays in the room afterwards, so ask them in person.
-  - time: The next Thursday | title: The episode comes out | body: We cut the evening down to about 45 minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning.
+  - time: The next Thursday | title: The episode comes out | body: We cut the evening down to about 40 minutes. The coughs come out and the pauses stay in. It is on every platform the following Thursday morning.
 - **ctas:**
   - label: What's on | href: events.html
   - label: Reserve a seat | href: book.html?type=recording
@@ -411,8 +430,8 @@ Tag legend: V = Vegetarian · VG = Vegan · GF = Gluten-free ingredients · DF =
 - **role:** Host
 - **image:**
   - `src` assets/images/founder-portrait.jpg
-  - `fallback` assets/brand/lata-singh.jpg
-  - `alt` Lata Singh, host of Latte with Lata.
+  - `fallback` assets/brand/lata-singh-podcast.jpg
+  - `alt` Lata Singh, host of Latte with Lata, at a cafe table with a podcast microphone and a latte
 - **paragraphs:**
   1. Lata Singh hosts Latte with Lata. She comes to these conversations as a practitioner, not as an outside observer.
   2. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, overseeing operations, quality, workforce and finance at scale. That work has given her hands-on fluency in what mission-driven organizations deal with every day: compliance, funding structures, workforce and public accountability.
@@ -423,14 +442,14 @@ Tag legend: V = Vegetarian · VG = Vegan · GF = Gluten-free ingredients · DF =
   2. Hands-on fluency in compliance, funding structures, workforce and public accountability.
   3. Doctoral study in leadership and innovation.
 - **pullQuote:**
-  - **text:** The most honest things leaders have told me were said over coffee, after the meeting, with nothing left to prove. I want that conversation, with the microphone switched on.
-  - **attribution:** Lata Singh, Host
+  - **text:** Real leadership lessons come out over coffee, not in a boardroom.
+  - **attribution:** Latte with Lata
   - **context:** On why the show exists
-  - **kind:** statement-of-intent
-  - **placeholderNote:** Written for the site in the host's voice from the approved 'Meet Lata' copy. It is a statement of intent, not a quotation from an interview. Needs Lata's sign-off before launch.
+  - **kind:** positioning
+  - **placeholderNote:** Not invented: the positioning line of the brand position paper (section 2), used as the pull quote. It is the show's line, not a quotation from Lata Singh, so it is attributed to Latte with Lata.
 - **independence:**
   - `title` A personal platform
-  - `text` Latte with Lata is a personal platform. It is independent of any employer or institution, and nothing said here is official communication on anyone's behalf.
+  - `text` Latte with Lata is a personal platform and is independent of any employer or institution. Nothing said here is official communication on anyone's behalf.
 - **cta:**
   - `label` Join the conversation
   - `href` episodes.html
@@ -513,23 +532,23 @@ Archive note: Episodes 1 to 70 are on your podcast platform. The notes for them 
 | # | Title | Pillar | Guest | Role | Org | Length | Date | Cover |
 |---|---|---|---|---|---|---|---|---|
 | 88 | The grant we turned down | The Hard Trade-off | Marisol Vega | Executive director, Harrowfield Food Bank | Harrowfield Food Bank | 44 min | Thu 10 Sep 2026 | `episode-01.jpg` |
-| 87 | What no one tells you about a waiting room | What No One Tells You | Dr Kwame Boateng | Medical director, safety-net community clinic | Eastgate Community Clinic | 47 min | Thu 3 Sep 2026 | `episode-02.jpg` |
-| 86 | Fixing a form nobody could finish | The Hard Trade-off | Hannah Lindgren | Chief innovation officer, city government | City of Harrowfield | 39 min | Thu 27 Aug 2026 | `episode-03.jpg` |
+| 87 | What no one tells you about a waiting room | What No One Tells You | Dr Kwame Boateng | Medical director, Eastgate Community Clinic | Eastgate Community Clinic | 47 min | Thu 3 Sep 2026 | `episode-02.jpg` |
+| 86 | Fixing a form nobody could finish | The Hard Trade-off | Hannah Lindgren | Chief innovation officer, City of Harrowfield | City of Harrowfield | 39 min | Thu 27 Aug 2026 | `episode-03.jpg` |
 | 85 | The origin story is not the pitch | The Origin Story | Elias Okonkwo | Founder, Second Shift social enterprise | Second Shift | 42 min | Thu 20 Aug 2026 | `episode-04.jpg` |
 | 84 | Showing up is the whole strategy | What No One Tells You | Rosa Delgado | Community organiser, Fenwick Tenants' Union | Fenwick Tenants' Union | 36 min | Thu 13 Aug 2026 | `episode-05.jpg` |
 | 83 | Who stays when everyone is leaving | The Coffee Break | Grace Mbeki | Director of nursing, St Oswin's Hospice | St Oswin's Hospice | 51 min | Thu 6 Aug 2026 | `episode-06.jpg` |
-| 82 | The budget line nobody wanted to own | The Hard Trade-off | Tomasz Wieczorek | Finance director, Northgate Housing Trust | Northgate Housing Trust | 41 min | Thu 30 Jul 2026 | `episode-01.jpg` |
-| 81 | I came for a summer job | The Origin Story | Leilani Kahale | Director, Riverbend Youth Works | Riverbend Youth Works | 38 min | Thu 23 Jul 2026 | `episode-02.jpg` |
-| 80 | What no one tells you about a merger | What No One Tells You | Anjali Varma | Chief executive, Two Rivers Family Services | Two Rivers Family Services | 46 min | Thu 16 Jul 2026 | `episode-03.jpg` |
-| 79 | The night shift taught me to lead | The Origin Story | Mateus Figueira | Operations manager, Harrowfield Ambulance Service | Harrowfield Ambulance Service | 40 min | Thu 9 Jul 2026 | `episode-04.jpg` |
-| 78 | Closing the programme that worked | The Hard Trade-off | Naledi Khumalo | Head of programmes, Open Book Literacy Trust | Open Book Literacy Trust | 43 min | Thu 2 Jul 2026 | `episode-05.jpg` |
-| 77 | Late fees, long walks and lending a book twice | The Coffee Break | Eleanor Whitcombe | City librarian, Harrowfield Public Library | Harrowfield Public Library | 34 min | Thu 25 Jun 2026 | `episode-06.jpg` |
-| 76 | Nobody trains you to be your friends' boss | What No One Tells You | Daniyal Hashmi | Principal, Fenwick Lane Community School | Fenwick Lane Community School | 45 min | Thu 18 Jun 2026 | `episode-01.jpg` |
-| 75 | We said yes to the contract | The Hard Trade-off | Emiko Tanabe | Executive director, Harbourside Shelter | Harbourside Shelter | 48 min | Thu 11 Jun 2026 | `episode-02.jpg` |
-| 74 | My mother's kitchen table | The Origin Story | Beatriz Fonseca | Director, Mesa Larga Advice Centre | Mesa Larga Advice Centre | 37 min | Thu 4 Jun 2026 | `episode-03.jpg` |
-| 73 | What no one tells you about public money | What No One Tells You | Farid Haidari | Grants manager, county health department | Marlow County Health Department | 42 min | Thu 28 May 2026 | `episode-04.jpg` |
-| 72 | A choir, a van and a very old dog | The Coffee Break | Siobhan Keane | Volunteer coordinator, Bellwood Community Kitchen | Bellwood Community Kitchen | 33 min | Thu 21 May 2026 | `episode-05.jpg` |
-| 71 | Starting again at fifty | The Origin Story | Henry Tso | Founder, Spoke and Chain Bike Workshop | Spoke and Chain Bike Workshop | 40 min | Thu 14 May 2026 | `episode-06.jpg` |
+| 82 | The budget line nobody wanted to own | The Hard Trade-off | Tomasz Wieczorek | Finance director, Northgate Housing Trust | Northgate Housing Trust | 41 min | Thu 30 Jul 2026 | `gallery-04.jpg` |
+| 81 | I came for a summer job | The Origin Story | Leilani Kahale | Director, Riverbend Youth Works | Riverbend Youth Works | 38 min | Thu 23 Jul 2026 | `cafe-05.jpg` |
+| 80 | What no one tells you about a merger | What No One Tells You | Anjali Varma | Chief executive, Two Rivers Family Services | Two Rivers Family Services | 46 min | Thu 16 Jul 2026 | `cafe-04.jpg` |
+| 79 | The night shift taught me to lead | The Origin Story | Mateus Figueira | Operations manager, Harrowfield Ambulance Service | Harrowfield Ambulance Service | 40 min | Thu 9 Jul 2026 | `gallery-06.jpg` |
+| 78 | Closing the programme that worked | The Hard Trade-off | Naledi Khumalo | Head of programmes, Open Book Literacy Trust | Open Book Literacy Trust | 43 min | Thu 2 Jul 2026 | `story-a-2.jpg` |
+| 77 | Late fees, long walks and lending a book twice | The Coffee Break | Eleanor Whitcombe | City librarian, Harrowfield Public Library | Harrowfield Public Library | 34 min | Thu 25 Jun 2026 | `host-corner.jpg` |
+| 76 | Nobody trains you to be your friends' boss | What No One Tells You | Daniyal Hashmi | Principal, Fenwick Lane Community School | Fenwick Lane Community School | 45 min | Thu 18 Jun 2026 | `cafe-03.jpg` |
+| 75 | We said yes to the contract | The Hard Trade-off | Emiko Tanabe | Executive director, Harbourside Shelter | Harbourside Shelter | 48 min | Thu 11 Jun 2026 | `story-a-1.jpg` |
+| 74 | My mother's kitchen table | The Origin Story | Beatriz Fonseca | Director, Mesa Larga Advice Centre | Mesa Larga Advice Centre | 37 min | Thu 4 Jun 2026 | `cafe-01.jpg` |
+| 73 | What no one tells you about public money | What No One Tells You | Farid Haidari | Grants manager, Marlow County Health Department | Marlow County Health Department | 42 min | Thu 28 May 2026 | `event-02.jpg` |
+| 72 | A choir, a van and a very old dog | The Coffee Break | Siobhan Keane | Volunteer coordinator, Bellwood Community Kitchen | Bellwood Community Kitchen | 33 min | Thu 21 May 2026 | `gallery-01.jpg` |
+| 71 | Starting again at fifty | The Origin Story | Henry Tso | Founder, Spoke and Chain Youth Bike Project | Spoke and Chain Youth Bike Project | 40 min | Thu 14 May 2026 | `cafe-06.jpg` |
 
 **88 - The grant we turned down** (`#ep-88`)
 
@@ -738,7 +757,7 @@ Archive note: Episodes 1 to 70 are on your podcast platform. The notes for them 
 
 **AT THE CORNER TABLE NEXT** - Coming up. The next eight Thursdays. Guests sometimes change at short notice; this page is always the current list.
 
-Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` Reserved seats are gone. Walk-in seats on the night. · `free` Free · `reserve` Reserve a seat · `part` Leans on. Empty state: No recording nights are listed right now. Check back on Monday.
+Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` Fully reserved. Walk in anyway: reserved seats still empty at 6:50 pm go to the room. · `free` Free · `reserve` Reserve a seat · `part` Leans on. Empty state: No recording nights are listed right now. Check back on Monday.
 
 | Date | id | Title | Guest | Role | Pillar | Image |
 |---|---|---|---|---|---|---|
@@ -793,7 +812,7 @@ Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` R
     - **id:** private-hire
     - **title:** Private hire
     - **when:** Monday to Wednesday evenings, from 6:30 pm
-    - **body:** The room seats up to 40 for a board away-day dinner, a team evening or a book launch. We can run the night plates or a set menu, and the corner table microphones if you want the evening recorded.
+    - **body:** The room seats up to 40 for a board evening, a team away-day or a community meeting: somewhere a group can talk properly. We can run the night plates or a set menu.
     - **cta:**
       - `label` Ask about private hire
       - `href` contact.html?topic=events
@@ -981,7 +1000,7 @@ Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` R
 
 - **eyebrow:** Photo credits
 - **title:** WHO TOOK THE PHOTOS
-- **text:** Apart from the portrait of Lata Singh, which is her own, the photos and the home-page video on this site are licensed images from Wikimedia Commons, used under CC0, CC BY or CC BY-SA terms. Every photographer, licence and source link is listed in the site's asset register (ASSETS.md) and in the Photo credits panel in the footer.
+- **text:** Apart from the photo of Lata Singh, which is her own, the photos and the home-page video on this site are licensed images from Wikimedia Commons, used under CC0, CC BY or CC BY-SA terms. Every photographer, licence and source link is listed in the site's asset register (ASSETS.md) and in the Photo credits panel in the footer.
 - **note:** Spotted a missing or wrong credit? Write to us and we will fix it within 2 working days.
 - **cta:**
   - `label` Report a credit
@@ -1004,16 +1023,16 @@ Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` R
 ### 02 #booking (booking-form)
 
 - **eyebrow:** Book online
-- **title:** RESERVE YOUR SPOT
+- **title:** A TABLE OR A SEAT
 - **intro:** No deposit and no account. Walk-ins are always welcome too; booking just means the table is waiting.
 - **typeToggle:**
   - **legend:** What would you like to book?
   - **options:**
-    - value: table | label: A table | hint: Breakfast, lunch, coffee or a Friday evening. Up to 8 people.
+    - value: table | label: A table | hint: Breakfast, lunch, coffee or a Friday or Saturday evening. Up to 8 people.
     - value: recording | label: A seat at the recording | hint: Thursday nights. Free. Doors at 6:30 pm. Up to 4 seats.
   - **recordingExplainer:**
     - **title:** About recording nights
-    - **text:** Every Thursday we record the podcast live at the corner table. It is free and most seats are first come, first seated. Reserving holds your seats until 6:50 pm. Doors open at 6:30 pm, the recording runs from 7:00 pm to 8:15 pm, and the kitchen serves plates until 8:30 pm.
+    - **text:** Every Thursday we record the podcast live at the corner table. It is free: walk in, or reserve up to 4 seats and we will hold them until 6:50 pm. Doors open at 6:30 pm, the recording runs from 7:00 pm to 8:15 pm, and the kitchen serves plates until 8:30 pm.
     - **link:**
       - `label` See who is on
       - `href` events.html#upcoming
@@ -1035,6 +1054,8 @@ Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` R
     - `increase` One more
     - `unitOne` person
     - `unitMany` people
+    - `seatOne` seat
+    - `seatMany` seats
   - **name:**
     - `label` Name for the booking
     - `autocomplete` name
@@ -1069,8 +1090,8 @@ Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` R
   - **seatsLeft:** {n} seats left
   - **lastFew:** Last few
   - **full:** Full
-  - **recordingFull:** Reserved seats for this night are gone. Walk-in seats are first come, first seated from 6:30 pm.
-  - **timezoneNote:** All times are Harrowfield local time.
+  - **recordingFull:** This night is fully reserved. Walk in anyway: reserved seats still empty at 6:50 pm go to the room.
+  - **timezoneNote:** All times are local cafe time.
   - **reasons:**
     - `invalid_date` That date does not look right. Pick another.
     - `past` That date has passed. Pick today or later.
@@ -1157,7 +1178,8 @@ Labels: `doors` Doors · `guest` Guest · `seatsLeft` {n} seats left · `full` R
   - **title:** You are booked
   - **titleRecording:** Your seats are reserved
   - **text:** A table for {party} on {date} at {time}. Your reference is {reference}.
-  - **textRecording:** {party} seats at the recording on {date}. Doors open at {time}. Your reference is {reference}.
+  - **textRecording:** {party} at the recording on {date}. Doors open at {time}. Your reference is {reference}.
+  - **partyTokenNote:** {party} is always a counted label, never a bare number: '1 person' / '2 people' for a table, '1 seat' / '2 seats' for a recording night (fields.party.unitOne / unitMany / seatOne / seatMany). The same rule applies to the manage copy.
   - **referenceLabel:** Booking reference
   - **keep:** Keep this reference. You need it, with your email, to change or cancel the booking.
   - **hold:** We hold tables for 15 minutes. If you are running late, call (555) 014-2024.

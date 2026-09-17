@@ -16,33 +16,34 @@
                       "bottom top" is reachable and no end clamp is needed.
    Reduced motion: each helper gsap.set()s its end state / skips its trigger (DD Pick 19).
 
-   PAGES update 2026-09-17 (lane FOUNDER):
-     DELIBERATE EXCEPTION to M16 for ONE image - the host portrait in column 1. Same trigger, start, scrub and refreshPriority as
-     core.initImageAnime, but (1) the tween starts at scale 1.06 / yPercent -3 about the top edge (PORTRAIT_FROM / PORTRAIT_ORIGIN;
-     was -12 about the centre until the final home check) instead of 1.2 / -40: the client circled
-     the old crop as too close, and a 1.2 zoom on a face is a close-up again; (2) it ENDS at "top 25%" (PORTRAIT_END) instead of
-     "bottom top": the source photo has only 3% of headroom above her hair, so with the stock end the settle would finish after the
-     figure has left the screen and the top of her head would be trimmed the whole time it is in view. Ending when the column top reaches
-     a quarter of the viewport means the photo is at rest (scale 1, y 0 = whole head, hair and both shoulders) once she is on screen.
-     Column 1 is claimed here (data-init "anime") BEFORE the core sweep so core never adds its 1.2 tween to it; if the core got there
-     first, its tween on the photo is killed and replaced.
-     Column 2 (the recording-corner photo) keeps the stock M16 through core.initImageAnime.
+   UPDATE-3 2026-09-17 (lane L2 HOST PHOTO) - the client's podcast photograph (assets/images/founder-podcast.jpg, 4:5 crop of
+   assets/brand/lata-singh-podcast.jpg):
+     DELIBERATE EXCEPTION to M16 for ONE image - the host photo in column 1. Same trigger, start, scrub and refreshPriority as
+     core.initImageAnime, but (1) the tween starts at scale 1.06 / yPercent 0 about the BOTTOM centre (PORTRAIT_FROM / PORTRAIT_ORIGIN)
+     instead of 1.2 / -40 about the centre: a 1.2 zoom would crop her head and push the real microphone and the latte under the frame
+     layers. About the bottom centre with yPercent 0 the bottom edge never moves, so (fractions of the photo box) the hair top goes
+     17.6% -> 12.7% (never cropped), the saucer's left edge 3.7% -> 0.9% (never cropped) and the mic base 94.1% -> 93.8% (moves up, away
+     from the lower third that starts at 96.5%). yPercent must stay 0: any lift opens a gap under the photo, any drop crops the saucer.
+     (2) it ENDS at "top 25%" (PORTRAIT_END) instead of "bottom top": the trigger is column 1, which is as tall as the text column
+     (1588px @1440), so with the stock end the photo would still be at ~1.04 while she is read - the neon "Good Conversations" sign and the
+     chalkboard's first word would stay trimmed under the ON AIR tab. Ending when the column top reaches a quarter of the viewport, the
+     photo is at rest (scale 1 = the delivered crop) once it is on screen. (The office portrait used the same end for its 3% headroom.)
+     Column 1 is still claimed here (data-init "anime") BEFORE the core sweep so core never adds its 1.2 tween to it; if the core got there
+     first, its tween on the photo is killed and replaced. Column 2 (the recording-corner photo) keeps the stock M16 through core.initImageAnime.
      Trigger count of the row is unchanged: split 1 + reveals 4 + stamp 1 + image-anime 2 = 8.
 
-     DROP-IN SLOT for a real podcast photograph: figure.hosts__stage[data-podcast-photo]. Empty (the default) = nothing happens, no request.
-     Set to a path (assets/images/founder-podcast.jpg): an Image() probe loads it; on load the figure image swaps to it (4:5 cover,
-     optional data-podcast-focus = object-position) and .hosts__stage--photo hides the drawn microphone; on error the portrait stays.
+     DROP-IN SLOT: figure.hosts__stage[data-podcast-photo] = "assets/images/founder-podcast.jpg" (the same URL as the <img>, so the Image()
+     probe is served from the memory cache - one request). On load the figure image is (re)set to it (4:5 cover, optional
+     data-podcast-focus = object-position) and the stage gets .hosts__stage--photo (state hook); on error the markup photo stays and
+     data-podcast-photo-missing="true" is set. Empty attribute = no probe at all.
 
-     Overlay animations (CSS) are paused while the figure is off screen (.hosts__stage--idle via IntersectionObserver).
+     Overlay loops (CSS) are paused while their block is off screen: .hosts__stage--idle (ON AIR pulse + level meter) and
+     .hosts__byline--idle (the steam over the branded cup, which now heads the byline in column 2), IntersectionObserver, 80px margin.
    ========================================================================== */
 import { initSplitTitles, initReveals, initStamps, initImageAnime } from "../core.js";
 
-/* FINAL home check 2026-09-17: was { scale 1.06, yPercent -12 } about the centre. The integrated sweep measured the top of her hair
-   trimmed while the figure entered (81 / 55 / 95 / 52 px at 1440 / 1024 / 768 / 390; still 12 px at 390 with her eyes already on screen).
-   Scaling from the TOP edge with a -3% lift keeps the hair line inside the window at every progress (hair top = 3% of the photo:
-   .03 x 1.06 - .03 >= 0) and the face where it was (eyes 27-33%, mouth 42-50%, x <= 74.4%); the settle still reads as a gentle zoom-out. */
-const PORTRAIT_FROM = { scale: 1.06, yPercent: -3 };                // core M16 = { scale: 1.2, yPercent: -40 }
-const PORTRAIT_ORIGIN = "50% 0%";                                   // core M16 = centre
+const PORTRAIT_FROM = { scale: 1.06, yPercent: 0 };                 // core M16 = { scale: 1.2, yPercent: -40 }
+const PORTRAIT_ORIGIN = "50% 100%";                                 // core M16 = centre
 const PORTRAIT_END = "top 25%";                                     // core M16 = "bottom top"
 
 export default function init(ctx = {}) {
@@ -58,14 +59,12 @@ export default function init(ctx = {}) {
     initSplitTitles(root);                                         // PS:340-359 (runs after document.fonts.ready - onReady guarantees it)
     initReveals(root);                                             // PS:554-568
     initStamps(root);                                              // PS:992-1006
-    const coreWasFirst = col1 ? !claim(col1, "anime") : false;     // keep core's 1.2 / -40 tween off the host portrait
+    const coreWasFirst = col1 ? !claim(col1, "anime") : false;     // keep core's 1.2 / -40 tween off the host photo
     initImageAnime(root);                                          // PS:1031-1046 (column 2 only - column 1 is claimed)
     if (photo) initPortraitZoom(ctx, col1, photo, coreWasFirst);
 
-    if (stage) {
-        initPodcastPhoto(stage, photo, ctx);
-        initIdlePause(stage);
-    }
+    if (stage) initPodcastPhoto(stage, photo, ctx);
+    initIdlePause([[stage, "hosts__stage--idle"], [root.querySelector(".hosts__byline"), "hosts__byline--idle"]]);
     return { root, stage };
 }
 
@@ -78,7 +77,7 @@ function claim(el, key) {
     return true;
 }
 
-/* M16 with the reduced start values and the early end - trigger / start / scrub / refreshPriority copied from core.initImageAnime (PS:1031-1046) */
+/* M16 with the gentle start values about the bottom centre and the early end - trigger / start / scrub / refreshPriority copied from core.initImageAnime (PS:1031-1046) */
 function initPortraitZoom(ctx, wrapper, img, coreWasFirst) {
     const gsap = ctx.gsap || window.gsap;
     const ScrollTrigger = ctx.ScrollTrigger || window.ScrollTrigger;
@@ -109,30 +108,33 @@ function initPortraitZoom(ctx, wrapper, img, coreWasFirst) {
     });
 }
 
-/* drop-in slot: empty attribute = no request; a path = probe, then swap (never a console error: a failed probe is handled here) */
+/* drop-in slot: empty attribute = no request; a path = probe, then (re)set (never a console error: a failed probe is handled here) */
 function initPodcastPhoto(stage, photo, ctx) {
     const src = (stage.dataset.podcastPhoto || "").trim();
     if (!src || !photo) return;
     const probe = new Image();
     probe.onload = () => {
         if (!probe.naturalWidth) return;
-        photo.src = src;
+        const swap = photo.getAttribute("src") !== src;              // same URL as the markup = nothing to swap (no second decode)
+        if (swap) photo.src = src;
         photo.width = probe.naturalWidth;                           // the CSS locks the 4:5 window, these only keep the attributes truthful
         photo.height = probe.naturalHeight;
         const focus = (stage.dataset.podcastFocus || "").trim();
         if (focus) stage.style.setProperty("--hosts-focus", focus);
         stage.classList.add("hosts__stage--photo");
-        if (ctx.refresh) ctx.refresh();
+        if ((swap || focus) && ctx.refresh) ctx.refresh();
     };
     probe.onerror = () => { stage.dataset.podcastPhotoMissing = "true"; };
     probe.src = src;
 }
 
-/* pause the overlay loops while the figure is out of view */
-function initIdlePause(stage) {
+/* pause the CSS loops of each block while it is out of view */
+function initIdlePause(pairs) {
     if (!("IntersectionObserver" in window)) return;
+    const map = new Map(pairs.filter(([el]) => el));
+    if (!map.size) return;
     const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => stage.classList.toggle("hosts__stage--idle", !e.isIntersecting));
+        entries.forEach((e) => e.target.classList.toggle(map.get(e.target), !e.isIntersecting));
     }, { rootMargin: "80px 0px" });
-    io.observe(stage);
+    map.forEach((_, el) => io.observe(el));
 }

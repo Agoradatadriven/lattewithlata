@@ -39,17 +39,21 @@
 <!-- ===== sections/00-header.html ===== -->
 <!-- 00-header: fixed header + off-canvas drawer + mobile Book-a-table pill. Shared by EVERY page (build-site.cjs inlines it on the home page and on all sub-pages).
      Sits BEFORE <main>. Source skeleton: PZ/source/rendered.html #page-header (BUILD-SPEC 00 (b)); pill: Iceberg .home__about-button.
-     Copy: content/site.json -> nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
+     Copy: content/site.json -> brand.name (lockup wordmark + aria-label), nav[], bookingLabel, listenOn[], newsletter.eyebrow (side link).
      Note: .header__container is NOT a .container (the source header is a full-width flex row, measured 1440x78 / 390x63).
-     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the header row is burger LEFT + "Book a table" RIGHT - the logo mark and the
-     "LATTE WITH LATA" wordmark text were removed from the bar (client request; the brown mark now opens section 02 / every page's first
-     strip as .mark-row). The drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC navigation map:
-     real pages, no same-page anchors, platform links stay "#" placeholders. -->
+     PAGES UPDATE (2026-09-17, PAGES-SPEC 1a + 3): the drawer keeps the white cup mark at 72px, now a link home. Every href is the PAGES-SPEC
+     navigation map: real pages, no same-page anchors, platform links stay "#" placeholders.
+     UPDATE-3 (2026-09-17, client request): the header row is burger LEFT + the logo lockup RIGHT again - the white cup mark (decorative img,
+     482x571 attrs = the viewBox box so nothing shifts on load; 44px, 56px at >= 60em) + the "LATTE WITH LATA" wordmark text (hidden below
+     36em: mark only), one link home. "Book a table" left the bar; it stays in the drawer, the mobile pill and every page CTA. -->
 <header id="page-header" class="header page__header">
   <div class="header__container">
     <button class="header__burger menu__switcher js-menu-switcher" type="button" aria-label="Menu" aria-haspopup="true" aria-controls="menu-container" aria-expanded="false"><span class="menu__burger"><u></u></span></button>
 
-    <a class="header__book" href="book.html">Book a table</a>
+    <a class="header__logo" href="index.html" aria-label="Latte with Lata, home">
+      <img class="header__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+      <span class="header__wordmark" aria-hidden="true">Latte with Lata</span>
+    </a>
 
     <aside class="menu__screen js-menu-switcher" aria-hidden="true"></aside>
 
@@ -227,7 +231,7 @@
             <div class="eps-card__head">
               <p class="eps-kicker"><span class="eps-num">Episode 87</span><span class="tag">What No One Tells You</span></p>
               <h3 id="ep-87-title" class="eps-card__title" tabindex="-1">What no one tells you about a waiting room</h3>
-              <p class="eps-guest"><strong>Dr Kwame Boateng</strong><span>Medical director, safety-net community clinic</span></p>
+              <p class="eps-guest"><strong>Dr Kwame Boateng</strong><span>Medical director, Eastgate Community Clinic</span></p>
             </div>
             <p class="eps-card__blurb">Kwame runs a clinic where nobody is turned away. On the maths of a Tuesday morning, and the lesson no residency teaches.</p>
             <dl class="eps-meta">
@@ -259,7 +263,7 @@
             <div class="eps-card__head">
               <p class="eps-kicker"><span class="eps-num">Episode 86</span><span class="tag">The Hard Trade-off</span></p>
               <h3 id="ep-86-title" class="eps-card__title" tabindex="-1">Fixing a form nobody could finish</h3>
-              <p class="eps-guest"><strong>Hannah Lindgren</strong><span>Chief innovation officer, city government</span></p>
+              <p class="eps-guest"><strong>Hannah Lindgren</strong><span>Chief innovation officer, City of Harrowfield</span></p>
             </div>
             <p class="eps-card__blurb">Hannah rebuilt a benefits form that failed half the people who started it. On slow change inside government, and who decides it worked.</p>
             <dl class="eps-meta">
@@ -675,7 +679,7 @@
             <div class="eps-card__head">
               <p class="eps-kicker"><span class="eps-num">Episode 73</span><span class="tag">What No One Tells You</span></p>
               <h3 id="ep-73-title" class="eps-card__title" tabindex="-1">What no one tells you about public money</h3>
-              <p class="eps-guest"><strong>Farid Haidari</strong><span>Grants manager, county health department</span></p>
+              <p class="eps-guest"><strong>Farid Haidari</strong><span>Grants manager, Marlow County Health Department</span></p>
             </div>
             <p class="eps-card__blurb">Farid hands out public money for a living and says the job is mostly listening. On audits, trust, and the application he still thinks about.</p>
             <dl class="eps-meta">
@@ -739,7 +743,7 @@
             <div class="eps-card__head">
               <p class="eps-kicker"><span class="eps-num">Episode 71</span><span class="tag">The Origin Story</span></p>
               <h3 id="ep-71-title" class="eps-card__title" tabindex="-1">Starting again at fifty</h3>
-              <p class="eps-guest"><strong>Henry Tso</strong><span>Founder, Spoke and Chain Bike Workshop</span></p>
+              <p class="eps-guest"><strong>Henry Tso</strong><span>Founder, Spoke and Chain Youth Bike Project</span></p>
             </div>
             <p class="eps-card__blurb">Henry left a bank at fifty to teach teenagers to fix bikes. On a pay cut, a cold garage, and the first kid who came back to teach.</p>
             <dl class="eps-meta">
@@ -987,7 +991,7 @@
                     <li>“A coffee cup featuring intricate latte art sits on a wooden table next to an open laptop.jpg” by Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_coffee_cup_featuring_intricate_latte_art_sits_on_a_wooden_table_next_to_an_open_laptop.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“A cup of cappuccino.jpg” by Vee Satayamas, <a href="https://creativecommons.org/licenses/by/4.0" rel="noopener" target="_blank">CC BY 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:A_cup_of_cappuccino.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> (cropped).</li>
                     <li>“BoulderCoffeeOpenMicNight2018.jpg” by DanielPenfield, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:BoulderCoffeeOpenMicNight2018.jpg" rel="noopener" target="_blank">Wikimedia Commons</a> - this crop is a derivative shared under the same CC BY-SA licence.</li>
-                    <li>“Macro Espresso Process” (video) by Scott Schiller from San Francisco, CA, USA, <a href="https://creativecommons.org/licenses/by/2.0" rel="noopener" target="_blank">CC BY 2.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Macro_Espresso_Process.webm" rel="noopener" target="_blank">Wikimedia Commons</a>.</li>
+                    <li>“Guerrilla on air – Fatti d’arte teaser” (video) by M. Capriglione, M. Rainò and R. Romita, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener" target="_blank">CC BY-SA 4.0</a>, via <a href="https://commons.wikimedia.org/wiki/File:Guerrilla_on_air_%E2%80%93_Fatti_d%27arte_teaser.mpg" rel="noopener" target="_blank">Wikimedia Commons</a> - cut, slowed, colour-graded and looped; this edit is shared under the same CC BY-SA licence.</li>
                     <li>All other photographs: CC0 (public domain dedication) via Wikimedia Commons - full register in the site's ASSETS.md.</li>
                   </ul>
                 </details>

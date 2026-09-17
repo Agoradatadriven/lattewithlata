@@ -30,24 +30,8 @@ export default function init(ctx) {
     const loop = horizontalLoop(gsap, copies, { paused: true, repeat: -1, speed });
     marquee._loop = loop;
 
-    /* brand pass (WCAG 2.2.2 / review MUST-FIX 3): visible pause control - the visitor's choice wins over the in-view trigger; the glow
-       keyframes pause with the loop (the .is-animated class follows the same state). INFERRED */
-    let userPaused = false, inView = false;
-    const pauseBtn = root.querySelector(".marquee__pause");
-    const applyState = () => {
-        const run = inView && !userPaused;
-        run ? loop.play() : loop.pause();
-        copies.forEach((c) => c.classList.toggle("is-animated", run));
-    };
-    if (pauseBtn) {
-        pauseBtn.hidden = false;
-        pauseBtn.addEventListener("click", () => {
-            userPaused = !userPaused;
-            pauseBtn.setAttribute("aria-pressed", userPaused ? "true" : "false");
-            pauseBtn.setAttribute("aria-label", userPaused ? "Play ticker" : "Pause ticker");
-            applyState();
-        });
-    }
+    /* UPDATE-3 (2026-09-17, client decision): NO visible pause / play control. The loop and the glow run only while the row is on screen
+       (the two in-view triggers below) and never under reduced motion (the early return above leaves the static CSS end state). */
 
     /* IC:369-380  play while in view */
     ScrollTrigger.create({
@@ -56,7 +40,7 @@ export default function init(ctx) {
         end: "bottom top",                                               // IC:372
         endTrigger: marquee,                                             // IC:373
         invalidateOnRefresh: true,                                       // IC:374
-        onToggle: (e) => { inView = e.isActive; applyState(); }         // IC:375-377 (e.isActive ? loop.play() : loop.pause()) + the pause control's state
+        onToggle: (e) => (e.isActive ? loop.play() : loop.pause())       // IC:375-377
         // IC:378-380 onUpdate: e => { e.getVelocity() } - no-op in the source, dropped
     });
 
@@ -78,7 +62,7 @@ export default function init(ctx) {
         start: "top bottom",                                             // IC:391
         end: "bottom top",                                               // IC:392
         endTrigger: marquee,                                             // IC:393
-        onToggle: (e) => { inView = e.isActive; applyState(); }         // IC:394-396 (copies .is-animated = e.isActive) gated by the pause control
+        onToggle: (e) => copies.forEach((c) => c.classList.toggle("is-animated", e.isActive))   // IC:394-396 (copies .is-animated = e.isActive)
     });
 }
 

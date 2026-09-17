@@ -1,0 +1,55 @@
+<!-- 13-newsletter - Black newsletter block: eyebrow, lead paragraph, floating-label email input, square accent submit with
+     the two-arrow swap, consent checkbox; right column big "Listen and follow" links
+     SOURCE skeleton: Iceberg div#join.footer-newsletter > .footer-newsletter__left (.__title, .__text, form.__form >
+       .form-group.__form-input (.form-input > label + input#email ; button.__form-input__button > span > svg x2)
+       + .form-group.__form-checkbox (.form-checkbox > input#subscribe + label > div + span)) ; .footer-newsletter__right
+       (.__title + ul > li > a)  (IC rendered.html line 29 block; CSS inline-scoped.beautified.css:2836-3300;
+       engine ZNMh4Fg5.beautified.js:909-935)
+     Copy: content/site.json newsletter.* verbatim (brand pass 2026-09-17: eyebrow "First to know", new paragraph). Right column = newsletter.follow[5] (DD Pick 12 "Change": platforms
+       + Instagram; copy.md maps follow[] to the right column). Hard-coded label (INFERRED): "Listen and follow" eyebrow.
+       "privacy policy" links to #privacy (copy.md). success/error strings ride on data-* so the JS shows visible text.
+     Endpoint: newsletter.endpoint = "#" (placeholder) - the JS skips the network call for "#" and shows the success line. -->
+<section id="s-13-newsletter" class="strip strip--normal bg-band-black newsletter-band" aria-labelledby="nl-eyebrow">
+  <div class="container newsletter">
+
+    <div class="newsletter__left">
+      <p id="nl-eyebrow" class="newsletter__eyebrow eyebrow">Stay for the conversation</p>
+      <p class="newsletter__text lead">The conversation doesn't end with the podcast. Follow along for meaningful moments, leadership insights, guest stories and upcoming conversations. One email a week, never more.</p>
+      <form class="newsletter__form" action="#" method="post" novalidate
+            data-success="You are on the list. See you Thursday."
+            data-error="That address did not go through. Check it and try once more.">
+        <div class="newsletter__row">
+          <div class="newsletter__field">
+            <label for="nl-email">Your email</label>
+            <input id="nl-email" class="newsletter__input" type="email" name="email" autocomplete="email" spellcheck="false" required aria-describedby="nl-msg-error">
+          </div>
+          <button class="newsletter__submit" type="submit" aria-label="Subscribe">
+            <span><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg></span>
+            <span aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-arrow-right"></use></svg></span>
+          </button>
+        </div>
+        <div class="newsletter__consent">
+          <input id="nl-consent" type="checkbox" name="consent" required>
+          <label for="nl-consent">
+            <span class="newsletter__box" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-check"></use></svg></span>
+            <span>Yes, send me the Thursday email from Latte with Lata. I have read the <a href="#privacy">privacy policy</a>.</span>
+          </label>
+        </div>
+        <p id="nl-msg-error" class="newsletter__error" role="alert" hidden></p>
+        <p class="newsletter__success" role="status" hidden></p>
+      </form>
+    </div>
+
+    <div class="newsletter__right">
+      <p class="newsletter__eyebrow eyebrow">Listen and follow</p>
+      <ul class="newsletter__links">
+        <li><a href="#">Spotify</a></li>
+        <li><a href="#">Apple Podcasts</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">RSS</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>

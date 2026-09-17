@@ -1,0 +1,103 @@
+<!-- 11-live - Live sessions: static 5-photo mosaic (Phase 1) + quote row + What's on
+     SOURCE skeleton: PZ rendered.html div[data-id="169"].strip.bg-np-black.strip--wide.strip--full-height.js-zoom-splash
+       > .container > [279].strip__data.md:pt-md.md:pb-md > .strip__text (flex)
+         > [171].strip.strip--columns.strip--wide (cols [282] 2:3 | [283] 2:3 + 3:2)
+         > [172].strip.strip--image.strip--wide > [284].strip__data.text-inbox.v-center.text-center > figure + .strip__text caption
+         > [173].strip.strip--columns.strip--wide (cols [285] 2:3 + 3:2 | [286] 2:3)
+     Rebuild: the measured 100vh box is .live__stage (BUILD-SPEC 11 (b)); the Phase-1 quote row sits after it inside the
+     section root (spec (h): "the quote row adds .pt-md/.pb-md below it"). Phase 2 = data-zoom-splash="on" on the root.
+     Copy: content/site.json live.* (verbatim, brand pass 2026-09-17). Alt/dimensions: content/assets-manifest.json (manifest wins).
+     Image mapping (spec (g)): left col1 = mosaic-01 (2:3 crop), left col2 = mosaic-02 (2:3) + mosaic-01 (3:2 native),
+       centre = mosaic-03 (4:3, live.images[2]), right col1 = mosaic-04 (2:3) + mosaic-05 (3:2), right col2 = mosaic-05 (2:3). -->
+<section id="s-11-live" class="strip bg-band-black strip--wide live mosaic" aria-labelledby="live-eyebrow">
+  <div class="live__stage js-zoom-splash">
+    <div class="container">
+      <div class="strip__data md-pt-md md-pb-md">
+        <div class="strip__text mosaic__flex">
+
+          <div class="strip strip--columns strip--wide mosaic__row mosaic__row--left">
+            <div class="container">
+              <div class="strip__data strip__column strip__column--1 v-center">
+                <div class="strip__column__content">
+                  <div class="strip__text">
+                    <figure class="strip__image strip__image--after mosaic__tile mosaic__tile--portrait">
+                      <picture><img src="assets/images/mosaic-01.jpg" width="1600" height="1067" alt="Guests at tables in a glass-walled cafe at dusk" loading="lazy" decoding="async"></picture>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="strip__data strip__column strip__column--2 v-center">
+                <div class="strip__column__content">
+                  <div class="strip__text">
+                    <figure class="strip__image strip__image--after mosaic__tile mosaic__tile--portrait">
+                      <picture><img src="assets/images/mosaic-02.jpg" width="1600" height="1067" alt="Audience watching a small stage lit with coloured lights" loading="lazy" decoding="async"></picture>
+                    </figure>
+                    <figure class="strip__image strip__image--after mosaic__tile mosaic__tile--landscape">
+                      <picture><img src="assets/images/mosaic-01.jpg" width="1600" height="1067" alt="Guests at tables in a glass-walled cafe at dusk" loading="lazy" decoding="async"></picture>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="strip strip--image strip--wide mosaic__centre">
+            <div class="container">
+              <div class="strip__data text-inbox v-center text-center">
+                <figure class="strip__image mosaic__tile mosaic__tile--centre">
+                  <picture><img src="assets/images/mosaic-03.jpg" width="1600" height="1200" alt="Open-mic night in a coffee house with a performer on a small stage and people at tables" loading="lazy" decoding="async"></picture>
+                </figure>
+                <!-- Phase 2 caption only (un-hidden by js/sections/11-live.js when data-zoom-splash="on") -->
+                <div class="strip__text live__caption" hidden>
+                  <p class="text-decorated">Coffee. Leadership. Purpose. Real&nbsp;conversation. Thursday nights from 6:30&nbsp;pm the chairs turn to face the corner table, and there is one for you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="strip strip--columns strip--wide mosaic__row mosaic__row--right">
+            <div class="container">
+              <div class="strip__data strip__column strip__column--1 v-center">
+                <div class="strip__column__content">
+                  <div class="strip__text">
+                    <figure class="strip__image strip__image--after mosaic__tile mosaic__tile--portrait">
+                      <picture><img src="assets/images/mosaic-04.jpg" width="1600" height="1067" alt="Microphone on a stand with a blurred crowd behind it" loading="lazy" decoding="async"></picture>
+                    </figure>
+                    <figure class="strip__image strip__image--after mosaic__tile mosaic__tile--landscape">
+                      <picture><img src="assets/images/mosaic-05.jpg" width="1600" height="1067" alt="Violinist playing into a microphone, motion blurred" loading="lazy" decoding="async"></picture>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="strip__data strip__column strip__column--2 v-center">
+                <div class="strip__column__content">
+                  <div class="strip__text">
+                    <figure class="strip__image strip__image--after mosaic__tile mosaic__tile--portrait">
+                      <picture><img src="assets/images/mosaic-05.jpg" width="1600" height="1067" alt="Violinist playing into a microphone, motion blurred" loading="lazy" decoding="async"></picture>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- eyebrow (live.eyebrow): absolute inside the bottom padding band of the stage - brand pass moved it from the top band, where the
+         fixed header plate (same brown) covered it whenever the header was visible (WIG "no content behind the fixed header") -->
+    <p id="live-eyebrow" class="eyebrow live__eyebrow">Pull up a chair</p>
+  </div>
+
+  <!-- Phase 1 quote row (INFERRED placement, BUILD-SPEC 11 (b)/(i)): .strip--narrow, pt-md/pb-md, anima--fade -->
+  <div class="strip strip--narrow live__quote-row">
+    <div class="container">
+      <div class="strip__data pt-md pb-md text-center anima--fade">
+        <div class="strip__text">
+          <p class="text-decorated text-decorated--sentence live__quote">Coffee. Leadership. Purpose. Real&nbsp;conversation. Thursday nights from 6:30&nbsp;pm the chairs turn to face the corner table, and there is one for you.</p>
+          <p class="live__cta"><a class="read-more" href="#events">What's on</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

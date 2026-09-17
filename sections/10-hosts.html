@@ -1,0 +1,37 @@
+<!-- 10-hosts - Inverted (brand-brown, bleeding left) two-column story row MEET LATA. SOURCE: Paszkowski P8 section 13
+     (PZ source/rendered.html div[data-id="170"].strip.strip--columns.bg-np-black.strip--wide > .container >
+      [280].strip__data.strip__column.strip__column--1.pt-md.md:pb-md.strip--stamp.js-image-anime.anima--left-in (figure --after) +
+      [281].strip__data.strip__column.strip__column--2.pt-md.md:pb-md.text-narrow.js-image-anime.anima--right-in (h2, p x6 incl. &nbsp; spacers, p > a.read-more, figure --after)).
+     No .mobile-first (source): the portrait column stays first on phones. The <p>&nbsp;</p> spacer lines become margins in css/sections/10-hosts.css (INFERRED, as 04).
+     Stamp: the source column 1 carries .strip--stamp; the class is kept but the mark is switched OFF in the CSS (DD Pick 13: 4 instances = 05, 04, 08, 14).
+     Copy: content/site.json hosts.* (verbatim: title, name, role, paragraphs[0..2], cta, images[0..1].alt). Images eager (initImageAnime strips loading="lazy" anyway, PZ _page-scroll.beautified.js:143-145).
+     BRAND 2026-09-17 (lane C): portrait = the founder photo (assets/images/founder-portrait.jpg, a 1200x1800 2:3 crop of assets/brand/lata-singh.jpg at focus 50%/20%,
+     object-position 50% 20%); hosts.name + hosts.role rendered as a byline (Bold name + eyebrow role) between the h2 and the paragraphs, inside the existing text block. -->
+<section id="s-10-hosts" class="strip strip--columns bg-band-black strip--wide story story--inverted hosts">
+  <div class="container">
+    <div class="strip__data strip__column strip__column--1 pt-md md-pb-md strip--stamp js-image-anime anima--left-in">
+      <div class="strip__column__content">
+        <div class="strip__text">
+          <figure class="strip__image strip__image--after hosts__portrait">
+            <img src="assets/images/founder-portrait.jpg" width="1200" height="1800" alt="Lata Singh, founder and host of Latte with Lata, seated in her office and looking at the camera." loading="eager" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="strip__data strip__column strip__column--2 pt-md md-pb-md text-narrow js-image-anime anima--right-in">
+      <div class="strip__column__content">
+        <div class="strip__text">
+          <h2 class="strip__title1 js-split">MEET LATA</h2>
+          <p class="hosts__byline"><span class="hosts__name">Lata Singh</span> <span class="hosts__role">Founder and host</span></p>
+          <p>Lata Singh is the founder and host. By day she is a senior operating leader in one of the country's largest safety-net healthcare networks, responsible for operations, quality, workforce and finance at a scale where every decision has a waiting room attached.</p>
+          <p>She is also partway through doctoral study in leadership and innovation, which is why the questions here go one layer deeper than the highlight reel: what did it cost, who disagreed, and what would you do differently.</p>
+          <p>She opened a cafe with a microphone because the most honest things leaders ever told her were said over coffee, after the meeting, with nothing left to prove. Latte with Lata is that conversation, with the microphone switched on.</p>
+          <p><a class="read-more" href="#hosts">Join the conversation</a></p>
+          <figure class="strip__image strip__image--after">
+            <img src="assets/images/host-corner.jpg" width="1200" height="1800" alt="The recording corner: two microphones on boom arms, a small mixer and a lamp on a wooden table." loading="eager" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

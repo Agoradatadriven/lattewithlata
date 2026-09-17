@@ -1,0 +1,14 @@
+# dependencies and tooling
+node_modules/
+.claude/
+
+# local verification output (screenshots, reports)
+verify/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/

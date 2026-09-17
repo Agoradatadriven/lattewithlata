@@ -1,0 +1,50 @@
+<!-- 12-visit-listen - Twin cards (solid accent VISIT + frosted LISTEN) over a slowly translating room photo
+     SOURCE: Iceberg section.home-podcast-bottom > .home-podcast-bottom__bg > img ; .__card.--orange ; .__card.--blur
+       (IC rendered.html; CSS inline-scoped.beautified.css:2491-2660; engine D51_WxQ5.beautified.js:1345-1370)
+     Texture image (.home-podcast-bottom__texture) DROPPED (BUILD-SPEC 12 (a)).
+     Copy: content/site.json visit.* / listen.* / bookingLabel (verbatim, brand pass 2026-09-17). Hard-coded labels (copy.md / spec (g)):
+       "Get directions", "Latest episode". Alt/dimensions: content/assets-manifest.json (bg is decorative: alt="").
+     Net-new (spec (i) INFERRED): hours <table> markup, card inner layout. -->
+<section id="s-12-visit-listen" class="strip bg-band-black strip--wide twin-cards visit-listen" aria-labelledby="visit-title">
+  <div class="twin-cards__bg" aria-hidden="true">
+    <img src="assets/images/visit-bg.jpg" width="1920" height="1080" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="container twin-cards__row">
+
+    <article class="twin-card twin-card--visit">
+      <h2 id="visit-title" class="twin-card__title">VISIT</h2>
+      <div class="twin-card__content">
+        <table class="hours twin-card__hours">
+          <tbody>
+            <tr><th scope="row">Mon - Thu</th><td>7:00&nbsp;am - 6:00&nbsp;pm</td></tr>
+            <tr><th scope="row">Fri</th><td>7:00&nbsp;am - 10:00&nbsp;pm</td></tr>
+            <tr><th scope="row">Sat</th><td>8:00&nbsp;am - 10:00&nbsp;pm</td></tr>
+            <tr><th scope="row">Sun</th><td>8:00&nbsp;am - 3:00&nbsp;pm</td></tr>
+          </tbody>
+        </table>
+        <p class="twin-card__note">Thursdays we reopen at 6:30&nbsp;pm for the recording. Free, first come first seated, and the guest stays for a coffee afterwards.</p>
+        <address class="twin-card__address">27 Bellwood Street<br>Corner of Fenwick Lane<br>Harrowfield<br><a href="tel:+15550142024">(555) 014-2024</a></address>
+        <p class="twin-card__links">
+          <a class="read-more" href="#book">Book a table</a>
+          <a class="twin-card__link" href="#directions">Get directions</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="twin-card twin-card--listen" aria-labelledby="listen-title">
+      <h2 id="listen-title" class="twin-card__title">LISTEN</h2>
+      <div class="twin-card__content">
+        <ul class="platforms twin-card__platforms">
+          <li><a href="#"><svg class="icon" aria-hidden="true"><use href="assets/svg/icons.svg#i-spotify"></use></svg>Spotify</a></li>
+          <li><a href="#"><svg class="icon" aria-hidden="true"><use href="assets/svg/icons.svg#i-apple"></use></svg>Apple Podcasts</a></li>
+          <li><a href="#"><svg class="icon" aria-hidden="true"><use href="assets/svg/icons.svg#i-youtube"></use></svg>YouTube</a></li>
+          <li><a href="#"><svg class="icon" aria-hidden="true"><use href="assets/svg/icons.svg#i-rss"></use></svg>RSS</a></li>
+        </ul>
+        <p class="twin-card__text">For leaders, aspiring leaders, professionals, and anyone searching for more meaning in the work they do. A new conversation every Thursday, wherever you already listen.</p>
+        <p class="twin-card__latest lead">The grant we turned down <small class="twin-card__duration">44&nbsp;min</small></p>
+        <p class="twin-card__links"><a class="read-more" href="#">Latest episode</a></p>
+      </div>
+    </article>
+
+  </div>
+</section>

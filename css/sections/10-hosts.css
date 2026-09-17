@@ -1,0 +1,77 @@
+/* ==========================================================================
+   10-hosts - inverted two-column story row MEET LATA (build-C, section-scoped; brand edition 2026-09-17, lane C)
+   Grid, columns, reveals, text-narrow, figures and the zoom-settle window are base.css (foundation):
+     grid       PZ main/modules/_strip.7.5.scss:255-277 (compiled main.1.beautified.css:4470-4523); .strip--wide -> container 100%, no padding
+                (_strip.7.5.scss:33-40) = 24 tracks of 60px @1440: col1 x 0 w 691.2 (720 - gap/2), col2 x 748.8 w 691.2 (manifest [280]/[281])
+     text-narrow _strip.7.5.scss:375-386 + 469-474: col2 content max-width 37.5rem + vpad (657.6), padding-right --container-pad (57.6)
+                -> text box 600 wide, margin-left 0 / margin-right auto (`.strip__column--2 { --strip-textNarrow-marginRight: auto }`)
+                NOTE (hand-off): the manifest's x 782.8 for the col2 text (spec 10 (c) "34px inset") is a mid-reveal capture of the
+                .anima--right-in slide (748.8 + 34 of the 5vh = 45px travel; computed-styles.json has the same h2 at 793.8 = 748.8 + 45,
+                the full .waiting offset). At rest the source text box sits at x 748.8 - no inset is authored, none is added here.
+     reveals    _animate.scss:16-19, 41-58 (compiled main.1:5566-5717): col1 .anima--left-in, col2 .anima--right-in (+.5s), as in rendered.html [280]/[281]
+     figures    _strip.7.5.scss:194-208 (overflow hidden under .js-image-anime; --after margin-top vpad/2 = 28.8, first-child 0)
+     band       PZ main.1.beautified.css:7147-7160 (.bg-np-black) -> tokens.css .bg-band-black = BK --colNero (#502506) with --colOnBrand text
+   BK = the client's brand kit (BRAND.md): h2 = title role via base (Creato Display Bold 700, white on brand through --colTitle);
+   body = Regular 400 17px/1.6 on >= 60em (base); byline = name Bold 700 uppercase + role eyebrow Medium 500; portrait = founder photo.
+   Only the rules the source needs beyond base.css live here. No font-family here (inherits --fontBrand).
+   ========================================================================== */
+
+/* h2 colour on the brown band: tokens.css sets `.bg-band-black { --colTitle: var(--strip-text-color) }` (PZ main.1.beautified.css:7151
+   `--colTitle: ""` fall-through) -> white (13.06:1). */
+
+/* links on the brown band - PZ main.1.beautified.css:7154-7160 (.bg-np-black a:not(.button) { color: inherit } :hover { color: var(--colContrasto) })
+   -> the read-more label and its currentColor disc turn --colAccent on hover, as the source does on this band (the single accent) */
+#s-10-hosts a:not(.button) { color: inherit; }
+#s-10-hosts a:not(.button):hover { color: var(--colAccent); }
+/* read-more arrow blend on the brown band: base.css s10 carries `.bg-band-black .read-more::after { mix-blend-mode: normal }`; the arrow stays white (base). */
+/* focus ring: white on this band via tokens.css --colFocus (base.css reads it directly since the brand pass finish). Former note:
+   sets --focusRing per band. */
+
+/* Paragraph rhythm: the source separates its blocks with empty <p>&nbsp;</p> lines (rendered.html [281]: h2, p&nbsp;, p, p&nbsp;, p&nbsp;,
+   p > a.read-more, figure) = one 24px body line between blocks (p margin 0 in the reset). Re-expressed as margins so the markup stays
+   semantic - INFERRED, same rule as 04-story-a so both story rows share one rhythm:
+   24px (1.5em) between paragraphs and before the read-more line; h2 -> first paragraph = h2 margin-bottom vpad/4 (14.4, _typography.scss:14)
+   + the spacer line (24) = 38.4 (computed-styles [170] h2 margin 0 0 14.4px; the following p&nbsp; is 24px tall). */
+#s-10-hosts .strip__text > p { margin-top: 1.5em; }
+#s-10-hosts .strip__text > p:first-child { margin-top: 0; }
+#s-10-hosts .strip__text > h2 + p { margin-top: calc(1.5em + var(--vpad) / 4); }
+
+/* Byline (BRAND: hosts.name + hosts.role) - sits in the h2 -> paragraph gap: it takes the h2's spacer slot (vpad/4 after the h2's own
+   margin-bottom) and the first paragraph keeps its 1.5em below it, so the column grows by the byline's own height only (~40px @1440). */
+#s-10-hosts .hosts__byline {
+    display: flex; flex-direction: column; gap: .35em;
+    margin-top: calc(var(--vpad) / 4);                                    /* overrides the h2 + p rule above (same specificity, later) */
+    line-height: 1.2;
+    color: var(--colOnBrand);
+}
+#s-10-hosts .hosts__name {
+    font-size: 1.125rem;                                                  /* 18px: a Bold line, clearly below the h2 (60 / 33.3px) - INFERRED */
+    font-weight: var(--wTitle);                                           /* BK Bold 700 uppercase ls -.01em */
+    letter-spacing: var(--trackTitle);
+    text-transform: uppercase;
+}
+#s-10-hosts .hosts__role {
+    font-size: .75rem;                                                    /* BK eyebrow role: Medium 500, 12px, uppercase, ls .14em */
+    font-weight: var(--wLead);
+    letter-spacing: var(--trackEyebrow);
+    text-transform: uppercase;
+    color: var(--colTextOnBrandMuted);                                    /* 10.7:1 on brand */
+}
+#s-10-hosts .strip__text > p:not([class]) { text-wrap: pretty; }          /* BK polish: no single-word last lines on the three paragraphs - INFERRED */
+
+/* Portrait figures: lock the 2:3 ratio of founder-portrait / host-corner (1200x1800) so the column height is stable before decode
+   and the zoom-settle windows are 691.2x1036.8 (col1, measured 1037.7 with a 1333x2000 source) and 600x900 (col2, measured 900.8) @1440,
+   390x585 / 338.8x508.2 @390 (measured 585.7 / 508.8). INFERRED - as 04-story-a. */
+#s-10-hosts .strip__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+#s-10-hosts .hosts__portrait img { object-position: 50% 20%; }           /* BK founder photo: eyes in the upper fifth (the zoom-settle yPercent -40 -> 0 keeps the face in frame) */
+
+/* Stamp OFF: the source [280] carries .strip--stamp (top-left, column-1 variant - _strip_site.scss:94-99), but DD Pick 13 caps the mark at
+   4 instances (05 parallax strip, 04 story row, 08 band opener, 14 footer seam; SPEC G6/G7). The class stays in the markup so the instance
+   can be switched on by deleting this rule (initStamps already drives --stamp-y on it). */
+#s-10-hosts .strip--stamp::after { display: none; }

@@ -1,0 +1,88 @@
+<!-- 06-menu - Cream-2 band ON THE MENU: spacer row (stamp, OFF by default), h2 word rise, 600px paragraph, food carousel (6),
+     closing read-mores. SOURCE: Paszkowski P14 band + sections 221/166/167/168 (PZ source/rendered.html:
+       [221].strip.strip--normal.bg-np-grey > [347].strip__data.pt-md.strip--stamp > .strip__text (empty)
+       [166].strip.strip--xnarrow.bg-np-grey > [276].strip__data.md:text-center.pb-md.anima--bottom-in > h2 + p (+ read-more, moved to the ctas row)
+       [167].strip.strip__gallery--slider.js-splide-arrows.carousel.bg-np-grey.strip--wide > [277].strip__data.pb-md.anima--bottom-in > #splide03
+       [168].strip.bg-np-grey.strip--xnarrow.mb-md > [278].strip__data.pb-md.text-center.anima--bottom-in > p > a.read-more).
+     Root is NOT a .strip on purpose: base.css resets --bgStrip on nested strips (_strip.7.5.scss:12-19); the four inner strips carry the band.
+     Stamp: spec 06 (h) keeps it off (4-instance rule, DD Pick 13) - flip data-stamp="on" to show it.
+     Copy: content/site.json menu.* (brand pass 2026-09-17: paragraph verbatim from the rewritten site.json; title, names, prices, CTA labels/hrefs
+     unchanged); alt/size: content/assets-manifest.json (manifest alt wins; food-01..06 are 1:1, caption = name + price per copy.md).
+     Brand pass: the closing CTA row keeps its two anchors and hrefs but renders them as base.css .button (G6 shared): "Book a table" = filled
+     brand primary, "See the menu" = outlined secondary (lane brief). Verifier hook `.menu__ctas .read-more` -> `.menu__ctas .menu__cta`. -->
+<section id="s-06-menu" class="menu-band bg-band-cream2">
+  <div class="strip strip--normal bg-band-cream2 menu__spacer">
+    <div class="container">
+      <div class="strip__data pt-md strip--stamp" data-stamp="off">
+        <div class="strip__text"></div>
+      </div>
+    </div>
+  </div>
+  <div class="strip strip--xnarrow bg-band-cream2 menu__intro">
+    <div class="container">
+      <div class="strip__data md-text-center pb-md anima--bottom-in">
+        <div class="strip__text">
+          <h2 class="strip__title1 js-split">ON THE MENU</h2>
+          <p>Espresso from a roaster two streets over, croissants baked at six, and brunch until the kitchen runs out. The prices are for a cup at the counter; a seat by the window, or at the corner table, costs the same.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip strip__gallery--slider js-splide-arrows carousel bg-band-cream2 strip--wide menu__carousel">
+    <div class="container">
+      <div class="strip__data pb-md anima--bottom-in">
+        <div class="strip__gallery splide" data-splide-sizes='{"all":2,"576":3,"800":3}' aria-label="Menu highlights">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide strip__gallery__item">
+                <figure class="strip__gallery__link menu__item">
+                  <div class="menu__item-media"><img src="assets/images/food-01.jpg" width="1200" height="1200" alt="Espresso pouring into a cup from an espresso machine" loading="lazy" decoding="async"></div>
+                  <figcaption class="menu__caption"><span class="menu__name">Espresso</span><span class="menu__price">$4.00</span></figcaption>
+                </figure>
+              </li>
+              <li class="splide__slide strip__gallery__item">
+                <figure class="strip__gallery__link menu__item">
+                  <div class="menu__item-media"><img src="assets/images/food-02.jpg" width="1200" height="1200" alt="Cappuccino with rosetta latte art in a white cup" loading="lazy" decoding="async"></div>
+                  <figcaption class="menu__caption"><span class="menu__name">Cappuccino</span><span class="menu__price">$5.50</span></figcaption>
+                </figure>
+              </li>
+              <li class="splide__slide strip__gallery__item">
+                <figure class="strip__gallery__link menu__item">
+                  <div class="menu__item-media"><img src="assets/images/food-03.jpg" width="1200" height="1200" alt="Chocolate-drizzled croissant on a slate board beside a tall latte" loading="lazy" decoding="async"></div>
+                  <figcaption class="menu__caption"><span class="menu__name">Butter croissant</span><span class="menu__price">$5.00</span></figcaption>
+                </figure>
+              </li>
+              <li class="splide__slide strip__gallery__item">
+                <figure class="strip__gallery__link menu__item">
+                  <div class="menu__item-media"><img src="assets/images/food-04.jpg" width="1200" height="1200" alt="Slice of coffee cake on a plate next to a flat white" loading="lazy" decoding="async"></div>
+                  <figcaption class="menu__caption"><span class="menu__name">Cardamom cake</span><span class="menu__price">$7.50</span></figcaption>
+                </figure>
+              </li>
+              <li class="splide__slide strip__gallery__item">
+                <figure class="strip__gallery__link menu__item">
+                  <div class="menu__item-media"><img src="assets/images/food-05.jpg" width="1200" height="1200" alt="Brunch plate of French toast with berries on a blue plate" loading="lazy" decoding="async"></div>
+                  <figcaption class="menu__caption"><span class="menu__name">Eggs, greens, sourdough</span><span class="menu__price">$18.00</span></figcaption>
+                </figure>
+              </li>
+              <li class="splide__slide strip__gallery__item">
+                <figure class="strip__gallery__link menu__item">
+                  <div class="menu__item-media"><img src="assets/images/food-06.jpg" width="1200" height="1200" alt="Tall glass of iced coffee with milk swirling through it" loading="lazy" decoding="async"></div>
+                  <figcaption class="menu__caption"><span class="menu__name">Cold brew</span><span class="menu__price">$6.50</span></figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip bg-band-cream2 strip--xnarrow mb-md menu__ctas">
+    <div class="container">
+      <div class="strip__data pb-md text-center anima--bottom-in">
+        <div class="strip__text">
+          <p class="menu__cta-row"><a class="button button--outlined menu__cta menu__cta--secondary" href="#menu">See the menu</a><a class="button menu__cta menu__cta--primary" href="#book">Book a table</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

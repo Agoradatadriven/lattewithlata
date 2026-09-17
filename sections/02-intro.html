@@ -1,0 +1,29 @@
+<!-- 02-intro: title strip A CAFE WITH A MICROPHONE (word rise) + centred 600px intro paragraph + read-more "The cafe".
+     Source skeleton: PZ/source/rendered.html div[data-id="159"].strip.strip--xnarrow.mt-md.mb-md > .container > div[data-id="267"].strip__data.text-center
+     > .strip__text > h1.strip__title1  and  div[data-id="162"].strip.strip--xnarrow.mb-lg > .container > div[data-id="271"].strip__data.text-center.anima--bottom-in
+     > .strip__text > p ... p > a.read-more  (BUILD-SPEC 02 (b)). The root is a wrapper <section> holding the two sibling strips; it carries `strip`
+     for core's refresh-priority walk (foundation.md) - nested .strip rows reset the band (base.css), no visual effect on the cream page.
+     Row order title -> text (gallery follows as 03): deliberate re-ordering, per-row geometry unchanged (BUILD-SPEC 02 (h)).
+     Copy: content/site.json intro.title (the page's only h1 - copy.md), intro.paragraphs[2] (one <p> each), intro.cta. No images. -->
+<section id="s-02-intro" class="strip intro">
+  <div class="strip strip--xnarrow mt-md mb-md intro__title-strip">
+    <div class="container">
+      <div class="strip__data text-center">
+        <div class="strip__text">
+          <h1 class="strip__title1 js-split">A CAFE WITH A MICROPHONE</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip strip--xnarrow mb-lg intro__text-strip">
+    <div class="container">
+      <div class="strip__data text-center anima--bottom-in">
+        <div class="strip__text intro__text">
+          <p>Thoughtful conversations with people building careers, organizations, and movements around purpose.</p>
+          <p>Pull up a chair and discover the stories behind mission-driven work.</p>
+          <p><a class="read-more" href="#s-04-story-a">The cafe</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

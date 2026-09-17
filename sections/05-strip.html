@@ -1,0 +1,14 @@
+<!-- 05-strip - Full-bleed 65vh parallax image window with floating stamp. SOURCE: Paszkowski P9 section 163 + P7 stamp
+     (PZ source/rendered.html div[data-id="163"].strip.strip--image.strip--wide.mb-lg > .container >
+      div[data-id="272"].strip__data.strip--stamp.parallax > figure.strip__image > picture > img).
+     No <picture> (single JPEG); base.css sizes the window (65vh, img 150%) and core initParallaxStrips drives y.
+     Image eager: the img must be laid out for y() = box.h - img.h before the first refresh. Alt/size: content/assets-manifest.json. -->
+<section id="s-05-strip" class="strip strip--image strip--wide mb-lg strip-window">
+  <div class="container">
+    <div class="strip__data strip--stamp parallax">
+      <figure class="strip__image">
+        <img src="assets/images/strip-wide.jpg" width="2400" height="1600" alt="Orange bistro chairs and a small table outside a cafe on a brick pavement" loading="eager" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<!-- 01-hero: 100vh colour video hero (Paszkowski banner container, P4) + Iceberg intro reveal (I6: clip-path slot, two-line char roll, tagline).
+     Skeleton: BUILD-SPEC 01 (b). Source: PZ/source/rendered.html:155-160 (div.banner > .banner__slider.parallax > video.banner__video)
+     + IC/source/rendered.html section.intro > video.intro__video / div.intro__logo > .intro__logo-inner x3 / svg.intro__sentence.
+     Copy: content/site.json brand.name, brand.wordmarkLines (one .hero__line per item, never re-split), hero.tagline, hero.sr, hero.poster, hero.video.
+     Poster: content/assets-manifest.json "assets/images/hero-poster.jpg" (1920x1080); video 854x480 VP9 webm, loopHint 33.5 s (assets.md).
+     JS (js/sections/01-hero.js) builds three stacked .hero__row copies per line and splits them into .char (Iceberg rows); the HTML keeps
+     one copy of each line for no-JS. The wordmark is a <p>, not an h1: copy.md reserves the page's only h1 for intro.title (02) - INFERRED.
+     BRAND (2026-09-17): the kit's white cup mark sits ABOVE the live wordmark (72px / 96px, LOGO-USAGE.md) as a decorative <img> (the wordmark
+     carries the sr text) and fades in with the header at initial+=1.5 (01-hero.js reuses the header tween); the tagline is the kit's
+     "Real Conversations. Built on Purpose." (hero.tagline); the readability overlay is CSS (#s-01-hero::before) above the media, below the text. -->
+<section id="s-01-hero" class="strip strip--wide hero banner" aria-label="Latte with Lata">
+  <div class="hero__media parallax" data-parallax="20">
+    <!-- data-parallax="20" = PZ _page-scroll.beautified.js:371 default (i.attr("data-parallax") || 20); the drift is ported in 01-hero.js (M5) -->
+    <video class="hero__video" muted playsinline loop autoplay preload="metadata" poster="assets/images/hero-poster.jpg" width="1920" height="1080"
+      aria-label="Latte with Lata. A short, silent video of milk being poured into a latte at the counter of a warm, sunlit cafe." data-loop-end="33.5">
+      <source src="assets/video/hero.webm" type="video/webm">
+    </video>
+  </div>
+  <img class="hero__mark" src="assets/brand/logo/latte-with-lata-mark-white.svg" alt="" width="482" height="571" decoding="async">
+  <p class="hero__wordmark">
+    <span class="visual-hide">Latte with Lata</span><span class="hero__line js-chars" aria-hidden="true">LATTE</span><span class="hero__line js-chars" aria-hidden="true">WITH LATA</span>
+  </p>
+  <p class="hero__tagline">Real Conversations. Built on Purpose.</p>
+  <!-- INFERRED: visible play/pause control, shown only when autoplay is withheld (prefers-reduced-motion / Save-Data) - DD Pick 19 "hero video click-to-play", PZ _splide.beautified.js:32-34 -->
+  <button class="hero__play" type="button" hidden aria-label="Play video" aria-pressed="false">
+    <svg class="icon hero__play-icon hero__play-icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
+    <svg class="icon hero__play-icon hero__play-icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
+  </button>
+</section>

@@ -1,0 +1,57 @@
+<!-- 08-podcast - Brand-brown band opener: spacer row + stamp, blurred glow marquee ticker, left-column paragraph + "Hosted by" line
+     Source skeletons: PZ div[data-id="221"] spacer (.strip.strip--normal.bg-np-grey > .container > .strip__data.pt-md.strip--stamp) - band opener pattern;
+                       IC section.home-blur > div.blur-sentence > div.blur-sentence__sentence x2 (marquee copies, .is-animated while in view; texture/svg DROPPED);
+                       IC section.home-podcast-top > div.home-podcast-top__text (paragraph) re-expressed as the PZ 24-col column 1.
+     Copy: content/site.json podcast.ticker / podcast.eyebrow / podcast.paragraph (verbatim; " - " appended to each ticker copy per copy.md);
+           hosts.name / hosts.role for the "Hosted by" line (BRAND 2026-09-17, lane C: inside the existing text block, links to #s-10-hosts;
+           avatar = assets/images/founder-avatar.jpg, a 320x320 crop of hosts.images[0] assets/brand/lata-singh.jpg, decorative - the link text names her).
+     Root is a band wrapper (not a .strip): the three rows are the strips (nested strips would reset the band, base.css s4). The brown band continues into 09. -->
+<section id="s-08-podcast" class="podcast bg-band-black">
+
+  <!-- spacer row = PZ [221]/[347]: 57.6 tall (.pt-md) with an empty .strip__text; carries stamp instance 3 of 4 (DD Pick 13) - white cup mark on the 07/08 seam -->
+  <div class="strip strip--normal bg-band-black podcast__spacer">
+    <div class="container">
+      <div class="strip__data pt-md strip--stamp">
+        <div class="strip__text"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- marquee row = IC .home-blur__sentence (two copies, horizontalLoop + glow chars) -->
+  <div class="strip strip--wide bg-band-black podcast__ticker">
+    <div class="container">
+      <p class="visual-hide">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY</p>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
+        <div class="marquee__copy">LATTE WITH LATA - NEW EPISODE EVERY THURSDAY -</div>
+      </div>
+      <!-- brand pass (WCAG 2.2.2 / review MUST-FIX 3): pause control for the 21 s loop - un-hidden by 08-podcast.js only when the loop runs (never under reduced motion / no-JS) -->
+      <button class="marquee__pause" type="button" hidden aria-label="Pause ticker" aria-pressed="false">
+        <svg class="icon marquee__pause-icon marquee__pause-icon--pause" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-pause"></use></svg>
+        <svg class="icon marquee__pause-icon marquee__pause-icon--play" aria-hidden="true" focusable="false"><use href="assets/svg/icons.svg#i-play"></use></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- paragraph row = IC .home-podcast-top__text in PZ column 1 of the 24-col grid (column 2 stays empty by design, hidden below 50em) -->
+  <div class="strip strip--normal strip--columns bg-band-black podcast__about">
+    <div class="container">
+      <div class="strip__data strip__column strip__column--1 pt-md pb-md anima--bottom-in">
+        <div class="strip__column__content">
+          <div class="strip__text">
+            <p class="eyebrow podcast__eyebrow">There's more behind every mission</p>
+            <p class="podcast__lead lead">Join Latte with Lata for candid, unhurried conversations with mission-driven leaders about the decisions and experiences that shaped their work. Recorded at the corner table on Thursday nights, every episode has the same four parts: the origin story, the hard trade-off, what no one tells you, and a coffee break to finish.</p>
+            <p class="podcast__hosted">
+              <a class="podcast__host" href="#s-10-hosts">
+                <img class="podcast__avatar" src="assets/images/founder-avatar.jpg" width="320" height="320" alt="" loading="lazy" decoding="async">
+                <span class="podcast__host-text"><span class="podcast__host-by">Hosted by</span> <span class="podcast__host-name">Lata Singh</span></span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="strip__data strip__column strip__column--2 podcast__empty" aria-hidden="true"></div>
+    </div>
+  </div>
+
+</section>
